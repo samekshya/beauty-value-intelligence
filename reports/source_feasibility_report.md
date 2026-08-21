@@ -682,6 +682,19 @@ size.
 plausible size tokens anywhere in the HTML, including scripts.** Size is not
 hidden behind JavaScript on these sites. It is not published.
 
+**Independently confirmed by a second method.** Two product pages were fetched
+through a separate retrieval path and read directly rather than pattern-matched:
+
+- e.l.f. *Halo Glow Liquid Filter* — price `$15` shown; **no size, net weight or
+  volume displayed anywhere on the page.**
+- Wet n Wild *Photo Focus Dewy Foundation, Classic Beige* — price `$6.89` shown;
+  **no size displayed anywhere on the page.**
+
+This also closes the e.l.f. gap left by its `404` on `products.json`. e.l.f. is
+the largest drugstore brand in the §11 roster, and it does not publish size on
+its own storefront either. Two independent methods agree: the drugstore result
+is a genuine absence of published data, not an artefact of how it was measured.
+
 ### The `grams` trap, quantified
 
 Shopify's variant `grams` field is populated on **55.7%** of products — over four
