@@ -395,6 +395,185 @@ Recorded honestly rather than assumed. None of these are ruled in or out.
 
 ---
 
+## Brand-level source coverage
+
+Every brand named in spec §11, checked individually on 2026-08-22. Status is
+from that brand's own `robots.txt` unless noted.
+
+**Status key** — `Shopify`: Shopify storefront, product paths permitted ·
+`SFCC`: Salesforce Commerce Cloud (Demandware) · `Other`: another platform ·
+`BLOCKED`: robots.txt returned HTTP 403, so policy could not be read and the
+site refuses automated requests · `PDP disallowed`: robots.txt explicitly
+disallows product detail pages.
+
+Note that platform is *not* the same question as permission. Both are recorded
+because Shopify storefronts expose a consistent public product JSON structure,
+which matters for how much per-brand work each source costs.
+
+### Drugstore — 11 of 11 reachable
+
+| Brand | Platform | robots status | Usable |
+| --- | --- | --- | --- |
+| e.l.f. | Shopify | Permissive | Yes |
+| Milani | Shopify | Permissive | Yes |
+| Essence | Shopify | Permissive | Yes |
+| Wet n Wild | Shopify | Permissive | Yes |
+| Revlon | Shopify | Permissive (blocks only `-remote` variant URLs) | Yes |
+| ColourPop | Shopify | Permissive | Yes |
+| Physicians Formula | Shopify | Permissive | Yes |
+| CoverGirl | Other | `Allow: /`; ClaudeBot named and permitted | Yes |
+| L'Oréal Paris | Other (Sitecore) | Permissive; blocks filter parameters only | Yes |
+| NYX | SFCC | Permissive; PDPs not disallowed | Yes |
+| Maybelline | Other (Sitecore) | Conditional — disallows `/en/`, `en-us/`, `en-US/` | Verify |
+
+### Mid-range — 4 of 4 reachable
+
+| Brand | Platform | robots status | Usable |
+| --- | --- | --- | --- |
+| Morphe | Shopify | Permissive | Yes |
+| Juvia's Place | Shopify | Permissive | Yes |
+| Pixi | Shopify | Permissive | Yes |
+| Kiko Milano | Other | Permissive; blocks `/sku`. US storefront presence unconfirmed | Verify |
+
+### High-end — 11 of 14 clean, 1 conditional, 2 blocked
+
+| Brand | Platform | robots status | Usable |
+| --- | --- | --- | --- |
+| MAC | Shopify | Permissive | Yes |
+| Rare Beauty | Shopify | Permissive | Yes |
+| Fenty Beauty | Shopify | Permissive; ClaudeBot explicitly granted access | Yes |
+| Tarte | Shopify | Permissive (blocks Nutch, Amazonbot) | Yes |
+| Anastasia Beverly Hills | Shopify | Permissive; AI crawlers explicitly allowed | Yes |
+| Huda Beauty | Shopify | Permissive | Yes |
+| Makeup by Mario | Shopify | Permissive | Yes |
+| Haus Labs | Shopify | Permissive | Yes |
+| Saie | Shopify | Permissive | Yes |
+| Tower 28 | Shopify | Permissive | Yes |
+| NARS | SFCC | Permissive; PDPs allowed | Yes |
+| Urban Decay | SFCC | Conditional — `Disallow: */Product-Get*`, `Crawl-delay: 5` | Verify |
+| Benefit | — | **BLOCKED** (403) | No |
+| Too Faced | — | **BLOCKED** (403) | No |
+
+### Luxury — 2 of 7 reachable
+
+| Brand | Platform | robots status | Usable |
+| --- | --- | --- | --- |
+| Tom Ford Beauty | Shopify | Permissive | Yes |
+| Armani Beauty | SFCC | Permissive; PDPs allowed | Yes |
+| YSL Beauty | SFCC | **`Disallow: */Product-Show`** — PDPs disallowed | No |
+| Dior | — | **BLOCKED** (403) | No |
+| Givenchy Beauty | — | **BLOCKED** (403) | No |
+| Guerlain | — | **BLOCKED** (403) | No |
+| Chanel | — | **BLOCKED** (403) | No |
+
+### Damage to the §10 tier targets
+
+| Tier | §10 target | Brands usable | Assessment |
+| --- | --- | --- | --- |
+| Drugstore | 300 | 11 (10 clean + 1 verify) | **Comfortable.** ~30 products/brand clears it. |
+| Mid-range | 100–150 | 4 (3 clean + 1 verify) | **Tight but workable.** Needs ~30/brand from a thin roster; §11 already invited "selected other brands" here. |
+| High-end | 250 | 12 (11 clean + 1 verify) | **Comfortable.** |
+| Luxury | 100 | **2** | **At risk.** 50 products/brand from two brands. |
+
+Luxury is the only tier in real trouble, and the failure is not random. Every
+blocked or restricted luxury brand is a conglomerate-owned European house —
+Dior, Givenchy and Guerlain (LVMH), Chanel, and YSL (L'Oréal Luxe). The two
+survivors are Tom Ford Beauty, which runs a Shopify storefront, and Armani
+Beauty, whose SFCC robots.txt happens to permit PDPs. §11 already anticipated
+part of this by hedging Chanel and Guerlain with "if usable data is available";
+the answer is that it is not.
+
+---
+
+## RISK: platform-reachability bias in tier composition
+
+**Named risk. Unresolved — decision required.**
+
+### The concern
+
+If reachable brands skew toward DTC/Shopify-native companies, then a finding
+reported as "drugstore vs prestige" is partly measuring "DTC vs legacy" — a
+different question, and a direct threat to the §98 central research question.
+Package-size strategy plausibly differs by business model: a DTC brand
+controlling its own margin and shipping economics has different incentives on
+fill volume than a legacy brand selling through wholesale retail.
+
+### What the data actually shows
+
+The concern is real but **narrower than "DTC vs legacy"**, and the distinction
+matters for choosing a response.
+
+Reachability does *not* track DTC status at the drugstore or high-end tiers.
+Revlon, CoverGirl, L'Oréal Paris, NYX, Maybelline and Physicians Formula are all
+legacy wholesale brands, and all are reachable. MAC and NARS are
+conglomerate-owned prestige brands (Estée Lauder, Shiseido), and both are
+reachable. Several legacy mass brands have simply migrated to Shopify, so
+"Shopify" is not a proxy for "DTC-native".
+
+The bias is concentrated almost entirely in **one tier and one corporate
+cohort**: European luxury houses under LVMH, Chanel and L'Oréal Luxe. Those
+brands block automated access, and they are exactly the brands defining the
+luxury tier.
+
+So the accurate statement of the risk is not "the sample skews DTC" but:
+
+> **The luxury tier cannot be sampled representatively. What survives is two
+> brands that happen to be reachable, which is a selection mechanism unrelated
+> to the pricing behaviour being measured — but plausibly correlated with it,
+> since a house that refuses automated access may also price and package
+> differently from one that runs an open storefront.**
+
+Drugstore, mid-range and high-end tiers do not have this problem in any severe
+form.
+
+### Options — tradeoffs, not a recommendation
+
+**Option A — Accept and document.**
+Keep all four tiers. Report luxury findings with an explicit caveat naming the
+two brands and the blocked five, and treat luxury n as too small for inference.
+
+*For:* Preserves the §10 four-tier structure and the §6 research questions
+unchanged. Costs nothing. Honest, if the caveat is prominent rather than buried
+in limitations.
+*Against:* A two-brand tier will still be read as "luxury" by anyone skimming
+the app or README. Any luxury-tier statistical test would be underpowered and
+arguably shouldn't be run at all, which makes the tier decorative. Risks the
+appearance of rigour without the substance — the failure mode §97 warns against.
+
+**Option B — Narrow the tier claims.**
+Merge luxury into high-end, or relabel the tier to what it can actually support
+(for example "prestige — accessible sample"). Report three tiers.
+
+*For:* Every reported tier then has a defensible sample. Statistical claims stay
+sound. Removes the most likely interview criticism before it is raised.
+*Against:* Loses the most rhetorically striking comparison — a $70 Chanel
+lipstick against a $6 e.l.f. one is the example that makes the project land.
+Deviates from §10 and §11, requiring documented justification. The prestige
+premium at the very top end goes unmeasured, which is where it is largest.
+
+**Option C — Reframe the question around what is measurable.**
+Make reachability part of the analysis rather than a limitation of it. State the
+scope as US makeup brands with publicly accessible product data, and note that
+the brands refusing automated access cluster at the luxury end — an observation
+about the market, not merely about the dataset.
+
+*For:* Turns the constraint into a finding and is fully honest about the sample
+frame. Data-access asymmetry across market tiers is genuinely interesting to
+retail analytics audiences. Nothing is hidden.
+*Against:* Changes the headline question, which §98 says not to lose sight of.
+The observation is real but thin — five blocked domains is an anecdote, not
+evidence about industry practice, and overclaiming from it would be its own
+fabrication. Risks looking like rationalisation of a data-collection failure.
+
+### What is not in question
+
+Whichever option is chosen, tier assignment still comes from brand positioning
+and never from price (§12), and the drugstore/mid/high-end comparisons remain
+sound. This risk is about the luxury tier's representativeness, not about the
+integrity of the central research question at the tiers where sampling works.
+
+---
+
 ## Where this leaves the acquisition plan
 
 **The bottleneck is size, and it is worse than the spec's §88 target assumes.**
