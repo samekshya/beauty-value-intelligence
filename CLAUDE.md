@@ -6,21 +6,26 @@ is worth?
 
 ## Current phase
 
-**Phase 1 · Stage 1.0 — Feasibility. BLOCKED, not started.**
+**Phase 1 · Stage 1.0 — Feasibility. In progress.**
 
-Blocker: `docs/PROJECT_SPEC.md` does not exist. `docs/ROADMAP.md` treats
-it as authoritative and cites ~30 sections (§12, §14, §16, §27-31, §32,
-§65, §87 …) that define the Stage 1.0 deliverables. The user is
-supplying the file. Do not build against guessed section content, and
-do not author a substitute spec — that would manufacture false
-authority (roadmap anti-goals).
+Stage 1.0 ends with a DECISION about data sources, not with data. Not in
+scope: collecting the dataset, the ingestion pipeline, the quantity
+parser, the app.
 
-Done so far: repo skeleton only — this file, `requirements.txt`,
-`docs/ROADMAP.md`, `.gitignore`. No `src/`, no data, no configs; the
-directory layout is defined by spec §65 and waits on it.
+Done: `docs/PROJECT_SPEC.md` received and read in full (99 sections).
+Repo structure built per §65. `config/` populated from the spec —
+`categories.yaml` (§7, §31), `unit_rules.yaml` (§28-30),
+`tier_mapping.yaml` (§11, §12), `usage_assumptions.yaml` (§42, values
+deliberately null pending sourcing), `data_sources.yaml` (§16 schema,
+no entries yet). README written.
 
-When the spec lands: read §65 first, build the structure it specifies,
-then work Stage 1.0 top to bottom.
+Next: source landscape research, then a feasibility test measuring real
+field coverage across ~20 products per source, then a recommendation in
+`reports/source_feasibility_report.md`.
+
+GATE (§16, roadmap): primary + fallback source named; real quantity-field
+coverage measured rather than assumed; legal status documented per source
+with the exact clause read.
 
 ## Authority
 
@@ -34,8 +39,13 @@ phase early. Update `## Current phase` above when a gate passes.
 
 Python 3.13.12, venv at `.venv/` (Windows layout — `.venv/Scripts/`).
 
-    .venv/Scripts/python.exe -m pip install -r requirements.txt
-    .venv/Scripts/python.exe -m pytest
+    Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned -Force
+    .venv\Scripts\Activate.ps1
+    pip install -r requirements.txt
+    pytest
+
+Activate the environment rather than calling the interpreter path
+directly. PowerShell here is 5.1 — `;` chains, not `&&`.
 
 `requirements.txt` carries Phase 1 dependencies only. Later phases add
 their own (stats in Phase 2, embeddings in Phase 3, Streamlit in
