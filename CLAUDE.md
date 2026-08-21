@@ -28,11 +28,22 @@ clauses quoted), Walmart (terms behind CAPTCHA), eBay (unsuitable), Impact
 
 **OPEN — blocks Stage 1.1:** the quantity source for the drugstore tier.
 Open Beauty Facts is the only identified route to structured quantity. It
-is untested: its hosts blanket-block this agent (`ClaudeBot Disallow: /`),
-so the schema could not be read and no workaround was sought. Testing it
-means the project owner downloading a bulk export (ODbL, `/data/` permitted
-for `User-agent: *`). Until its US-makeup fill rate is measured, the
-primary architecture has a hole and §88's 90% target is unmet.
+is untested: its hosts blanket-block automated fetching from this session,
+so the schema could not be read and no workaround was sought. **The test
+is written and self-tested** — `sql/obf_feasibility.sql` via
+`python src/ingest/obf_feasibility.py --site-total <N>`. It needs the
+owner to place `obf.parquet` and `obf.csv` in `data/raw/obf/` (both
+git-ignored). Part 0 cross-checks the two flavours for truncation and
+halts on failure before any fill rate is reported. The decisive output is
+`obf_by_tier.drugstore.parsed_with_unit_pct`.
+
+Measured state (strict): 380 products with quantity of 3,333 (11.4%);
+213 are MAC and 143 Tom Ford; **0 drugstore**. Three paths reassessed in
+the report (prestige-only / manual capture / disclosure-asymmetry
+reframe) — tradeoffs written, none chosen. OBF result is the last evidence
+that moves the choice.
+
+SerpApi: skipped — no `.env` / `SERPAPI_KEY` present.
 
 Also open, owner's call: the luxury tier has 2 reachable brands of 7. See
 the platform-reachability risk in the report — three options laid out, no
