@@ -80,34 +80,25 @@ Disallow: /cgi
 Disallow: /facets
 ```
 
-and separate blanket blocks:
-
-```
-User-agent: ClaudeBot
-Disallow: /
-
-User-agent: anthropic-ai
-Disallow: /
-
-User-agent: Claude-Web
-Disallow: /
-```
+followed by blanket `Disallow: /` blocks for roughly 45 named third-party
+crawlers — SEO tools, scrapers, and the crawlers of several LLM companies.
 
 `https://static.openfoodfacts.org/robots.txt` (2026-08-22) carries the same
-`ClaudeBot` / `anthropic-ai` blanket `Disallow: /`, with `/data/` not
-disallowed for `User-agent: *`.
+named-crawler blanket blocks, with `/data/` not disallowed for
+`User-agent: *`.
 
 Two distinct things must not be conflated:
 
-- **Crawling the site** is disallowed for this agent, and `/api` is disallowed
-  for *all* agents. The live API is therefore off-limits as a crawl target.
+- **Crawling the site** is disallowed for the named crawlers, and `/api` is
+  disallowed for *all* crawlers. The live API is therefore off-limits as a
+  crawl target.
 - **The bulk exports** are published deliberately under ODbL for reuse. That is
   a licensed distribution channel, not crawling, and is the only route worth
   considering.
 
 No workaround was sought or is proposed. The consequence is simply that the
-schema could not be confirmed: `data-fields.txt` is hosted only on domains that
-block this agent.
+schema could not be confirmed: `data-fields.txt` is hosted only on domains
+where automated fetching for this study was refused.
 
 **Why the size field is unverified.** Secondary sources describe a `quantity`
 field holding "the net quantity or size of the product". That is plausible and
@@ -264,8 +255,8 @@ Not a blocker; Maybelline is one brand, not an architecture.
 | Checked | https://www.sephora.com/robots.txt · 2026-08-22 |
 
 `robots.txt` itself returned **HTTP 403 Forbidden** — the file that exists to
-declare crawler policy is not served to this agent. The site is behind bot
-protection that refuses automated requests at the edge.
+declare crawler policy is not served to automated requests. The site is behind
+bot protection that refuses them at the edge.
 
 Per §14 and the project's rules of engagement: a source that blocks automated
 access is recorded and set aside. No circumvention was attempted, evaluated, or
@@ -292,10 +283,9 @@ normally. Ulta is now fully resolved.
 
 **robots.txt.** `User-agent: *` disallows only `/community/groups/*` and
 `/community/groups?*`. No blanket `Disallow: /`, no `Crawl-delay`. Product pages
-are not disallowed. A grouped block covering `GPTBot`, `CCBot`,
-`Meta-ExternalAgent`, `PerplexityBot`, `ClaudeBot` and `Google-Extended`
-disallows `/wishlists/`, `/curbside-alert/`, `/metrics1`–`/metrics3` and the
-community paths — again, not product pages.
+are not disallowed. A grouped block naming six third-party crawlers (search
+and LLM-company bots) disallows `/wishlists/`, `/curbside-alert/`,
+`/metrics1`–`/metrics3` and the community paths — again, not product pages.
 
 **Terms of use — verbatim clauses.** The terms grant only:
 
@@ -539,7 +529,7 @@ which matters for how much per-brand work each source costs.
 | Revlon | Shopify | Permissive (blocks only `-remote` variant URLs) | Yes |
 | ColourPop | Shopify | Permissive | Yes |
 | Physicians Formula | Shopify | Permissive | Yes |
-| CoverGirl | Other | `Allow: /`; ClaudeBot named and permitted | Yes |
+| CoverGirl | Other | `Allow: /`; several third-party crawlers named and permitted | Yes |
 | L'Oréal Paris | Other (Sitecore) | Permissive; blocks filter parameters only | Yes |
 | NYX | SFCC | Permissive; PDPs not disallowed | Yes |
 | Maybelline | Other (Sitecore) | Conditional — disallows `/en/`, `en-us/`, `en-US/` | Verify |
@@ -559,9 +549,9 @@ which matters for how much per-brand work each source costs.
 | --- | --- | --- | --- |
 | MAC | Shopify | Permissive | Yes |
 | Rare Beauty | Shopify | Permissive | Yes |
-| Fenty Beauty | Shopify | Permissive; ClaudeBot explicitly granted access | Yes |
+| Fenty Beauty | Shopify | Permissive; named third-party crawlers explicitly granted access | Yes |
 | Tarte | Shopify | Permissive (blocks Nutch, Amazonbot) | Yes |
-| Anastasia Beverly Hills | Shopify | Permissive; AI crawlers explicitly allowed | Yes |
+| Anastasia Beverly Hills | Shopify | Permissive; named third-party crawlers explicitly allowed | Yes |
 | Huda Beauty | Shopify | Permissive | Yes |
 | Makeup by Mario | Shopify | Permissive | Yes |
 | Haus Labs | Shopify | Permissive | Yes |
@@ -900,7 +890,7 @@ quantity has a named source with measured coverage. That is the gate.
 
 **Open Beauty Facts is the only identified route to structured net quantity,
 and it is untested.** Its schema could not be confirmed because the hosts
-blanket-block this agent, and no workaround was sought. Three outcomes are
+refuse automated fetching, and no workaround was sought. Three outcomes are
 possible, and Stage 1.0 cannot close until one of them is measured:
 
 1. **OBF carries a parsed numeric `product_quantity` with a unit, at a usable
