@@ -1,0 +1,22 @@
+# Phase 1 (data foundation) only.
+# Phase 2 adds stats, Phase 3 adds embeddings, Phase 4 adds Streamlit.
+# Add them when that phase starts, not before.
+
+# storage + frames
+duckdb==1.4.2
+pandas==2.3.3
+
+# config
+PyYAML==6.0.3
+python-dotenv==1.2.1
+
+# source feasibility testing (Stage 1.0)
+requests==2.32.5
+beautifulsoup4==4.14.2
+lxml==6.0.2
+
+# notebooks (roadmap: collection audit, notebook 02)
+jupyterlab==4.5.1
+
+# tests (Stage 1.2 gate: tests pass from a clean environment)
+pytest==8.4.2
