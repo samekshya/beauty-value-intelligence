@@ -128,12 +128,14 @@ sources:
       retail_price_pct: 1.000
       product_url_pct: 1.000
       category_present_pct: 0.818
-      quantity_present_pct: 0.123
+      quantity_present_pct: 0.114        # strict plausibility rules; first pass read 0.123
+      quantity_with_structured_slot: 380
       quantity_by_tier:
-        drugstore: 0.000
-        mid_range: 0.025
-        high_end: 0.171
-        luxury: 0.842
+        drugstore: 0.000                 # 0 / 1098, uniform across all 5 brands
+        mid_range: 0.020                 # 12 / 593
+        high_end: 0.153                  # 225 / 1471, of which MAC = 213
+        luxury: 0.836                    # 143 / 171, all Tom Ford Beauty
+      non_drugstore_excluding_mac_tomford: 0.013   # 24 / 1814
       shopify_grams_populated_pct: 0.557
       measured_at: 2026-08-22
       notes: >
