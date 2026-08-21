@@ -918,6 +918,109 @@ Testing it requires a bulk-export download, which is a licensed ODbL
 distribution channel rather than a crawl, and `User-agent: *` permits `/data/`.
 That decision sits with the project owner.
 
+### Open Beauty Facts — test design, ready to run
+
+The query is written and self-tested: `sql/obf_feasibility.sql`, run via
+`python src/ingest/obf_feasibility.py --site-total N`. It executes end-to-end
+against a synthetic export, and its integrity gate was proven to halt on a
+deliberately truncated file (exit code 3, nothing downstream reported).
+
+**Which export flavour, and why — both Parquet and CSV.**
+
+Parquet is the analytical flavour: typed columns, list-typed `countries_tags`
+and `categories_tags` that DuckDB reads natively, and the fastest load. It is
+the one the measurement runs on.
+
+CSV is downloaded *as well*, for one reason only: **integrity**. Two
+independently generated exports of the same database should agree on row count
+and share nearly every barcode. If they disagree materially, at least one is
+broken, and that check needs no external reference number. This is the primary
+sanity check. It is stronger than comparing to a site-advertised total, because
+the advertised figure is itself just another number of unverified provenance.
+
+JSONL and the MongoDB dump are not requested. JSONL is the flavour reported as
+dropping from ~4M to ~0.7M across days; the MongoDB dump needs a MongoDB
+instance to read and adds a dependency the project does not otherwise need.
+
+**Fields measured.** Both quantity fields, separately, because they answer
+different questions:
+
+| Field | Type | What it is | What it decides |
+| --- | --- | --- | --- |
+| `quantity` | string | Raw label text — `"30 ml"`, `"0.14 oz / 4 g"` | Embedded coverage. What the §27–31 parser would have to eat. |
+| `product_quantity` | string | Pre-parsed numeric, as text — `"30"` | Structured coverage. The number Stage 1.1 is waiting on. |
+| `product_quantity_unit` | string | Unit for the above — `"ml"` | Whether structured means *usable* structured. |
+| `code` | string | EAN/UPC barcode | Joinability, and the §22 tier-1 match key. |
+| `brands` | string | Free text | Tier mapping against §11. |
+| `countries_tags` | list | `['en:united-states', …]` | US filter. |
+| `categories_tags` | list | `['en:lipsticks', …]` | Makeup filter and §7 category mapping. |
+
+The schema is taken from the sibling Open Food Facts Parquet dataset on Hugging
+Face (read 2026-08-22), which shares the Product Opener schema. All three
+quantity fields are typed **string**, including `product_quantity` — so even
+the "structured" field needs `try_cast` and cannot be assumed numeric. Part 0.4
+of the query verifies every required column exists in the actual file before
+anything else runs; if one is missing, the assumption was wrong and the query
+stops.
+
+Their *disagreement* is also measured: rows with raw `quantity` but no
+`product_quantity` are ones OBF's own parser gave up on, which calibrates how
+much Stage 1.2 parser work remains even on the structured path.
+
+**How US makeup is identified in a global cosmetics database.** Two filters,
+applied independently and intersected, with every funnel stage reported so
+each filter's contribution is auditable.
+
+- *US:* `countries_tags` contains `en:united-states`. This is contributor-
+  entered "where is it sold", not a manufacturer field, so it **under-counts**
+  — a US product entered by a French contributor may carry only `en:france`.
+  Under-counting is the safe direction: it shrinks *n* without polluting the
+  sample. No attempt is made to infer US-ness from brand or barcode prefix,
+  which would do the opposite.
+- *Makeup:* `categories_tags` contains a tag whose stem matches one of the §7
+  categories — `en:lipstick%`, `en:mascara%`, `en:foundation%`, and so on,
+  prefix-matched so sub-categories are included. The broad `en:make-up` tag is
+  reported for context but is **not** sufficient on its own: it also covers
+  brushes, removers and tools. The query dumps the actual tag vocabulary on
+  the US-makeup rows so stems the filter missed can be added by hand.
+
+**Sanity check design — Route 2 primary, Route 1 corroboration.**
+
+Part 0 runs first and gates everything else:
+
+1. Both flavours must have ≥ 1,000 rows — below that is a known truncation
+   signature.
+2. Row counts must agree within 5%. Material disagreement means re-download
+   both; it does not mean pick the bigger one.
+3. Barcode overlap between flavours is reported. Two complete exports should
+   share nearly every `code`.
+4. Duplicate-barcode rate is reported; > 5% duplicates is a warning.
+5. *Route 1:* if a site-read product count is supplied (`--site-total`), the
+   Parquet row count must agree with it within 5%.
+
+Any FAIL halts the run. Parts 1–4 are never reported on a suspect export, so
+a low fill rate cannot be mistaken for a database property when it is an export
+defect.
+
+**What the query reports once Part 0 passes.** The funnel (all → US → makeup →
+US makeup); the category-tag and brand vocabularies actually present; the
+quantity fill rate at each funnel stage for raw, parsed, and parsed-with-unit;
+the unit vocabulary; raw/parsed disagreement; **fill rate by §11 tier and by
+drugstore brand**; and the joinable ceiling — rows with brand, name and
+quantity all present. The single decisive number is
+`obf_by_tier.drugstore.parsed_with_unit_pct`.
+
+**What is needed from the project owner.**
+
+1. Download the Parquet export to `data/raw/obf/obf.parquet`.
+2. Download the CSV export to `data/raw/obf/obf.csv`.
+3. Read the product count shown on the site and supply it as `--site-total`.
+4. Run `python src/ingest/obf_feasibility.py --site-total <N>`.
+
+Both files are git-ignored (large, ODbL-licensed, re-downloadable). The query
+is read-only on `data/raw/` and writes its scoped subset to
+`data/staging/obf_us_makeup.parquet` for inspection.
+
 ### Fallback architecture, and when to switch
 
 **Fallback: manual quantity capture for a curated product set.**
@@ -971,6 +1074,69 @@ The honest summary for the README: the project can measure **quantity-adjusted
 list-price economics across tiers** for whatever subset has verified quantity.
 It cannot, with current sources, relate those economics to consumer ratings on
 current data, and it cannot measure retailer-level price variation at all.
+
+### The three paths, reassessed after Tasks 1–3
+
+The options were first laid out under the platform-reachability risk, when the
+problem looked like "luxury is thin." Tasks 1–3 changed the problem: every US
+retailer selling drugstore makeup is closed, and drugstore brands publish no
+size. The options are the same three; their weights are not.
+
+**Path A — Narrow to prestige-only.**
+Drop the drugstore tier and compare mid-range / high-end / luxury on the 380
+products with measured quantity.
+*For:* It is buildable today, from permitted sources, with no further decisions.
+The unit-economics machinery, the Mini Tax and the dupe engine all work on it.
+*Against:* The 380 are **not a prestige sample — they are a MAC-and-Tom-Ford
+sample**: 213 MAC, 143 Tom Ford, 24 everything else. A two-brand dataset cannot
+support tier claims, brand rankings under §51's minimum-sample rule, or any
+cross-brand finding. And the §98 question is *about* drugstore; answering a
+different question is a reframe wearing narrower clothes, not a narrowing.
+
+**Path B — Manual capture on an expanded anchor set.**
+Pick 150–300 products across all four tiers, read the net quantity from
+packaging or a manufacturer page where one exists, record provenance per §25,
+and build the full analysis on a small, fully verified dataset.
+*For:* It is the only path that puts a *measured* drugstore number next to a
+prestige one and therefore the only one that answers §98 as written. Every row
+is hand-verified, which is stronger provenance than any scraped source. §26
+already specifies this set; it grows rather than being invented.
+*Against:* It falls far below §9's 600–800 minimum and §82's "multi-source
+pipeline" framing — the README has to say "hand-verified set of N" and mean it.
+Sample selection becomes the methodology risk: with ~40 products per tier, which
+products get picked decides the answer, and the selection rule must be written
+*before* any quantity is read, or §4's neutrality is gone. It is also labour,
+and labour that cannot be re-run by a stranger from a clean clone (§89) — only
+re-audited.
+
+**Path C — Reframe around the disclosure asymmetry.**
+Make the measured finding the headline: across 1,098 drugstore products from
+five brands, net quantity is disclosed on **zero**, against 380 of 2,235
+non-drugstore products. The project becomes an investigation of *what
+mass-market beauty does not tell you*, with quantity-adjusted economics
+computed wherever disclosure permits.
+*For:* It is entirely true and entirely measured — the cleanest result in the
+study. It is genuinely interesting to the retail-analytics audience §1 names.
+It requires no more data. And it converts the blocking problem into the
+subject, which is honest rather than clever.
+*Against:* It abandons §98 as the question and §93 as the success definition.
+The asymmetry is strong as a *measurement* and weak as a *story*: five brands,
+one channel (their own storefronts), one mechanism (Shopify variant slots). It
+says nothing about packaging, retailer listings or intent, and a reader will
+reach for the intent reading immediately. Overclaiming from it is its own
+fabrication. And prestige disclosure is 1.3% outside two brands — the contrast
+is 0% against 1.3%, which is a real categorical zero but not the dramatic gap
+the framing invites.
+
+**What OBF changes.** Only Path B's cost and Path A's relevance. If OBF has
+real drugstore fill — the threshold in the fallback section is 50% — then the
+drugstore tier becomes measurable at scale, Path B shrinks to the §26 anchor set
+it was always meant to be, and Path A becomes unnecessary. If OBF is thin, Path
+B is the only route to a drugstore number, and the choice is between B and C.
+Path C's finding is true regardless of OBF and could accompany either.
+
+No path is chosen here. The OBF measurement is the last piece of evidence that
+materially moves the choice, and it is one download away.
 
 ### What Stage 1.0 has and has not delivered
 
