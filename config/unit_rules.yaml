@@ -1,0 +1,148 @@
+# Quantity/unit normalisation rules. Spec §28, §29, §30 (with §8, §27, §32).
+#
+# This file holds RULES AND CONSTANTS ONLY. The parser that consumes them
+# is Stage 1.2 work (spec §27, notebook 03) and is not written yet.
+
+# ---- §28 STANDARD UNITS ------------------------------------------------
+
+standard_units:
+  weight: g
+  volume: mL
+
+# ---- §28 CONVERSIONS ---------------------------------------------------
+# Exact values as given in §28. Do not round these in code.
+
+conversions:
+  weight_oz_to_g:
+    factor: 28.3495
+    from_unit: oz
+    to_unit: g
+    basis: weight
+    source: "spec §28"
+  us_fluid_oz_to_ml:
+    factor: 29.5735
+    from_unit: fl oz
+    to_unit: mL
+    basis: volume
+    source: "spec §28"
+
+# ---- FORBIDDEN CONVERSIONS --------------------------------------------
+# Hard errors, not warnings. A test must enforce each of these (§87).
+
+forbidden_conversions:
+  - from: g
+    to: mL
+    reason: "Requires density, which is unknown and must never be invented (§8, §83)."
+  - from: mL
+    to: g
+    reason: "Requires density, which is unknown and must never be invented (§8, §83)."
+  - from: oz
+    to: fl oz
+    reason: "Weight oz and fluid oz are not equivalent (§28, §83)."
+  - from: fl oz
+    to: oz
+    reason: "Weight oz and fluid oz are not equivalent (§28, §83)."
+
+# ---- UNIT TOKEN VOCABULARY --------------------------------------------
+# Surface forms the parser must recognise, grouped by basis.
+# Matching is case-insensitive; the parser normalises punctuation first (§23).
+
+unit_tokens:
+
+  weight:
+    g:      [g, gr, gm, gram, grams, gramme, grammes]
+    mg:     [mg, milligram, milligrams]
+    oz:     [oz, oz., ounce, ounces, "wt oz", "oz wt", "net wt oz"]
+
+  volume:
+    ml:     [ml, "ml.", mL, millilitre, millilitres, milliliter, milliliters, cc]
+    fl_oz:  ["fl oz", "fl. oz", "fl.oz", "fl oz.", floz, "fluid oz", "fluid ounce", "fluid ounces", "us fl oz"]
+
+# mg is accepted on input and normalised to g (both are weight, so this is
+# a scale change, not a basis change). 1 mg = 0.001 g.
+input_only_units:
+  mg:
+    to: g
+    factor: 0.001
+    basis: weight
+
+# ---- AMBIGUOUS BARE "oz" ----------------------------------------------
+# "0.33 oz" on a liquid product almost certainly means fluid oz, but the
+# label does not say so. Guessing wrong changes the number by ~4%.
+
+bare_oz_resolution:
+  policy: resolve_by_category_then_flag
+  steps:
+    - "1. If the category's unit_basis is weight -> treat as weight oz."
+    - "2. If the category's unit_basis is volume -> treat as fluid oz."
+    - "3. If the category is split_required or unit_basis is null -> do not guess."
+  unresolved_action: flag
+  unresolved_flag: ambiguous_unit          # §32
+  record_field: unit_resolution_basis      # how each row was resolved, for audit
+
+# ---- §29 DUAL-UNIT LABELS ---------------------------------------------
+# Example: "0.05 oz / 1.5 g"
+
+dual_unit:
+  policy: prefer_manufacturer_metric
+  rules:
+    - "Prefer the manufacturer's explicit metric value (g or mL) when present."
+    - "Use conversion ONLY when no standard-unit value is supplied."
+    - "Store both the raw label and the standardised value."
+  # If the printed metric value and the converted imperial value disagree by
+  # more than this, the label is internally inconsistent -> flag, do not pick
+  # silently. 0.05 oz -> 1.417 g, but labels routinely print 1.5 g, which is
+  # ~5.9% off; the threshold sits above that so ordinary rounding is not
+  # flagged as an error.
+  disagreement_tolerance_pct: 10
+  disagreement_flag: manual_review         # §32
+  fields:
+    raw: size_raw
+    parsed_value: quantity_raw
+    parsed_unit: unit_raw
+    standardised_value: quantity_standard
+    standardised_unit: standard_unit
+
+# ---- §30 MULTIPACK -----------------------------------------------------
+# "2 x 4 g" -> pack_count 2, quantity_per_item 4 g, total_quantity 8 g.
+# The failure mode §30 names explicitly: recording total as 4 g.
+
+multipack:
+  separator_tokens: ["x", "×", "X", "*"]
+  fields:
+    pack_count: pack_count
+    quantity_per_item: quantity_per_item
+    total_quantity: total_quantity
+  rule: "total_quantity = pack_count * quantity_per_item"
+  default_pack_count: 1
+  # A pack of mixed sizes ("1 x 5 g + 1 x 2 g") cannot be reduced to one
+  # per-item quantity. Sum for total, and flag.
+  mixed_pack_flag: manual_review           # §32
+  unit_price_basis: total_quantity
+
+# ---- SANITY RANGES -----------------------------------------------------
+# §33 requires a "reasonable quantity range" check. These bounds are
+# deliberately wide - they exist to catch decimal-point and unit errors
+# (a 300 g lipstick, a 0.001 mL foundation), not to filter real products.
+# Out-of-range rows are FLAGGED, never dropped (§32).
+
+sanity_ranges:
+  weight_g:
+    min: 0.05
+    max: 500
+  volume_ml:
+    min: 0.5
+    max: 500
+  pack_count:
+    min: 1
+    max: 60
+  out_of_range_flag: questionable_quantity
+  action: flag_never_drop                  # §32
+
+# ---- PARSE FAILURE -----------------------------------------------------
+
+on_parse_failure:
+  action: flag_never_drop                  # §32
+  flag: missing_quantity
+  retain_raw: true
+  note: "Never fabricate a missing quantity (§83)."

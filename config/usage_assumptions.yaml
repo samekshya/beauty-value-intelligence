@@ -1,0 +1,186 @@
+# Cost-per-use assumptions. Spec §42.
+#
+# §42 IS EXPLICIT THAT THIS IS A SECONDARY METRIC:
+#   "Do not pretend one usage amount applies to everyone."
+# §83 forbids making cost-per-use assumptions look factual.
+# §41 forbids calling any of this objective quality.
+#
+# WHY THE NUMBERS BELOW ARE null
+#   §42 defines the formulas and the three scenarios but supplies no
+#   quantity-per-use figures, and no other section does either. Inventing
+#   grams-per-application would be exactly the fabricated precision §83
+#   and §95 rule out. The structure is real; the values are an open,
+#   documented gap. Each must be filled from a citable source (brand
+#   usage guidance, published application-weight studies, or the project's
+#   own measurement) with that source recorded inline before ANY
+#   cost-per-use output is produced.
+#
+# GATE: while any required value is null, cost-per-use must not be
+# computed, displayed, or reported. See enforcement at the bottom.
+
+status: values_unset
+blocking: true
+
+# ---- §42 FORMULAS ------------------------------------------------------
+
+formulas:
+  estimated_uses: "quantity_standard / estimated_quantity_per_use"
+  cost_per_use: "list_price / estimated_uses"
+  price_field: list_price          # §19: unit-value analysis uses LIST price
+
+# ---- §42 SCENARIOS -----------------------------------------------------
+# Three scenarios, because no single usage amount applies to everyone.
+# Report all three or none - never collapse to a single "the" cost per use.
+
+scenarios:
+  - key: light
+    display_name: Light use
+    description: "Sparing application; less product per use than typical."
+  - key: standard
+    display_name: Standard use
+    description: "Typical application amount."
+  - key: heavy
+    display_name: Heavy use
+    description: "Generous or full-coverage application; more product per use."
+
+report_all_scenarios: true
+never_report_single_point_estimate: true
+
+# ---- REQUIRED LABEL (§42) ---------------------------------------------
+
+display_label: "Estimated cost per use based on usage assumptions."
+permitted_metric_names:                    # §41
+  - comparative value score
+  - rating-adjusted value
+  - consumer value indicator
+forbidden_metric_names:
+  - objective quality
+  - true cost per use
+
+# ---- PER-CATEGORY QUANTITY PER USE ------------------------------------
+# units: g for weight categories, mL for volume categories - matching that
+# category's preferred_standard_unit in categories.yaml. Never mixed.
+#
+# suitable:
+#   true   a repeatable per-application amount is a coherent idea
+#   false  it is not; cost-per-use is not reported for this category
+#
+# Powder and stick formats are marked unsuitable because the amount picked
+# up per application is not measurable from label data - the product wears
+# down or transfers rather than being dispensed in a countable dose.
+# Marking them unsuitable is a smaller claim than inventing a dose.
+
+categories:
+
+  # -- volume formats: dispensed in countable doses ---------------------
+  foundation:
+    suitable: true
+    unit: mL
+    light: null
+    standard: null
+    heavy: null
+    source: null
+  concealer:
+    suitable: true
+    unit: mL
+    light: null
+    standard: null
+    heavy: null
+    source: null
+  primer:
+    suitable: true
+    unit: mL
+    light: null
+    standard: null
+    heavy: null
+    source: null
+  setting_spray:
+    suitable: true
+    unit: mL
+    light: null
+    standard: null
+    heavy: null
+    source: null
+  liquid_blush:
+    suitable: true
+    unit: mL
+    light: null
+    standard: null
+    heavy: null
+    source: null
+  lip_gloss:
+    suitable: true
+    unit: mL
+    light: null
+    standard: null
+    heavy: null
+    source: null
+  liquid_lipstick:
+    suitable: true
+    unit: mL
+    light: null
+    standard: null
+    heavy: null
+    source: null
+  mascara:
+    suitable: true
+    unit: mL
+    light: null
+    standard: null
+    heavy: null
+    source: null
+    note: >
+      Mascara is usually discarded on a hygiene schedule (commonly cited as
+      3 months) long before the tube empties, so quantity-based cost-per-use
+      overstates the product actually consumed. If reported at all, report
+      it alongside that caveat.
+
+  # -- powder / stick formats: no measurable per-application dose --------
+  powder_blush:
+    suitable: false
+    reason: "Powder pickup per application is not measurable from label data."
+  bronzer:
+    suitable: false
+    reason: "Powder pickup per application is not measurable from label data."
+  setting_powder:
+    suitable: false
+    reason: "Powder pickup per application is not measurable from label data."
+  pressed_powder:
+    suitable: false
+    reason: "Powder pickup per application is not measurable from label data."
+  highlighter:
+    suitable: false
+    reason: "Form-dependent (see categories.yaml split) and powder pickup is not measurable."
+  eyeshadow_single:
+    suitable: false
+    reason: "Powder pickup per application is not measurable from label data."
+  eyeshadow_palette:
+    suitable: false
+    reason: >
+      Multi-pan. Per-use amount is meaningless across pans that are used at
+      very different rates.
+  lipstick:
+    suitable: false
+    reason: "Bullet wears down and transfers; no countable dose."
+  lip_liner:
+    suitable: false
+    reason: "Pencil sharpens down; consumption per use is not measurable."
+  cream_blush:
+    suitable: false
+    reason: "Finger/sponge application; dose not measurable from label data."
+  brow:
+    suitable: false
+    reason: "Form range too wide (pencil, gel, powder, pomade) for one dose figure."
+
+# ---- ENFORCEMENT -------------------------------------------------------
+
+enforcement:
+  block_when_null: true
+  rule: >
+    If a category is suitable: true and any of light/standard/heavy is null,
+    cost-per-use must not be computed or displayed for that category. Raise,
+    do not silently substitute a default.
+  source_required: true
+  source_rule: >
+    A non-null quantity_per_use must be accompanied by a `source` naming
+    where the figure came from. Values without a source are not valid.

@@ -62,3 +62,30 @@ effect sizes · over-engineer · add tools that don't earn their place.
 
 Never print API keys or full request URLs in notebook cells.
 Clear notebook outputs before committing anything under notebooks/.
+
+GIT WORKFLOW — applies for the rest of this project, every session.
+
+After EVERY completed step — a file created, a config populated, a
+function written, a test passing, a doc section finished — immediately:
+
+  git add -A
+  git commit -m "<type>: <what changed>"
+  git push
+
+Do not batch work. Do not wait until a task is "done." If you created
+a file, that is a commit. If you fixed a typo, that is a commit. Small
+and frequent, always pushed.
+
+Types: feat, fix, data, docs, test, refactor, chore, analysis
+
+ATTRIBUTION — strict.
+
+- No Co-Authored-By trailer on any commit.
+- No "Generated with Claude Code" line, in commits or PRs.
+- Never write "Claude", "AI", "assistant", "agent", or any tool name in
+  a commit message, PR description, code comment, docstring, or README.
+- Commit messages describe the change only. Never who or what made it.
+- All commits author as the configured git user. Do not override
+  user.name or user.email for any reason.
+
+Confirm you have read this, then continue.

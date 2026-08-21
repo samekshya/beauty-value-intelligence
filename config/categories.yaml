@@ -1,0 +1,223 @@
+# Category definitions and preferred standard units.
+# Categories: spec §7. Unit assignments: spec §31.
+#
+# RULES
+#   §8  Never compare across incompatible units. Powder blush (g) and
+#       liquid blush (mL) are SEPARATE analytical categories, not one
+#       category with two units.
+#   §8  Never convert g <-> mL. Density is not known and must not be invented.
+#   §7  The final list gets reduced after Stage 1.1 based on real data
+#       volume. Target is ~10-14 categories with strong enough data.
+#
+# unit_basis: weight -> standard unit g | volume -> standard unit mL
+# status:
+#   confirmed     unit assigned explicitly by §31
+#   needs_review  §7 category that §31 does not assign a unit to; the value
+#                 below is a documented default, NOT a spec value
+#   split_required form determines the unit; must be split before analysis
+
+unit_basis_to_standard_unit:
+  weight: g
+  volume: mL
+
+categories:
+
+  # ---- assigned explicitly by §31 -------------------------------------
+
+  - key: foundation
+    display_name: Foundation
+    unit_basis: volume
+    preferred_standard_unit: mL
+    status: confirmed
+    unit_source: "spec §31"
+
+  - key: concealer
+    display_name: Concealer
+    unit_basis: volume
+    preferred_standard_unit: mL
+    status: confirmed
+    unit_source: "spec §31"
+
+  - key: powder_blush
+    display_name: Powder blush
+    unit_basis: weight
+    preferred_standard_unit: g
+    status: confirmed
+    unit_source: "spec §31"
+    note: "Kept separate from liquid_blush and cream_blush per §8."
+
+  - key: liquid_blush
+    display_name: Liquid blush
+    unit_basis: volume
+    preferred_standard_unit: mL
+    status: confirmed
+    unit_source: "spec §31"
+    note: "Kept separate from powder_blush per §8."
+
+  - key: bronzer
+    display_name: Bronzer
+    unit_basis: weight
+    preferred_standard_unit: g
+    status: confirmed
+    unit_source: "spec §31"
+    note: >
+      §31 assigns g. Cream and liquid bronzers exist and are sold in mL;
+      if Stage 1.1 finds a meaningful number, split this the way
+      highlighter is split rather than converting.
+
+  - key: setting_powder
+    display_name: Setting powder
+    unit_basis: weight
+    preferred_standard_unit: g
+    status: confirmed
+    unit_source: "spec §31"
+
+  - key: pressed_powder
+    display_name: Pressed powder
+    unit_basis: weight
+    preferred_standard_unit: g
+    status: confirmed
+    unit_source: "spec §31"
+
+  - key: lip_liner
+    display_name: Lip liner
+    unit_basis: weight
+    preferred_standard_unit: g
+    status: confirmed
+    unit_source: "spec §31"
+
+  - key: lipstick
+    display_name: Lipstick
+    unit_basis: weight
+    preferred_standard_unit: g
+    status: confirmed
+    unit_source: "spec §31"
+
+  - key: lip_gloss
+    display_name: Lip gloss
+    unit_basis: volume
+    preferred_standard_unit: mL
+    status: confirmed
+    unit_source: "spec §31"
+
+  - key: mascara
+    display_name: Mascara
+    unit_basis: volume
+    preferred_standard_unit: mL
+    status: confirmed
+    unit_source: "spec §31"
+
+  - key: primer
+    display_name: Primer
+    unit_basis: volume
+    preferred_standard_unit: mL
+    status: confirmed
+    unit_source: "spec §31"
+
+  - key: setting_spray
+    display_name: Setting spray
+    unit_basis: volume
+    preferred_standard_unit: mL
+    status: confirmed
+    unit_source: "spec §31"
+
+  # §31 says "Eyeshadow -> g". §7 splits singles from palettes; both are
+  # weight, but their quantity semantics differ (see palette note).
+
+  - key: eyeshadow_single
+    display_name: Eyeshadow singles
+    unit_basis: weight
+    preferred_standard_unit: g
+    status: confirmed
+    unit_source: "spec §31"
+
+  - key: eyeshadow_palette
+    display_name: Eyeshadow palettes
+    unit_basis: weight
+    preferred_standard_unit: g
+    status: confirmed
+    unit_source: "spec §31"
+    note: >
+      Multi-pan. Labelled weight may be total net weight or per-pan weight,
+      and pan counts differ, so price-per-g is not comparable to singles
+      without care. Treat as its own analytical group; record pan_count
+      during Stage 1.1 if the source exposes it.
+
+  # ---- §7 categories that §31 does NOT assign a unit ------------------
+  # §31 says "Document exceptions." These are the exceptions.
+
+  - key: highlighter
+    display_name: Highlighter
+    unit_basis: null
+    preferred_standard_unit: null
+    status: split_required
+    unit_source: "spec §31 (conditional: 'g where powder')"
+    note: >
+      §31 qualifies this as "g where powder", which is not a single
+      assignment. Split on product_form before any unit analysis:
+      powder/pressed -> g, liquid/drops/cream -> mL. Never pool the two.
+    split_on: product_form
+    splits:
+      - form: powder
+        unit_basis: weight
+        preferred_standard_unit: g
+      - form: liquid
+        unit_basis: volume
+        preferred_standard_unit: mL
+      - form: cream
+        unit_basis: weight
+        preferred_standard_unit: g
+        note: "Cream highlighters are usually labelled by weight; verify in Stage 1.1."
+
+  - key: cream_blush
+    display_name: Cream blush
+    unit_basis: weight
+    preferred_standard_unit: g
+    status: needs_review
+    unit_source: "NOT in §31 - default chosen here, pending Stage 1.1 evidence"
+    note: >
+      §7 lists cream blush; §31 does not assign it a unit. Cream blush is
+      commonly labelled by weight, so g is the working default. If Stage 1.1
+      finds mL labelling is common, this becomes split_required like
+      highlighter. Do not convert between the two.
+
+  - key: liquid_lipstick
+    display_name: Liquid lipstick
+    unit_basis: volume
+    preferred_standard_unit: mL
+    status: needs_review
+    unit_source: "NOT in §31 - default chosen here, pending Stage 1.1 evidence"
+    note: >
+      §7 lists liquid lipstick; §31 assigns only "Lipstick -> g". Liquid
+      formulas are typically labelled in mL, so this is kept separate from
+      lipstick rather than folded into it (§8).
+
+  - key: brow
+    display_name: Brow products
+    unit_basis: null
+    preferred_standard_unit: null
+    status: split_required
+    unit_source: "NOT in §31 - split defined here, pending Stage 1.1 evidence"
+    note: >
+      §7 lists "Brow products" as one line, but the form range is too wide
+      for one unit: pencils and pomades are weight, gels and tinted serums
+      are volume. Split on product_form before analysis, or drop the
+      category if Stage 1.1 volume per form is too thin.
+    split_on: product_form
+    splits:
+      - form: pencil
+        unit_basis: weight
+        preferred_standard_unit: g
+      - form: pomade
+        unit_basis: weight
+        preferred_standard_unit: g
+      - form: powder
+        unit_basis: weight
+        preferred_standard_unit: g
+      - form: gel
+        unit_basis: volume
+        preferred_standard_unit: mL
+
+# Set during Stage 1.1 once real counts exist (§7: prioritise ~10-14).
+# Left empty rather than guessed.
+in_scope_categories: []

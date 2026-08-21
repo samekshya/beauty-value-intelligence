@@ -1,0 +1,236 @@
+# Market tier definitions and the starting brand->tier list.
+# Tier vocabulary and classification rules: spec §12.
+# Brand lists: spec §11. Target tier volumes: spec §10.
+#
+# THE RULE THAT MATTERS MOST (§12, §83):
+#   Tier is NEVER derived from price. Price is the thing being analysed;
+#   deriving tier from it makes the whole analysis circular. Tier comes
+#   from brand positioning only.
+#
+# STATUS OF THIS FILE:
+#   Every brand below is `provisional`. §11 offers these as "Potential
+#   examples", not as verified classifications, and §12 requires each
+#   brand to carry classification_basis, source_or_reason and
+#   reviewed_date. Producing those is Stage 1.1 work and writes
+#   brand_tier_mapping.csv. Nothing here has been verified yet, and
+#   pretending otherwise would be the fabrication §83 forbids.
+
+classification_rules:
+  never_use_price: true                    # §12, §83
+  factors:                                 # §12
+    - distribution_channel
+    - retailer_positioning
+    - prestige_status
+    - brand_positioning
+    - market_perception
+  document_ambiguous_cases: true           # §12
+  unmapped_brand_action: flag_for_manual_review
+  # §88 requires 100% tier coverage. A product whose brand is not mapped
+  # is held for review, never guessed and never silently dropped.
+
+# Output contract for Stage 1.1 (§12).
+brand_tier_mapping_csv:
+  path: config/brand_tier_mapping.csv
+  fields:
+    - brand
+    - market_tier
+    - classification_basis
+    - source_or_reason
+    - reviewed_date
+  status: not_created_yet                  # Stage 1.1 deliverable
+
+tiers:
+  - key: drugstore
+    display_name: Drugstore
+    definition: "Mass-market distribution: drug, grocery, big-box, mass beauty retail."
+    target_product_count: 300              # §10
+  - key: mid_range
+    display_name: Mid-range
+    definition: "Affordable prestige. Above mass-market positioning, below full prestige."
+    target_product_count: 125              # §10 gives a range of 100-150
+    target_product_count_range: [100, 150]
+  - key: high_end
+    display_name: High-end
+    definition: "Prestige beauty retail positioning."
+    target_product_count: 250              # §10
+  - key: luxury
+    display_name: Luxury
+    definition: "Luxury house / designer beauty positioning."
+    target_product_count: 100              # §10
+
+# §10: "Exact numbers can vary. Balanced category representation matters
+# more than perfect tier counts."
+tier_count_tolerance: advisory
+
+brands:
+
+  # ---- Drugstore / mass market (§11) ----------------------------------
+  - brand: "e.l.f."
+    market_tier: drugstore
+    source: "spec §11"
+    status: provisional
+  - brand: "Maybelline"
+    market_tier: drugstore
+    source: "spec §11"
+    status: provisional
+  - brand: "NYX"
+    market_tier: drugstore
+    source: "spec §11"
+    status: provisional
+  - brand: "L'Oréal Paris"
+    market_tier: drugstore
+    source: "spec §11"
+    status: provisional
+  - brand: "Milani"
+    market_tier: drugstore
+    source: "spec §11"
+    status: provisional
+  - brand: "Essence"
+    market_tier: drugstore
+    source: "spec §11"
+    status: provisional
+  - brand: "Wet n Wild"
+    market_tier: drugstore
+    source: "spec §11"
+    status: provisional
+  - brand: "Revlon"
+    market_tier: drugstore
+    source: "spec §11"
+    status: provisional
+  - brand: "CoverGirl"
+    market_tier: drugstore
+    source: "spec §11"
+    status: provisional
+  - brand: "Physicians Formula"
+    market_tier: drugstore
+    source: "spec §11"
+    status: provisional
+  - brand: "ColourPop"
+    market_tier: drugstore
+    source: "spec §11"
+    status: provisional
+    ambiguous: true
+    ambiguity_note: >
+      §11 places ColourPop in drugstore/mass, but its distribution is
+      direct-to-consumer and Ulta rather than drug/grocery/big-box. It is
+      mass-market on price and positioning, not on channel. §12 lists
+      distribution_channel as a classification factor, so this one needs an
+      explicit decision and a written source_or_reason in Stage 1.1.
+
+  # ---- Mid-range / affordable prestige (§11) --------------------------
+  # §11 hedges this whole tier with "Depending on final methodology" and
+  # closes with "selected other brands", so it is the least settled.
+  - brand: "Morphe"
+    market_tier: mid_range
+    source: "spec §11"
+    status: provisional
+  - brand: "Juvia's Place"
+    market_tier: mid_range
+    source: "spec §11"
+    status: provisional
+  - brand: "Pixi"
+    market_tier: mid_range
+    source: "spec §11"
+    status: provisional
+  - brand: "Kiko Milano"
+    market_tier: mid_range
+    source: "spec §11"
+    status: provisional
+
+  # ---- High-end / prestige (§11) --------------------------------------
+  - brand: "MAC"
+    market_tier: high_end
+    source: "spec §11"
+    status: provisional
+  - brand: "NARS"
+    market_tier: high_end
+    source: "spec §11"
+    status: provisional
+  - brand: "Rare Beauty"
+    market_tier: high_end
+    source: "spec §11"
+    status: provisional
+  - brand: "Fenty Beauty"
+    market_tier: high_end
+    source: "spec §11"
+    status: provisional
+  - brand: "Benefit"
+    market_tier: high_end
+    source: "spec §11"
+    status: provisional
+  - brand: "Tarte"
+    market_tier: high_end
+    source: "spec §11"
+    status: provisional
+  - brand: "Too Faced"
+    market_tier: high_end
+    source: "spec §11"
+    status: provisional
+  - brand: "Urban Decay"
+    market_tier: high_end
+    source: "spec §11"
+    status: provisional
+  - brand: "Anastasia Beverly Hills"
+    market_tier: high_end
+    source: "spec §11"
+    status: provisional
+  - brand: "Huda Beauty"
+    market_tier: high_end
+    source: "spec §11"
+    status: provisional
+  - brand: "Makeup by Mario"
+    market_tier: high_end
+    source: "spec §11"
+    status: provisional
+  - brand: "Haus Labs"
+    market_tier: high_end
+    source: "spec §11"
+    status: provisional
+  - brand: "Saie"
+    market_tier: high_end
+    source: "spec §11"
+    status: provisional
+  - brand: "Tower 28"
+    market_tier: high_end
+    source: "spec §11"
+    status: provisional
+
+  # ---- Luxury (§11) ---------------------------------------------------
+  - brand: "Dior"
+    market_tier: luxury
+    source: "spec §11"
+    status: provisional
+  - brand: "YSL Beauty"
+    market_tier: luxury
+    source: "spec §11"
+    status: provisional
+  - brand: "Armani Beauty"
+    market_tier: luxury
+    source: "spec §11"
+    status: provisional
+  - brand: "Givenchy"
+    market_tier: luxury
+    source: "spec §11"
+    status: provisional
+  - brand: "Tom Ford Beauty"
+    market_tier: luxury
+    source: "spec §11"
+    status: provisional
+  - brand: "Chanel"
+    market_tier: luxury
+    source: "spec §11"
+    status: provisional
+    conditional: true
+    condition: >
+      §11: "Chanel if usable data is available". Include only if Stage 1.0
+      finds a permitted source carrying size data for this brand.
+  - brand: "Guerlain"
+    market_tier: luxury
+    source: "spec §11"
+    status: provisional
+    conditional: true
+    condition: >
+      §11: "Guerlain if usable data is available". Same condition as Chanel.
+
+# §11: "Do not force brands into the project if data is poor."
+# Brands are dropped on data quality, never on whether they suit a narrative.
