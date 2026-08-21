@@ -146,3 +146,17 @@ on_parse_failure:
   flag: missing_quantity
   retain_raw: true
   note: "Never fabricate a missing quantity (§83)."
+
+# ---- FORBIDDEN QUANTITY SOURCES ---------------------------------------
+# Fields that LOOK like quantity and are not. Discovered in Stage 1.0.
+# A test must assert the parser never reads these as net quantity.
+
+forbidden_quantity_sources:
+  - field: "shopify variants[].grams"
+    also: "shopify variants[].weight"
+    reason: >
+      Shipping weight including packaging, not net content. Populated on 55.7%
+      of probed products - over four times real size coverage - so it is the
+      most tempting wrong answer available. Produces plausible, uniformly wrong
+      price-per-unit figures that no §33 validation rule would catch.
+    measured_at: 2026-08-22

@@ -6,26 +6,52 @@ is worth?
 
 ## Current phase
 
-**Phase 1 · Stage 1.0 — Feasibility. In progress.**
+**Phase 1 · Stage 1.0 — Feasibility. Complete except for one decision.**
 
-Stage 1.0 ends with a DECISION about data sources, not with data. Not in
-scope: collecting the dataset, the ingestion pipeline, the quantity
-parser, the app.
+Stage 1.0 ended with a decision, as intended — but one piece of it is not
+mine to make. Full findings: `reports/source_feasibility_report.md`.
+Structured record: `config/data_sources.yaml`.
 
-Done: `docs/PROJECT_SPEC.md` received and read in full (99 sections).
-Repo structure built per §65. `config/` populated from the spec —
-`categories.yaml` (§7, §31), `unit_rules.yaml` (§28-30),
-`tier_mapping.yaml` (§11, §12), `usage_assumptions.yaml` (§42, values
-deliberately null pending sourcing), `data_sources.yaml` (§16 schema,
-no entries yet). README written.
+What was measured (2026-08-22, 3,333 products, 19 brand storefronts):
+name / brand / list price / URL / retailer at 100%. **Quantity at 12.3%
+overall and 0.0% for drugstore.** Drugstore brands do not publish size on
+their own storefronts — confirmed by two independent methods, including
+e.l.f. and Wet n Wild product pages read directly. This is an absence of
+data, not a parsing gap.
 
-Next: source landscape research, then a feasibility test measuring real
-field coverage across ~20 products per source, then a recommendation in
-`reports/source_feasibility_report.md`.
+Decisions made: primary spine = brand-owned Shopify storefronts.
+Fallback = manual quantity capture on an expanded §26 anchor set.
+Rejected with evidence: Amazon PA-API (deprecated, 403), Google Content API
+(wrong direction), Sephora (403 at edge), Ulta (terms prohibit — clause
+quoted), eBay (unsuitable), Impact (dropped).
 
-GATE (§16, roadmap): primary + fallback source named; real quantity-field
-coverage measured rather than assumed; legal status documented per source
-with the exact clause read.
+**OPEN — blocks Stage 1.1:** the quantity source for the drugstore tier.
+Open Beauty Facts is the only identified route to structured quantity. It
+is untested: its hosts blanket-block this agent (`ClaudeBot Disallow: /`),
+so the schema could not be read and no workaround was sought. Testing it
+means the project owner downloading a bulk export (ODbL, `/data/` permitted
+for `User-agent: *`). Until its US-makeup fill rate is measured, the
+primary architecture has a hole and §88's 90% target is unmet.
+
+Also open, owner's call: the luxury tier has 2 reachable brands of 7. See
+the platform-reachability risk in the report — three options laid out, no
+recommendation made.
+
+Do not start Stage 1.1 ingestion until the quantity source is named.
+
+## Hazards discovered in Stage 1.0
+
+- **Shopify `variants[].grams` is shipping weight, not net content.** It is
+  populated on 55.7% of products — over 4x real size coverage — and would
+  yield plausible, uniformly wrong price-per-unit figures. Never use it as
+  quantity. Enforced in `config/unit_rules.yaml`.
+- **robots.txt is not permission.** Ulta permits product pages to every
+  crawler and prohibits collecting listings and prices in its terms. Check
+  both; the terms govern.
+- **Regex on raw HTML fabricates coverage.** A first pass matched `029g`,
+  `0MG`, `7G` inside minified scripts and reported 18/21. Strict
+  measurement on visible text gave 2/21. Strip scripts, require plausible
+  magnitude, and report the method.
 
 ## Authority
 
