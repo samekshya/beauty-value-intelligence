@@ -25,15 +25,26 @@ And, for the application built on top of it:
 
 ## Status
 
-**Phase 1 · Stage 1.0 — source feasibility. In progress.**
+**Phase 1 · Stage 1.0 — source feasibility. Measurement complete; one
+decision pending.**
 
-No data has been collected and no findings exist yet. This README will
-carry results only once there are results; every number in it will trace
-to a calculation in this repository.
+No analysis has been run yet. What exists is a measured answer to the
+question *where can the data legally come from* — and it is not the answer
+the project assumed.
 
-Stage 1.0 ends with a decision about where the data comes from — not with
-data. It is deliberately the slowest part of the project, because the
-credibility of everything downstream depends on it.
+Across 3,333 products retrieved from 19 brand-owned storefronts, product
+name, brand, list price and URL are present on 100%. Net quantity — the
+field the entire project rests on — is present on **11.4%**, and on
+**0 of 1,098 drugstore products**. Drugstore brands do not publish size on
+their own storefronts, confirmed by two independent methods. Every US
+retailer that sells mass-market makeup (Sephora, Ulta, Target, Walmart)
+is closed to automated collection on its terms.
+
+The full evidence, with every clause quoted and every figure traceable to
+a script in this repository, is in
+[`reports/source_feasibility_report.md`](reports/source_feasibility_report.md).
+Task-level progress is in
+[`docs/EXECUTION_PLAN.md`](docs/EXECUTION_PLAN.md).
 
 ## Approach
 
@@ -97,7 +108,9 @@ phases add their own as they begin.
 | --- | --- |
 | `docs/PROJECT_SPEC.md` | Full specification. Authoritative. |
 | `docs/ROADMAP.md` | Phase structure and the gate each phase must pass. |
-| `reports/source_feasibility_report.md` | Which sources are usable, and why. |
+| `docs/EXECUTION_PLAN.md` | Task-level progress. The source of truth for what is done. |
+| `docs/DEVELOPMENT.md` | Environment setup, git conventions, hazards discovered. |
+| `reports/source_feasibility_report.md` | Which sources are usable, which are not, and the evidence. |
 
 ## Limitations
 
