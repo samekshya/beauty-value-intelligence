@@ -1,0 +1,179 @@
+# Candidate data sources for current US makeup product data.
+# Schema derived from spec §16 (feasibility criteria + field coverage table),
+# §15 (desired fields) and §14 (legal/access constraints).
+#
+# `sources` is EMPTY on purpose. It is populated only from pages actually
+# fetched and read during the Stage 1.0 feasibility study - never from
+# recollection. Every source claim carries the URL it came from and the
+# date it was checked (§25).
+
+# ---- §16 FIELD COVERAGE TABLE -----------------------------------------
+# The fields each source is graded against, at the importance §16 assigns.
+
+field_requirements:
+  critical:
+    - product_name
+    - brand
+    - category
+    - retail_price
+    - quantity
+    - unit
+    - product_url
+    - retailer
+  strongly_preferred:
+    - rating
+    - review_count
+  very_useful:
+    - upc_ean
+  preferred:
+    - description
+    - finish
+    - coverage
+    - ingredients
+    - shade
+
+# ---- COVERAGE GRADING VOCABULARY --------------------------------------
+# Quantity and unit are graded on this three-level scale because the
+# distinction decides how much Stage 1.2 parser work is real, and whether
+# the source is usable at all.
+
+coverage_levels:
+  structured: "Dedicated field carrying the value, with its unit."
+  embedded:   "Value present only inside a text field (usually the product title); needs the §27-31 parser."
+  absent:     "Not available at any usable reliability."
+  unknown:    "Not yet measured. Never assume a level - measure it or leave it unknown."
+
+# ---- PRIMARY SCREENING CRITERION --------------------------------------
+
+screening:
+  primary_criterion: quantity_and_unit
+  rule: >
+    A source that cannot reliably return product SIZE (quantity + unit) is
+    not usable for this project regardless of catalogue breadth, price
+    quality, or cost. Size outranks every other attribute.
+  disqualifying_levels: [absent]
+  coverage_targets:                        # §88
+    price: 0.98
+    quantity: 0.90
+    tier: 1.00
+    category: 1.00
+    provenance: 1.00
+    rating: 0.80
+  targets_note: "§88: if coverage is worse than these, report it honestly rather than adjusting the target."
+
+# ---- §14 LEGAL GATE ----------------------------------------------------
+
+legal_gate:
+  must_check:                              # §14
+    - terms_of_use
+    - robots_policy
+    - permitted_automated_access
+    - available_public_apis
+    - affiliate_or_product_feed_availability
+  # §14: if automated extraction is prohibited or blocked, use another
+  # legal/authorised source. Record it and move on - do not design around it.
+  prohibited_techniques:
+    - captcha_bypass
+    - anti_bot_circumvention
+    - proxy_rotation_to_evade_blocks
+    - browser_fingerprint_manipulation
+    - cloudflare_bypass
+    - authentication_circumvention
+    - rate_limit_evasion
+  on_prohibited: exclude_source
+  evidence_required: >
+    Legal status must quote the exact clause or robots directive read, with
+    the URL and the date checked. "Probably allowed" is not a status.
+
+# ---- ENTRY SCHEMA ------------------------------------------------------
+# Template for each entry in `sources`. Not itself a source.
+
+_schema:
+  key: "short_stable_identifier"
+  display_name: "Human-readable name"
+  source_type: "api | bulk_dataset | product_feed | affiliate_network | website | manual"
+  homepage_url: null
+  docs_url: null
+
+  status: "candidate | testing | selected_primary | selected_fallback | rejected"
+  rejection_reason: null
+
+  access:
+    method: "rest_api | graphql | bulk_download | feed | manual"
+    auth_required: null                    # true | false
+    auth_type: "none | api_key | oauth | account_approval | affiliate_acceptance"
+    signup_required: null
+    approval_required: null
+    approval_notes: null
+
+  cost:
+    model: "free | freemium | paid | revenue_share | unknown"
+    free_tier: null
+    paid_from_usd_month: null
+    per_request_usd: null
+    notes: null
+
+  limits:
+    rate_limit: null
+    quota: null
+    notes: null
+
+  legal:
+    terms_url: null
+    robots_url: null
+    automated_access_permitted: "yes | no | conditional | unclear"
+    exact_clause: null                     # verbatim quote, §14
+    robots_directives: null                # verbatim, §14
+    licence: null
+    attribution_required: null
+    commercial_use: null
+    checked_at: null                       # ISO date, §25
+    checked_url: null
+
+  coverage:                                # graded against field_requirements
+    product_name: unknown
+    brand: unknown
+    category: unknown
+    retail_price: unknown
+    quantity: unknown                      # primary screening criterion
+    unit: unknown
+    product_url: unknown
+    retailer: unknown
+    rating: unknown
+    review_count: unknown
+    upc_ean: unknown
+    description: unknown
+    finish: unknown
+    coverage_attr: unknown
+    ingredients: unknown
+    shade: unknown
+
+  measured:                                # §16 - measured, never estimated
+    products_tested: null
+    quantity_field_present_pct: null
+    quantity_parseable_pct: null
+    measured_at: null
+    notes: null
+
+  evaluation:                              # §16
+    data_quality: null
+    makeup_coverage: null
+    retailer_coverage: null
+    reliability: null
+    update_frequency: null
+
+  us_market: null
+  currency: null
+  verdict: null
+
+# ---- SOURCES -----------------------------------------------------------
+# Populated during Task B (desk research) and Task C (measured testing).
+
+sources: []
+
+# Decisions the feasibility study must produce (§16, §94).
+selected:
+  primary: null
+  fallback: null
+  decided_at: null
+  rationale: null
