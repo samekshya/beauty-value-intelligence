@@ -222,10 +222,11 @@ everything with the documented commands; and (4) the human can answer
 ## DEVIATION LOG
 *(one line each, dated, newest first)*
 
-- 2026-08-22 · Repo hygiene pass at owner's request: CLAUDE.md moved to
-  docs/DEVELOPMENT.md, .claude/ untracked, tool-specific wording removed
-  from this plan, the report and config. PROTOCOL 5 (never reword tasks)
-  overridden by direct instruction for those phrases only.
+- 2026-08-22 · Repo hygiene pass at owner's request: conventions
+  consolidated into docs/DEVELOPMENT.md, local editor state untracked,
+  tooling-specific wording removed from this plan, the report and config.
+  PROTOCOL 5 (never reword tasks) overridden by direct instruction for
+  those phrases only.
 
 - 2026-08-22 · T3a exceeded its "untested but complete" bar: the OBF
   query was self-tested on a synthetic Parquet+CSV pair and the
