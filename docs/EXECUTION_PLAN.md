@@ -5,18 +5,18 @@ transcript is not. If the transcript and this file disagree, this file
 wins.
 
 Authority: docs/PROJECT_SPEC.md (§ references) · docs/ROADMAP.md (gates)
-· CLAUDE.md (rules, git workflow, attribution).
+· docs/DEVELOPMENT.md (rules, git workflow).
 
 ---
 
 ## PROTOCOL — how to work this file
 
-1. On session start: read CLAUDE.md, then this file. Find the FIRST
+1. On session start: read docs/DEVELOPMENT.md, then this file. Find the FIRST
    unchecked `[ ]` task. Announce it in one line. Begin.
 2. A task is complete only when its **Done when** condition is true and
    you have VERIFIED it by running something — a query, a test, a
    script. Assertion is not verification.
-3. On completion: commit and push per CLAUDE.md, change `[ ]` to `[x]`
+3. On completion: commit and push per docs/DEVELOPMENT.md, change `[ ]` to `[x]`
    with the date, commit this file's change too, and proceed to the
    next task WITHOUT asking.
 4. ⛔ markers are hard stops. `⛔ HUMAN` = state exactly what you need
@@ -77,8 +77,8 @@ Authority: docs/PROJECT_SPEC.md (§ references) · docs/ROADMAP.md (gates)
 
 - [ ] ⛔ **HUMAN — download OBF exports.** Two flavours as specified by
       1.0-T3a, placed in data/raw/obf/. Also read the advertised
-      product total from world.openbeautyfacts.org (you are not
-      blocked; only ClaudeBot is) and provide it as corroboration.
+      product total from world.openbeautyfacts.org (a browser is not
+      blocked; automated fetching is) and provide it as corroboration.
 
 - [ ] **1.0-T3b OBF measurement.** Run the integrity check first. If it
       passes, measure US-makeup fill rate for quantity, price
@@ -110,7 +110,7 @@ Authority: docs/PROJECT_SPEC.md (§ references) · docs/ROADMAP.md (gates)
 
 - [ ] **1.0-G Post-gate rewrite.** Rewrite the Stage 1.1 section below
       to match the chosen branch: concrete sources, concrete targets,
-      concrete ingestion tasks. Update CLAUDE.md current-phase line.
+      concrete ingestion tasks. Update docs/DEVELOPMENT.md if conventions change.
       Done when: Stage 1.1 below contains no BRANCH-DEPENDENT markers.
 
 ---
@@ -150,7 +150,7 @@ regardless of branch.)*
 - [ ] **1.2-d Data quality flags** (§32) — nothing silently dropped.
 - [ ] **1.2-e DuckDB schema + load** (§21).
 - [ ] ⛔ **HUMAN — manual audit (§34).** 50 random products verified
-      by the human against source pages. Claude Code prepares the
+      by the human against source pages. A script prepares the
       sample sheet; the human fills it.
 - [ ] **1.2-f Audit reconciliation.** Done when: ~95% critical-field
       accuracy or the gap is diagnosed and fixed.
@@ -221,6 +221,11 @@ everything with the documented commands; and (4) the human can answer
 
 ## DEVIATION LOG
 *(one line each, dated, newest first)*
+
+- 2026-08-22 · Repo hygiene pass at owner's request: CLAUDE.md moved to
+  docs/DEVELOPMENT.md, .claude/ untracked, tool-specific wording removed
+  from this plan, the report and config. PROTOCOL 5 (never reword tasks)
+  overridden by direct instruction for those phrases only.
 
 - 2026-08-22 · T3a exceeded its "untested but complete" bar: the OBF
   query was self-tested on a synthetic Parquet+CSV pair and the

@@ -4,7 +4,7 @@ Spec: `docs/PROJECT_SPEC.md` (99 sections, authoritative)
 This file: phase structure, gates, and what "done" means at each step.
 
 A phase is not complete until its gate is met. Do not start the next
-phase early. Update `## Current phase` in CLAUDE.md when a gate passes.
+phase early. Tick the gate in docs/EXECUTION_PLAN.md when it passes.
 
 ---
 
