@@ -39,7 +39,7 @@ Authority: docs/PROJECT_SPEC.md (§ references) · docs/ROADMAP.md (gates)
 
 ## PHASE 1 · STAGE 1.0 — FEASIBILITY (close-out)
 
-- [ ] **1.0-R Recovery sweep.** Check git log and working tree for
+- [x] 2026-08-22 **1.0-R Recovery sweep.** Check git log and working tree for
       anything half-finished from the dropped session. Grep the
       feasibility report for the stale 12.3% figure and the ~410
       ceiling; correct every dependent number to the strict 11.4% /
