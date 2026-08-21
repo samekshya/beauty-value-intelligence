@@ -383,12 +383,28 @@ so figures above come from secondary descriptions.
 
 Recorded honestly rather than assumed. None of these are ruled in or out.
 
+**eBay Browse API — partially verified, not recommended.**
+Free, with a default application-level limit of **5,000 calls/day**; an
+"Application Growth Check" (free, on request) raises it substantially. Auth is
+OAuth via a developer account. **Size fields could not be confirmed** — the API
+documentation timed out on three separate attempts and the field reference was
+never read. Set aside on suitability rather than access: eBay listings are
+seller-authored marketplace text, so brand, size and category are inconsistent
+by construction, and prices reflect resale rather than retail. That fails §18's
+"US beauty retail price snapshot" framing regardless of what the schema offers.
+
+**Kroger Products API — unverified.**
+The developer portal timed out on four separate attempts across two URLs, and
+the documentation is JavaScript-rendered so search results could not extract the
+field list either. A Products API exists; whether it exposes a structured size
+field, its rate limits, and its cost are all **unknown**. Kroger's makeup
+assortment is also mass-market only, so it could not serve the prestige or
+luxury tiers even if it verified well.
+
 | Source | Status | Reason |
 | --- | --- | --- |
-| eBay Browse API | **unverified** | Documentation fetch timed out twice |
-| Kroger Products API | **unverified** | Developer portal timed out twice |
 | CJ Affiliate product feeds | **unverified** | Product-feeds URL returned 404 |
-| Impact.com product catalogue | **partial** | "600M+ products" marketplace confirmed; access terms, cost and fields not public — requires signup to determine |
+| Impact.com product catalogue | **dropped** | Dropped by decision — approval latency unbounded, fields not documented publicly |
 | Rakuten Advertising feeds | **not assessed** | Not reached |
 | UPC/GTIN lookup services | **not assessed** | Relevant to §22 entity resolution, not to primary acquisition |
 | Walmart / Target | **not assessed** | Not reached |
@@ -591,9 +607,22 @@ whether a dataset exists. It also makes the Shopify `weight` trap the single
 most dangerous available shortcut, because it yields a plausible number that is
 wrong in a way no downstream check would catch.
 
-**Retailer coverage is narrower than hoped.** Sephora is excluded and Ulta is
-unresolved, so the prestige and luxury tiers (§10 targets 250 high-end and 100
-luxury products) will have to come from brand-owned sites, one brand at a time.
+**No US multi-brand beauty retailer is available.** Sephora blocks automated
+requests at the edge; Ulta's terms prohibit collection of product listings and
+prices outright. eBay is accessible but unsuitable, and Kroger is both unverified
+and mass-market only. Every product must therefore come from a **brand-owned
+site, one brand at a time** — which is more work but yields manufacturer-
+authoritative data (§13 item 4).
+
+**One consequence deserves flagging now, because it constrains Phase 2.**
+§20 specifies preserving multiple retailer observations per product, and §18
+requires a `retailer` field. With no multi-brand retailer available, nearly every
+product will have exactly **one** offer, from the brand itself. The
+`product_offers` table stays correct by design but will be effectively one row
+per product, and cross-retailer price dispersion cannot be analysed. Brand-owned
+pricing is also list pricing, which suits §19's requirement that unit-value
+analysis use list price — but it means the dataset represents manufacturer RRP,
+not street prices, and the README and methodology must say so plainly.
 
 Next step is Task C: measure, rather than estimate, the field coverage of the
 shortlisted sources against a fixed set of 20 products spanning tiers and
