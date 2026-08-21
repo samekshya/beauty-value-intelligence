@@ -47,20 +47,20 @@ Authority: docs/PROJECT_SPEC.md (§ references) · docs/ROADMAP.md (gates)
       Done when: no stale figures remain anywhere in reports/ and the
       tree is clean.
 
-- [ ] **1.0-T2a Walmart.** Locate the real terms of use — not an
+- [x] 2026-08-22 **1.0-T2a Walmart.** Locate the real terms of use — not an
       interstitial (apply the Ulta lesson). Quote verbatim the clauses
       governing automated access and data extraction. Check robots.txt
       separately; record that robots ≠ permission. Verdict: permitted /
       prohibited / ambiguous, with evidence.
       Done when: the report contains quoted clauses and a verdict.
 
-- [ ] **1.0-T2b Walmart test (only if permitted).** 20 drugstore
+- [x] 2026-08-22 SKIPPED — not permitted (see T2a). **1.0-T2b Walmart test (only if permitted).** 20 drugstore
       products from the §11 brand list. Measure quantity coverage on
       spec tables. Store raw responses under data/raw/feasibility/
       with provenance.
       Done when: measured coverage % is in the report.
 
-- [ ] **1.0-T2c Target.** Same discipline as Walmart, both steps.
+- [x] 2026-08-22 Both steps: terms prohibit; test not run. **1.0-T2c Target.** Same discipline as Walmart, both steps.
       Done when: same standard.
 
 - [ ] **1.0-T3a OBF preparation.** Decide export flavour (JSONL /
