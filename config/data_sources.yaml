@@ -2,13 +2,14 @@
 # Schema derived from spec §16 (feasibility criteria + field coverage table),
 # §15 (desired fields) and §14 (legal/access constraints).
 #
-# `sources` is EMPTY on purpose. It is populated only from pages actually
-# fetched and read during the Stage 1.0 feasibility study - never from
-# recollection. Every source claim carries the URL it came from and the
-# date it was checked (§25).
+# Populated from the Stage 1.0 feasibility study. Every entry records the URL it
+# came from and the date checked (§25). Coverage figures under `measured` are
+# counted from retrieved responses. Anything not measured says `unknown` -
+# never an estimate.
+#
+# Full narrative, verbatim legal clauses and method: reports/source_feasibility_report.md
 
 # ---- §16 FIELD COVERAGE TABLE -----------------------------------------
-# The fields each source is graded against, at the importance §16 assigns.
 
 field_requirements:
   critical:
@@ -32,25 +33,18 @@ field_requirements:
     - ingredients
     - shade
 
-# ---- COVERAGE GRADING VOCABULARY --------------------------------------
-# Quantity and unit are graded on this three-level scale because the
-# distinction decides how much Stage 1.2 parser work is real, and whether
-# the source is usable at all.
-
 coverage_levels:
   structured: "Dedicated field carrying the value, with its unit."
   embedded:   "Value present only inside a text field (usually the product title); needs the §27-31 parser."
   absent:     "Not available at any usable reliability."
   unknown:    "Not yet measured. Never assume a level - measure it or leave it unknown."
 
-# ---- PRIMARY SCREENING CRITERION --------------------------------------
-
 screening:
   primary_criterion: quantity_and_unit
   rule: >
-    A source that cannot reliably return product SIZE (quantity + unit) is
-    not usable for this project regardless of catalogue breadth, price
-    quality, or cost. Size outranks every other attribute.
+    A source that cannot reliably return product SIZE (quantity + unit) is not
+    usable for this project regardless of catalogue breadth, price quality, or
+    cost. Size outranks every other attribute.
   disqualifying_levels: [absent]
   coverage_targets:                        # §88
     price: 0.98
@@ -61,8 +55,6 @@ screening:
     rating: 0.80
   targets_note: "§88: if coverage is worse than these, report it honestly rather than adjusting the target."
 
-# ---- §14 LEGAL GATE ----------------------------------------------------
-
 legal_gate:
   must_check:                              # §14
     - terms_of_use
@@ -70,8 +62,6 @@ legal_gate:
     - permitted_automated_access
     - available_public_apis
     - affiliate_or_product_feed_availability
-  # §14: if automated extraction is prohibited or blocked, use another
-  # legal/authorised source. Record it and move on - do not design around it.
   prohibited_techniques:
     - captcha_bypass
     - anti_bot_circumvention
@@ -82,98 +72,313 @@ legal_gate:
     - rate_limit_evasion
   on_prohibited: exclude_source
   evidence_required: >
-    Legal status must quote the exact clause or robots directive read, with
-    the URL and the date checked. "Probably allowed" is not a status.
-
-# ---- ENTRY SCHEMA ------------------------------------------------------
-# Template for each entry in `sources`. Not itself a source.
-
-_schema:
-  key: "short_stable_identifier"
-  display_name: "Human-readable name"
-  source_type: "api | bulk_dataset | product_feed | affiliate_network | website | manual"
-  homepage_url: null
-  docs_url: null
-
-  status: "candidate | testing | selected_primary | selected_fallback | rejected"
-  rejection_reason: null
-
-  access:
-    method: "rest_api | graphql | bulk_download | feed | manual"
-    auth_required: null                    # true | false
-    auth_type: "none | api_key | oauth | account_approval | affiliate_acceptance"
-    signup_required: null
-    approval_required: null
-    approval_notes: null
-
-  cost:
-    model: "free | freemium | paid | revenue_share | unknown"
-    free_tier: null
-    paid_from_usd_month: null
-    per_request_usd: null
-    notes: null
-
-  limits:
-    rate_limit: null
-    quota: null
-    notes: null
-
-  legal:
-    terms_url: null
-    robots_url: null
-    automated_access_permitted: "yes | no | conditional | unclear"
-    exact_clause: null                     # verbatim quote, §14
-    robots_directives: null                # verbatim, §14
-    licence: null
-    attribution_required: null
-    commercial_use: null
-    checked_at: null                       # ISO date, §25
-    checked_url: null
-
-  coverage:                                # graded against field_requirements
-    product_name: unknown
-    brand: unknown
-    category: unknown
-    retail_price: unknown
-    quantity: unknown                      # primary screening criterion
-    unit: unknown
-    product_url: unknown
-    retailer: unknown
-    rating: unknown
-    review_count: unknown
-    upc_ean: unknown
-    description: unknown
-    finish: unknown
-    coverage_attr: unknown
-    ingredients: unknown
-    shade: unknown
-
-  measured:                                # §16 - measured, never estimated
-    products_tested: null
-    quantity_field_present_pct: null
-    quantity_parseable_pct: null
-    measured_at: null
-    notes: null
-
-  evaluation:                              # §16
-    data_quality: null
-    makeup_coverage: null
-    retailer_coverage: null
-    reliability: null
-    update_frequency: null
-
-  us_market: null
-  currency: null
-  verdict: null
+    Legal status must quote the exact clause or robots directive read, with the
+    URL and the date checked. "Probably allowed" is not a status.
+  lesson_learned: >
+    robots.txt is NOT permission. Ulta's robots.txt permits product pages for all
+    crawlers while its terms prohibit collecting product listings and prices
+    outright. Where the two disagree, the terms govern.
 
 # ---- SOURCES -----------------------------------------------------------
-# Populated during Task B (desk research) and Task C (measured testing).
 
-sources: []
+sources:
 
-# Decisions the feasibility study must produce (§16, §94).
+  - key: brand_shopify_storefronts
+    display_name: Brand-owned Shopify storefronts
+    source_type: website
+    status: selected_primary_partial
+    access:
+      method: rest_api
+      endpoint_pattern: "{base_url}/products.json?limit=250"
+      auth_required: false
+      auth_type: none
+    cost:
+      model: free
+    legal:
+      robots_url: "per-brand robots.txt"
+      automated_access_permitted: yes
+      robots_directives: >
+        Checked per brand 2026-08-22. Product paths not disallowed on any brand
+        used. Several (Fenty Beauty, Anastasia Beverly Hills) name AI crawlers
+        and grant access explicitly.
+      checked_at: 2026-08-22
+    coverage:
+      product_name: structured
+      brand: structured
+      category: embedded          # product_type present but not a usable taxonomy
+      retail_price: structured
+      quantity: embedded          # only where sold in multiple sizes
+      unit: embedded
+      product_url: structured
+      retailer: structured
+      rating: absent
+      review_count: absent
+      upc_ean: absent
+      description: structured
+      finish: absent
+      coverage_attr: absent
+      ingredients: absent
+      shade: embedded             # in product name or variant title
+    measured:
+      brands_probed: 20
+      brands_reached: 19
+      products_tested: 3333
+      product_name_pct: 1.000
+      brand_pct: 1.000
+      retail_price_pct: 1.000
+      product_url_pct: 1.000
+      category_present_pct: 0.818
+      quantity_present_pct: 0.123
+      quantity_by_tier:
+        drugstore: 0.000
+        mid_range: 0.025
+        high_end: 0.171
+        luxury: 0.842
+      shopify_grams_populated_pct: 0.557
+      measured_at: 2026-08-22
+      notes: >
+        Size appears in the variant slot ONLY where a product is sold in more
+        than one size. Single-size products (most drugstore) use
+        variants=['Default Title'] and publish no size. Confirmed by a second
+        retrieval method on e.l.f. and Wet n Wild product pages: no size shown
+        anywhere. e.l.f. returns 404 on products.json and needs another route.
+    evaluation:
+      data_quality: "High for name/brand/price. Category taxonomy inconsistent and 606 products have an empty product_type."
+      makeup_coverage: "Good per brand, but brand-by-brand only - no multi-brand retailer is available."
+      retailer_coverage: "One offer per product (the brand's own store). §20 multi-retailer analysis not supported."
+      reliability: high
+      update_frequency: continuous
+    us_market: true
+    currency: USD
+    hazards:
+      - field: "variants[].grams"
+        severity: critical
+        note: >
+          Shipping weight including packaging, populated on 55.7% of products -
+          over 4x the real size coverage. Using it as net quantity would produce
+          plausible, uniformly wrong price-per-unit figures that no §33
+          validation rule would catch. MUST NOT be used as quantity.
+    verdict: >
+      Permitted, free, authoritative and reliable for name/brand/price - but it
+      cannot supply quantity for the drugstore tier at all. Usable as the spine
+      of the dataset only if quantity comes from elsewhere.
+
+  - key: open_beauty_facts
+    display_name: Open Beauty Facts
+    source_type: bulk_dataset
+    status: candidate
+    access:
+      method: bulk_download
+      formats: [mongodb_dump, jsonl, parquet, csv]
+      auth_required: false
+    cost:
+      model: free
+    legal:
+      terms_url: https://world.openbeautyfacts.org/data
+      robots_url: https://world.openbeautyfacts.org/robots.txt
+      automated_access_permitted: conditional
+      licence: "Open Database License (structure); Database Contents License (records); CC-BY-SA (images)"
+      robots_directives: >
+        "User-agent: *" disallows /api, /cgi, /facets - so the live API is off
+        limits to all agents. /data/ is NOT disallowed for "*". Separate blanket
+        "Disallow: /" blocks exist for ClaudeBot, anthropic-ai and Claude-Web on
+        both world.openbeautyfacts.org and static.openfoodfacts.org.
+      checked_at: 2026-08-22
+    coverage:
+      quantity: unknown
+      unit: unknown
+    measured:
+      products_tested: 0
+      measured_at: null
+      notes: >
+        NOT MEASURED. Schema could not be confirmed because data-fields.txt is
+        hosted only on domains that blanket-block this agent, and no workaround
+        was sought. Secondary sources describe a `quantity` field holding net
+        quantity or size, but that is second-hand and is not recorded as fact.
+        Two unknowns are decisive: whether quantity is raw text or a parsed
+        numeric with a unit, and what the US makeup fill rate actually is.
+    verdict: >
+      The single most important open question in the study. It is the only
+      identified route to structured net quantity, and therefore the only
+      candidate that could rescue drugstore-tier coverage. Requires a decision
+      on retrieval before it can be tested.
+
+  - key: kaggle_sephora_historical
+    display_name: Historical Sephora dataset (Kaggle)
+    source_type: bulk_dataset
+    status: selected_supplementary
+    access:
+      method: bulk_download
+      auth_required: true
+      auth_type: account_approval
+    cost:
+      model: free
+    legal:
+      automated_access_permitted: yes
+      checked_at: 2026-08-22
+    coverage:
+      quantity: embedded
+      retail_price: structured
+      ingredients: structured
+      rating: structured
+      review_count: structured
+    measured:
+      products_tested: 0
+      measured_at: null
+      notes: "Row count (~9,800) and licence from secondary descriptions; Kaggle pages did not render for automated fetching."
+    constraints:
+      - "§17: historical metadata ONLY. Store as historical_price, never current_price."
+      - "Prestige/Sephora assortment - cannot cover the drugstore tier."
+    verdict: >
+      Supplementary, never primary. Its real value is as labelled test material
+      for the §27-31 quantity parser before live data exists.
+
+  - key: serpapi
+    display_name: SerpApi
+    source_type: api
+    status: candidate
+    access:
+      method: rest_api
+      auth_required: true
+      auth_type: api_key
+      signup_required: true
+    cost:
+      model: freemium
+      free_tier: "250 searches/month, 50/hour"
+      paid_tiers_usd_month: {25: 1000, 75: 5000, 150: 15000, 275: 30000, 725: 100000}
+      approved_spend: 0
+      note: "Approved for free tier only, hard stop at the free limit."
+    legal:
+      terms_url: https://serpapi.com/pricing
+      checked_at: 2026-08-22
+    coverage:
+      quantity: embedded
+      retail_price: structured
+    measured:
+      products_tested: 0
+      measured_at: null
+      notes: "Not measured - awaiting an API key. Size present only where a merchant puts it in the listing title."
+    verdict: "Possible breadth/price fallback. Not a solution to the size problem."
+
+  # ---- rejected ------------------------------------------------------
+
+  - key: amazon_paapi
+    display_name: Amazon Product Advertising API v5 / Creators API
+    source_type: api
+    status: rejected
+    rejection_reason: >
+      PA-API v5 deprecated and already returning HTTP 403. Successor Creators API
+      requires an approved creator account and (per secondary sources,
+      unconfirmed from Amazon's own docs, which sit behind a sign-in wall) at
+      least 10 qualifying sales in a rolling 30 days. Access revocable on falling
+      below threshold, so it cannot underpin a reproducible pipeline (§89).
+    legal:
+      checked_at: 2026-08-22
+      checked_url: https://affiliate-program.amazon.com/creatorsapi/docs/en-us/paapiv5-deprecation
+
+  - key: google_shopping_content_api
+    display_name: Google Shopping Content API
+    source_type: api
+    status: rejected
+    rejection_reason: >
+      Wrong direction of data flow. It uploads your OWN catalogue to Merchant
+      Center and cannot query other retailers' products. Never a candidate.
+    legal:
+      checked_at: 2026-08-22
+      checked_url: https://developers.google.com/shopping-content/guides/quickstart
+
+  - key: sephora
+    display_name: Sephora
+    source_type: website
+    status: rejected
+    rejection_reason: >
+      robots.txt itself returns HTTP 403 - the file declaring crawler policy is
+      not served. Site refuses automated requests at the edge. Excluded per §14;
+      no circumvention attempted or proposed.
+    legal:
+      robots_url: https://www.sephora.com/robots.txt
+      automated_access_permitted: "no"
+      checked_at: 2026-08-22
+
+  - key: ulta
+    display_name: Ulta Beauty
+    source_type: website
+    status: rejected
+    rejection_reason: >
+      Terms prohibit it on two independent grounds, despite a permissive
+      robots.txt.
+    legal:
+      terms_url: https://www.ulta.com/company/terms-and-conditions
+      robots_url: https://www.ulta.com/robots.txt
+      automated_access_permitted: "no"
+      exact_clause: >
+        Licence granted is "a limited license to access and make personal use of
+        the Site and Site content only for noncommercial purposes", expressly
+        excluding "any resale or commercial use of the Site; any collection and
+        use of any product listings, descriptions, or prices; any derivative use
+        of the Site". Separately prohibits "any use of data mining, robots, or
+        similar data gathering and extraction tools".
+      robots_directives: >
+        "User-agent: *" disallows only /community/groups/*. Product pages are NOT
+        disallowed. The permissive robots.txt does not override the terms.
+      checked_at: 2026-08-22
+
+  - key: ebay_browse_api
+    display_name: eBay Browse API
+    source_type: api
+    status: rejected
+    rejection_reason: >
+      Accessible but unsuitable. Listings are seller-authored marketplace text,
+      so brand, size and category are inconsistent by construction, and prices
+      reflect resale rather than retail - failing §18's retail-snapshot framing.
+      Size fields never confirmed; documentation timed out on three attempts.
+    limits:
+      rate_limit: "5,000 calls/day default; free Application Growth Check raises it"
+    cost:
+      model: free
+    legal:
+      checked_at: 2026-08-22
+
+  - key: impact_com
+    display_name: Impact.com product catalogue
+    source_type: affiliate_network
+    status: rejected
+    rejection_reason: "Dropped by decision - approval latency unbounded, fields not documented publicly."
+    legal:
+      checked_at: 2026-08-22
+
+# ---- NOT ASSESSED ------------------------------------------------------
+# Recorded rather than assumed. Not ruled in or out.
+
+not_assessed:
+  - key: kroger_products_api
+    reason: "Developer portal timed out on four attempts across two URLs; docs are JavaScript-rendered. Mass-market assortment only."
+  - key: cj_affiliate
+    reason: "Product-feeds URL returned 404."
+  - key: rakuten_advertising
+    reason: "Not reached."
+  - key: upc_gtin_lookup
+    reason: "Relevant to §22 entity resolution, not to primary acquisition."
+  - key: walmart
+    reason: "Not reached. Potentially relevant to the drugstore quantity gap."
+  - key: target
+    reason: "Not reached. Potentially relevant to the drugstore quantity gap."
+
+# ---- DECISION ----------------------------------------------------------
+
 selected:
-  primary: null
+  primary: brand_shopify_storefronts
+  primary_caveat: >
+    Provides name, brand, price, URL and retailer at 100%, but supplies NO
+    quantity for the drugstore tier. It is the spine of the dataset, not a
+    complete source.
+  quantity_source: UNRESOLVED
   fallback: null
   decided_at: null
-  rationale: null
+  rationale: >
+    Blocking issue: measured quantity coverage is 12.3% overall and 0.0% for
+    drugstore, against §88's 90% target. The drugstore tier is the subject of the
+    central research question (§98), so this is not a coverage shortfall to
+    document - it is a gap that prevents the primary comparison. Resolution
+    depends on Open Beauty Facts, which is untested, and on a decision about
+    project scope. See reports/source_feasibility_report.md.
