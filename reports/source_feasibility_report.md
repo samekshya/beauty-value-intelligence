@@ -641,6 +641,68 @@ everything else in single digits; and **nine brands at exactly 0.0%** —
 Anastasia Beverly Hills, ColourPop, Essence, Haus Labs, Juvia's Place, Milani,
 Physicians Formula, Saie, Wet n Wild.
 
+### Tier breakdown — the disclosure asymmetry as a finding
+
+Re-measured with the strict plausibility rules (magnitude bounds from
+`config/unit_rules.yaml`, case-sensitive units, no script blocks). The stricter
+pass moves overall coverage from 12.3% to **11.4%** — the earlier regex had
+accepted a small amount of junk. The strict figure is the one to cite.
+
+"With qty" counts a plausible size in a structured slot: variant title, product
+option, or product title. Sizes appearing only in description prose are shown
+separately and **not** counted, because prose can describe a bundle component or
+a recommended product rather than the item itself.
+
+| Tier | n | With qty | Coverage | Body-only |
+| --- | ---: | ---: | ---: | ---: |
+| **Drugstore** | 1,098 | **0** | **0.0%** | 22 |
+| Mid-range | 593 | 12 | 2.0% | 20 |
+| High-end | 1,471 | 225 | 15.3% | 135 |
+| Luxury | 171 | 143 | 83.6% | 6 |
+| **All** | **3,333** | **380** | **11.4%** | |
+
+**Drugstore, by brand — the zero is uniform, not an average.**
+
+| Brand | n | With qty | Coverage |
+| --- | ---: | ---: | ---: |
+| ColourPop | 250 | 0 | 0.0% |
+| Essence | 233 | 0 | 0.0% |
+| Milani | 161 | 0 | 0.0% |
+| Physicians Formula | 204 | 0 | 0.0% |
+| Wet n Wild | 250 | 0 | 0.0% |
+
+Five brands, 1,098 products, zero structured sizes. Not one brand is dragging
+down an otherwise non-zero average; every drugstore storefront probed behaves
+identically. (ColourPop's 22 body-only hits are bundle listings naming component
+sizes, which is why prose is excluded from the count.)
+
+**The finding.** Drugstore brands, as a class, do not disclose net quantity on
+their own storefronts. Non-drugstore brands sometimes do. That asymmetry is a
+result about market behaviour, not an artefact of collection — the same
+endpoint, the same method and the same rules were applied to every brand, and
+the drugstore result was confirmed by a second retrieval method on e.l.f. and
+Wet n Wild product pages.
+
+It is also a result with an obvious interpretation that must *not* be asserted
+on this evidence: that mass-market brands withhold size because it would make
+per-unit comparison easy. The data shows the disclosure gap; it says nothing
+about intent. The claim this supports is narrower — *size disclosure on
+brand-owned storefronts is tier-dependent, and absent at the mass-market end.*
+
+**The caveat that keeps it honest.** Non-drugstore coverage is poor too. The
+15.3% high-end figure is almost entirely MAC (213 of 225), and the 83.6% luxury
+figure is Tom Ford Beauty alone. **Excluding those two brands, non-drugstore
+coverage is 24 of 1,814 — 1.3%.** Anastasia Beverly Hills, Tarte, Saie, Tower 28,
+Haus Labs, Juvia's Place and Morphe are all at exactly 0.0%, indistinguishable
+from drugstore.
+
+So the defensible statement is not "prestige discloses, drugstore doesn't." It
+is: *drugstore disclosure is categorically zero; prestige disclosure is near-zero
+with two exceptions.* The asymmetry survives, but it is between 0% and 1.3%, not
+between 0% and 15%. Stated at its true size it is still a finding — a clean
+categorical zero across 1,098 products is not noise — but it is a much smaller
+one than the tier table suggests at a glance.
+
 ### Why — the mechanism, confirmed
 
 Shopify variant titles carry size **only when a product is sold in more than one

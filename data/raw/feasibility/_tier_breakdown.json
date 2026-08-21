@@ -1,0 +1,29 @@
+{
+  "by_tier": {
+    "drugstore": {
+      "n": 1098,
+      "with_quantity": 0,
+      "coverage": 0.0
+    },
+    "mid_range": {
+      "n": 593,
+      "with_quantity": 12,
+      "coverage": 0.0202
+    },
+    "high_end": {
+      "n": 1471,
+      "with_quantity": 225,
+      "coverage": 0.153
+    },
+    "luxury": {
+      "n": 171,
+      "with_quantity": 143,
+      "coverage": 0.8363
+    }
+  },
+  "all": {
+    "n": 3333,
+    "with_quantity": 380,
+    "coverage": 0.114
+  }
+}
