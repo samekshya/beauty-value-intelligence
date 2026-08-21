@@ -99,8 +99,8 @@ sources:
       automated_access_permitted: yes
       robots_directives: >
         Checked per brand 2026-08-22. Product paths not disallowed on any brand
-        used. Several (Fenty Beauty, Anastasia Beverly Hills) name AI crawlers
-        and grant access explicitly.
+        used. Several (Fenty Beauty, Anastasia Beverly Hills) name third-party
+        crawlers and grant access explicitly.
       checked_at: 2026-08-22
     coverage:
       product_name: structured
@@ -182,9 +182,9 @@ sources:
       licence: "Open Database License (structure); Database Contents License (records); CC-BY-SA (images)"
       robots_directives: >
         "User-agent: *" disallows /api, /cgi, /facets - so the live API is off
-        limits to all agents. /data/ is NOT disallowed for "*". Separate blanket
-        "Disallow: /" blocks exist for ClaudeBot, anthropic-ai and Claude-Web on
-        both world.openbeautyfacts.org and static.openfoodfacts.org.
+        limits to all crawlers. /data/ is NOT disallowed for "*". Separate
+        blanket "Disallow: /" blocks exist for ~45 named third-party crawlers
+        on both world.openbeautyfacts.org and static.openfoodfacts.org.
       checked_at: 2026-08-22
     coverage:
       quantity: unknown
@@ -194,8 +194,8 @@ sources:
       measured_at: null
       notes: >
         NOT MEASURED. Schema could not be confirmed because data-fields.txt is
-        hosted only on domains that blanket-block this agent, and no workaround
-        was sought. Secondary sources describe a `quantity` field holding net
+        hosted only on domains that refuse automated fetching, and no
+        workaround was sought. Secondary sources describe a `quantity` field holding net
         quantity or size, but that is second-hand and is not recorded as fact.
         Two unknowns are decisive: whether quantity is raw text or a parsed
         numeric with a unit, and what the US makeup fill rate actually is.
