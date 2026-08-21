@@ -590,6 +590,116 @@ integrity of the central research question at the tiers where sampling works.
 
 ---
 
+## MEASURED field coverage — Task C results
+
+Probed 2026-08-22. All figures below are counted from retrieved responses, not
+estimated. Raw responses and provenance are in `data/raw/feasibility/`.
+
+**Method.** Fetched the public product JSON from 20 brand-owned Shopify
+storefronts whose `robots.txt` permits product paths, identifying honestly as
+`beauty-value-intelligence/0.1`, with a 2-second delay between requests.
+Reached **19 of 20** brands and retrieved **3,333 products**. e.l.f. returned
+`404` on `products.json` — the endpoint is disabled there, so e.l.f. needs a
+different route despite its permissive robots.
+
+### §16 critical fields — measured across 3,333 products
+
+| Field | Coverage | Note |
+| --- | --- | --- |
+| Product name | **100.0%** | |
+| Brand | **100.0%** | `vendor` |
+| Retail price | **100.0%** | `variants[].price` |
+| Product URL | **100.0%** | from `handle` |
+| Retailer | **100.0%** | implicit — the brand's own store |
+| Category | **81.8%** | `product_type`, but see below |
+| **Quantity** | **12.3%** | **fails the screening criterion** |
+| **Unit** | **12.3%** | same field |
+| Rating | **0%** | absent from this source |
+| Review count | **0%** | absent |
+| UPC/EAN | **0%** | absent |
+| Ingredients | **0%** | absent |
+| Finish / Coverage | **0%** | absent |
+
+Category nominally reaches 81.8%, but the values are not a usable taxonomy:
+606 products carry an empty `product_type`, and the populated values mix
+granularities and casing — `Lips`, `Eyes`, `eye`, `face`, `Face`,
+`Foundations & Concealers`, `Makeup Set`, `Bundle`, `Fragrance`, `Skincare
+Bundle`. Mapping these onto the 19 categories in `config/categories.yaml` is
+real work, and some rows cannot be mapped at all.
+
+### Size coverage by tier — the finding that matters
+
+| Tier | Products | Size present | Coverage |
+| --- | --- | --- | --- |
+| **Drugstore** | 1,098 | **0** | **0.0%** |
+| Mid-range | 593 | 15 | 2.5% |
+| High-end | 1,471 | 251 | 17.1% |
+| Luxury | 171 | 144 | 84.2% |
+
+By brand, the split is near-binary. MAC 85.2% and Tom Ford Beauty 84.2%;
+everything else in single digits; and **nine brands at exactly 0.0%** —
+Anastasia Beverly Hills, ColourPop, Essence, Haus Labs, Juvia's Place, Milani,
+Physicians Formula, Saie, Wet n Wild.
+
+### Why — the mechanism, confirmed
+
+Shopify variant titles carry size **only when a product is sold in more than one
+size**. Inspecting the structures directly:
+
+- Tom Ford Beauty exposes an explicit `Size` option, with variants like
+  `"151 Iconic Nude / 0.07 oz"`. Genuine size data.
+- Wet n Wild and Milani expose `options=['Title']` and
+  `variants=['Default Title']`. One variant, no size. The shade sits in the
+  product name (`"Photo Focus Dewy Foundation | Classic Beige"`).
+
+Drugstore products are overwhelmingly single-size, so their variant slot encodes
+nothing. **The 0.0% is not a parsing failure — the data is absent.**
+
+### Is size merely JavaScript-rendered? No.
+
+Because the products.json result was ambiguous, 21 product detail pages were
+fetched across seven brands and searched for size in the rendered HTML.
+
+A first pass matched 18 of 21 pages, but those matches were **noise** —
+`029g`, `0MG`, `5Ml`, `7G` — hash and identifier fragments inside minified
+scripts. Counting them would have manufactured a coverage figure. After
+stripping `<script>`, `<style>` and `<noscript>`, requiring a plausible size
+shape and applying the magnitude bounds in `config/unit_rules.yaml`:
+
+| Measurement | Result |
+| --- | --- |
+| Plausible size in **visible page text** | **2 / 21 (9.5%)** |
+| Plausible size in **JSON-LD** | 2 / 21 (9.5%) |
+| Plausible size **anywhere incl. script blocks** | 6 / 21 (28.6%) |
+
+The 6 script-block hits do not rescue it. The values are **identical across all
+three pages of a given brand** — ABH returns `0.9 g, 18 g, 30 mL, 7 mL` on every
+page, ColourPop `0.95 fl oz, 28 mL, 5.8 fl oz` on every page — which is site-wide
+boilerplate from navigation and recommendation blocks, not each product's own
+size.
+
+**Essence, Milani, Physicians Formula, Saie and Wet n Wild returned zero
+plausible size tokens anywhere in the HTML, including scripts.** Size is not
+hidden behind JavaScript on these sites. It is not published.
+
+### The `grams` trap, quantified
+
+Shopify's variant `grams` field is populated on **55.7%** of products — over four
+times the real size coverage. It is shipping weight including packaging, and it
+is the single most dangerous field in this dataset: using it would produce
+price-per-gram figures for 1,857 products that look entirely reasonable and are
+all wrong. No validation rule in §33 would flag them.
+
+### Verdict against §88
+
+§88 targets quantity coverage above 90%. Measured coverage from brand-owned
+Shopify storefronts is **12.3% overall and 0.0% for drugstore**. §88 says to
+report honestly rather than adjust the target, so: this source cannot support
+the central research question on its own. The tier the question is *about* has no
+size data at all.
+
+---
+
 ## Where this leaves the acquisition plan
 
 **The bottleneck is size, and it is worse than the spec's §88 target assumes.**

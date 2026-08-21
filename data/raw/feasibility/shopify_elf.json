@@ -1,0 +1,13 @@
+{
+  "source_name": "e.l.f.",
+  "market_tier": "drugstore",
+  "source_url": "https://www.elfcosmetics.com/products.json?limit=250",
+  "source_type": "shopify_storefront_json",
+  "extraction_method": "http_get",
+  "collected_at": "2026-08-21T20:14:23.691738+00:00",
+  "http_status": 404,
+  "ok": false,
+  "error": "HTTPError: 404 Client Error: Not Found for url: https://www.elfcosmetics.com/products.json?limit=250",
+  "product_count": 0,
+  "payload": null
+}

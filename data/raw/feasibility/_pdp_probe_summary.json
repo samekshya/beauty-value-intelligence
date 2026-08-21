@@ -1,0 +1,372 @@
+{
+  "probed_at": "2026-08-21T20:18:20.029979+00:00",
+  "user_agent": "beauty-value-intelligence/0.1 (Stage 1.0 source feasibility study)",
+  "results": [
+    {
+      "brand": "Milani",
+      "handle": "new-combo",
+      "source_url": "https://www.milanicosmetics.com/products/new-combo",
+      "collected_at": "2026-08-21T20:16:50.859675+00:00",
+      "http_status": 200,
+      "size_in_html": true,
+      "size_in_jsonld": false,
+      "matches": [
+        "029g",
+        "0G",
+        "0MG",
+        "0Oz",
+        "0g",
+        "0mG",
+        "0mg",
+        "0ml",
+        "121mG",
+        "1262g",
+        "142mL",
+        "16g"
+      ],
+      "error": null
+    },
+    {
+      "brand": "Milani",
+      "handle": "highly-rated-diamond-lip-gloss-sca_clone_freegift",
+      "source_url": "https://www.milanicosmetics.com/products/highly-rated-diamond-lip-gloss-sca_clone_freegift",
+      "collected_at": "2026-08-21T20:16:54.953680+00:00",
+      "http_status": 200,
+      "size_in_html": true,
+      "size_in_jsonld": false,
+      "matches": [
+        "029g",
+        "0G",
+        "0MG",
+        "0Oz",
+        "0g",
+        "0mG",
+        "0mg",
+        "0ml",
+        "121mG",
+        "1262g",
+        "142mL",
+        "16g"
+      ],
+      "error": null
+    },
+    {
+      "brand": "Milani",
+      "handle": "baked-blurring-finishing-powder",
+      "source_url": "https://www.milanicosmetics.com/products/baked-blurring-finishing-powder",
+      "collected_at": "2026-08-21T20:16:59.459792+00:00",
+      "http_status": 200,
+      "size_in_html": true,
+      "size_in_jsonld": false,
+      "matches": [
+        "029g",
+        "0G",
+        "0MG",
+        "0Oz",
+        "0g",
+        "0mG",
+        "0mg",
+        "0ml",
+        "121mG",
+        "1262g",
+        "142mL",
+        "16g"
+      ],
+      "error": null
+    },
+    {
+      "brand": "Essence",
+      "handle": "club-soleil-lip-stain",
+      "source_url": "https://essencemakeup.com/products/club-soleil-lip-stain",
+      "collected_at": "2026-08-21T20:17:04.446550+00:00",
+      "http_status": 200,
+      "size_in_html": true,
+      "size_in_jsonld": false,
+      "matches": [
+        "1g",
+        "5G"
+      ],
+      "error": null
+    },
+    {
+      "brand": "Essence",
+      "handle": "club-soleil-slim-lipstick",
+      "source_url": "https://essencemakeup.com/products/club-soleil-slim-lipstick",
+      "collected_at": "2026-08-21T20:17:08.400369+00:00",
+      "http_status": 200,
+      "size_in_html": true,
+      "size_in_jsonld": false,
+      "matches": [
+        "1g",
+        "2Mg",
+        "5G"
+      ],
+      "error": null
+    },
+    {
+      "brand": "Essence",
+      "handle": "club-soleil-gradient-lipgloss",
+      "source_url": "https://essencemakeup.com/products/club-soleil-gradient-lipgloss",
+      "collected_at": "2026-08-21T20:17:12.336579+00:00",
+      "http_status": 200,
+      "size_in_html": true,
+      "size_in_jsonld": false,
+      "matches": [
+        "1g",
+        "5G"
+      ],
+      "error": null
+    },
+    {
+      "brand": "Wet n Wild",
+      "handle": "megalast-liquid-catsuit-matte-lipstick-give-me-mocha",
+      "source_url": "https://www.wetnwildbeauty.com/products/megalast-liquid-catsuit-matte-lipstick-give-me-mocha",
+      "collected_at": "2026-08-21T20:17:16.292835+00:00",
+      "http_status": 200,
+      "size_in_html": false,
+      "size_in_jsonld": false,
+      "matches": [],
+      "error": null
+    },
+    {
+      "brand": "Wet n Wild",
+      "handle": "photo-focus-dewy-foundation-classic-beige",
+      "source_url": "https://www.wetnwildbeauty.com/products/photo-focus-dewy-foundation-classic-beige",
+      "collected_at": "2026-08-21T20:17:20.137631+00:00",
+      "http_status": 200,
+      "size_in_html": false,
+      "size_in_jsonld": false,
+      "matches": [],
+      "error": null
+    },
+    {
+      "brand": "Wet n Wild",
+      "handle": "photo-focus-dewy-foundation-bronze-beige",
+      "source_url": "https://www.wetnwildbeauty.com/products/photo-focus-dewy-foundation-bronze-beige",
+      "collected_at": "2026-08-21T20:17:24.408219+00:00",
+      "http_status": 200,
+      "size_in_html": false,
+      "size_in_jsonld": false,
+      "matches": [],
+      "error": null
+    },
+    {
+      "brand": "ColourPop",
+      "handle": "the-daily-face-eye-cream-moisturizer-set",
+      "source_url": "https://colourpop.com/products/the-daily-face-eye-cream-moisturizer-set",
+      "collected_at": "2026-08-21T20:17:28.410604+00:00",
+      "http_status": 200,
+      "size_in_html": true,
+      "size_in_jsonld": true,
+      "matches": [
+        "0.95 fl oz",
+        "122.75 ml",
+        "28 mL",
+        "28 ml",
+        "4.15 fl.oz",
+        "5.8 fl oz",
+        "9g"
+      ],
+      "error": null
+    },
+    {
+      "brand": "ColourPop",
+      "handle": "tickled-pink-ultra-glossy-lip-set",
+      "source_url": "https://colourpop.com/products/tickled-pink-ultra-glossy-lip-set",
+      "collected_at": "2026-08-21T20:17:32.652217+00:00",
+      "http_status": 200,
+      "size_in_html": true,
+      "size_in_jsonld": false,
+      "matches": [
+        "0.95 fl oz",
+        "28 mL",
+        "28 ml",
+        "5.8 fl oz",
+        "9g"
+      ],
+      "error": null
+    },
+    {
+      "brand": "ColourPop",
+      "handle": "cool-nudes-ultra-glossy-lip-set",
+      "source_url": "https://colourpop.com/products/cool-nudes-ultra-glossy-lip-set",
+      "collected_at": "2026-08-21T20:17:36.900422+00:00",
+      "http_status": 200,
+      "size_in_html": true,
+      "size_in_jsonld": false,
+      "matches": [
+        "0.95 fl oz",
+        "28 mL",
+        "28 ml",
+        "5.8 fl oz",
+        "9g"
+      ],
+      "error": null
+    },
+    {
+      "brand": "Physicians Formula",
+      "handle": "butter-highlighter-champagne",
+      "source_url": "https://www.physiciansformula.com/products/butter-highlighter-champagne",
+      "collected_at": "2026-08-21T20:17:41.133829+00:00",
+      "http_status": 200,
+      "size_in_html": true,
+      "size_in_jsonld": false,
+      "matches": [
+        "1mL",
+        "5Mg",
+        "5Ml",
+        "629g",
+        "6mg",
+        "8g"
+      ],
+      "error": null
+    },
+    {
+      "brand": "Physicians Formula",
+      "handle": "butter-donut-bronzer-sprinkles",
+      "source_url": "https://www.physiciansformula.com/products/butter-donut-bronzer-sprinkles",
+      "collected_at": "2026-08-21T20:17:45.108267+00:00",
+      "http_status": 200,
+      "size_in_html": true,
+      "size_in_jsonld": false,
+      "matches": [
+        "1mL",
+        "5Mg",
+        "5Ml",
+        "629g",
+        "6mg",
+        "8g"
+      ],
+      "error": null
+    },
+    {
+      "brand": "Physicians Formula",
+      "handle": "butter-coffee-bronzer-latte",
+      "source_url": "https://www.physiciansformula.com/products/butter-coffee-bronzer-latte",
+      "collected_at": "2026-08-21T20:17:49.348515+00:00",
+      "http_status": 200,
+      "size_in_html": true,
+      "size_in_jsonld": false,
+      "matches": [
+        "1mL",
+        "5Mg",
+        "5Ml",
+        "629g",
+        "6mg",
+        "8g"
+      ],
+      "error": null
+    },
+    {
+      "brand": "Anastasia Beverly Hills",
+      "handle": "abh-pro-subscription-fee",
+      "source_url": "https://www.anastasiabeverlyhills.com/products/abh-pro-subscription-fee",
+      "collected_at": "2026-08-21T20:17:53.345726+00:00",
+      "http_status": 200,
+      "size_in_html": true,
+      "size_in_jsonld": false,
+      "matches": [
+        "0 ml",
+        "0.03 Oz",
+        "0.11 Oz",
+        "0.24 Fl. Oz",
+        "0.28 Fl. Oz",
+        "0.35 Oz",
+        "0.63 Oz",
+        "0.9g",
+        "03G",
+        "0g",
+        "0mG",
+        "0mL"
+      ],
+      "error": null
+    },
+    {
+      "brand": "Anastasia Beverly Hills",
+      "handle": "makeup-wipes",
+      "source_url": "https://www.anastasiabeverlyhills.com/products/makeup-wipes",
+      "collected_at": "2026-08-21T20:17:57.822877+00:00",
+      "http_status": 200,
+      "size_in_html": true,
+      "size_in_jsonld": false,
+      "matches": [
+        "0 ml",
+        "0.03 Oz",
+        "0.11 Oz",
+        "0.24 Fl. Oz",
+        "0.28 Fl. Oz",
+        "0.35 Oz",
+        "0.63 Oz",
+        "0.9g",
+        "03G",
+        "0g",
+        "0mG",
+        "0mL"
+      ],
+      "error": null
+    },
+    {
+      "brand": "Anastasia Beverly Hills",
+      "handle": "kiss-theory-lip-balm",
+      "source_url": "https://www.anastasiabeverlyhills.com/products/kiss-theory-lip-balm",
+      "collected_at": "2026-08-21T20:18:02.384310+00:00",
+      "http_status": 200,
+      "size_in_html": true,
+      "size_in_jsonld": true,
+      "matches": [
+        "0 ml",
+        "0.03 Oz",
+        "0.04 Oz",
+        "0.11 Oz",
+        "0.24 Fl. Oz",
+        "0.28 Fl. Oz",
+        "0.35 Oz",
+        "0.63 Oz",
+        "0.9g",
+        "03G",
+        "0g",
+        "0mG"
+      ],
+      "error": null
+    },
+    {
+      "brand": "Saie",
+      "handle": "double-ended-eye-shadow-brush",
+      "source_url": "https://saiehello.com/products/double-ended-eye-shadow-brush",
+      "collected_at": "2026-08-21T20:18:07.039166+00:00",
+      "http_status": 200,
+      "size_in_html": true,
+      "size_in_jsonld": false,
+      "matches": [
+        "7G"
+      ],
+      "error": null
+    },
+    {
+      "brand": "Saie",
+      "handle": "supersuede-baked-eyeshadow",
+      "source_url": "https://saiehello.com/products/supersuede-baked-eyeshadow",
+      "collected_at": "2026-08-21T20:18:11.366890+00:00",
+      "http_status": 200,
+      "size_in_html": true,
+      "size_in_jsonld": false,
+      "matches": [
+        "7G"
+      ],
+      "error": null
+    },
+    {
+      "brand": "Saie",
+      "handle": "the-beach-case",
+      "source_url": "https://saiehello.com/products/the-beach-case",
+      "collected_at": "2026-08-21T20:18:15.740244+00:00",
+      "http_status": 200,
+      "size_in_html": true,
+      "size_in_jsonld": false,
+      "matches": [
+        "7G"
+      ],
+      "error": null
+    }
+  ]
+}

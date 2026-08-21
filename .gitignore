@@ -10,3 +10,6 @@ __pycache__/
 Thumbs.db
 .docs
 .claude 
+
+# Feasibility probe artefacts: saved PDP HTML is bulky and reproducible
+data/raw/feasibility/pdp/

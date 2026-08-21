@@ -1,0 +1,201 @@
+[
+  {
+    "file": "anastasia_beverly_hills__abh-pro-subscription-fee.html",
+    "brand": "Anastasia Beverly Hills",
+    "visible": [],
+    "jsonld": [],
+    "meta": [],
+    "has_visible": false,
+    "has_jsonld": false
+  },
+  {
+    "file": "anastasia_beverly_hills__kiss-theory-lip-balm.html",
+    "brand": "Anastasia Beverly Hills",
+    "visible": [
+      "1 g"
+    ],
+    "jsonld": [
+      "1 g"
+    ],
+    "meta": [],
+    "has_visible": true,
+    "has_jsonld": true
+  },
+  {
+    "file": "anastasia_beverly_hills__makeup-wipes.html",
+    "brand": "Anastasia Beverly Hills",
+    "visible": [],
+    "jsonld": [],
+    "meta": [],
+    "has_visible": false,
+    "has_jsonld": false
+  },
+  {
+    "file": "colourpop__cool-nudes-ultra-glossy-lip-set.html",
+    "brand": "Colourpop",
+    "visible": [],
+    "jsonld": [],
+    "meta": [],
+    "has_visible": false,
+    "has_jsonld": false
+  },
+  {
+    "file": "colourpop__the-daily-face-eye-cream-moisturizer-set.html",
+    "brand": "Colourpop",
+    "visible": [
+      "122.75 ml",
+      "4.15 fl.oz."
+    ],
+    "jsonld": [
+      "122.75 ml",
+      "4.15 fl.oz."
+    ],
+    "meta": [],
+    "has_visible": true,
+    "has_jsonld": true
+  },
+  {
+    "file": "colourpop__tickled-pink-ultra-glossy-lip-set.html",
+    "brand": "Colourpop",
+    "visible": [],
+    "jsonld": [],
+    "meta": [],
+    "has_visible": false,
+    "has_jsonld": false
+  },
+  {
+    "file": "essence__club-soleil-gradient-lipgloss.html",
+    "brand": "Essence",
+    "visible": [],
+    "jsonld": [],
+    "meta": [],
+    "has_visible": false,
+    "has_jsonld": false
+  },
+  {
+    "file": "essence__club-soleil-lip-stain.html",
+    "brand": "Essence",
+    "visible": [],
+    "jsonld": [],
+    "meta": [],
+    "has_visible": false,
+    "has_jsonld": false
+  },
+  {
+    "file": "essence__club-soleil-slim-lipstick.html",
+    "brand": "Essence",
+    "visible": [],
+    "jsonld": [],
+    "meta": [],
+    "has_visible": false,
+    "has_jsonld": false
+  },
+  {
+    "file": "milani__baked-blurring-finishing-powder.html",
+    "brand": "Milani",
+    "visible": [],
+    "jsonld": [],
+    "meta": [],
+    "has_visible": false,
+    "has_jsonld": false
+  },
+  {
+    "file": "milani__highly-rated-diamond-lip-gloss-sca_clone_freegift.html",
+    "brand": "Milani",
+    "visible": [],
+    "jsonld": [],
+    "meta": [],
+    "has_visible": false,
+    "has_jsonld": false
+  },
+  {
+    "file": "milani__new-combo.html",
+    "brand": "Milani",
+    "visible": [],
+    "jsonld": [],
+    "meta": [],
+    "has_visible": false,
+    "has_jsonld": false
+  },
+  {
+    "file": "physicians_formula__butter-coffee-bronzer-latte.html",
+    "brand": "Physicians Formula",
+    "visible": [],
+    "jsonld": [],
+    "meta": [],
+    "has_visible": false,
+    "has_jsonld": false
+  },
+  {
+    "file": "physicians_formula__butter-donut-bronzer-sprinkles.html",
+    "brand": "Physicians Formula",
+    "visible": [],
+    "jsonld": [],
+    "meta": [],
+    "has_visible": false,
+    "has_jsonld": false
+  },
+  {
+    "file": "physicians_formula__butter-highlighter-champagne.html",
+    "brand": "Physicians Formula",
+    "visible": [],
+    "jsonld": [],
+    "meta": [],
+    "has_visible": false,
+    "has_jsonld": false
+  },
+  {
+    "file": "saie__double-ended-eye-shadow-brush.html",
+    "brand": "Saie",
+    "visible": [],
+    "jsonld": [],
+    "meta": [],
+    "has_visible": false,
+    "has_jsonld": false
+  },
+  {
+    "file": "saie__supersuede-baked-eyeshadow.html",
+    "brand": "Saie",
+    "visible": [],
+    "jsonld": [],
+    "meta": [],
+    "has_visible": false,
+    "has_jsonld": false
+  },
+  {
+    "file": "saie__the-beach-case.html",
+    "brand": "Saie",
+    "visible": [],
+    "jsonld": [],
+    "meta": [],
+    "has_visible": false,
+    "has_jsonld": false
+  },
+  {
+    "file": "wet_n_wild__megalast-liquid-catsuit-matte-lipstick-give-me-mocha.html",
+    "brand": "Wet N Wild",
+    "visible": [],
+    "jsonld": [],
+    "meta": [],
+    "has_visible": false,
+    "has_jsonld": false
+  },
+  {
+    "file": "wet_n_wild__photo-focus-dewy-foundation-bronze-beige.html",
+    "brand": "Wet N Wild",
+    "visible": [],
+    "jsonld": [],
+    "meta": [],
+    "has_visible": false,
+    "has_jsonld": false
+  },
+  {
+    "file": "wet_n_wild__photo-focus-dewy-foundation-classic-beige.html",
+    "brand": "Wet N Wild",
+    "visible": [],
+    "jsonld": [],
+    "meta": [],
+    "has_visible": false,
+    "has_jsonld": false
+  }
+]

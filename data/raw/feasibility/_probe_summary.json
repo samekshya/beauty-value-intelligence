@@ -1,0 +1,166 @@
+{
+  "probed_at": "2026-08-21T20:15:29.739360+00:00",
+  "user_agent": "beauty-value-intelligence/0.1 (Stage 1.0 source feasibility study)",
+  "results": [
+    {
+      "brand": "e.l.f.",
+      "tier": "drugstore",
+      "status": 404,
+      "ok": false,
+      "products": 0,
+      "error": "HTTPError: 404 Client Error: Not Found for url: https://www.elfcosmetics.com/products.json?limit=250"
+    },
+    {
+      "brand": "Milani",
+      "tier": "drugstore",
+      "status": 200,
+      "ok": true,
+      "products": 161,
+      "error": null
+    },
+    {
+      "brand": "Essence",
+      "tier": "drugstore",
+      "status": 200,
+      "ok": true,
+      "products": 233,
+      "error": null
+    },
+    {
+      "brand": "Wet n Wild",
+      "tier": "drugstore",
+      "status": 200,
+      "ok": true,
+      "products": 250,
+      "error": null
+    },
+    {
+      "brand": "ColourPop",
+      "tier": "drugstore",
+      "status": 200,
+      "ok": true,
+      "products": 250,
+      "error": null
+    },
+    {
+      "brand": "Physicians Formula",
+      "tier": "drugstore",
+      "status": 200,
+      "ok": true,
+      "products": 204,
+      "error": null
+    },
+    {
+      "brand": "Morphe",
+      "tier": "mid_range",
+      "status": 200,
+      "ok": true,
+      "products": 159,
+      "error": null
+    },
+    {
+      "brand": "Juvia's Place",
+      "tier": "mid_range",
+      "status": 200,
+      "ok": true,
+      "products": 184,
+      "error": null
+    },
+    {
+      "brand": "Pixi",
+      "tier": "mid_range",
+      "status": 200,
+      "ok": true,
+      "products": 250,
+      "error": null
+    },
+    {
+      "brand": "MAC",
+      "tier": "high_end",
+      "status": 200,
+      "ok": true,
+      "products": 250,
+      "error": null
+    },
+    {
+      "brand": "Rare Beauty",
+      "tier": "high_end",
+      "status": 200,
+      "ok": true,
+      "products": 137,
+      "error": null
+    },
+    {
+      "brand": "Fenty Beauty",
+      "tier": "high_end",
+      "status": 200,
+      "ok": true,
+      "products": 250,
+      "error": null
+    },
+    {
+      "brand": "Tarte",
+      "tier": "high_end",
+      "status": 200,
+      "ok": true,
+      "products": 249,
+      "error": null
+    },
+    {
+      "brand": "Anastasia Beverly Hills",
+      "tier": "high_end",
+      "status": 200,
+      "ok": true,
+      "products": 179,
+      "error": null
+    },
+    {
+      "brand": "Huda Beauty",
+      "tier": "high_end",
+      "status": 200,
+      "ok": true,
+      "products": 175,
+      "error": null
+    },
+    {
+      "brand": "Saie",
+      "tier": "high_end",
+      "status": 200,
+      "ok": true,
+      "products": 61,
+      "error": null
+    },
+    {
+      "brand": "Tower 28",
+      "tier": "high_end",
+      "status": 200,
+      "ok": true,
+      "products": 62,
+      "error": null
+    },
+    {
+      "brand": "Makeup by Mario",
+      "tier": "high_end",
+      "status": 200,
+      "ok": true,
+      "products": 60,
+      "error": null
+    },
+    {
+      "brand": "Haus Labs",
+      "tier": "high_end",
+      "status": 200,
+      "ok": true,
+      "products": 48,
+      "error": null
+    },
+    {
+      "brand": "Tom Ford Beauty",
+      "tier": "luxury",
+      "status": 200,
+      "ok": true,
+      "products": 171,
+      "error": null
+    }
+  ]
+}
