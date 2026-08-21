@@ -13,3 +13,10 @@ Thumbs.db
 
 # Feasibility probe artefacts: saved PDP HTML is bulky and reproducible
 data/raw/feasibility/pdp/
+
+# Open Beauty Facts bulk exports: large, licensed ODbL, re-downloadable
+data/raw/obf/*.parquet
+data/raw/obf/*.csv
+data/raw/obf/*.jsonl
+data/raw/obf/*.gz
+data/staging/obf_us_makeup.parquet
