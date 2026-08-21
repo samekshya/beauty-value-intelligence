@@ -59,3 +59,6 @@ Do not add attribution trailers to commit messages.
 Do not: fabricate data · convert g↔mL · use price for tier or
 similarity · scrape prohibited sources · report p-values without
 effect sizes · over-engineer · add tools that don't earn their place.
+
+Never print API keys or full request URLs in notebook cells.
+Clear notebook outputs before committing anything under notebooks/.
