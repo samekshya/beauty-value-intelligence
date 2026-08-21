@@ -2,7 +2,7 @@
 
 **Project:** Beyond the Price Tag — Beauty Value Intelligence Engine
 **Stage:** Phase 1 · Stage 1.0 — Feasibility
-**Status:** Task B complete (desk research). Task C (measured testing) not started.
+**Status:** Tasks B, C and D complete. One decision outstanding (quantity source).
 **All source checks performed:** 2026-08-22
 
 ---
@@ -713,22 +713,139 @@ size data at all.
 
 ---
 
-## Where this leaves the acquisition plan
+## Recommendation
 
-**The bottleneck is size, and it is worse than the spec's §88 target assumes.**
-§88 sets a quantity-coverage target of >90%. Nothing verified so far offers
-structured, unit-bearing quantity for US makeup. The realistic architecture is:
+### The finding that overrides everything else
 
-- **Text-embedded size, parsed** — from brand-owned storefronts, where the
-  manufacturer publishes the size and the data is authoritative.
-- **Structured size, if it exists at all** — Open Beauty Facts bulk export,
-  unconfirmed on both schema and US makeup fill rate.
+The drugstore tier — the subject of the §98 central research question — has
+**zero measured quantity coverage** from the only permitted, authoritative source
+found. Drugstore brands do not publish product size on their own storefronts.
+This is not a parsing gap the Stage 1.2 parser can close: there is nothing to
+parse. Two independent methods agree, across nine brands, including e.l.f.
 
-This raises the stakes on the §27–31 parser considerably. It is no longer merely
-"the hardest technical piece" of Stage 1.2 — it is the component that determines
-whether a dataset exists. It also makes the Shopify `weight` trap the single
-most dangerous available shortcut, because it yields a plausible number that is
-wrong in a way no downstream check would catch.
+Every architecture below is shaped by that one fact.
+
+### Primary acquisition architecture
+
+**Brand-owned Shopify storefronts as the product spine, with quantity supplied
+from a second source.**
+
+*Why this and not something else.* The storefronts deliver product name, brand,
+list price, product URL and retailer at **100%** on 3,333 products across 19
+brands, free, permitted, no auth, and manufacturer-authoritative — satisfying §13
+item 4 and §19's list-price requirement directly. Nothing else verified comes
+close on the critical fields it *does* cover. Its failure is confined to one
+field. So the right move is to keep it for what it is good at and solve quantity
+separately, rather than abandon the one source that works.
+
+*What the spine does not provide.* Rating, review count, UPC/EAN, ingredients,
+finish and coverage are absent entirely. The §16 "strongly preferred" and
+"preferred" tiers cannot be filled from the primary source at all.
+
+*Why it is only partially selected.* `config/data_sources.yaml` records
+`quantity_source: UNRESOLVED`. The primary cannot be declared complete until
+quantity has a named source with measured coverage. That is the gate.
+
+### The quantity source — the decision that is actually pending
+
+**Open Beauty Facts is the only identified route to structured net quantity,
+and it is untested.** Its schema could not be confirmed because the hosts
+blanket-block this agent, and no workaround was sought. Three outcomes are
+possible, and Stage 1.0 cannot close until one of them is measured:
+
+1. **OBF carries a parsed numeric `product_quantity` with a unit, at a usable
+   US-makeup fill rate.** Then it becomes the quantity source, joined to the
+   spine by barcode — which also supplies UPC/EAN for §22 entity resolution.
+   Best case.
+2. **OBF carries a raw `quantity` label string at a usable fill rate.** Then it is
+   *embedded*, the §27–31 parser does the work, and the join is still by
+   barcode. Workable.
+3. **OBF's US makeup fill rate is too low.** Then no identified source supplies
+   drugstore quantity, and the project has to choose between the fallback
+   below and a scope change.
+
+Testing it requires a bulk-export download, which is a licensed ODbL
+distribution channel rather than a crawl, and `User-agent: *` permits `/data/`.
+That decision sits with the project owner.
+
+### Fallback architecture, and when to switch
+
+**Fallback: manual quantity capture for a curated product set.**
+
+§26 already specifies a manually validated hero/anchor set of 50–100 products.
+If no structured source emerges, that set expands: pick products
+category-by-category, read the size from packaging or the manufacturer's
+product page where it exists, record provenance per §25, and build the
+quantity-adjusted analysis on a smaller, fully verified dataset.
+
+*Switch trigger:* OBF measured US-makeup quantity fill rate for drugstore brands
+below roughly 50%. At that point barcode-joining gets most rows nothing, and
+manual capture is faster and more defensible than patching a sparse join.
+
+*Cost of switching:* the dataset shrinks far below §9's 600–800 minimum. The
+analysis stays honest — every number traceable — but the scale claims in §82
+and §97 have to be rewritten. A "multi-source pipeline" that delivers 150 hand-
+verified products is a different project from the one specified, and the README
+would need to say so rather than imply otherwise.
+
+### Realistic dataset-size ceiling
+
+| Scenario | Products with verified quantity | Against §9 |
+| --- | --- | --- |
+| Spine only, as measured today | **~410** (12.3% of 3,333), **0 drugstore** | Below minimum, and structurally useless for the research question |
+| + OBF at a good fill rate | Potentially 800–1,500 with drugstore represented | Meets "strong final dataset" |
+| + OBF at a poor fill rate | ~410 + whatever joins | Below minimum |
+| Manual fallback | 150–300, hand-verified | Far below minimum; a different project |
+
+The 3,333 retrievable products are a catalogue ceiling, not a dataset ceiling.
+Without quantity they are names and prices, which the project explicitly exists
+to go beyond.
+
+Tier damage from the brand sweep compounds this: luxury has two reachable brands
+(Tom Ford Beauty, Armani Beauty) against a §10 target of 100 products. See the
+platform-reachability risk above.
+
+### Fields no source can supply, and what that means downstream
+
+| Field | §16 priority | Best available source | Consequence |
+| --- | --- | --- | --- |
+| **Quantity / unit (drugstore)** | Critical | None identified | **Blocks the central comparison until resolved** |
+| Rating | Strongly preferred | Kaggle historical only (prestige brands, stale) | §40 Bayesian rating, §41 rating-adjusted value and §50 price-vs-rating cannot run on current data. At best they run on the historical Sephora subset, clearly labelled. |
+| Review count | Strongly preferred | Same | Same. §51 brand value analysis loses its rating dimension. |
+| UPC / EAN | Very useful | OBF, if usable | Without it, §22 entity resolution falls back to fuzzy name matching with lower `match_confidence`. |
+| Ingredients | Preferred | Kaggle historical; OBF possibly | Phase 3 ingredient Jaccard (§56) is limited to products present in those sources. |
+| Finish / Coverage | Preferred | Must be derived from description text | Phase 3 candidate filtering (§55) depends on text extraction, not structured attributes. |
+| Multi-retailer offers | §20 | None — no multi-brand retailer is permitted | `product_offers` becomes one row per product. Cross-retailer dispersion is out of scope. Dataset represents manufacturer list price, not street price. |
+
+The honest summary for the README: the project can measure **quantity-adjusted
+list-price economics across tiers** for whatever subset has verified quantity.
+It cannot, with current sources, relate those economics to consumer ratings on
+current data, and it cannot measure retailer-level price variation at all.
+
+### What Stage 1.0 has and has not delivered
+
+Against the roadmap gate:
+
+- **Primary source named** — yes, with a documented hole.
+- **Fallback named** — yes.
+- **Legal status documented per source with the exact clause** — yes, for every
+  source reached. Ulta's clause is quoted verbatim; Sephora's and the five
+  luxury houses' refusals are recorded as HTTP 403 with no circumvention sought.
+- **Real quantity coverage measured, not assumed** — yes: 12.3% overall, 0.0%
+  drugstore, from 3,333 products, confirmed by a second method.
+
+What it has not delivered is a **quantity source for the drugstore tier**. That
+is the open decision, and it is the project owner's to make, because the
+candidate that could resolve it requires a retrieval decision and the
+alternatives change the project's scope.
+
+### Historical note
+
+The earlier draft of this report, written before measurement, said the parser
+had become "the component that determines whether a dataset exists." That was
+half right. The parser is still essential for the embedded sizes that do exist.
+But measurement showed the larger problem is upstream of any parser: for the
+tier that matters most, the size is not published. No parser fixes an absence.
 
 **No US multi-brand beauty retailer is available.** Sephora blocks automated
 requests at the edge; Ulta's terms prohibit collection of product listings and
