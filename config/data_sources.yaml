@@ -347,6 +347,48 @@ sources:
     legal:
       checked_at: 2026-08-22
 
+  - key: target
+    display_name: Target
+    source_type: website
+    status: rejected
+    rejection_reason: "Terms prohibit automated navigation, data extraction tools, and systematic storage of content; licence is noncommercial personal use only."
+    legal:
+      terms_url: https://www.target.com/c/terms-conditions/-/N-4sr7l
+      robots_url: https://www.target.com/robots.txt
+      automated_access_permitted: "no"
+      exact_clause: >
+        Prohibits use of "any engine, software, tool, agent, data or other device
+        or mechanism (including browsers, spiders, robots, avatars or intelligent
+        agents) to navigate or search the Site"; "any use of data extraction,
+        scraping, mining or other data gathering tools, or create a database by
+        systematically downloading or storing Site content"; and "any commercial
+        use of the Site or its Content, including making any collection or use
+        of any product listings, descriptions, prices or images".
+      robots_directives: "User-agent: * only; /p/ product pages NOT disallowed; no blanket block. robots is not permission."
+      checked_at: 2026-08-22
+
+  - key: walmart
+    display_name: Walmart
+    source_type: website
+    status: rejected
+    rejection_reason: >
+      Terms of use pages serve a CAPTCHA interstitial on three URLs across two
+      domains - the policy itself is not readable without circumvention.
+      Prohibition corroborated by corporate-site terms and secondary sources
+      but not primary-verified. No public product API for non-sellers.
+    legal:
+      terms_url: "https://www.walmart.com/help/article/walmart-com-terms-of-use/3b75080af40340d6bbd596f116fae5a0 (CAPTCHA)"
+      robots_url: https://www.walmart.com/robots.txt
+      automated_access_permitted: "no"
+      exact_clause: >
+        NOT READ from the retail site (CAPTCHA). corporate.walmart.com terms,
+        governing that site only, prohibit "any engine, software, tool, agent or
+        other device or mechanism (including without limitation browsers,
+        spiders, robots, avatars or intelligent agents) to navigate or search
+        this Site".
+      robots_directives: "User-agent: * disallows /account/, /api/, /search, ajax paths; /ip/ product pages NOT disallowed. robots is not permission."
+      checked_at: 2026-08-22
+
 # ---- NOT ASSESSED ------------------------------------------------------
 # Recorded rather than assumed. Not ruled in or out.
 
@@ -359,10 +401,6 @@ not_assessed:
     reason: "Not reached."
   - key: upc_gtin_lookup
     reason: "Relevant to §22 entity resolution, not to primary acquisition."
-  - key: walmart
-    reason: "Not reached. Potentially relevant to the drugstore quantity gap."
-  - key: target
-    reason: "Not reached. Potentially relevant to the drugstore quantity gap."
 
 # ---- DECISION ----------------------------------------------------------
 

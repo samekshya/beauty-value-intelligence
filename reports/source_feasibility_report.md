@@ -401,13 +401,113 @@ field, its rate limits, and its cost are all **unknown**. Kroger's makeup
 assortment is also mass-market only, so it could not serve the prestige or
 luxury tiers even if it verified well.
 
+### 11. Target — excluded (terms prohibit it)
+
+| | |
+| --- | --- |
+| Terms | https://www.target.com/c/terms-conditions/-/N-4sr7l · 2026-08-22 · actual document, last updated 2026-04-15 |
+| robots.txt | https://www.target.com/robots.txt · 2026-08-22 |
+
+Target was the most promising fix for the drugstore quantity hole: mass-market
+makeup sells there, and its product pages carry specification tables with net
+contents. The terms settle it.
+
+**Terms of use — verbatim clauses.** The licence is:
+
+> "a limited license to access and make personal use of the Site and the
+> Content for NONCOMMERCIAL PURPOSES ONLY"
+
+Users agree not to:
+
+> "Use or attempt to use any engine, software, tool, agent, data or other device
+> or mechanism (including browsers, spiders, robots, avatars or intelligent
+> agents) to navigate or search the Site other than the search engine and
+> search agents provided by Target"
+
+> "Make any use of data extraction, scraping, mining or other data gathering
+> tools, or create a database by systematically downloading or storing Site
+> content"
+
+> "Make any commercial use of the Site or its Content, including making any
+> collection or use of any product listings, descriptions, prices or images"
+
+and:
+
+> "Accessing, downloading, printing, posting, storing or otherwise using the
+> Site or any of the Content for any commercial purpose ... constitutes a
+> material breach."
+
+**robots.txt — separately.** `User-agent: *` only. Roughly 100 disallowed paths
+covering `/admin`, `/Checkout`, `/account/`, `/cart`, search parameters and
+legacy paths. **Product pages (`/p/`) are not disallowed.** No blanket
+`Disallow: /` for any agent, no `Crawl-delay`.
+
+**robots ≠ permission, again.** Target's robots.txt would let any crawler read
+every product page. Its terms prohibit three separate things this project would
+do: using an agent to navigate the site, using data extraction tools, and
+creating a database by systematically storing content. The "create a database
+by systematically downloading or storing Site content" clause describes the
+project's `data/raw/` layer exactly.
+
+**Verdict: Excluded.** No workaround sought.
+
+---
+
+### 12. Walmart — excluded (terms unreadable behind CAPTCHA; prohibition corroborated)
+
+| | |
+| --- | --- |
+| Terms attempted | `walmart.com/help/article/walmart-com-terms-of-use/…fae5f0`, `…fae5a0`, `business.walmart.com/help/article/walmart-business-terms-of-use/…` · 2026-08-22 |
+| Result | **CAPTCHA interstitial on all three**, across two domains |
+| robots.txt | https://www.walmart.com/robots.txt · 2026-08-22 |
+| Corporate terms | https://corporate.walmart.com/terms-of-use · 2026-08-22 · governs corporate site only |
+
+**Terms of use — not readable.** Three distinct URLs on two Walmart domains all
+served a bot-verification page ("Activate and hold the button to confirm that
+you're human") rather than the document. Walmart's *terms of use* are themselves
+behind a CAPTCHA. Per §14 that ends the inquiry — the site refuses automated
+access at the threshold, and solving a CAPTCHA to read the policy is exactly
+the circumvention §14 prohibits.
+
+**Corroborating text, secondary.** The corporate-site terms (readable, but
+governing `corporate.walmart.com` only) prohibit using "any engine, software,
+tool, agent or other device or mechanism (including without limitation
+browsers, spiders, robots, avatars or intelligent agents) to navigate or search
+this Site." Secondary sources quote the retail-site terms as prohibiting use of
+"any robot, spider, site search/retrieval application or other manual or
+automatic device to retrieve, index, 'scrape,' 'data mine' or otherwise gather
+any Materials ... without Walmart's express prior written consent." That
+wording is **not recorded as verified** — it was not read from the retail
+site's own page — but it is consistent with the corporate terms and with the
+CAPTCHA behaviour.
+
+**Developer route checked.** `developer.walmart.com` lists APIs for Marketplace
+sellers, 1P suppliers, carriers and advertisers. No public product-lookup API
+for non-sellers is offered. Walmart's affiliate programme runs through
+Impact.com, which was dropped earlier by decision.
+
+**robots.txt — separately.** `User-agent: *` disallows `/account/`, `/api/`,
+`/search`, `/store/ajax/`, `/typeahead/` and wildcard API paths. Product pages
+(`/ip/`) are not disallowed. No blanket `Disallow: /`. Only Yahoo's `Slurp` has
+a `Crawl-delay: 5`. Again permissive at the robots level; again not permission.
+
+**Verdict: Excluded.** On access behaviour alone — terms unreadable without
+CAPTCHA — with the prohibition corroborated but not primary-verified.
+
+---
+
+**Consequence of 11 and 12.** Walmart and Target were the last two candidates
+that sell mass-market makeup *and* publish net contents. Both are excluded on
+terms. With Sephora and Ulta already out, **every US retailer that carries
+drugstore makeup is closed to this project.** The drugstore quantity hole cannot
+be filled from any retailer. That leaves Open Beauty Facts and manual capture.
+
 | Source | Status | Reason |
 | --- | --- | --- |
 | CJ Affiliate product feeds | **unverified** | Product-feeds URL returned 404 |
 | Impact.com product catalogue | **dropped** | Dropped by decision — approval latency unbounded, fields not documented publicly |
 | Rakuten Advertising feeds | **not assessed** | Not reached |
 | UPC/GTIN lookup services | **not assessed** | Relevant to §22 entity resolution, not to primary acquisition |
-| Walmart / Target | **not assessed** | Not reached |
 
 ---
 
