@@ -13,7 +13,7 @@ mine to make. Full findings: `reports/source_feasibility_report.md`.
 Structured record: `config/data_sources.yaml`.
 
 What was measured (2026-08-22, 3,333 products, 19 brand storefronts):
-name / brand / list price / URL / retailer at 100%. **Quantity at 12.3%
+name / brand / list price / URL / retailer at 100%. **Quantity at 11.4%
 overall and 0.0% for drugstore.** Drugstore brands do not publish size on
 their own storefronts — confirmed by two independent methods, including
 e.l.f. and Wet n Wild product pages read directly. This is an absence of
@@ -22,8 +22,9 @@ data, not a parsing gap.
 Decisions made: primary spine = brand-owned Shopify storefronts.
 Fallback = manual quantity capture on an expanded §26 anchor set.
 Rejected with evidence: Amazon PA-API (deprecated, 403), Google Content API
-(wrong direction), Sephora (403 at edge), Ulta (terms prohibit — clause
-quoted), eBay (unsuitable), Impact (dropped).
+(wrong direction), Sephora (403 at edge), Ulta and Target (terms prohibit —
+clauses quoted), Walmart (terms behind CAPTCHA), eBay (unsuitable), Impact
+(dropped). Every US retailer carrying drugstore makeup is closed.
 
 **OPEN — blocks Stage 1.1:** the quantity source for the drugstore tier.
 Open Beauty Facts is the only identified route to structured quantity. It
@@ -79,16 +80,26 @@ Phase 4) — add them when that phase starts, not before.
 
 ## Git workflow
 
-After every meaningful unit of work, commit and push:
+After EVERY completed step — a file created, a config populated, a
+function written, a test passing, a doc section finished — immediately:
 
     git add -A
     git commit -m "<type>: <what changed>"
     git push
 
+Do not batch. Do not wait until a task is "done". A created file is a
+commit; a fixed typo is a commit. Small and frequent, always pushed.
+
 Types: feat, fix, data, docs, test, refactor, chore, analysis
 One logical change per commit. Never bundle unrelated work.
 Never commit files matched by .gitignore.
-Do not add attribution trailers to commit messages.
+
+Attribution — strict. No Co-Authored-By trailer. No "Generated with"
+line in commits or PRs. Never name a tool, model or assistant in a
+commit message, PR description, code comment, docstring or README.
+Commit messages describe the change only, never who or what made it.
+All commits author as the configured git user; never override
+user.name or user.email.
 
 ## Anti-goals
 
@@ -98,30 +109,3 @@ effect sizes · over-engineer · add tools that don't earn their place.
 
 Never print API keys or full request URLs in notebook cells.
 Clear notebook outputs before committing anything under notebooks/.
-
-GIT WORKFLOW — applies for the rest of this project, every session.
-
-After EVERY completed step — a file created, a config populated, a
-function written, a test passing, a doc section finished — immediately:
-
-  git add -A
-  git commit -m "<type>: <what changed>"
-  git push
-
-Do not batch work. Do not wait until a task is "done." If you created
-a file, that is a commit. If you fixed a typo, that is a commit. Small
-and frequent, always pushed.
-
-Types: feat, fix, data, docs, test, refactor, chore, analysis
-
-ATTRIBUTION — strict.
-
-- No Co-Authored-By trailer on any commit.
-- No "Generated with Claude Code" line, in commits or PRs.
-- Never write "Claude", "AI", "assistant", "agent", or any tool name in
-  a commit message, PR description, code comment, docstring, or README.
-- Commit messages describe the change only. Never who or what made it.
-- All commits author as the configured git user. Do not override
-  user.name or user.email for any reason.
-
-Confirm you have read this, then continue.

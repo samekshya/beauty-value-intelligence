@@ -416,7 +416,7 @@ selected:
   fallback: null
   decided_at: null
   rationale: >
-    Blocking issue: measured quantity coverage is 12.3% overall and 0.0% for
+    Blocking issue: measured quantity coverage is 11.4% overall and 0.0% for
     drugstore, against §88's 90% target. The drugstore tier is the subject of the
     central research question (§98), so this is not a coverage shortfall to
     document - it is a gap that prevents the primary comparison. Resolution

@@ -46,12 +46,14 @@ Three results change the shape of the acquisition plan:
 2. **Google's Shopping Content API is the wrong direction of data flow.** It
    uploads *your own* catalogue to Merchant Center. It cannot query other
    retailers' products. It is not a candidate at all.
-3. **Structured size data is scarce.** Not one source verified so far exposes a
-   dedicated, unit-bearing quantity field for US makeup. The single candidate
-   that plausibly does could not be verified, because its robots policy blocks
-   this agent. Size will most likely arrive **embedded in text** and have to be
-   parsed — which promotes the §27–31 parser from "hardest technical piece" to
-   "the thing the dataset's existence depends on".
+3. **Drugstore brands do not publish product size.** Measured across 1,098
+   drugstore products from five brand storefronts: **zero** carry a quantity,
+   uniformly across every brand, confirmed by a second method. Overall
+   coverage from permitted sources is 11.4% — 380 products of 3,333 — and
+   none of them are drugstore. Every US retailer that sells mass-market makeup
+   (Sephora, Ulta, Target, Walmart) is closed on terms or at the edge. The
+   only identified route to structured quantity, Open Beauty Facts, is
+   untested. The §98 research question is currently unanswerable.
 
 ---
 
@@ -712,8 +714,8 @@ different route despite its permissive robots.
 | Product URL | **100.0%** | from `handle` |
 | Retailer | **100.0%** | implicit — the brand's own store |
 | Category | **81.8%** | `product_type`, but see below |
-| **Quantity** | **12.3%** | **fails the screening criterion** |
-| **Unit** | **12.3%** | same field |
+| **Quantity** | **11.4%** | **fails the screening criterion** |
+| **Unit** | **11.4%** | same field |
 | Rating | **0%** | absent from this source |
 | Review count | **0%** | absent |
 | UPC/EAN | **0%** | absent |
@@ -726,20 +728,6 @@ granularities and casing — `Lips`, `Eyes`, `eye`, `face`, `Face`,
 `Foundations & Concealers`, `Makeup Set`, `Bundle`, `Fragrance`, `Skincare
 Bundle`. Mapping these onto the 19 categories in `config/categories.yaml` is
 real work, and some rows cannot be mapped at all.
-
-### Size coverage by tier — the finding that matters
-
-| Tier | Products | Size present | Coverage |
-| --- | --- | --- | --- |
-| **Drugstore** | 1,098 | **0** | **0.0%** |
-| Mid-range | 593 | 15 | 2.5% |
-| High-end | 1,471 | 251 | 17.1% |
-| Luxury | 171 | 144 | 84.2% |
-
-By brand, the split is near-binary. MAC 85.2% and Tom Ford Beauty 84.2%;
-everything else in single digits; and **nine brands at exactly 0.0%** —
-Anastasia Beverly Hills, ColourPop, Essence, Haus Labs, Juvia's Place, Milani,
-Physicians Formula, Saie, Wet n Wild.
 
 ### Tier breakdown — the disclosure asymmetry as a finding
 
@@ -868,7 +856,7 @@ all wrong. No validation rule in §33 would flag them.
 ### Verdict against §88
 
 §88 targets quantity coverage above 90%. Measured coverage from brand-owned
-Shopify storefronts is **12.3% overall and 0.0% for drugstore**. §88 says to
+Shopify storefronts is **11.4% overall and 0.0% for drugstore**. §88 says to
 report honestly rather than adjust the target, so: this source cannot support
 the central research question on its own. The tier the question is *about* has no
 size data at all.
@@ -954,9 +942,9 @@ would need to say so rather than imply otherwise.
 
 | Scenario | Products with verified quantity | Against §9 |
 | --- | --- | --- |
-| Spine only, as measured today | **~410** (12.3% of 3,333), **0 drugstore** | Below minimum, and structurally useless for the research question |
+| Spine only, as measured today | **380** (11.4% of 3,333), **0 drugstore** | Below minimum, and structurally useless for the research question |
 | + OBF at a good fill rate | Potentially 800–1,500 with drugstore represented | Meets "strong final dataset" |
-| + OBF at a poor fill rate | ~410 + whatever joins | Below minimum |
+| + OBF at a poor fill rate | 380 + whatever joins | Below minimum |
 | Manual fallback | 150–300, hand-verified | Far below minimum; a different project |
 
 The 3,333 retrievable products are a catalogue ceiling, not a dataset ceiling.
@@ -993,7 +981,7 @@ Against the roadmap gate:
 - **Legal status documented per source with the exact clause** — yes, for every
   source reached. Ulta's clause is quoted verbatim; Sephora's and the five
   luxury houses' refusals are recorded as HTTP 403 with no circumvention sought.
-- **Real quantity coverage measured, not assumed** — yes: 12.3% overall, 0.0%
+- **Real quantity coverage measured, not assumed** — yes: 11.4% overall, 0.0%
   drugstore, from 3,333 products, confirmed by a second method.
 
 What it has not delivered is a **quantity source for the drugstore tier**. That
