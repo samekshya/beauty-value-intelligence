@@ -18,7 +18,3 @@ data/raw/obf/*.csv
 data/raw/obf/*.jsonl
 data/raw/obf/*.gz
 data/staging/obf_us_makeup.parquet
-
-# local editor / tooling state
-.claude/
-CLAUDE.md
