@@ -275,29 +275,66 @@ tiers must be built from brand-owned sites and other retailers.
 
 ---
 
-### 7. Ulta — robots permissive, terms unverified
+### 7. Ulta — excluded (terms prohibit it)
 
 | | |
 | --- | --- |
-| Checked | https://www.ulta.com/robots.txt · 2026-08-22 |
+| robots.txt | https://www.ulta.com/robots.txt · 2026-08-22 |
+| Terms | https://www.ulta.com/company/terms-and-conditions · 2026-08-22 |
 
-`User-agent: *` disallows only `/community/groups/*` and `/community/groups?*`.
-There is no blanket `Disallow: /` and no `Crawl-delay`. Product pages are not
-disallowed for general crawlers. A grouped block covering `GPTBot`, `CCBot`,
+**Correction to an earlier draft of this report.** The terms were initially
+recorded as unreadable. That was a wrong URL, not a blocked page:
+`/terms-and-conditions` serves a "Be Right Back" waiting-room interstitial,
+while the actual document lives at `/company/terms-and-conditions` and loads
+normally. Ulta is now fully resolved.
+
+**robots.txt.** `User-agent: *` disallows only `/community/groups/*` and
+`/community/groups?*`. No blanket `Disallow: /`, no `Crawl-delay`. Product pages
+are not disallowed. A grouped block covering `GPTBot`, `CCBot`,
 `Meta-ExternalAgent`, `PerplexityBot`, `ClaudeBot` and `Google-Extended`
 disallows `/wishlists/`, `/curbside-alert/`, `/metrics1`–`/metrics3` and the
-community paths — but again not product pages.
+community paths — again, not product pages.
 
-**Terms of use — unverified.** `https://www.ulta.com/terms-and-conditions`
-served a "Be Right Back" waiting-room page, so no clause could be read.
+**Terms of use — verbatim clauses.** The terms grant only:
 
-This gap is decisive and must not be glossed. §14 requires checking *terms of
-use* **and** robots policy. A permissive robots.txt is not permission — retail
-terms commonly prohibit automated extraction regardless of what robots.txt says,
-and robots.txt is the weaker signal of the two.
+> "a limited license to access and make personal use of the Site and Site
+> content only for noncommercial purposes"
 
-**Verdict:** Cannot be classified. Blocked pending a readable terms page. Do not
-treat as approved on robots.txt alone.
+and that licence expressly excludes:
+
+> "any resale or commercial use of the Site; any collection and use of any
+> product listings, descriptions, or prices; any derivative use of the Site"
+
+It further prohibits:
+
+> "any use of data mining, robots, or similar data gathering and extraction
+> tools"
+
+and:
+
+> "The Site may not be reproduced, duplicated, copied, sold, resold, visited, or
+> otherwise exploited for any commercial purpose without the express written
+> consent of Ulta."
+
+**Verdict: Excluded.** This is decisive on two independent grounds. The general
+prohibition on "data mining, robots, or similar data gathering and extraction
+tools" rules out automated collection, and the licence carve-out for "any
+collection and use of any product listings, descriptions, or prices" names
+precisely what this project would collect — so even manual collection of
+listings and prices falls outside the granted licence.
+
+**This is the case study for why robots.txt is not permission.** Ulta's
+robots.txt is among the most permissive of any retailer checked: product pages
+are open to every crawler including this one. Its terms nonetheless prohibit the
+activity outright. §14 requires checking both, and where they disagree the terms
+govern. Had only robots.txt been consulted, Ulta would have looked like the best
+retailer source available.
+
+**Consequence.** Ulta was the highest-value unresolved candidate because it
+carries mass and prestige brands under one roof. Losing it, on top of Sephora,
+means **no US multi-brand beauty retailer is available**, and all product data
+must come from brand-owned sites one brand at a time. That also removes the
+easiest route to multi-retailer price observations for the same product (§20).
 
 ---
 
