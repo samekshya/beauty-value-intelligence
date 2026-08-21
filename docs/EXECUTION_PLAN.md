@@ -63,7 +63,7 @@ Authority: docs/PROJECT_SPEC.md (§ references) · docs/ROADMAP.md (gates)
 - [x] 2026-08-22 Both steps: terms prohibit; test not run. **1.0-T2c Target.** Same discipline as Walmart, both steps.
       Done when: same standard.
 
-- [ ] **1.0-T3a OBF preparation.** Decide export flavour (JSONL /
+- [x] 2026-08-22 **1.0-T3a OBF preparation.** Decide export flavour (JSONL /
       Parquet / CSV) with reasons. Specify fields to measure — raw
       text quantity AND any pre-parsed numeric quantity. Define how
       US makeup is identified inside a global cosmetics database
@@ -221,6 +221,15 @@ everything with the documented commands; and (4) the human can answer
 
 ## DEVIATION LOG
 *(one line each, dated, newest first)*
+
+- 2026-08-22 · T3a exceeded its "untested but complete" bar: the OBF
+  query was self-tested on a synthetic Parquet+CSV pair and the
+  integrity gate proven to halt on a truncated file (exit 3).
+- 2026-08-22 · T2b/T2c tests not run: Walmart and Target both
+  prohibited on terms, so the "only if permitted" condition failed.
+- 2026-08-22 · Plan tasks 1.0-R through T3a were already done before
+  the plan existed; each was re-verified by running its Done-when
+  check before being ticked, per PROTOCOL 2.
 
 - 2026-08-22 · Stale figure corrected: 12.3% → 11.4% strict
   quantity coverage; ceiling ~410 → ~380.
