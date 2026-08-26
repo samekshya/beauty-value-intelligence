@@ -10,9 +10,14 @@ same way as the storefront figure it will be compared with.
 
 Budget discipline. The account endpoint is read first; the run aborts unless
 the plan is the free one and at least SEARCHES plus a margin remain. Each
-product is exactly one request. Nothing is retried. The run stops at the
-first error response. Raw responses are stored under
-data/raw/feasibility/serpapi/ with provenance and the key scrubbed.
+product is at most one request per run. Nothing is retried within a run: a
+transport error or an empty-result error is recorded and the product is
+skipped; a quota or key error stops the run. Every call is bounded by a
+wall-clock cap (WALL_SECONDS) enforced outside the socket, and the run stops
+issuing requests after MAX_MINUTES. A re-run reuses every saved 200 response
+and requests only what is missing, so an interrupted run costs nothing
+extra. Raw responses are stored under data/raw/feasibility/serpapi/ with
+provenance and the key scrubbed.
 
 Selection rule, fixed before any query was sent: every drugstore brand whose
 storefront probe succeeded contributes its first PER_BRAND products in handle
@@ -31,6 +36,7 @@ import json
 import os
 import re
 import sys
+import threading
 import time
 from datetime import datetime, timezone
 from pathlib import Path
@@ -48,6 +54,8 @@ SUMMARY = RAW_DIR / "_serpapi_summary.json"
 SEARCHES = 20
 PER_BRAND = 4
 MARGIN = 5
+WALL_SECONDS = 90        # hard cap per call, enforced independently of the socket
+MAX_MINUTES = 8          # hard cap per run; no new request after this
 ENGINE = {"engine": "google_shopping", "gl": "us", "hl": "en"}
 USER_AGENT = "beauty-value-intelligence/0.1 (Stage 1.0 source feasibility study)"
 
@@ -127,18 +135,51 @@ def account(key: str) -> dict:
     }
 
 
-def search(key: str, query: str) -> tuple[int, dict]:
-    r = requests.get(
-        "https://serpapi.com/search.json",
-        params={**ENGINE, "q": query, "api_key": key},
-        timeout=60,
-        headers={"User-Agent": USER_AGENT},
+def search(key: str, query: str, wall_seconds: int = WALL_SECONDS) -> tuple[int, dict]:
+    """One request, bounded by wall clock.
+
+    The socket timeout in requests applies per read, not to the whole call;
+    a stalled connection can sit far past it. The request therefore runs in
+    a daemon thread and is abandoned - not retried - if it has not returned
+    within wall_seconds.
+    """
+    box: dict = {}
+
+    def run() -> None:
+        try:
+            r = requests.get(
+                "https://serpapi.com/search.json",
+                params={**ENGINE, "q": query, "api_key": key},
+                timeout=(15, 60),
+                headers={"User-Agent": USER_AGENT},
+            )
+            try:
+                box["body"] = r.json()
+            except ValueError:
+                box["body"] = {"error": f"non-json response ({len(r.text)} bytes)"}
+            box["status"] = r.status_code
+        except requests.RequestException as exc:
+            # the exception text can carry the request URL; the caller scrubs it
+            box["status"], box["body"] = 0, {"error": f"transport: {type(exc).__name__}: {exc}"}
+
+    t = threading.Thread(target=run, daemon=True)
+    t.start()
+    t.join(wall_seconds)
+    if t.is_alive():
+        return 0, {"error": f"abandoned: no response within {wall_seconds}s wall clock"}
+    return box.get("status", 0), box.get("body", {"error": "no result"})
+
+
+def response_path(product: dict) -> Path:
+    return OUT_DIR / (
+        re.sub(r"[^a-z0-9]+", "_", product["brand"].lower()) + "__" + product["handle"] + ".json"
     )
-    try:
-        body = r.json()
-    except ValueError:
-        body = {"error": f"non-json response ({len(r.text)} bytes)"}
-    return r.status_code, body
+
+
+def report_row(r: dict) -> None:
+    print(f"  {r['brand'][:18]:<18} results={r['n_results']:>2} brand={r['n_brand_results']:>2} "
+          f"sized(any)={r['n_results_with_size']:>2} sized(brand)={r['n_brand_results_with_size']:>2} "
+          f"{r['sizes_seen'][:3]}{'  (reused)' if r.get('reused') else ''}", flush=True)
 
 
 def brand_in(title: str, brand: str) -> bool:
@@ -173,7 +214,11 @@ def measure(product: dict, body: dict) -> dict:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true", help="list the selection; send nothing")
+    ap.add_argument("--max-minutes", type=float, default=MAX_MINUTES,
+                    help="stop issuing requests after this many minutes")
     args = ap.parse_args()
+    sys.stdout.reconfigure(line_buffering=True)
+    deadline = time.monotonic() + args.max_minutes * 60
 
     products = load_catalogue_products()
     print(f"selected {len(products)} products from "
@@ -198,41 +243,65 @@ def main() -> None:
         sys.exit("fewer than SEARCHES + MARGIN searches left - refusing to run")
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
-    rows, used = [], 0
-    for p in products:
-        if used >= SEARCHES:
-            break
-        collected_at = datetime.now(timezone.utc).isoformat()
-        status, body = search(key, p["query"])
-        used += 1
-        scrubbed = json.loads(json.dumps(body).replace(key, "<redacted>"))
-        record = {
-            "source_name": "SerpApi Google Shopping",
-            "source_type": "commercial_serp_api",
-            "extraction_method": "http_get",
-            "engine_params": ENGINE,
-            "query": p["query"],
-            "product": p,
-            "collected_at": collected_at,
-            "http_status": status,
-            "payload": scrubbed,
-        }
-        fname = re.sub(r"[^a-z0-9]+", "_", p["brand"].lower()) + "__" + p["handle"] + ".json"
-        (OUT_DIR / fname).write_text(
-            json.dumps(record, ensure_ascii=False, indent=2), encoding="utf-8"
-        )
-        if status != 200 or "error" in body:
-            print(f"!! stopping: status {status}, error {body.get('error')!r} on {p['query']}")
-            rows.append({**p, "error": body.get("error"), "http_status": status})
-            break
-        rows.append(measure(p, body))
-        r = rows[-1]
-        print(f"  {r['brand'][:18]:<18} results={r['n_results']:>2} brand={r['n_brand_results']:>2} "
-              f"sized(any)={r['n_results_with_size']:>2} sized(brand)={r['n_brand_results_with_size']:>2} "
-              f"{r['sizes_seen'][:3]}")
-        time.sleep(1.5)
+    rows, used, reused = [], 0, 0
+    try:
+        for p in products:
+            path = response_path(p)
+            if path.exists():
+                saved = json.loads(path.read_text(encoding="utf-8"))
+                payload = saved.get("payload") or {}
+                if saved.get("http_status") == 200 and "error" not in payload:
+                    reused += 1
+                    rows.append({**measure(p, payload), "reused": True,
+                                 "collected_at": saved.get("collected_at")})
+                    report_row(rows[-1])
+                    continue
+            if used >= SEARCHES:
+                break
+            if time.monotonic() > deadline:
+                print(f"!! run cap of {args.max_minutes} min reached; no further requests", flush=True)
+                break
+            collected_at = datetime.now(timezone.utc).isoformat()
+            status, body = search(key, p["query"])
+            used += 1
+            scrubbed = json.loads(json.dumps(body).replace(key, "<redacted>"))
+            record = {
+                "source_name": "SerpApi Google Shopping",
+                "source_type": "commercial_serp_api",
+                "extraction_method": "http_get",
+                "engine_params": ENGINE,
+                "query": p["query"],
+                "product": p,
+                "collected_at": collected_at,
+                "http_status": status,
+                "payload": scrubbed,
+            }
+            path.write_text(json.dumps(record, ensure_ascii=False, indent=2), encoding="utf-8")
+            err = scrubbed.get("error")
+            if status != 200 or err:
+                fatal = status in (401, 403, 429) or any(
+                    w in str(err).lower() for w in ("api key", "limit", "searches left", "rate")
+                )
+                print(f"!! {'stopping' if fatal else 'skipping'}: status {status}, "
+                      f"error {err!r} on {p['query']}", flush=True)
+                rows.append({**p, "error": err or f"http {status}", "http_status": status,
+                             "collected_at": collected_at})
+                if fatal:
+                    break
+                time.sleep(1.5)
+                continue
+            rows.append({**measure(p, scrubbed), "collected_at": collected_at})
+            report_row(rows[-1])
+            time.sleep(1.5)
+    finally:
+        try:
+            after = account(key)
+        except requests.RequestException as exc:
+            after = {"error": type(exc).__name__}
+        write_summary(rows, used, reused, before, after)
 
-    after = account(key)
+
+def write_summary(rows: list[dict], used: int, reused: int, before: dict, after: dict) -> None:
     ok = [r for r in rows if "error" not in r]
     n = len(ok)
     summary = {
@@ -240,7 +309,8 @@ def main() -> None:
         "engine_params": ENGINE,
         "selection_rule": "first PER_BRAND eligible products per drugstore brand in handle order",
         "per_brand": PER_BRAND,
-        "searches_used": used,
+        "searches_used_this_run": used,
+        "responses_reused_from_earlier_runs": reused,
         "account_before": before,
         "account_after": after,
         "n_products": n,
@@ -256,7 +326,11 @@ def main() -> None:
     }
     SUMMARY.write_text(json.dumps(summary, ensure_ascii=False, indent=2), encoding="utf-8")
 
-    print(f"\nsearches used: {used}   account after: {after}")
+    print(f"\nsearches used this run: {used}   reused: {reused}   account after: {after}")
+    failed = [r for r in rows if "error" in r]
+    if failed:
+        print(f"products without a usable response: {len(failed)} -> "
+              + "; ".join(f"{r['query']} ({r['error']})" for r in failed))
     if n:
         print(f"products with ANY result title carrying a size      : "
               f"{summary['products_with_any_sized_title']}/{n}")
