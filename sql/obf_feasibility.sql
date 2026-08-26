@@ -42,6 +42,7 @@ SET VARIABLE parquet_path = 'data/raw/obf/obf.parquet';
 SET VARIABLE csv_path     = 'data/raw/obf/obf.csv';
 SET VARIABLE site_total   = NULL;   -- Route 1: fill in the count read from the site
 SET VARIABLE tolerance    = 0.05;   -- 5% disagreement between flavours = suspect
+SET TimeZone = 'UTC';               -- dates below are reported in UTC
 
 
 -- ============================================================================

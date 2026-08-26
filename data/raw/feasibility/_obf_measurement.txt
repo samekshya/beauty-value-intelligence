@@ -4,7 +4,7 @@ external total: 73747 (Hugging Face datasets-server size endpoint, openfoodfacts
 
 -- SELECT * FROM obf_integrity
  parquet_rows  csv_rows  parquet_distinct_codes  csv_distinct_codes  site_total parquet_last_edit csv_last_edit  snapshot_gap_days  flavour_disagreement  external_disagreement                                                                                                                                                      verdict
-        73747     64237                   73747               64237       73747        2026-08-25    2026-05-08                108              0.128954                    0.0 WARN: flavours disagree, but the csv is a stale snapshot (see snapshot_gap_days) and the parquet matches the external total - proceeding on the parquet only
+        73747     64237                   73747               64237       73747        2026-08-24    2026-05-07                108              0.128954                    0.0 WARN: flavours disagree, but the csv is a stale snapshot (see snapshot_gap_days) and the parquet matches the external total - proceeding on the parquet only
 
 !! EXPORT INTEGRITY: WARN: flavours disagree, but the csv is a stale snapshot (see snapshot_gap_days) and the parquet matches the external total - proceeding on the parquet only
    Continuing. State this verdict before any figure below.
@@ -37,59 +37,59 @@ product_quantity_unit                                VARCHAR
                en:Korean Cosmetics  9
                     en:eyes-makeup  8
                       en:Cosmetics  7
-                           en:eyes  7
                     en:face-makeup  7
+                           en:eyes  7
                      en:lip-makeup  6
-                      en:lip-balms  5
+                         en:Makeup  5
                            en:face  5
                 en:Tinted Lip Balm  5
-                         en:Makeup  5
+                      en:lip-balms  5
                       en:lipsticks  4
                        en:Lip Tint  4
-                     en:Eye makeup  3
                         en:mascara  3
                      en:Eyeshadows  3
                  en:Matte Lip Tint  3
-                      en:lip-gloss  2
-            en:Volumizing mascaras  2
-                en:Velvet Lip Tint  2
+                     en:Eye makeup  3
                   en:Brow mascaras  2
+                      en:lip-gloss  2
+                en:Velvet Lip Tint  2
                  en:Eyebrow makeup  2
-                 en:Black mascaras  2
-              en:open-beauty-facts  2
            en:Lengthening mascaras  2
                       en:eyeliners  2
-                 en:Matte Lipstick  2
                    en:Eyebrow gels  2
-                        en:Blushes  1
-                    en:Lip glosses  1
-                       en:Lipstick  1
-                 en:Mousse blushes  1
-                en:Liquid Lipstick  1
-                           en:Lips  1
-            en:Tinted moisturizers  1
-                     en:eyeshadows  1
-                     en:Lip colors  1
-                    en:Lip make-up  1
+            en:Volumizing mascaras  2
+                 en:Black mascaras  2
+                 en:Matte Lipstick  2
+              en:open-beauty-facts  2
+                   en:hair-removal  1
+        en:non-open-products-facts  1
                en:Curling mascaras  1
-                      en:bb-creams  1
-                      en:cosmetics  1
-                       en:Lip oils  1
-                       en:lipstick  1
-en:plant-based-foods-and-beverages  1
-                    en:Foundations  1
-                       en:lipgloss  1
-              en:non-food-products  1
-                en:Glossy Lip Tint  1
-           en:Retro Matte Lipstick  1
-                   en:Highlighters  1
-                     en:Lip liners  1
-            en:Separating mascaras  1
-              en:plant-based-foods  1
+                    en:Lip make-up  1
+                           en:Lips  1
                   en:nail-hardener  1
-                        en:Make-up  1
-             en:Clear eyebrow gels  1
+                    en:Lip glosses  1
+                     en:eyeshadows  1
        en:Eyebrow styling products  1
+en:plant-based-foods-and-beverages  1
+              en:plant-based-foods  1
+            en:Tinted moisturizers  1
+                        en:Make-up  1
+                    en:lip-pencils  1
+                    en:Face makeup  1
+           en:Retro Matte Lipstick  1
+                 en:Cloud Lip Tint  1
+              en:non-food-products  1
+                en:make-up powders  1
+            en:Separating mascaras  1
+                 en:Mousse blushes  1
+                      en:bb-creams  1
+                       en:Lip oils  1
+                     en:Lip colors  1
+                      en:cosmetics  1
+                en:Liquid Lipstick  1
+                       en:lipstick  1
+                    en:Foundations  1
+                     en:Lip liners  1
 
 -- SELECT brands, count(*) AS n FROM obf_scope WHERE is_us AND (is_makeup
                                            brands  n
@@ -98,31 +98,31 @@ en:plant-based-foods-and-beverages  1
                               Maybelline New York  5
                                     L'Oréal Paris  4
                              3CE (3 Concept Eyes)  3
+                                      L.A. Colors  2
+                                          Nucolor  2
+        L'Oréal, L'Oreal Consumer products, Essie  2
                                      Sassy + Chic  2
 L'Oréal, L'Oreal Consumer products, L'Oréal Paris  2
-                                      L.A. Colors  2
-        L'Oréal, L'Oreal Consumer products, Essie  2
-                                          Nucolor  2
-                                      ever bilena  1
-                                          theBalm  1
-                                    Vivienne Sabo  1
-                                        CoverGirl  1
-                                       Pop-Arazzi  1
-                                 Parisa cosmetics  1
-                                        Covergirl  1
-                                        COVERGIRL  1
                                     Italia Deluxe  1
-                                         Lavanila  1
                                       Ruby Kisses  1
-                                          Gabriel  1
-                                           e.l.f.  1
+                                       Pop-Arazzi  1
+                                      ever bilena  1
+                        clean + easy professional  1
+                                         Lavanila  1
                                          Clinique  1
                                            Nestlé  1
-                                          L'Oréal  1
-                        clean + easy professional  1
-                                          Lancôme  1
+                                    Vivienne Sabo  1
+                                          theBalm  1
                                            Milani  1
+                                          L'Oréal  1
+                                          Lancôme  1
+                                        Covergirl  1
+                                          Gabriel  1
+                                           e.l.f.  1
+                                        COVERGIRL  1
+                                        CoverGirl  1
                                     MAC Cosmetics  1
+                                 Parisa cosmetics  1
 
 -- SELECT * FROM obf_quantity_fill
           scope     n  n_raw_quantity  raw_quantity_pct  n_parsed_quantity  parsed_quantity_pct  n_parsed_with_unit  parsed_with_unit_pct  n_either  either_pct
@@ -146,28 +146,28 @@ product_quantity_unit  n
             quantity  n
 0.44 fl. oz. (13 mL)  6
                3.5 g  5
-                 4 g  3
                    1  3
-                 5 g  1
-                6.5g  1
-               396 g  1
-             14.8 mL  1
-                3 ml  1
-                9 ml  1
-                1.4g  1
-                 8 g  1
-              131 ml  1
-               30 mL  1
-             0.21 oz  1
-                6 ml  1
-             13.5 ml  1
-               30 ml  1
-                 250  1
-               5.5 g  1
-                 3 g  1
+                 4 g  3
                   5   1
    5 ml (0.17 fl oz)  1
                40 ml  1
+                 8 g  1
+             13.5 ml  1
+               30 ml  1
+               5.5 g  1
+              131 ml  1
+                 5 g  1
+                 250  1
+                6 ml  1
+             14.8 mL  1
+                6.5g  1
+                9 ml  1
+                1.4g  1
+               30 mL  1
+                 3 g  1
+                3 ml  1
+             0.21 oz  1
+               396 g  1
 
 -- SELECT * FROM obf_by_tier
      tier  n_strict  n_strict_parsed_with_unit  n_broad  n_broad_parsed_with_unit  broad_parsed_with_unit_pct  n_broad_raw_quantity
@@ -179,8 +179,8 @@ drugstore        13                          9       16                        1
 l'oréal paris        6         5                   2
    maybelline        5         5                   4
     covergirl        3         2                   2
-       milani        1         1                   1
        e.l.f.        1         0                   1
+       milani        1         1                   1
 
 -- SELECT   t.tier,   count(DISTINCT s.code)                             
      tier  n_broad_any_country  n_us_tagged  n_parsed_with_unit_any_country  brands_present
@@ -194,7 +194,7 @@ mid_range                   13            0                               4     
         maybelline                   60            5                              16      netherlands:29 france:28 Türkiye:8
            essence                   45            0                              28       netherlands:37 germany:3 poland:2
                nyx                   15            0                               7        netherlands:12 france:2 canada:1
-     l'oréal paris                   14            6                               3 france:11 netherlands:6 united-states:6
+     l'oréal paris                   14            6                               3 france:11 united-states:6 netherlands:6
         wet n wild                   12            0                               0            Türkiye:10 turkey:7 sweden:1
             e.l.f.                    7            1                               7           netherlands:6 united-states:1
             revlon                    5            0                               0               canada:3 france:2 italy:1
