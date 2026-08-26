@@ -92,13 +92,18 @@ hint only.
             figure excluding MAC and Tom Ford, 24 of 1,814 (1.3%). Tables
             are in reports/final_insights.md.
 
-- [ ] **1.1-C2 Category cut.** Same measurement by product category.
+- [x] 2026-08-27 **1.1-C2 Category cut.** Same measurement by product category.
       Does disclosure vary by what the product is? Powders vs liquids
       is the interesting axis — liquids have volume printed for
       regulatory reasons more often than powders.
       Done when: committed table, and any pattern stated in one line.
+      - [x] 2026-08-27 `_category_breakdown.json` + per-product
+            `_category_assignments.csv`; tables and the one-line pattern in
+            reports/final_insights.md. Drugstore 0 in all 19 categories;
+            MAC + Tom Ford 85-100% in every category; other brands 3/211
+            weight vs 2/218 volume. Powders-vs-liquids not supported.
 
-- [ ] **1.1-C3 Mechanism and limits.** Write the finding with its
+- [x] 2026-08-27 **1.1-C3 Mechanism and limits.** Write the finding with its
       boundaries explicit: one channel (brand storefronts, not
       retailer listings), one market, no claim about intent, and the
       fact that prestige disclosure is also poor — 1.3% is not a
@@ -106,12 +111,18 @@ hint only.
       reader may and may not conclude.
       Done when: reports/final_insights.md contains finding #1 with
       figures traceable to 1.1-C1 and 1.1-C2 output.
+      - [x] 2026-08-27 Finding 1 names its source file for every figure
+            (C1 JSON, C2 JSON/CSV, PDP analysis); the "says / does not say"
+            section bounds channel, market, intent and now product form.
 
-- [ ] **1.1-C4 Consumer-facing statement.** One paragraph, plain
+- [x] 2026-08-27 **1.1-C4 Consumer-facing statement.** One paragraph, plain
       language: what this means for someone standing in a shop holding
       two products. This is the sentence that will open the README and
       the write-up.
       Done when: committed to reports/final_insights.md.
+      - [x] 2026-08-27 "For a shopper, in one paragraph" under finding 1.
+            README carries it at the next GATE refresh, per the README
+            discipline rule.
 
 ---
 
@@ -544,6 +555,14 @@ Done when all four hold:
 
 # DEVIATION LOG *(newest first, one line, dated)*
 
+- 2026-08-27 · 1.1-C2 surprise: of the 24 non-drugstore disclosures
+  outside MAC and Tom Ford, only 5 are §7 makeup products; 19 are perfume,
+  skincare and face mists. On makeup the comparator is 5 of 503 (1.0%).
+- 2026-08-27 · 1.1-C2 judgement call: the capture list's exclusion word
+  list, reused unchanged for comparability, also catches makeup (lash,
+  cream, oil, duo - 87 drugstore products on those words alone). Kept for
+  this cut because every drugstore bucket is zero regardless; the list
+  must not be reused as a makeup filter in Stage 1.2.
 - 2026-08-26 · Plan replaced wholesale by the owner with the fully
   expanded version. Tasks already done under the old numbering (1.0-G,
   1.1-C1, 1.1-B0 now B6, 1.1-B1) were re-verified by running their
