@@ -99,10 +99,14 @@ package was read.
 feasibility gate closed on 2026-08-26 with the decision to write up the
 disclosure asymmetry first, then capture drugstore quantities. Finding 1
 is written, with its tier, brand and category cuts. The capture list is
-registered. The OCR probe on storefront product images and its analysis
-script are committed; the measured hit rate is not yet committed to the
-report, so no OCR figure appears here. No unit price has been computed for
-any product.
+registered. The OCR probe on storefront product images read a net quantity
+for 8 of the 30 pre-registered drugstore products (26.7%), every one of
+the 8 correct against the image; 19 of the 22 misses have no size on the
+item the storefront photographs, so better OCR would not move them. The
+plan's threshold for OCR as the primary route is about 40%, and the
+go/no-go decision is pending
+([`reports/ocr_feasibility_report.md`](reports/ocr_feasibility_report.md)).
+No unit price has been computed for any product.
 
 Finding 1, from [`reports/final_insights.md`](reports/final_insights.md):
 on their own storefronts, drugstore brands disclose net quantity on 0 of
@@ -142,15 +146,21 @@ the network except the original probes.
 - `data/raw/capture/` — the pre-registered capture list: 250 drugstore
   products, 50 per brand across 19 categories, and the 30-product OCR
   sample. Identity and provenance fields only; no quantity, no price. The
-  rule is in `docs/capture_list.md`.
+  rule is in `docs/capture_list.md`. Beside it, the OCR probe's output:
+  per-product recognised text with every image's URL (`ocr/`), the run
+  summary, the analysis, and a by-eye audit of all 30 products
+  (`_ocr_probe_visual_audit.csv`). The images are gitignored and
+  re-downloadable.
+- `reports/ocr_feasibility_report.md` — the OCR test: hit rate under the
+  pre-registered rule and under a labelled post-hoc one, every hit checked
+  against its image, the misses classified, and the ceiling.
 - `src/ingest/` — the probes and measurements behind the above: storefront
   catalogue probe, coverage, tier and category breakdowns, saved-page
   strict analysis, Open Beauty Facts query with an export-integrity gate,
   Google Shopping title probe with a free-tier hard stop, capture-list
   pre-registration, and the OCR size probe on storefront product images
   — bounded, resumable from disk — with its read-only analysis script.
-  The probe's outputs are not yet committed. `sql/obf_feasibility.sql`
-  holds the Open Beauty Facts query.
+  `sql/obf_feasibility.sql` holds the Open Beauty Facts query.
 - `config/` — categories with their unit basis (`categories.yaml`),
   conversions and forbidden conversions (`unit_rules.yaml`), the
   provisional brand-tier list (`tier_mapping.yaml`), the source registry
