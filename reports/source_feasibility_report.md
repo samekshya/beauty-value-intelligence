@@ -2,8 +2,8 @@
 
 **Project:** Beyond the Price Tag — Beauty Value Intelligence Engine
 **Stage:** Phase 1 · Stage 1.0 — Feasibility
-**Status:** Tasks B, C and D complete. One decision outstanding (quantity source).
-**All source checks performed:** 2026-08-22
+**Status:** Tasks B, C and D complete. Open Beauty Facts measured 2026-08-26. Decision memo pending.
+**All source checks performed:** 2026-08-22 (Open Beauty Facts export measured 2026-08-26)
 
 ---
 
@@ -67,8 +67,8 @@ Three results change the shape of the acquisition plan:
 | Auth | None for bulk exports |
 | Cost | Free |
 | Licence | Open Database License (structure); Database Contents License (records); Creative Commons Attribution ShareAlike (images) |
-| **Size field** | **Unknown — unverified** |
-| Checked | https://world.openbeautyfacts.org/data · 2026-08-22 |
+| **Size field** | **Structured** — `product_quantity` + `product_quantity_unit`, with the raw label in `quantity`. Measured 2026-08-26: usable fill rate, negligible US-makeup volume. See *Open Beauty Facts — measured*. |
+| Checked | https://world.openbeautyfacts.org/data · 2026-08-22 · export measured 2026-08-26 |
 
 **Legal status — exact directives read.**
 `https://world.openbeautyfacts.org/robots.txt` (2026-08-22) contains:
@@ -888,6 +888,10 @@ quantity has a named source with measured coverage. That is the gate.
 
 ### The quantity source — the decision that is actually pending
 
+*This section is the framing written before the export was measured. The
+result is in "Open Beauty Facts — measured" below: outcome 3, in a specific
+form — the fill rate is usable, the volume is not.*
+
 **Open Beauty Facts is the only identified route to structured net quantity,
 and it is untested.** Its schema could not be confirmed because the hosts
 refuse automated fetching, and no workaround was sought. Three outcomes are
@@ -1011,6 +1015,137 @@ Both files are git-ignored (large, ODbL-licensed, re-downloadable). The query
 is read-only on `data/raw/` and writes its scoped subset to
 `data/staging/obf_us_makeup.parquet` for inspection.
 
+*Delivered 2026-08-26, with two differences from the list above: the files
+keep their published names (`beauty.parquet`, `en.openbeautyfacts.org.products.csv`,
+passed with `--parquet` / `--csv`), and the site count was not read — the
+row count the publisher advertises for the same Parquet file was used as the
+external total instead. Provenance and verification are recorded in
+`data/raw/obf/PROVENANCE.md`.*
+
+### Open Beauty Facts — measured
+
+Run 2026-08-26. Every figure below is from
+`data/raw/feasibility/_obf_measurement.txt`, produced by
+`python src/ingest/obf_feasibility.py --parquet data/raw/obf/beauty.parquet --csv data/raw/obf/en.openbeautyfacts.org.products.csv --site-total 73747 --total-source "…"`.
+
+**Integrity check — stated first, as required.** Verdict: **WARN, not PASS.**
+
+| Check | Result |
+| --- | --- |
+| Parquet rows / distinct barcodes | 73,747 / 73,747 |
+| CSV rows / distinct barcodes | 64,237 / 64,237 |
+| Flavour disagreement | 12.9% — **above the 5% tolerance** |
+| Newest edit in Parquet / in CSV | 2026-08-24 / 2026-05-07 — a 108-day gap |
+| Barcodes in both flavours | 60,902 (94.8% of the CSV's barcodes are in the Parquet) |
+| External total (publisher's advertised row count for this Parquet file) | 73,747 — **exact match**, and the file's byte size matches too (59,406,016) |
+
+The row-count check failed as designed, and the failure was diagnosed rather
+than waived. The CSV export the project publishes is a snapshot from 7 May;
+the Parquet is current. Both files were downloaded on the same day, so a
+re-download would return the same stale CSV. The disagreement is snapshot
+age, not truncation: the Parquet is the larger and newer flavour, it holds
+94.8% of the older flavour's barcodes, and it agrees with the publisher's
+own row count to the byte. The gate was extended so that this case — and
+only this case: a flavour at least 30 days staler *and* an external total
+that corroborates the Parquet — downgrades to a WARN that is printed and
+carried forward; an unexplained disagreement still halts. All figures below
+are from the Parquet alone. The site-advertised product count was not read,
+so Route 1 rests on the publisher's dataset API rather than the website.
+
+**Schema.** All eight required columns are present. `product_quantity` is
+text and needs `try_cast`, as anticipated. There is **no price field** of any
+kind in the 111-column schema; OBF's role was always quantity and barcodes,
+and that is confirmed.
+
+**Funnel.** Two makeup scopes are reported. *Strict* requires a tag naming a
+§7 product type (`en:lipsticks`, `en:mascara`, `en:Volumizing mascaras`…).
+*Broad* adds OBF's makeup family tags (`en:makeup`, `en:face-makeup`,
+`en:eyes-makeup`, `en:lip-makeup`), which say "makeup" without saying which
+type. The first run used a case-sensitive prefix filter and found 15 US rows;
+the tag vocabulary showed why, and the filter was corrected before anything
+was concluded.
+
+| Stage | Rows |
+| --- | ---: |
+| All rows | 73,747 |
+| Tagged `en:united-states` | 4,806 |
+| — of which carrying no category tag at all | 2,377 (49.5%) |
+| Makeup, strict, any country | 344 |
+| Makeup, broad, any country | 942 |
+| **US makeup, strict** | **24** |
+| **US makeup, broad** | **57** |
+
+Half of the US-tagged rows are invisible to any category filter, so the US
+makeup counts are a floor. They are not a floor with a large ceiling above
+it: the US-tagged brand list is Dove, Aveeno, Neutrogena, CeraVe — this is a
+hygiene-and-skincare corpus with a makeup fringe.
+
+**Fill rates.** `parsed_with_unit` is the structured field with a unit; `raw`
+is the label string.
+
+| Scope | n | Raw label | Parsed numeric | Parsed + unit |
+| --- | ---: | ---: | ---: | ---: |
+| All rows | 73,747 | 41.8% | 32.1% | 21.9% |
+| US, all products | 4,806 | 21.4% | 17.9% | 14.8% |
+| Makeup, any country | 344 | 49.4% | 35.5% | 28.8% |
+| US makeup, strict | 24 | 58.3% | 45.8% | 45.8% |
+| **US makeup, broad** | **57** | **64.9%** | **56.1%** | **49.1%** |
+
+Units on the US makeup rows: g 16, ml 12, no unit 4. Raw versus parsed on
+the 57: both present 32, raw only 5, parsed only 0, neither 20 — OBF's own
+parser handled 32 of 37 label strings, and the 5 it dropped are strings like
+`1`, `5`, `250` with no unit, which no parser should accept. Other §16
+fields on the 57: brand 48 (84.2%), product name 48 (84.2%), barcode 57
+(100%), category 100% by construction, price 0.
+
+**By tier — the number Stage 1.1 was waiting on.** US-tagged rows, broad
+scope, matched to the §11 brand list with a word-bounded brand match.
+
+| Tier | Rows | Strict | With parsed quantity + unit | Rate |
+| --- | ---: | ---: | ---: | ---: |
+| Drugstore | 16 | 13 | 10 | 62.5% |
+| Mid-range | 0 | 0 | 0 | — |
+| High-end | 1 | 1 | 0 | 0.0% |
+| Luxury | 0 | 0 | 0 | — |
+
+Drugstore, by brand: L'Oréal Paris 6 (2 with quantity), Maybelline 5 (4),
+CoverGirl 3 (2), e.l.f. 1 (1), Milani 1 (1). NYX, Revlon, ColourPop,
+Wet n Wild, Physicians Formula and essence: no US-tagged makeup rows at all.
+ColourPop has no rows in the database under any country.
+
+The 62.5% clears the 50% switch trigger written in the fallback section. That
+trigger was written for a *rate*, on the unstated assumption that there would
+be rows to apply it to. There are ten. Against a §10 target of 300 drugstore
+products, the rate is not the finding; the volume is.
+
+**With the country filter removed.** Because the US tag is
+contributor-entered and under-counts, the same table was run on every row
+regardless of country. Drugstore §11 brands: **165 rows, 11 brands, 65 with
+parsed quantity + unit** — Maybelline 60 (16 with quantity; tagged
+Netherlands 29, France 28), essence 45 (28; Netherlands 37), NYX 15 (7),
+L'Oréal Paris 14 (3), Wet n Wild 12 (0; Türkiye 10), e.l.f. 7 (7; Netherlands
+6), Revlon 5 (0), CoverGirl 3 (2), Physicians Formula 2 (0), Milani 1 (1).
+Mid-range 13 rows (4 with quantity), high-end 10 (5), luxury 8 (5).
+
+These are not US quantities. Most come from a Dutch drugstore-chain import
+and French contributors; a row tagged to another market carries that
+market's pack size, and pack sizes differ across markets for the same product
+name. With no barcode on the spine side (measured absent in Task C), such a
+quantity cannot be verified as the US size. The 165 is a ceiling on what OBF
+holds, not a supply of usable US figures.
+
+**Joinability.** Of the 57 US makeup rows, 32 have brand, name and quantity
+together. The spine has no barcodes, so the join would be by normalised brand
+plus fuzzy name (§22 tiers 2–3), not by barcode. Thirty-two candidates.
+
+**Verdict.** Open Beauty Facts is a real, structured, well-parsed quantity
+source with essentially no US makeup in it. It resolves the pending decision
+as outcome 3: no identified source supplies drugstore quantity at scale.
+What OBF can still contribute is small and specific — a barcode-keyed
+reference set of roughly 65 drugstore quantities (any market) to test the
+§27–31 parser against, and at most ten US-tagged drugstore rows for spot
+joins. It cannot carry a tier.
+
 ### Fallback architecture, and when to switch
 
 **Fallback: manual quantity capture for a curated product set.**
@@ -1024,6 +1159,9 @@ quantity-adjusted analysis on a smaller, fully verified dataset.
 *Switch trigger:* OBF measured US-makeup quantity fill rate for drugstore brands
 below roughly 50%. At that point barcode-joining gets most rows nothing, and
 manual capture is faster and more defensible than patching a sparse join.
+*Measured 2026-08-26:* 62.5%, on sixteen rows. The trigger asked the wrong
+question — the rate passed and the volume failed — and the fallback is
+reached regardless.
 
 *Cost of switching:* the dataset shrinks far below §9's 600–800 minimum. The
 analysis stays honest — every number traceable — but the scale claims in §82
@@ -1036,8 +1174,8 @@ would need to say so rather than imply otherwise.
 | Scenario | Products with verified quantity | Against §9 |
 | --- | --- | --- |
 | Spine only, as measured today | **380** (11.4% of 3,333), **0 drugstore** | Below minimum, and structurally useless for the research question |
-| + OBF at a good fill rate | Potentially 800–1,500 with drugstore represented | Meets "strong final dataset" |
-| + OBF at a poor fill rate | 380 + whatever joins | Below minimum |
+| + OBF, as measured 2026-08-26 | 380 + at most 10 US-tagged drugstore rows with quantity (32 US makeup join candidates in total) | Below minimum; drugstore still effectively absent |
+| + OBF ignoring the country tag | + up to 65 drugstore quantities from other markets, not verifiable as US pack sizes | Not usable as US data |
 | Manual fallback | 150–300, hand-verified | Far below minimum; a different project |
 
 The 3,333 retrievable products are a catalogue ceiling, not a dataset ceiling.
@@ -1127,6 +1265,11 @@ Path C's finding is true regardless of OBF and could accompany either.
 
 No path is chosen here. The OBF measurement is the last piece of evidence that
 materially moves the choice, and it is one download away.
+
+*Measured 2026-08-26: OBF is thin — ten US-tagged drugstore rows with
+quantity. Path A is unchanged, Path B does not shrink, and the choice is
+between B and C. The decision memo at the end of this report restates the
+three paths with the measured ceiling.*
 
 ### What Stage 1.0 has and has not delivered
 
