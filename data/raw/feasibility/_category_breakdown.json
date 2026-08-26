@@ -1,0 +1,1015 @@
+{
+  "method": {
+    "quantity": "strict: a plausible size token in a variant title, option value or product title counts; body text reported as body_only, not counted (feasibility_tier_breakdown.has_size)",
+    "category": "keyword rules on product_type|title from preregister_capture_list.guess_category, plus its exclusion word list; the rule that fired is recorded per product in _category_assignments.csv; precision unmeasured until the §34 audit",
+    "unit_basis": "config/categories.yaml unit_basis; split_required -> form_dependent",
+    "groups": {
+      "all": "every product",
+      "drugstore": "drugstore tier",
+      "prestige_ex": "non-drugstore excluding MAC and Tom Ford Beauty",
+      "mac_tf": "MAC and Tom Ford Beauty"
+    }
+  },
+  "n_products": 3333,
+  "category_unit_basis": {
+    "foundation": "volume",
+    "concealer": "volume",
+    "powder_blush": "weight",
+    "liquid_blush": "volume",
+    "bronzer": "weight",
+    "setting_powder": "weight",
+    "pressed_powder": "weight",
+    "lip_liner": "weight",
+    "lipstick": "weight",
+    "lip_gloss": "volume",
+    "mascara": "volume",
+    "primer": "volume",
+    "setting_spray": "volume",
+    "eyeshadow_single": "weight",
+    "eyeshadow_palette": "weight",
+    "highlighter": "form_dependent",
+    "cream_blush": "weight",
+    "liquid_lipstick": "volume",
+    "brow": "form_dependent"
+  },
+  "by_category": {
+    "all": {
+      "foundation": {
+        "n": 32,
+        "with_quantity": 6,
+        "body_only": 4,
+        "coverage": 0.1875
+      },
+      "concealer": {
+        "n": 122,
+        "with_quantity": 2,
+        "body_only": 1,
+        "coverage": 0.0164
+      },
+      "powder_blush": {
+        "n": 37,
+        "with_quantity": 7,
+        "body_only": 0,
+        "coverage": 0.1892
+      },
+      "liquid_blush": {
+        "n": 11,
+        "with_quantity": 0,
+        "body_only": 0,
+        "coverage": 0.0
+      },
+      "bronzer": {
+        "n": 127,
+        "with_quantity": 16,
+        "body_only": 1,
+        "coverage": 0.126
+      },
+      "setting_powder": {
+        "n": 37,
+        "with_quantity": 2,
+        "body_only": 2,
+        "coverage": 0.0541
+      },
+      "pressed_powder": {
+        "n": 26,
+        "with_quantity": 1,
+        "body_only": 1,
+        "coverage": 0.0385
+      },
+      "lip_liner": {
+        "n": 43,
+        "with_quantity": 1,
+        "body_only": 1,
+        "coverage": 0.0233
+      },
+      "lipstick": {
+        "n": 184,
+        "with_quantity": 57,
+        "body_only": 2,
+        "coverage": 0.3098
+      },
+      "lip_gloss": {
+        "n": 160,
+        "with_quantity": 20,
+        "body_only": 3,
+        "coverage": 0.125
+      },
+      "mascara": {
+        "n": 52,
+        "with_quantity": 2,
+        "body_only": 2,
+        "coverage": 0.0385
+      },
+      "primer": {
+        "n": 44,
+        "with_quantity": 3,
+        "body_only": 3,
+        "coverage": 0.0682
+      },
+      "setting_spray": {
+        "n": 28,
+        "with_quantity": 1,
+        "body_only": 2,
+        "coverage": 0.0357
+      },
+      "eyeshadow_single": {
+        "n": 116,
+        "with_quantity": 27,
+        "body_only": 1,
+        "coverage": 0.2328
+      },
+      "eyeshadow_palette": {
+        "n": 64,
+        "with_quantity": 1,
+        "body_only": 10,
+        "coverage": 0.0156
+      },
+      "highlighter": {
+        "n": 74,
+        "with_quantity": 1,
+        "body_only": 7,
+        "coverage": 0.0135
+      },
+      "cream_blush": {
+        "n": 21,
+        "with_quantity": 1,
+        "body_only": 1,
+        "coverage": 0.0476
+      },
+      "liquid_lipstick": {
+        "n": 43,
+        "with_quantity": 12,
+        "body_only": 2,
+        "coverage": 0.2791
+      },
+      "brow": {
+        "n": 104,
+        "with_quantity": 18,
+        "body_only": 23,
+        "coverage": 0.1731
+      },
+      "out_of_scope": {
+        "n": 86,
+        "with_quantity": 14,
+        "body_only": 1,
+        "coverage": 0.1628
+      },
+      "unclassified": {
+        "n": 468,
+        "with_quantity": 145,
+        "body_only": 14,
+        "coverage": 0.3098
+      },
+      "excluded": {
+        "n": 1454,
+        "with_quantity": 43,
+        "body_only": 102,
+        "coverage": 0.0296
+      }
+    },
+    "drugstore": {
+      "foundation": {
+        "n": 3,
+        "with_quantity": 0,
+        "body_only": 0,
+        "coverage": 0.0
+      },
+      "concealer": {
+        "n": 48,
+        "with_quantity": 0,
+        "body_only": 0,
+        "coverage": 0.0
+      },
+      "powder_blush": {
+        "n": 9,
+        "with_quantity": 0,
+        "body_only": 0,
+        "coverage": 0.0
+      },
+      "liquid_blush": {
+        "n": 5,
+        "with_quantity": 0,
+        "body_only": 0,
+        "coverage": 0.0
+      },
+      "bronzer": {
+        "n": 88,
+        "with_quantity": 0,
+        "body_only": 0,
+        "coverage": 0.0
+      },
+      "setting_powder": {
+        "n": 14,
+        "with_quantity": 0,
+        "body_only": 0,
+        "coverage": 0.0
+      },
+      "pressed_powder": {
+        "n": 17,
+        "with_quantity": 0,
+        "body_only": 0,
+        "coverage": 0.0
+      },
+      "lip_liner": {
+        "n": 23,
+        "with_quantity": 0,
+        "body_only": 0,
+        "coverage": 0.0
+      },
+      "lipstick": {
+        "n": 81,
+        "with_quantity": 0,
+        "body_only": 0,
+        "coverage": 0.0
+      },
+      "lip_gloss": {
+        "n": 87,
+        "with_quantity": 0,
+        "body_only": 0,
+        "coverage": 0.0
+      },
+      "mascara": {
+        "n": 26,
+        "with_quantity": 0,
+        "body_only": 0,
+        "coverage": 0.0
+      },
+      "primer": {
+        "n": 19,
+        "with_quantity": 0,
+        "body_only": 0,
+        "coverage": 0.0
+      },
+      "setting_spray": {
+        "n": 17,
+        "with_quantity": 0,
+        "body_only": 0,
+        "coverage": 0.0
+      },
+      "eyeshadow_single": {
+        "n": 53,
+        "with_quantity": 0,
+        "body_only": 0,
+        "coverage": 0.0
+      },
+      "eyeshadow_palette": {
+        "n": 23,
+        "with_quantity": 0,
+        "body_only": 0,
+        "coverage": 0.0
+      },
+      "highlighter": {
+        "n": 41,
+        "with_quantity": 0,
+        "body_only": 2,
+        "coverage": 0.0
+      },
+      "cream_blush": {
+        "n": 15,
+        "with_quantity": 0,
+        "body_only": 0,
+        "coverage": 0.0
+      },
+      "liquid_lipstick": {
+        "n": 20,
+        "with_quantity": 0,
+        "body_only": 0,
+        "coverage": 0.0
+      },
+      "brow": {
+        "n": 42,
+        "with_quantity": 0,
+        "body_only": 5,
+        "coverage": 0.0
+      },
+      "out_of_scope": {
+        "n": 40,
+        "with_quantity": 0,
+        "body_only": 0,
+        "coverage": 0.0
+      },
+      "unclassified": {
+        "n": 96,
+        "with_quantity": 0,
+        "body_only": 3,
+        "coverage": 0.0
+      },
+      "excluded": {
+        "n": 331,
+        "with_quantity": 0,
+        "body_only": 12,
+        "coverage": 0.0
+      }
+    },
+    "prestige_ex": {
+      "foundation": {
+        "n": 22,
+        "with_quantity": 0,
+        "body_only": 4,
+        "coverage": 0.0
+      },
+      "concealer": {
+        "n": 72,
+        "with_quantity": 0,
+        "body_only": 1,
+        "coverage": 0.0
+      },
+      "powder_blush": {
+        "n": 21,
+        "with_quantity": 0,
+        "body_only": 0,
+        "coverage": 0.0
+      },
+      "liquid_blush": {
+        "n": 6,
+        "with_quantity": 0,
+        "body_only": 0,
+        "coverage": 0.0
+      },
+      "bronzer": {
+        "n": 22,
+        "with_quantity": 0,
+        "body_only": 1,
+        "coverage": 0.0
+      },
+      "setting_powder": {
+        "n": 23,
+        "with_quantity": 2,
+        "body_only": 2,
+        "coverage": 0.087
+      },
+      "pressed_powder": {
+        "n": 9,
+        "with_quantity": 1,
+        "body_only": 1,
+        "coverage": 0.1111
+      },
+      "lip_liner": {
+        "n": 19,
+        "with_quantity": 0,
+        "body_only": 1,
+        "coverage": 0.0
+      },
+      "lipstick": {
+        "n": 38,
+        "with_quantity": 0,
+        "body_only": 2,
+        "coverage": 0.0
+      },
+      "lip_gloss": {
+        "n": 51,
+        "with_quantity": 0,
+        "body_only": 3,
+        "coverage": 0.0
+      },
+      "mascara": {
+        "n": 24,
+        "with_quantity": 0,
+        "body_only": 2,
+        "coverage": 0.0
+      },
+      "primer": {
+        "n": 23,
+        "with_quantity": 1,
+        "body_only": 3,
+        "coverage": 0.0435
+      },
+      "setting_spray": {
+        "n": 11,
+        "with_quantity": 1,
+        "body_only": 2,
+        "coverage": 0.0909
+      },
+      "eyeshadow_single": {
+        "n": 34,
+        "with_quantity": 0,
+        "body_only": 1,
+        "coverage": 0.0
+      },
+      "eyeshadow_palette": {
+        "n": 40,
+        "with_quantity": 0,
+        "body_only": 10,
+        "coverage": 0.0
+      },
+      "highlighter": {
+        "n": 32,
+        "with_quantity": 0,
+        "body_only": 5,
+        "coverage": 0.0
+      },
+      "cream_blush": {
+        "n": 5,
+        "with_quantity": 0,
+        "body_only": 1,
+        "coverage": 0.0
+      },
+      "liquid_lipstick": {
+        "n": 9,
+        "with_quantity": 0,
+        "body_only": 2,
+        "coverage": 0.0
+      },
+      "brow": {
+        "n": 42,
+        "with_quantity": 0,
+        "body_only": 18,
+        "coverage": 0.0
+      },
+      "out_of_scope": {
+        "n": 31,
+        "with_quantity": 0,
+        "body_only": 1,
+        "coverage": 0.0
+      },
+      "unclassified": {
+        "n": 231,
+        "with_quantity": 14,
+        "body_only": 10,
+        "coverage": 0.0606
+      },
+      "excluded": {
+        "n": 1049,
+        "with_quantity": 5,
+        "body_only": 85,
+        "coverage": 0.0048
+      }
+    },
+    "mac_tf": {
+      "foundation": {
+        "n": 7,
+        "with_quantity": 6,
+        "body_only": 0,
+        "coverage": 0.8571
+      },
+      "concealer": {
+        "n": 2,
+        "with_quantity": 2,
+        "body_only": 0,
+        "coverage": 1.0
+      },
+      "powder_blush": {
+        "n": 7,
+        "with_quantity": 7,
+        "body_only": 0,
+        "coverage": 1.0
+      },
+      "bronzer": {
+        "n": 17,
+        "with_quantity": 16,
+        "body_only": 0,
+        "coverage": 0.9412
+      },
+      "lip_liner": {
+        "n": 1,
+        "with_quantity": 1,
+        "body_only": 0,
+        "coverage": 1.0
+      },
+      "lipstick": {
+        "n": 65,
+        "with_quantity": 57,
+        "body_only": 0,
+        "coverage": 0.8769
+      },
+      "lip_gloss": {
+        "n": 22,
+        "with_quantity": 20,
+        "body_only": 0,
+        "coverage": 0.9091
+      },
+      "mascara": {
+        "n": 2,
+        "with_quantity": 2,
+        "body_only": 0,
+        "coverage": 1.0
+      },
+      "primer": {
+        "n": 2,
+        "with_quantity": 2,
+        "body_only": 0,
+        "coverage": 1.0
+      },
+      "eyeshadow_single": {
+        "n": 29,
+        "with_quantity": 27,
+        "body_only": 0,
+        "coverage": 0.931
+      },
+      "eyeshadow_palette": {
+        "n": 1,
+        "with_quantity": 1,
+        "body_only": 0,
+        "coverage": 1.0
+      },
+      "highlighter": {
+        "n": 1,
+        "with_quantity": 1,
+        "body_only": 0,
+        "coverage": 1.0
+      },
+      "cream_blush": {
+        "n": 1,
+        "with_quantity": 1,
+        "body_only": 0,
+        "coverage": 1.0
+      },
+      "liquid_lipstick": {
+        "n": 14,
+        "with_quantity": 12,
+        "body_only": 0,
+        "coverage": 0.8571
+      },
+      "brow": {
+        "n": 20,
+        "with_quantity": 18,
+        "body_only": 0,
+        "coverage": 0.9
+      },
+      "out_of_scope": {
+        "n": 15,
+        "with_quantity": 14,
+        "body_only": 0,
+        "coverage": 0.9333
+      },
+      "unclassified": {
+        "n": 141,
+        "with_quantity": 131,
+        "body_only": 1,
+        "coverage": 0.9291
+      },
+      "excluded": {
+        "n": 74,
+        "with_quantity": 38,
+        "body_only": 5,
+        "coverage": 0.5135
+      }
+    }
+  },
+  "by_unit_basis": {
+    "all": {
+      "weight": {
+        "n": 655,
+        "with_quantity": 113,
+        "body_only": 19,
+        "coverage": 0.1725
+      },
+      "volume": {
+        "n": 492,
+        "with_quantity": 46,
+        "body_only": 17,
+        "coverage": 0.0935
+      },
+      "form_dependent": {
+        "n": 178,
+        "with_quantity": 19,
+        "body_only": 30,
+        "coverage": 0.1067
+      },
+      "out_of_scope": {
+        "n": 86,
+        "with_quantity": 14,
+        "body_only": 1,
+        "coverage": 0.1628
+      },
+      "unclassified": {
+        "n": 468,
+        "with_quantity": 145,
+        "body_only": 14,
+        "coverage": 0.3098
+      },
+      "excluded": {
+        "n": 1454,
+        "with_quantity": 43,
+        "body_only": 102,
+        "coverage": 0.0296
+      }
+    },
+    "drugstore": {
+      "weight": {
+        "n": 323,
+        "with_quantity": 0,
+        "body_only": 0,
+        "coverage": 0.0
+      },
+      "volume": {
+        "n": 225,
+        "with_quantity": 0,
+        "body_only": 0,
+        "coverage": 0.0
+      },
+      "form_dependent": {
+        "n": 83,
+        "with_quantity": 0,
+        "body_only": 7,
+        "coverage": 0.0
+      },
+      "out_of_scope": {
+        "n": 40,
+        "with_quantity": 0,
+        "body_only": 0,
+        "coverage": 0.0
+      },
+      "unclassified": {
+        "n": 96,
+        "with_quantity": 0,
+        "body_only": 3,
+        "coverage": 0.0
+      },
+      "excluded": {
+        "n": 331,
+        "with_quantity": 0,
+        "body_only": 12,
+        "coverage": 0.0
+      }
+    },
+    "prestige_ex": {
+      "weight": {
+        "n": 211,
+        "with_quantity": 3,
+        "body_only": 19,
+        "coverage": 0.0142
+      },
+      "volume": {
+        "n": 218,
+        "with_quantity": 2,
+        "body_only": 17,
+        "coverage": 0.0092
+      },
+      "form_dependent": {
+        "n": 74,
+        "with_quantity": 0,
+        "body_only": 23,
+        "coverage": 0.0
+      },
+      "out_of_scope": {
+        "n": 31,
+        "with_quantity": 0,
+        "body_only": 1,
+        "coverage": 0.0
+      },
+      "unclassified": {
+        "n": 231,
+        "with_quantity": 14,
+        "body_only": 10,
+        "coverage": 0.0606
+      },
+      "excluded": {
+        "n": 1049,
+        "with_quantity": 5,
+        "body_only": 85,
+        "coverage": 0.0048
+      }
+    },
+    "mac_tf": {
+      "weight": {
+        "n": 121,
+        "with_quantity": 110,
+        "body_only": 0,
+        "coverage": 0.9091
+      },
+      "volume": {
+        "n": 49,
+        "with_quantity": 44,
+        "body_only": 0,
+        "coverage": 0.898
+      },
+      "form_dependent": {
+        "n": 21,
+        "with_quantity": 19,
+        "body_only": 0,
+        "coverage": 0.9048
+      },
+      "out_of_scope": {
+        "n": 15,
+        "with_quantity": 14,
+        "body_only": 0,
+        "coverage": 0.9333
+      },
+      "unclassified": {
+        "n": 141,
+        "with_quantity": 131,
+        "body_only": 1,
+        "coverage": 0.9291
+      },
+      "excluded": {
+        "n": 74,
+        "with_quantity": 38,
+        "body_only": 5,
+        "coverage": 0.5135
+      }
+    }
+  },
+  "unclassified_by_brand": {
+    "Anastasia Beverly Hills": {
+      "n": 18,
+      "of": 179,
+      "with_quantity": 0
+    },
+    "ColourPop": {
+      "n": 29,
+      "of": 250,
+      "with_quantity": 0
+    },
+    "Essence": {
+      "n": 31,
+      "of": 233,
+      "with_quantity": 0
+    },
+    "Fenty Beauty": {
+      "n": 26,
+      "of": 250,
+      "with_quantity": 0
+    },
+    "Haus Labs": {
+      "n": 5,
+      "of": 48,
+      "with_quantity": 0
+    },
+    "Huda Beauty": {
+      "n": 23,
+      "of": 175,
+      "with_quantity": 2
+    },
+    "Juvia's Place": {
+      "n": 10,
+      "of": 184,
+      "with_quantity": 0
+    },
+    "MAC": {
+      "n": 70,
+      "of": 250,
+      "with_quantity": 64
+    },
+    "Makeup by Mario": {
+      "n": 10,
+      "of": 60,
+      "with_quantity": 0
+    },
+    "Milani": {
+      "n": 14,
+      "of": 161,
+      "with_quantity": 0
+    },
+    "Morphe": {
+      "n": 2,
+      "of": 159,
+      "with_quantity": 0
+    },
+    "Physicians Formula": {
+      "n": 6,
+      "of": 204,
+      "with_quantity": 0
+    },
+    "Pixi": {
+      "n": 74,
+      "of": 250,
+      "with_quantity": 8
+    },
+    "Rare Beauty": {
+      "n": 25,
+      "of": 137,
+      "with_quantity": 4
+    },
+    "Saie": {
+      "n": 12,
+      "of": 61,
+      "with_quantity": 0
+    },
+    "Tarte": {
+      "n": 16,
+      "of": 249,
+      "with_quantity": 0
+    },
+    "Tom Ford Beauty": {
+      "n": 71,
+      "of": 171,
+      "with_quantity": 67
+    },
+    "Tower 28": {
+      "n": 10,
+      "of": 62,
+      "with_quantity": 0
+    },
+    "Wet n Wild": {
+      "n": 16,
+      "of": 250,
+      "with_quantity": 0
+    }
+  },
+  "totals": {
+    "all": {
+      "n": 3333,
+      "with_quantity": 380,
+      "body_only": 183,
+      "coverage": 0.114
+    },
+    "drugstore": {
+      "n": 1098,
+      "with_quantity": 0,
+      "body_only": 22,
+      "coverage": 0.0
+    },
+    "prestige_ex": {
+      "n": 1814,
+      "with_quantity": 24,
+      "body_only": 155,
+      "coverage": 0.0132
+    },
+    "mac_tf": {
+      "n": 421,
+      "with_quantity": 356,
+      "body_only": 6,
+      "coverage": 0.8456
+    }
+  },
+  "excluded_by_word": {
+    "set": 265,
+    "brush": 252,
+    "bundle": 242,
+    "duo": 200,
+    "kit": 98,
+    "trio": 96,
+    "cream": 85,
+    "body": 79,
+    "lash": 76,
+    "oil": 76,
+    "skincare": 68,
+    "bag": 54,
+    "serum": 47,
+    "sample": 45,
+    "tools": 41,
+    "sets": 40,
+    "moisturizer": 38,
+    "gift": 32,
+    "brushes": 32,
+    "kits": 28,
+    "lashes": 26,
+    "card": 22,
+    "sponge": 21,
+    "cleanser": 19,
+    "case": 15,
+    "nail": 11,
+    "clip": 10,
+    "pouch": 9,
+    "mystery": 9,
+    "vault": 8,
+    "tool": 8,
+    "remover": 7,
+    "combo": 4,
+    "polish": 3,
+    "wipes": 2,
+    "subscription": 1
+  },
+  "prestige_ex_disclosures": {
+    "n": 24,
+    "in_a_category": 5,
+    "categorised_prestige_ex_products": 503,
+    "products": [
+      {
+        "brand": "Fenty Beauty",
+        "title": "Fenty Skin Total Cleans'r Fragrance-Free Remove-It-All Cleanser with Barbados Cherry",
+        "product_type": "Facial Cleansers",
+        "bucket": "excluded"
+      },
+      {
+        "brand": "Huda Beauty",
+        "title": "Easy Bake Intense EDP 1.5ml Deluxe Sample",
+        "product_type": "",
+        "bucket": "excluded"
+      },
+      {
+        "brand": "Huda Beauty",
+        "title": "Easy Bake Intense Eau de Parfum 50ml",
+        "product_type": "",
+        "bucket": "unclassified"
+      },
+      {
+        "brand": "Huda Beauty",
+        "title": "Easy Bake Intense Eau De Parfum Travel Spray 10ml",
+        "product_type": "",
+        "bucket": "unclassified"
+      },
+      {
+        "brand": "Huda Beauty",
+        "title": "Easy Bake Loose Powder Blister 6 x 0.15g",
+        "product_type": "",
+        "bucket": "setting_powder"
+      },
+      {
+        "brand": "Huda Beauty",
+        "title": "Easy Bake Loose Powder Blister 6 x 0.15g 2025",
+        "product_type": "",
+        "bucket": "setting_powder"
+      },
+      {
+        "brand": "Huda Beauty",
+        "title": "Yo Detox Charcoal Face & Body Enzyme Scrub",
+        "product_type": "",
+        "bucket": "excluded"
+      },
+      {
+        "brand": "Makeup by Mario",
+        "title": "SurrealSkin® Soft Setting Spray",
+        "product_type": "Face",
+        "bucket": "setting_spray"
+      },
+      {
+        "brand": "Pixi",
+        "title": "‍Vitamin-C Remedy Mask (100% off)",
+        "product_type": "",
+        "bucket": "unclassified"
+      },
+      {
+        "brand": "Pixi",
+        "title": "‍Flawless Beauty Primer (100% off)",
+        "product_type": "",
+        "bucket": "primer"
+      },
+      {
+        "brand": "Pixi",
+        "title": "‍+Rose Glow-y Powder (100% off)",
+        "product_type": "",
+        "bucket": "pressed_powder"
+      },
+      {
+        "brand": "Pixi",
+        "title": "‍Botanical Collagen Tonic Original Size (100% off)",
+        "product_type": "",
+        "bucket": "unclassified"
+      },
+      {
+        "brand": "Pixi",
+        "title": "‍+Rose Lip Nourisher (100% off)",
+        "product_type": "",
+        "bucket": "unclassified"
+      },
+      {
+        "brand": "Pixi",
+        "title": "‍Glow Mist (100% off)",
+        "product_type": "",
+        "bucket": "unclassified"
+      },
+      {
+        "brand": "Pixi",
+        "title": "‍Overnight Glow Serum (100% off)",
+        "product_type": "",
+        "bucket": "excluded"
+      },
+      {
+        "brand": "Pixi",
+        "title": "‍Vitamin-C Serum (100% off)",
+        "product_type": "",
+        "bucket": "excluded"
+      },
+      {
+        "brand": "Pixi",
+        "title": "‍Clarity Concentrate (100% off)",
+        "product_type": "",
+        "bucket": "unclassified"
+      },
+      {
+        "brand": "Pixi",
+        "title": "‍Rose Glow Mist (100% off)",
+        "product_type": "",
+        "bucket": "unclassified"
+      },
+      {
+        "brand": "Pixi",
+        "title": "‍Hydrating Milky Mist (100% off)",
+        "product_type": "",
+        "bucket": "unclassified"
+      },
+      {
+        "brand": "Pixi",
+        "title": "‍Dream-y Mist (100% off)",
+        "product_type": "",
+        "bucket": "unclassified"
+      },
+      {
+        "brand": "Rare Beauty",
+        "title": "Rare Beginnings Eau de Parfum Travel Spray",
+        "product_type": "Fragrance",
+        "bucket": "unclassified"
+      },
+      {
+        "brand": "Rare Beauty",
+        "title": "Rare Beginnings Eau de Parfum",
+        "product_type": "Fragrance",
+        "bucket": "unclassified"
+      },
+      {
+        "brand": "Rare Beauty",
+        "title": "Rare Eau de Parfum",
+        "product_type": "Fragrance",
+        "bucket": "unclassified"
+      },
+      {
+        "brand": "Rare Beauty",
+        "title": "Rare Eau de Parfum Travel Spray",
+        "product_type": "Fragrance",
+        "bucket": "unclassified"
+      }
+    ]
+  }
+}
