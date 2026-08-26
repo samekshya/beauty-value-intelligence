@@ -100,13 +100,20 @@ Authority: docs/PROJECT_SPEC.md (§ references) · docs/ROADMAP.md (gates)
 - [x] 2026-08-26 Key present in .env (validated against the account endpoint: free plan, 250 searches unused). **HUMAN — SerpApi key.** Add SERPAPI_KEY to .env, or say
       "skip SerpApi" explicitly.
 
-- [ ] **1.0-T4 SerpApi test (only if key present).** 20 drugstore
+- [x] 2026-08-26 **1.0-T4 SerpApi test (only if key present).** 20 drugstore
       products; measure whether Google Shopping titles carry inline
       size. Free tier only. Hard stop at the limit.
       Done when: measured coverage is in the report, or the skip is
       recorded.
+      - [x] 2026-08-26 First run crashed: one call hung ~54 min past
+            its socket timeout. Probe rebuilt with a wall-clock cap per
+            call, a run cap, no retries, resume from saved responses;
+            resumed run completed. 20 searches spent in total.
+      - [x] 2026-08-26 Result: 12/20 products with at least one sized
+            listing title; 27/530 titles (5.1%); figures conflict
+            across listings. A hint source, not a quantity source.
 
-- [ ] **1.0-T5 Decision memo.** Revised ceiling: products with verified
+- [x] 2026-08-26 **1.0-T5 Decision memo.** Revised ceiling: products with verified
       quantity, and how many are drugstore. The three paths — (a)
       narrow to prestige-only, (b) hybrid with manual capture filling
       the drugstore gap, (c) reframe around the disclosure asymmetry —
@@ -230,6 +237,19 @@ everything with the documented commands; and (4) the human can answer
 
 ## DEVIATION LOG
 *(one line each, dated, newest first)*
+
+- 2026-08-26 · SerpApi probe: the first run's 7th call was charged but
+  hung ~54 min before its nominal 60 s read timeout fired and the script
+  crashed uncaught; the owner asked for it to be stopped. Rebuilt with a
+  90 s wall-clock bound per call (thread join, independent of the
+  socket), an 8-minute run cap, zero retries, transport errors skipped,
+  and resume from saved responses. Re-run once, deliberately, as the
+  owner allowed; it completed with no abandoned calls. 20 searches
+  spent, 230 of 250 remain.
+- 2026-08-26 · SerpApi probe selection rule tightened twice before the
+  first request (product_type appended only when the title names no
+  type; exclusions applied to product_type; duplicate queries skipped)
+  — all before any search was spent, so the rule stands as pre-registered.
 
 - 2026-08-26 · OBF makeup filter corrected after the first real run:
   the taxonomy uses `en:makeup` and family tags plus capitalised
