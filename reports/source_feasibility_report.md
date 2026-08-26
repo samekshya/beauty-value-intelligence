@@ -337,8 +337,8 @@ easiest route to multi-retailer price observations for the same product (§20).
 | Access | REST API, API key |
 | **Free tier** | 250 searches/month, 50/hour |
 | Paid | $25/mo → 1,000 · $75/mo → 5,000 · $150/mo → 15,000 · $275/mo → 30,000 · $725/mo → 100,000 |
-| **Size field** | **Embedded at best** |
-| Checked | https://serpapi.com/pricing · 2026-08-22 |
+| **Size field** | **Embedded at best** — measured 2026-08-26: a size appears in at least one listing title for 12 of 20 drugstore products, in 5.1% of listing titles overall, and the figures disagree across listings. See *Google Shopping titles via SerpApi — measured*. |
+| Checked | https://serpapi.com/pricing · 2026-08-22 · probe run 2026-08-26 |
 
 Returns search-results data — titles, prices, merchant, link. Size is present
 only when a merchant happens to put it in the listing title, so coverage is
@@ -347,6 +347,62 @@ inherited from other retailers' title conventions and cannot be relied on.
 **Verdict:** Viable paid fallback for breadth and for cross-retailer price
 observations (§20). Not a solution to the size problem. The free tier's 250
 searches is enough to measure coverage in Task C without spending anything.
+
+#### Google Shopping titles via SerpApi — measured
+
+Run 2026-08-26 with `python src/ingest/feasibility_serpapi_probe.py`. Every
+figure is from `data/raw/feasibility/_serpapi_summary.json`; the twenty raw
+responses are in `data/raw/feasibility/serpapi/` with provenance and the key
+scrubbed.
+
+*Design.* Twenty drugstore products, four per brand whose storefront probe
+succeeded (ColourPop, essence, Milani, Physicians Formula, Wet n Wild), taken
+in handle order with sets, kits, tools and non-makeup skipped — the rule was
+fixed before the first query. Engine `google_shopping`, `gl=us`, `hl=en`,
+one search per product. The size rule is the strict regex and magnitude
+bounds of the storefront pass, imported from that script rather than
+re-typed, so the two figures are measured the same way. A listing counts as
+brand-matched when the brand name appears in its title.
+
+*Budget.* 20 searches of the free tier's 250. One call in the first run was
+charged but never answered; that product was re-queried in a resumed run
+that reused the six responses already saved.
+
+| Brand | Products with ≥ 1 sized listing title | Sized titles / brand-matched titles |
+| --- | ---: | ---: |
+| ColourPop | 0 / 4 | 0 / 150 |
+| essence | 2 / 4 | 10 / 81 |
+| Milani | 4 / 4 | 6 / 114 |
+| Physicians Formula | 3 / 4 | 5 / 131 |
+| Wet n Wild | 3 / 4 | 6 / 54 |
+| **All** | **12 / 20** | **27 / 530 (5.1%)** |
+
+Every product returned brand-matched listings (13–40 each). Only **1 of 20**
+had a size in its *first* brand-matched listing.
+
+*Reading.* A size can be found for most drugstore products, but only by
+sifting ten to forty third-party listings per product for the one to six
+that print one — and those do not agree. The Milani Amore Satin Matte Lip
+Crème listings say 0.21 oz, 0.22 oz and 6 g; the Wet n Wild Big Poppa
+Mascara listings say 8 ml, 10 ml and 0.33 fl oz. Each figure is a retailer's
+transcription, not a manufacturer label, and deciding which is right means
+looking at the product — which is manual capture with a search engine as a
+hint. ColourPop, whose listings are its own storefront and resellers of it,
+shows zero, consistent with the storefront measurement.
+
+*Verdict, measured.* Google Shopping titles are a **size-hint source, not a
+size source**: 60% of drugstore products get at least one candidate figure,
+5% of listings carry one, and the candidates conflict. It can shorten
+manual capture; it cannot replace it, and nothing from it should enter the
+dataset unverified. At one search per product, 600 products is roughly
+three months of the free tier or one month of the $25 plan.
+
+*Operational note.* One of the twenty calls hung for roughly 54 minutes past
+its nominal 60-second timeout before the first run failed — `requests`
+bounds each socket read, not the call. The probe now bounds every call by
+wall clock (90 s), caps the run at eight minutes, never retries within a
+run, and resumes from saved responses; the resumed run completed its
+fourteen calls in about five minutes with none abandoned.
 
 ---
 
@@ -1190,7 +1246,7 @@ platform-reachability risk above.
 
 | Field | §16 priority | Best available source | Consequence |
 | --- | --- | --- | --- |
-| **Quantity / unit (drugstore)** | Critical | None identified | **Blocks the central comparison until resolved** |
+| **Quantity / unit (drugstore)** | Critical | None at source. OBF: 10 US-tagged rows. Google Shopping titles: a candidate figure for 12 of 20 products, unverified and conflicting | **Blocks the central comparison until resolved** — measured 2026-08-26, still unresolved |
 | Rating | Strongly preferred | Kaggle historical only (prestige brands, stale) | §40 Bayesian rating, §41 rating-adjusted value and §50 price-vs-rating cannot run on current data. At best they run on the historical Sephora subset, clearly labelled. |
 | Review count | Strongly preferred | Same | Same. §51 brand value analysis loses its rating dimension. |
 | UPC / EAN | Very useful | OBF, if usable | Without it, §22 entity resolution falls back to fuzzy name matching with lower `match_confidence`. |
@@ -1316,3 +1372,95 @@ not street prices, and the README and methodology must say so plainly.
 Next step is Task C: measure, rather than estimate, the field coverage of the
 shortlisted sources against a fixed set of 20 products spanning tiers and
 categories.
+
+---
+
+## Decision memo — Stage 1.0 gate
+
+Written 2026-08-26, after every planned measurement. Everything above this
+line is evidence; this section is the choice the project owner has to make.
+**No path is chosen here.** The figures are from this repository's own
+output: `data/raw/feasibility/_tier_breakdown.json`,
+`_pdp_strict_analysis.json`, `_obf_measurement.txt` and
+`_serpapi_summary.json`.
+
+### The revised ceiling — products with a verified net quantity
+
+| Source, permitted | Products with verified quantity | Of which drugstore |
+| --- | ---: | ---: |
+| Brand-owned storefronts, 3,333 products retrieved | **380** (11.4%) — 213 MAC, 143 Tom Ford Beauty, 24 all other brands | **0** of 1,098 |
+| Open Beauty Facts, US-tagged rows | 32 join candidates with brand, name and quantity (no barcode on the storefront side, so a fuzzy join) | 10 |
+| Open Beauty Facts, any market | 65 drugstore quantities — Dutch, French and Turkish pack sizes, not verifiable as US | 0 usable |
+| Google Shopping titles via SerpApi, 20 drugstore products probed | a candidate figure for 12 of 20, from 5% of listings, conflicting across listings, unverified | 0 verified |
+| Every US multi-brand retailer (Ulta, Sephora, Target, Walmart, Amazon) | excluded — terms, edge blocks, or a dead API | — |
+
+So: roughly **380 plus a few dozen** products can carry a quantity-adjusted
+price today, and the drugstore share of that is **ten**, against §10's
+target of 300 and §9's floor of 600–800 products across 30+ brands. The
+storefront zero is not sampling noise: five drugstore brands, 1,098
+products, no structured size on any of them, confirmed by a second method.
+
+### The three paths
+
+**A — Narrow to prestige only.** Keep the 380 and build the full pipeline
+on them.
+*§9:* fails the 600 floor; two brands supply 94% of the rows, so "30+ brands"
+is not met in any meaningful sense. *§10:* drugstore 0 of 300; luxury carried
+by one brand. *§98:* cannot be answered — the question is about paying less,
+and the cheap tier is absent. The honest name for this is a MAC-versus-Tom
+Ford unit-economics study. Buildable today with no further decisions.
+
+**B — Hybrid: automated spine plus manual quantity capture for drugstore.**
+Keep the 3,333-product storefront spine for names, prices and categories;
+read net quantity by hand from packaging or a manufacturer page for a
+pre-registered drugstore set — and for the prestige brands at 0%, so the
+comparison is like-for-like — each row with photo or URL provenance per
+§25. Google Shopping titles supply a candidate figure for about 60% of
+products to verify against, not to trust.
+*§9:* partially reachable — hand capture of 150–300 drugstore products plus
+the 380 lands near 550–700 with quantity, a thin pass or a near miss;
+30+ brands is reachable. *§10:* drugstore becomes measurable at scale for
+the first time; luxury stays at two brands. *§98:* the only path that puts a
+measured drugstore number next to a measured prestige one and answers the
+question as written. *Costs:* labour a stranger cannot re-run from a clean
+clone (§89 — re-auditable, not reproducible); selection risk — the product
+list must be fixed before any size is read, or §4's neutrality is gone; OBF
+adds at most ten spot-check rows and a 65-row parser test set.
+
+**C — Reframe around the disclosure asymmetry.** Make the measured finding
+the headline: on their own storefronts, drugstore brands disclose net
+quantity on 0 of 1,098 products, prestige brands on 1.3% outside MAC and
+Tom Ford; compute quantity-adjusted economics wherever disclosure permits.
+*§9:* the catalogue (3,333) meets the row targets, but the analysis rows are
+the same 380 as Path A. *§10:* moot — tiers become the subject, not the
+sample frame. *§98:* abandoned as the question, replaced by "what does
+mass-market beauty not tell you?" — true, measured, and interesting to §1's
+audience, but a measurement more than a story: one channel, one mechanism,
+and intent must not be asserted from it. Requires no new data.
+
+### What the measurements settle, and what they do not
+
+- Open Beauty Facts is **not** a drugstore quantity source at scale (ten
+  US-tagged rows). Path B does not shrink.
+- Google Shopping titles carry a size for 12 of 20 drugstore products, but
+  on 5% of listings, from third-party retailers, with conflicting figures
+  for the same product. Path B's manual capture can be *guided* by them —
+  a hint per product to check against packaging — not replaced by them.
+- Nothing measured makes Path A answer §98, and nothing makes Path C need
+  more data. The choice is between B's labour and C's reframe, or a
+  combination: C's finding is true under every path and can accompany B.
+
+### Stage 1.0 gate checklist (ROADMAP)
+
+- Primary source named — brand-owned storefronts (Shopify `products.json`
+  and permitted product pages), with the quantity hole documented.
+- Fallback named — manual quantity capture on a pre-registered set.
+- Real quantity-field coverage measured, not assumed — storefronts 11.4%
+  strict, drugstore 0.0%; Open Beauty Facts 49.1% on 57 US makeup rows and
+  62.5% on 16 drugstore rows; Google Shopping titles 12 of 20 products,
+  5.1% of listings.
+- Legal status documented per source with the governing clause — Ulta,
+  Target, Walmart, Sephora, Amazon, Open Beauty Facts and SerpApi, each in
+  its section.
+
+Gate condition met. Decision pending: **A, B, or C.**
