@@ -75,20 +75,29 @@ Authority: docs/PROJECT_SPEC.md (§ references) · docs/ROADMAP.md (gates)
       Done when: queries exist in sql/ or notebooks/01, untested but
       complete, and the report states what the human must download.
 
-- [ ] ⛔ **HUMAN — download OBF exports.** Two flavours as specified by
+- [x] 2026-08-26 Delivered as beauty.parquet + en.openbeautyfacts.org.products.csv (moved into data/raw/obf/, names kept); site total not supplied — the publisher's advertised row count for the same Parquet was used instead. **HUMAN — download OBF exports.** Two flavours as specified by
       1.0-T3a, placed in data/raw/obf/. Also read the advertised
       product total from world.openbeautyfacts.org (a browser is not
       blocked; automated fetching is) and provide it as corroboration.
 
-- [ ] **1.0-T3b OBF measurement.** Run the integrity check first. If it
+- [x] 2026-08-26 **1.0-T3b OBF measurement.** Run the integrity check first. If it
       passes, measure US-makeup fill rate for quantity, price
       (expected absent), brand, category, barcode. Report honestly —
       OBF has no price data, so its role is quantity + barcode joins,
       and the report must say so.
       Done when: measured fill rates are in the report with the
       integrity check result stated first.
+      - [x] 2026-08-26 Integrity did not PASS: WARN. CSV flavour is a
+            2026-05-07 snapshot; Parquet current and byte-identical to
+            the publisher's advertised file. Diagnosed, gate extended,
+            stated first in the report.
+      - [x] 2026-08-26 Makeup filter corrected after the first run
+            (taxonomy uses family tags and capitalised free-text tags).
+      - [x] 2026-08-26 Result: rate usable (62.5% drugstore, parsed with
+            unit), volume not — 57 US makeup rows, 16 drugstore, 10 with
+            quantity. Outcome 3.
 
-- [ ] ⛔ **HUMAN — SerpApi key.** Add SERPAPI_KEY to .env, or say
+- [x] 2026-08-26 Key present in .env (validated against the account endpoint: free plan, 250 searches unused). **HUMAN — SerpApi key.** Add SERPAPI_KEY to .env, or say
       "skip SerpApi" explicitly.
 
 - [ ] **1.0-T4 SerpApi test (only if key present).** 20 drugstore
@@ -221,6 +230,25 @@ everything with the documented commands; and (4) the human can answer
 
 ## DEVIATION LOG
 *(one line each, dated, newest first)*
+
+- 2026-08-26 · OBF makeup filter corrected after the first real run:
+  the taxonomy uses `en:makeup` and family tags plus capitalised
+  free-text tags, which a case-sensitive prefix filter missed (15 → 24
+  strict US rows, 57 broad). Changed before any conclusion was written.
+- 2026-08-26 · Runner halts only on FAIL now; WARN prints and continues.
+- 2026-08-26 · Site product total not supplied and no browser route was
+  available; the Hugging Face datasets-server row count for the same
+  Parquet file (73,747, byte size matching) was used as the external
+  total. Stronger than a site figure, but not the corroboration the
+  task named. Recorded in data/raw/obf/PROVENANCE.md.
+- 2026-08-26 · Dual-flavour integrity check FAILed on row count (12.9%)
+  as designed. Cause diagnosed as snapshot age — the published CSV
+  export is a 2026-05-07 snapshot, both files downloaded the same day —
+  not truncation. Gate extended with a WARN path that requires a ≥ 30-day
+  staleness gap AND external corroboration of the Parquet; anything
+  else still halts.
+- 2026-08-26 · Exports arrived in data/raw/ under their published names;
+  moved to data/raw/obf/ unchanged, names kept for provenance.
 
 - 2026-08-22 · Repo hygiene pass at owner's request: conventions
   consolidated into docs/DEVELOPMENT.md, local editor state untracked,
