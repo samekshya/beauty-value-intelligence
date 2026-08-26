@@ -1,127 +1,192 @@
 # Beyond the Price Tag
 
-### A Data-Driven Analysis of True Value in Beauty
+A retail analytics project that normalises US makeup products into
+comparable unit prices — price per gram or per millilitre — so that a
+product cheaper at the till can be told apart from one that is merely
+smaller, and a tool on top of it that finds alternatives cheaper per unit
+rather than only cheaper at checkout. Neither the unit prices nor the tool
+exists yet. What exists is the measured reason they are hard to build.
 
----
+Python 3.13 · DuckDB · pandas today. SQL views, scikit-learn, Sentence
+Transformers and Streamlit are planned for later phases and are not in
+`requirements.txt`.
 
-## The problem
+## Why this project
 
-Beauty shoppers compare products by sticker price. A $12 drugstore blush
-next to a $35 prestige blush reads as an easy decision.
+Beauty products are compared by sticker price. A $12 drugstore concealer
+looks cheaper than a $35 prestige one. Whether it is cheaper depends on
+how much product is in the tube, and the label rarely makes that
+comparable.
 
-But package sizes in makeup vary enormously, and the label rarely makes
-that comparable. $12 for 2 g is $6.00/g. $35 for 10 g is $3.50/g. The
-cheaper item at the till is the more expensive one per gram — by 71%.
+Answering that needs the net contents of every product. That number is
+where the project becomes difficult. Everything below is measured and
+recorded in
+[`reports/source_feasibility_report.md`](reports/source_feasibility_report.md),
+with the clauses quoted.
 
-## The question
+**Every US multi-brand retailer that sells mass-market makeup is closed to
+this project on its own terms.** Checked 2026-08-22. Sephora serves
+`robots.txt` itself with HTTP 403; the site refuses automated requests at
+the edge, and no circumvention was attempted. Ulta's terms exclude from
+the licence "any collection and use of any product listings, descriptions,
+or prices" and prohibit "any use of data mining, robots, or similar data
+gathering and extraction tools". Target's terms prohibit any "use of data
+extraction, scraping, mining or other data gathering tools, or create a
+database by systematically downloading or storing Site content" — a
+description of this project's `data/raw/` layer. Walmart's terms could not
+be read: three URLs on two domains served a CAPTCHA, and the project stops
+there; the prohibition is corroborated by its corporate-site terms and not
+verified on the retail site. Ulta's and Target's `robots.txt` leave product
+pages open to every crawler. A permissive `robots.txt` is not permission;
+where it and the terms disagree, the terms govern.
 
-> When consumers pay less for a beauty product, are they actually getting
-> better value, or are they sometimes simply buying less product?
+**Brand-owned storefronts publish price and name reliably, size almost
+never.** 19 of 20 brand storefronts whose robots policies permit product
+paths returned public catalogue JSON: 3,333 products, collected
+2026-08-21. Product name, brand, list price and URL are present on 100%.
+A net quantity in a structured slot — variant title, option value or
+product title — is present on 380 of 3,333 (11.4%). 356 of those 380 are
+two brands, MAC and Tom Ford Beauty. Outside those two, 24 of 1,814
+non-drugstore products (1.3%) carry one.
 
-And, for the application built on top of it:
+**Drugstore specifically: 0 of 1,098.** Five drugstore brands — ColourPop,
+essence, Milani, Physicians Formula, Wet n Wild — each measured separately,
+each at zero. A second method, reading the visible text of 21 saved
+product pages with scripts and styles removed, found a size on 2 pages,
+neither a single drugstore product; all 14 single-product drugstore pages
+showed none. The zero is a measurement of what these brands publish on
+one channel, their own storefronts, on one date. It says nothing about
+what is printed on the packaging and nothing about intent.
 
-> If I want an alternative to this expensive product, which one is not only
-> similar and cheaper at checkout, but genuinely better value?
+**The field that looks like the answer is shipping weight.** Shopify's
+variant `grams` field — `weight` in the storefront API — is populated on
+55.7% of the 3,333 products, 1,857 of them, over four times the real size
+coverage. It is shipping weight including packaging: the bottle, pump and
+carton, not the product. It arrives without a documented unit. Used as net
+quantity it would have produced price-per-gram figures for 1,857 products
+that look reasonable and are all wrong, and no validation rule in the
+specification — price above zero, quantity above zero, quantity within a
+sane range — would have flagged one of them, because the values are
+plausible. The field is forbidden as a quantity source in
+`config/unit_rules.yaml`; the test that enforces the rule is not written
+yet.
+
+**Regex on raw HTML fabricates coverage.** A first pass over the 21 saved
+pages reported a size on 18. Strict measurement — scripts dropped, visible
+text only, a plausible magnitude required — gave 2. The extra 16 were
+identifier fragments inside minified scripts (`029g`, `0MG`, `7G`). The
+strict figures are the ones cited anywhere in this repository.
+
+Two more routes were measured on 2026-08-26 and neither closes the gap.
+Open Beauty Facts carries a parsed quantity field, but its export holds 57
+US-tagged makeup rows, 10 of them drugstore products with a quantity.
+Google Shopping listing titles, through a paid API on its free tier,
+offered a candidate size for 12 of 20 drugstore products probed, on 5% of
+listings and with conflicting figures for the same product — a hint to
+verify, not a source.
+
+The project therefore has to build the quantity layer itself: the
+storefront catalogues as the product spine; net quantity captured
+separately, from packaging in the storefronts' own product images by OCR
+or by hand, against a product list fixed before any size is read; each
+capture joined back to its US listing by barcode or flagged; and one rule
+that price always comes from the US snapshot and never from where the
+package was read.
 
 ## Status
 
-**Phase 1 · Stage 1.0 — source feasibility. Measurement complete; one
-decision pending.**
+**Phase 1 · Stage 1.1 — acquisition. 2026-08-27.** The Stage 1.0
+feasibility gate closed on 2026-08-26 with the decision to write up the
+disclosure asymmetry first, then capture drugstore quantities. Finding 1
+is written; the capture list is registered; the OCR test on storefront
+images is underway and its hit rate is not yet reported. No unit price has
+been computed for any product.
 
-No analysis has been run yet. What exists is a measured answer to the
-question *where can the data legally come from* — and it is not the answer
-the project assumed.
+Finding 1, from [`reports/final_insights.md`](reports/final_insights.md):
+on their own storefronts, drugstore brands disclose net quantity on 0 of
+1,098 products, against 24 of 1,814 (1.3%) for non-drugstore brands
+outside MAC and Tom Ford Beauty. The asymmetry is between 0.0% and 1.3%,
+not between 0% and 17%; seven prestige brands, 942 products, are also at
+exactly zero. One channel, one date, no claim about intent.
 
-Across 3,333 products retrieved from 19 brand-owned storefronts, product
-name, brand, list price and URL are present on 100%. Net quantity — the
-field the entire project rests on — is present on **11.4%**, and on
-**0 of 1,098 drugstore products**. Drugstore brands do not publish size on
-their own storefronts, confirmed by two independent methods. Every US
-retailer that sells mass-market makeup (Sephora, Ulta, Target, Walmart)
-is closed to automated collection on its terms.
+Task-level progress: [`docs/EXECUTION_PLAN.md`](docs/EXECUTION_PLAN.md).
 
-The two remaining candidates were measured on 2026-08-26. Open Beauty
-Facts has a well-parsed quantity field but almost no US makeup in it: 57
-US-tagged makeup rows in 73,747, ten of them drugstore products with a
-quantity. Google Shopping listing titles offer a candidate size for 12 of
-20 drugstore products probed, on 5% of listings and with conflicting
-figures for the same product — a hint to verify, not a source. The
-feasibility report closes with a decision memo setting out three paths;
-the choice is pending.
+## What exists now
 
-The full evidence, with every clause quoted and every figure traceable to
-a script in this repository, is in
-[`reports/source_feasibility_report.md`](reports/source_feasibility_report.md).
-Task-level progress is in
-[`docs/EXECUTION_PLAN.md`](docs/EXECUTION_PLAN.md).
+Everything below is committed and re-runs from saved files. No step needs
+the network except the original probes.
 
-## Approach
+- `reports/source_feasibility_report.md` — every source checked, clauses
+  quoted, verdicts, measured coverage, and the Stage 1.0 decision memo.
+- `reports/final_insights.md` — finding 1, each figure named to the file
+  it comes from.
+- `data/raw/feasibility/` — the 19 storefront catalogue responses with
+  provenance (`shopify_*.json`), the strict tier and brand breakdown
+  (`_tier_breakdown.json`), the visible-text page analysis
+  (`_pdp_strict_analysis.json`), the Open Beauty Facts measurement and the
+  Google Shopping probe summary. Saved product pages and the Open Beauty
+  Facts exports are gitignored and re-downloadable;
+  `data/raw/obf/PROVENANCE.md` records what was downloaded and how it was
+  verified.
+- `data/raw/capture/` — the pre-registered capture list: 250 drugstore
+  products, 50 per brand across 19 categories, and the 30-product OCR
+  sample. Identity and provenance fields only; no quantity, no price. The
+  rule is in `docs/capture_list.md`.
+- `src/ingest/` — the probes and measurements behind the above: storefront
+  catalogue probe, coverage and tier breakdown, saved-page strict analysis,
+  Open Beauty Facts query with an export-integrity gate, Google Shopping
+  title probe with a free-tier hard stop, capture-list pre-registration.
+  `sql/obf_feasibility.sql` holds the Open Beauty Facts query.
+- `config/` — categories with their unit basis (`categories.yaml`),
+  conversions and forbidden conversions (`unit_rules.yaml`), the
+  provisional brand-tier list (`tier_mapping.yaml`), the source registry
+  with measured coverage (`data_sources.yaml`), usage assumptions.
+- `docs/` — `PROJECT_SPEC.md` (authoritative), `ROADMAP.md` (phase gates),
+  `EXECUTION_PLAN.md` (progress), `DEVELOPMENT.md` (conventions, hazards),
+  `methodology.md` (the rules that shape every number), `capture_list.md`,
+  `README_TEMPLATE.md` (the skeleton of the final README).
+- `requirements.txt` — Phase 1 dependencies only. Setup is in
+  `docs/DEVELOPMENT.md`.
 
-The central measurement problem is that a price is only comparable once
-you know how much product it buys. That makes quantity parsing, not
-modelling, the load-bearing technical work:
+`app/`, `database/`, `notebooks/`, `tests/` and every `src/` package other
+than `src/ingest/` are placeholders. No database exists. No test exists.
 
-- Weight ounces and fluid ounces are different units and stay separate.
-- Grams are never converted to millilitres. That conversion needs density,
-  density is not on the label, and inventing it would silently corrupt
-  every downstream comparison.
-- Multipacks (`2 x 4 g`) resolve to a pack count and a total, not a
-  per-item quantity mistaken for the whole.
-- Dual-unit labels (`0.05 oz / 1.5 g`) prefer the manufacturer's explicit
-  metric value over a conversion.
+## Planned — not built
 
-Market tier is assigned from brand positioning and never from price.
-Deriving tier from price and then analysing price by tier would make the
-result circular by construction.
+None of the following exists. Each is a phase gate in `docs/ROADMAP.md`.
 
-## Repository layout
+- **Quantity capture and verification** (Stage 1.1). OCR on storefront
+  product images for the registered list, or manual capture with
+  photographs and barcodes if OCR fails; every captured quantity matched
+  to its US listing by barcode or flagged `identity_unverified`. Physical
+  capture supplies quantity only; price always comes from the US
+  storefront snapshot (`docs/methodology.md`).
+- **Cleaning, units, entity resolution** (Stage 1.2). A quantity parser
+  that keeps weight ounces and fluid ounces apart, resolves multipacks to
+  a pack count and a total, prefers the printed metric value on dual-unit
+  labels and never converts grams to millilitres; entity resolution
+  barcode first, with a confidence band on every pair; a data-quality flag
+  on every row, nothing dropped; a DuckDB model with products separate
+  from retailer offers.
+- **Unit economics** (Stage 1.3). Price per standard unit, category
+  unit-price index, price premium, quantity index, Bayesian-weighted
+  rating; one SQL view behind each figure; hypotheses committed before any
+  metric runs.
+- **Analysis** (Phase 2). Tier comparisons with effect sizes and
+  confidence intervals, a regression controlling for category, the
+  Drugstore Illusion Index and value classifications, the Mini Tax on
+  matched variants only, price against rating.
+- **Dupe intelligence** (Phase 3). Candidate filtering, text and attribute
+  similarity with price structurally excluded and a test that asserts it,
+  a hand-labelled benchmark, documented failures, a true-value layer with
+  separable components.
+- **Dashboard and delivery** (Phase 4). An eight-page Streamlit
+  application reading precomputed views, diagrams, a verification suite
+  that re-checks every README figure by script, methodology, data
+  dictionary and limitations documents, a clean-clone rebuild.
 
-```
-config/      category, unit, tier and usage rules; source registry
-data/        raw -> staging -> processed -> analytics
-database/    schema and the DuckDB build
-src/         ingest, cleaning, matching, units, validation, features,
-             analytics, modelling, utils
-sql/         analytical queries and views
-notebooks/   01 feasibility ... 12 business insights
-app/         application entry point and pages
-tests/       units, matching, features, data quality, dupe logic
-reports/     feasibility report, final insights, figures
-docs/        specification, roadmap, methodology, data dictionary, limitations
-```
+Pipeline shape when built: sources → `data/raw` (immutable) → staging →
+processed → analytics → DuckDB → app. Not built.
 
-Raw data is immutable. Nothing downstream writes back into `data/raw/`.
-
-## Setup
-
-Requires Python 3.13.
-
-```powershell
-python -m venv .venv
-.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-```
-
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-```
-
-`requirements.txt` currently carries Phase 1 dependencies only. Later
-phases add their own as they begin.
-
-## Documentation
-
-| Document | Purpose |
-| --- | --- |
-| `docs/PROJECT_SPEC.md` | Full specification. Authoritative. |
-| `docs/ROADMAP.md` | Phase structure and the gate each phase must pass. |
-| `docs/EXECUTION_PLAN.md` | Task-level progress. The source of truth for what is done. |
-| `docs/DEVELOPMENT.md` | Environment setup, git conventions, hazards discovered. |
-| `reports/source_feasibility_report.md` | Which sources are usable, which are not, and the evidence. |
-
-## Limitations
-
-Recorded as they are discovered, in `docs/limitations.md`. Prices are a
-dated market snapshot, not permanent values, and are labelled as such.
+The full README ships at Phase 4 from `docs/README_TEMPLATE.md`, with
+every figure re-checked by script before it is pushed.
