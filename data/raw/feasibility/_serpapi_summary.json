@@ -1,0 +1,496 @@
+{
+  "probed_at": "2026-08-26T17:17:20.467026+00:00",
+  "engine_params": {
+    "engine": "google_shopping",
+    "gl": "us",
+    "hl": "en"
+  },
+  "selection_rule": "first PER_BRAND eligible products per drugstore brand in handle order",
+  "per_brand": 4,
+  "searches_used_this_run": 14,
+  "responses_reused_from_earlier_runs": 6,
+  "account_before": {
+    "plan_name": "Free Plan",
+    "searches_per_month": 250,
+    "plan_searches_left": 243,
+    "this_month_usage": 7
+  },
+  "account_after": {
+    "plan_name": "Free Plan",
+    "searches_per_month": 250,
+    "plan_searches_left": 230,
+    "this_month_usage": 20
+  },
+  "n_products": 20,
+  "products_with_any_sized_title": 12,
+  "products_with_brand_matched_sized_title": 12,
+  "products_with_first_brand_result_sized": 1,
+  "products_with_no_brand_result": 0,
+  "total_results": 564,
+  "total_results_with_size": 27,
+  "total_brand_results": 530,
+  "total_brand_results_with_size": 27,
+  "rows": [
+    {
+      "brand": "ColourPop",
+      "handle": "11-scoops-super-shock-shadow",
+      "title": "11 Scoops",
+      "product_type": "Super Shock Shadow",
+      "query": "ColourPop 11 Scoops Super Shock Shadow",
+      "storefront_url": "https://colourpop.com/products/11-scoops-super-shock-shadow",
+      "n_results": 40,
+      "n_results_with_size": 0,
+      "n_brand_results": 39,
+      "n_brand_results_with_size": 0,
+      "any_size": false,
+      "brand_result_has_size": false,
+      "first_brand_result_title": "ColourPop Super Shock Shadow",
+      "first_brand_result_has_size": false,
+      "sizes_seen": [],
+      "example_sized_titles": [],
+      "reused": true,
+      "collected_at": "2026-08-26T16:15:00.988680+00:00"
+    },
+    {
+      "brand": "ColourPop",
+      "handle": "2-die-4-ultra-glossy-lip",
+      "title": "2 Die 4",
+      "product_type": "Ultra Glossy Lip",
+      "query": "ColourPop 2 Die 4 Ultra Glossy Lip",
+      "storefront_url": "https://colourpop.com/products/2-die-4-ultra-glossy-lip",
+      "n_results": 40,
+      "n_results_with_size": 0,
+      "n_brand_results": 38,
+      "n_brand_results_with_size": 0,
+      "any_size": false,
+      "brand_result_has_size": false,
+      "first_brand_result_title": "ColourPop Die 4 Ultra Glossy Lip",
+      "first_brand_result_has_size": false,
+      "sizes_seen": [],
+      "example_sized_titles": [],
+      "reused": true,
+      "collected_at": "2026-08-26T16:15:29.569279+00:00"
+    },
+    {
+      "brand": "ColourPop",
+      "handle": "258-blush-stix",
+      "title": "25/8",
+      "product_type": "Blush Stix",
+      "query": "ColourPop 25/8 Blush Stix",
+      "storefront_url": "https://colourpop.com/products/258-blush-stix",
+      "n_results": 40,
+      "n_results_with_size": 0,
+      "n_brand_results": 36,
+      "n_brand_results_with_size": 0,
+      "any_size": false,
+      "brand_result_has_size": false,
+      "first_brand_result_title": "Blush Stix Colourpop",
+      "first_brand_result_has_size": false,
+      "sizes_seen": [],
+      "example_sized_titles": [],
+      "reused": true,
+      "collected_at": "2026-08-26T16:15:33.783364+00:00"
+    },
+    {
+      "brand": "ColourPop",
+      "handle": "a-little-zhuzh-hyper-shine-glossy-lipstick",
+      "title": "A Little Zhuzh",
+      "product_type": "Hyper Shine Glossy Lipstick",
+      "query": "ColourPop A Little Zhuzh Hyper Shine Glossy Lipstick",
+      "storefront_url": "https://colourpop.com/products/a-little-zhuzh-hyper-shine-glossy-lipstick",
+      "n_results": 40,
+      "n_results_with_size": 0,
+      "n_brand_results": 37,
+      "n_brand_results_with_size": 0,
+      "any_size": false,
+      "brand_result_has_size": false,
+      "first_brand_result_title": "ColourPop A Little Zhuzh Hyper Shine Glossy Lipstick",
+      "first_brand_result_has_size": false,
+      "sizes_seen": [],
+      "example_sized_titles": [],
+      "reused": true,
+      "collected_at": "2026-08-26T16:15:48.629652+00:00"
+    },
+    {
+      "brand": "Essence",
+      "handle": "24ever-ink-liner-1",
+      "title": "24ever ink liner",
+      "product_type": "eye",
+      "query": "Essence 24ever ink liner",
+      "storefront_url": "https://essencemakeup.com/products/24ever-ink-liner-1",
+      "n_results": 38,
+      "n_results_with_size": 4,
+      "n_brand_results": 35,
+      "n_brand_results_with_size": 4,
+      "any_size": true,
+      "brand_result_has_size": true,
+      "first_brand_result_title": "Essence 24ever Ink Liner",
+      "first_brand_result_has_size": false,
+      "sizes_seen": [
+        "1 ml",
+        "1.1 ml",
+        "1.2 ml",
+        "3 ml"
+      ],
+      "example_sized_titles": [
+        "essence 24ever Ink Liner Intense Black 1.2ml",
+        "Essence Dip Eyeliner Waterproof 24h Long-lasting 01 Black 3ml",
+        "essence Eyeliner Pen Extra Long-lasting 1.1ml"
+      ],
+      "reused": true,
+      "collected_at": "2026-08-26T16:15:56.675123+00:00"
+    },
+    {
+      "brand": "Essence",
+      "handle": "8h-matte-comfort-lipliner",
+      "title": "8H Matte Comfort Lipliner",
+      "product_type": "lip",
+      "query": "Essence 8H Matte Comfort Lipliner",
+      "storefront_url": "https://essencemakeup.com/products/8h-matte-comfort-lipliner",
+      "n_results": 32,
+      "n_results_with_size": 6,
+      "n_brand_results": 28,
+      "n_brand_results_with_size": 6,
+      "any_size": true,
+      "brand_result_has_size": true,
+      "first_brand_result_title": "Essence 8H Matte Comfort Lipliner",
+      "first_brand_result_has_size": false,
+      "sizes_seen": [
+        "0.02 oz",
+        "0.3 g",
+        "0.30 g",
+        "03 g"
+      ],
+      "example_sized_titles": [
+        "Essence 8h matte comfort lipliner 02 Silky Hazelnut, lip liner, hazelnut, 0.3 g",
+        "Essence 8h matte comfort lipliner 03 Soft Beige, lip liner, beige, 0.3 g",
+        "Essence Cosmetics 8H Matte Comfort Lipliner Longue Dur e R sultat Instantan Mat (0.3g) 0.3 g (Lot de 1) Burgundy Bestie"
+      ],
+      "reused": true,
+      "collected_at": "2026-08-26T16:16:03.737804+00:00"
+    },
+    {
+      "brand": "Essence",
+      "handle": "all-about-matt-fixing-compact-powder",
+      "title": "all about matt! fixing compact powder",
+      "product_type": "face",
+      "query": "Essence all about matt! fixing compact powder",
+      "storefront_url": "https://essencemakeup.com/products/all-about-matt-fixing-compact-powder",
+      "n_results": 11,
+      "n_results_with_size": 0,
+      "n_brand_results": 10,
+      "n_brand_results_with_size": 0,
+      "any_size": false,
+      "brand_result_has_size": false,
+      "first_brand_result_title": "Essence All About Matt! Fixing Compact Powder",
+      "first_brand_result_has_size": false,
+      "sizes_seen": [],
+      "example_sized_titles": [],
+      "collected_at": "2026-08-26T17:14:22.639534+00:00"
+    },
+    {
+      "brand": "Essence",
+      "handle": "all-about-soft-glow-fixing-compact-powder-waterproof",
+      "title": "soft glow! fixing compact powder waterproof",
+      "product_type": "face",
+      "query": "Essence soft glow! fixing compact powder waterproof",
+      "storefront_url": "https://essencemakeup.com/products/all-about-soft-glow-fixing-compact-powder-waterproof",
+      "n_results": 9,
+      "n_results_with_size": 0,
+      "n_brand_results": 8,
+      "n_brand_results_with_size": 0,
+      "any_size": false,
+      "brand_result_has_size": false,
+      "first_brand_result_title": "Essence All About Matt! Fixing Compact Powder",
+      "first_brand_result_has_size": false,
+      "sizes_seen": [],
+      "example_sized_titles": [],
+      "collected_at": "2026-08-26T17:14:24.340392+00:00"
+    },
+    {
+      "brand": "Milani",
+      "handle": "all-inclusive-eye-cheek-face-palette",
+      "title": "All-Inclusive Eye, Cheek & Face Palette",
+      "product_type": "",
+      "query": "Milani All-Inclusive Eye, Cheek & Face Palette",
+      "storefront_url": "https://www.milanicosmetics.com/products/all-inclusive-eye-cheek-face-palette",
+      "n_results": 22,
+      "n_results_with_size": 1,
+      "n_brand_results": 21,
+      "n_brand_results_with_size": 1,
+      "any_size": true,
+      "brand_result_has_size": true,
+      "first_brand_result_title": "Milani All Inclusive Eye Cheek & Face Palette",
+      "first_brand_result_has_size": false,
+      "sizes_seen": [
+        "10.82 g"
+      ],
+      "example_sized_titles": [
+        "Milani All-Inclusive Eye Cheek Face Makeup Palette 110 Light to Medium 10.82g"
+      ],
+      "collected_at": "2026-08-26T17:14:34.803730+00:00"
+    },
+    {
+      "brand": "Milani",
+      "handle": "amore-matte-lip-creme",
+      "title": "Amore Matte Lip Crème",
+      "product_type": "",
+      "query": "Milani Amore Matte Lip Crème",
+      "storefront_url": "https://www.milanicosmetics.com/products/amore-matte-lip-creme",
+      "n_results": 40,
+      "n_results_with_size": 1,
+      "n_brand_results": 40,
+      "n_brand_results_with_size": 1,
+      "any_size": true,
+      "brand_result_has_size": true,
+      "first_brand_result_title": "Milani Amore Matte Lip Creme",
+      "first_brand_result_has_size": false,
+      "sizes_seen": [
+        "0.21 oz",
+        "6 g"
+      ],
+      "example_sized_titles": [
+        "Milani Amore Matte Lip Creme (0.21oz/6g) You Pick Unsealed"
+      ],
+      "collected_at": "2026-08-26T17:14:58.352655+00:00"
+    },
+    {
+      "brand": "Milani",
+      "handle": "amore-satin-matte-lip-creme",
+      "title": "Amore Satin Matte Lip Crème",
+      "product_type": "",
+      "query": "Milani Amore Satin Matte Lip Crème",
+      "storefront_url": "https://www.milanicosmetics.com/products/amore-satin-matte-lip-creme",
+      "n_results": 40,
+      "n_results_with_size": 2,
+      "n_brand_results": 40,
+      "n_brand_results_with_size": 2,
+      "any_size": true,
+      "brand_result_has_size": true,
+      "first_brand_result_title": "Milani Amore Satin Matte Lip Crème",
+      "first_brand_result_has_size": false,
+      "sizes_seen": [
+        "0.21 oz",
+        "0.22 oz",
+        "6 g",
+        "6.5 ml"
+      ],
+      "example_sized_titles": [
+        "Milani Amore Satin Matte Lip Crème Luxe 02 (0.22oz/6.5ml) Unsealed 02",
+        "Milani Amore Matte Lip Creme (0.21oz/6g) You Pick Unsealed"
+      ],
+      "collected_at": "2026-08-26T17:15:10.806150+00:00"
+    },
+    {
+      "brand": "Milani",
+      "handle": "baked-blurring-finishing-powder",
+      "title": "Baked Blurring Finishing Powder",
+      "product_type": "",
+      "query": "Milani Baked Blurring Finishing Powder",
+      "storefront_url": "https://www.milanicosmetics.com/products/baked-blurring-finishing-powder",
+      "n_results": 14,
+      "n_results_with_size": 2,
+      "n_brand_results": 13,
+      "n_brand_results_with_size": 2,
+      "any_size": true,
+      "brand_result_has_size": true,
+      "first_brand_result_title": "Milani Baked Blurring Finishing Powder",
+      "first_brand_result_has_size": false,
+      "sizes_seen": [
+        "0.42 oz"
+      ],
+      "example_sized_titles": [
+        "(2 pack) Milani Conceal + Perfect Shine-Proof Powder, Beige, Size: 0.42 oz",
+        "(2 pack) Milani Conceal + Perfect Shine-Proof Powder, Nude, Size: 0.42 oz"
+      ],
+      "collected_at": "2026-08-26T17:15:18.274691+00:00"
+    },
+    {
+      "brand": "Physicians Formula",
+      "handle": "2019-orgainc-wear-fake-out-mascara-black",
+      "title": "Organic Wear Fake Out Mascara",
+      "product_type": "Mascaras",
+      "query": "Physicians Formula Organic Wear Fake Out Mascara",
+      "storefront_url": "https://www.physiciansformula.com/products/2019-orgainc-wear-fake-out-mascara-black",
+      "n_results": 40,
+      "n_results_with_size": 1,
+      "n_brand_results": 35,
+      "n_brand_results_with_size": 1,
+      "any_size": true,
+      "brand_result_has_size": true,
+      "first_brand_result_title": "Physicians Formula Organic Wear 100% Natural Origin Fake-Out Mascara, Ultra Black, 0.26 oz.",
+      "first_brand_result_has_size": true,
+      "sizes_seen": [
+        "0.26 oz."
+      ],
+      "example_sized_titles": [
+        "Physicians Formula Organic Wear 100% Natural Origin Fake-Out Mascara, Ultra Black, 0.26 oz."
+      ],
+      "collected_at": "2026-08-26T17:15:28.078821+00:00"
+    },
+    {
+      "brand": "Physicians Formula",
+      "handle": "2019-organic-wear-natural-origin-mascara-black",
+      "title": "Organic Wear Natural Origin Mascara",
+      "product_type": "Mascaras",
+      "query": "Physicians Formula Organic Wear Natural Origin Mascara",
+      "storefront_url": "https://www.physiciansformula.com/products/2019-organic-wear-natural-origin-mascara-black",
+      "n_results": 19,
+      "n_results_with_size": 2,
+      "n_brand_results": 16,
+      "n_brand_results_with_size": 2,
+      "any_size": true,
+      "brand_result_has_size": true,
+      "first_brand_result_title": "Physicians Formula Organic Wear Natural Origin Mascara",
+      "first_brand_result_has_size": false,
+      "sizes_seen": [
+        "0.26 oz.",
+        "0.4 fl oz",
+        "12 ml"
+      ],
+      "example_sized_titles": [
+        "Physicians Formula Organic Wear 100% Natural Origin Fake-Out Mascara, Ultra Black, 0.26 oz.",
+        "Physicians Formula Rose All Day Mascara Black 0.4 fl oz (12 ml)"
+      ],
+      "collected_at": "2026-08-26T17:16:02.019863+00:00"
+    },
+    {
+      "brand": "Physicians Formula",
+      "handle": "24-karat-gold-face-palette",
+      "title": "24-Karat Gold Face Palette",
+      "product_type": "Face Makeup",
+      "query": "Physicians Formula 24-Karat Gold Face Palette",
+      "storefront_url": "https://www.physiciansformula.com/products/24-karat-gold-face-palette",
+      "n_results": 40,
+      "n_results_with_size": 2,
+      "n_brand_results": 40,
+      "n_brand_results_with_size": 2,
+      "any_size": true,
+      "brand_result_has_size": true,
+      "first_brand_result_title": "Physicians Formula The Gold Vault 24-karat Gold Face Palette",
+      "first_brand_result_has_size": false,
+      "sizes_seen": [
+        "0.21 oz",
+        "20 g"
+      ],
+      "example_sized_titles": [
+        "Physicians Formula Face Palette - All Star - 0.21oz ($19)",
+        "Physicians Formula All Star Quad Face Palette 20g"
+      ],
+      "collected_at": "2026-08-26T17:16:19.903071+00:00"
+    },
+    {
+      "brand": "Physicians Formula",
+      "handle": "bronze-booster-glow-boosting-baked-bronzer-light-to-medium",
+      "title": "Bronze Booster Glow-Boosting Baked Bronzer | Light to Medium",
+      "product_type": "Blushes & Bronzers",
+      "query": "Physicians Formula Bronze Booster Glow-Boosting Baked Bronzer",
+      "storefront_url": "https://www.physiciansformula.com/products/bronze-booster-glow-boosting-baked-bronzer-light-to-medium",
+      "n_results": 40,
+      "n_results_with_size": 0,
+      "n_brand_results": 40,
+      "n_brand_results_with_size": 0,
+      "any_size": false,
+      "brand_result_has_size": false,
+      "first_brand_result_title": "Physicians Formula Bronze Booster Glow-Boosting Baked Bronzer",
+      "first_brand_result_has_size": false,
+      "sizes_seen": [],
+      "example_sized_titles": [],
+      "collected_at": "2026-08-26T17:16:25.888291+00:00"
+    },
+    {
+      "brand": "Wet n Wild",
+      "handle": "always-sunny-in-bikini-bottom-bronzing-drops",
+      "title": "Always Sunny in Bikini Bottom Bronzing Drops",
+      "product_type": "Blushes & Bronzers",
+      "query": "Wet n Wild Always Sunny in Bikini Bottom Bronzing Drops",
+      "storefront_url": "https://www.wetnwildbeauty.com/products/always-sunny-in-bikini-bottom-bronzing-drops",
+      "n_results": 13,
+      "n_results_with_size": 1,
+      "n_brand_results": 12,
+      "n_brand_results_with_size": 1,
+      "any_size": true,
+      "brand_result_has_size": true,
+      "first_brand_result_title": "Wet n Wild X Spongebob Always Sunny In Bikini Bottom Bronzing Drops - New Beauty",
+      "first_brand_result_has_size": false,
+      "sizes_seen": [
+        "30 mL"
+      ],
+      "example_sized_titles": [
+        "Wet n Wild Always Sunny In Bikini Bottom Bronzing Drops 30mL/ 1 FL Oz - New Beauty"
+      ],
+      "collected_at": "2026-08-26T17:16:35.286407+00:00"
+    },
+    {
+      "brand": "Wet n Wild",
+      "handle": "bare-focus-clarifying-finishing-powder-medium-tan",
+      "title": "Bare Focus Clarifying Finishing Powder | Medium-Tan",
+      "product_type": "Face Powder",
+      "query": "Wet n Wild Bare Focus Clarifying Finishing Powder",
+      "storefront_url": "https://www.wetnwildbeauty.com/products/bare-focus-clarifying-finishing-powder-medium-tan",
+      "n_results": 20,
+      "n_results_with_size": 0,
+      "n_brand_results": 18,
+      "n_brand_results_with_size": 0,
+      "any_size": false,
+      "brand_result_has_size": false,
+      "first_brand_result_title": "Wet n Wild Bare Focus Clarifying Finishing Powder",
+      "first_brand_result_has_size": false,
+      "sizes_seen": [],
+      "example_sized_titles": [],
+      "collected_at": "2026-08-26T17:16:49.545276+00:00"
+    },
+    {
+      "brand": "Wet n Wild",
+      "handle": "bare-focus-niacinamide-skin-tint-amber-beige",
+      "title": "Bare Focus Niacinamide Skin Tint | Amber Beige",
+      "product_type": "Foundations & Concealers",
+      "query": "Wet n Wild Bare Focus Niacinamide Skin Tint",
+      "storefront_url": "https://www.wetnwildbeauty.com/products/bare-focus-niacinamide-skin-tint-amber-beige",
+      "n_results": 13,
+      "n_results_with_size": 3,
+      "n_brand_results": 11,
+      "n_brand_results_with_size": 3,
+      "any_size": true,
+      "brand_result_has_size": true,
+      "first_brand_result_title": "Wet n Wild Bare Focus Niacinamide Skin Tint",
+      "first_brand_result_has_size": false,
+      "sizes_seen": [
+        "0.91 fl oz",
+        "32 ml"
+      ],
+      "example_sized_titles": [
+        "Wet N Wild Bare Focus Niacinamide Skin Tint Fair 32ml",
+        "(2 pack) Wet n Wild Bare Focus Tinted Hydrator, Tinted Skin Veil, Fair, 0.91 fl oz",
+        "Wet n Wild Bare Focus Niacinamide Skin Tint Lightweight Hydrating Foundation Shade Fair (Cool) 32ml"
+      ],
+      "collected_at": "2026-08-26T17:17:02.764678+00:00"
+    },
+    {
+      "brand": "Wet n Wild",
+      "handle": "big-poppa-mascara",
+      "title": "Big Poppa Mascara",
+      "product_type": "Mascaras",
+      "query": "Wet n Wild Big Poppa Mascara",
+      "storefront_url": "https://www.wetnwildbeauty.com/products/big-poppa-mascara",
+      "n_results": 13,
+      "n_results_with_size": 2,
+      "n_brand_results": 13,
+      "n_brand_results_with_size": 2,
+      "any_size": true,
+      "brand_result_has_size": true,
+      "first_brand_result_title": "Wet N Wild Big Poppa Mascara",
+      "first_brand_result_has_size": false,
+      "sizes_seen": [
+        "0.33 fl oz",
+        "10 ml",
+        "8 ml"
+      ],
+      "example_sized_titles": [
+        "Wet n Wild Big Poppa Mascara Blackest Black 0.33 fl oz (10 ml)",
+        "Wet n Wild Mega Big Poppa Mascara 8ml"
+      ],
+      "collected_at": "2026-08-26T17:17:14.367088+00:00"
+    }
+  ]
+}
