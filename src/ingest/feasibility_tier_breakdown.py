@@ -125,9 +125,28 @@ def main() -> None:
     c = sum(r["q_structured"] for r in nd_ex)
     print(f"\nnon-drugstore EXCLUDING MAC and Tom Ford: {c}/{len(nd_ex)} ({pct(c, len(nd_ex)).strip()})")
 
+    def summ(rs: list[dict]) -> dict:
+        c = sum(r["q_structured"] for r in rs)
+        b = sum(r["q_body_only"] for r in rs)
+        return {
+            "n": len(rs),
+            "with_quantity": c,
+            "body_only": b,
+            "coverage": round(c / len(rs), 4) if rs else None,
+        }
+
+    by_brand: dict[str, dict] = {}
+    for tier in TIER_ORDER:
+        for brand in sorted({r["brand"] for r in rows if r["tier"] == tier}):
+            by_brand[brand] = {"tier": tier, **summ([r for r in rows if r["brand"] == brand])}
+
     out = {
-        "by_tier": {t: {"n": n, "with_quantity": c, "coverage": round(c / n, 4) if n else None} for t, (n, c) in tier_tot.items()},
-        "all": {"n": n_all, "with_quantity": c_all, "coverage": round(c_all / n_all, 4)},
+        "method": "strict: a plausible size token in a variant title, option value or "
+                  "product title counts; body text is reported as body_only and not counted",
+        "by_tier": {t: summ([r for r in rows if r["tier"] == t]) for t in TIER_ORDER},
+        "by_brand": by_brand,
+        "non_drugstore_excluding_mac_and_tom_ford": summ(nd_ex),
+        "all": summ(rows),
     }
     (RAW_DIR / "_tier_breakdown.json").write_text(json.dumps(out, indent=2), encoding="utf-8")
 

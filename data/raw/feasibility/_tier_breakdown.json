@@ -1,29 +1,176 @@
 {
+  "method": "strict: a plausible size token in a variant title, option value or product title counts; body text is reported as body_only and not counted",
   "by_tier": {
     "drugstore": {
       "n": 1098,
       "with_quantity": 0,
+      "body_only": 22,
       "coverage": 0.0
     },
     "mid_range": {
       "n": 593,
       "with_quantity": 12,
+      "body_only": 20,
       "coverage": 0.0202
     },
     "high_end": {
       "n": 1471,
       "with_quantity": 225,
+      "body_only": 135,
       "coverage": 0.153
     },
     "luxury": {
       "n": 171,
       "with_quantity": 143,
+      "body_only": 6,
       "coverage": 0.8363
     }
+  },
+  "by_brand": {
+    "ColourPop": {
+      "tier": "drugstore",
+      "n": 250,
+      "with_quantity": 0,
+      "body_only": 22,
+      "coverage": 0.0
+    },
+    "Essence": {
+      "tier": "drugstore",
+      "n": 233,
+      "with_quantity": 0,
+      "body_only": 0,
+      "coverage": 0.0
+    },
+    "Milani": {
+      "tier": "drugstore",
+      "n": 161,
+      "with_quantity": 0,
+      "body_only": 0,
+      "coverage": 0.0
+    },
+    "Physicians Formula": {
+      "tier": "drugstore",
+      "n": 204,
+      "with_quantity": 0,
+      "body_only": 0,
+      "coverage": 0.0
+    },
+    "Wet n Wild": {
+      "tier": "drugstore",
+      "n": 250,
+      "with_quantity": 0,
+      "body_only": 0,
+      "coverage": 0.0
+    },
+    "Juvia's Place": {
+      "tier": "mid_range",
+      "n": 184,
+      "with_quantity": 0,
+      "body_only": 8,
+      "coverage": 0.0
+    },
+    "Morphe": {
+      "tier": "mid_range",
+      "n": 159,
+      "with_quantity": 0,
+      "body_only": 11,
+      "coverage": 0.0
+    },
+    "Pixi": {
+      "tier": "mid_range",
+      "n": 250,
+      "with_quantity": 12,
+      "body_only": 1,
+      "coverage": 0.048
+    },
+    "Anastasia Beverly Hills": {
+      "tier": "high_end",
+      "n": 179,
+      "with_quantity": 0,
+      "body_only": 130,
+      "coverage": 0.0
+    },
+    "Fenty Beauty": {
+      "tier": "high_end",
+      "n": 250,
+      "with_quantity": 1,
+      "body_only": 3,
+      "coverage": 0.004
+    },
+    "Haus Labs": {
+      "tier": "high_end",
+      "n": 48,
+      "with_quantity": 0,
+      "body_only": 0,
+      "coverage": 0.0
+    },
+    "Huda Beauty": {
+      "tier": "high_end",
+      "n": 175,
+      "with_quantity": 6,
+      "body_only": 0,
+      "coverage": 0.0343
+    },
+    "MAC": {
+      "tier": "high_end",
+      "n": 250,
+      "with_quantity": 213,
+      "body_only": 0,
+      "coverage": 0.852
+    },
+    "Makeup by Mario": {
+      "tier": "high_end",
+      "n": 60,
+      "with_quantity": 1,
+      "body_only": 0,
+      "coverage": 0.0167
+    },
+    "Rare Beauty": {
+      "tier": "high_end",
+      "n": 137,
+      "with_quantity": 4,
+      "body_only": 2,
+      "coverage": 0.0292
+    },
+    "Saie": {
+      "tier": "high_end",
+      "n": 61,
+      "with_quantity": 0,
+      "body_only": 0,
+      "coverage": 0.0
+    },
+    "Tarte": {
+      "tier": "high_end",
+      "n": 249,
+      "with_quantity": 0,
+      "body_only": 0,
+      "coverage": 0.0
+    },
+    "Tower 28": {
+      "tier": "high_end",
+      "n": 62,
+      "with_quantity": 0,
+      "body_only": 0,
+      "coverage": 0.0
+    },
+    "Tom Ford Beauty": {
+      "tier": "luxury",
+      "n": 171,
+      "with_quantity": 143,
+      "body_only": 6,
+      "coverage": 0.8363
+    }
+  },
+  "non_drugstore_excluding_mac_and_tom_ford": {
+    "n": 1814,
+    "with_quantity": 24,
+    "body_only": 155,
+    "coverage": 0.0132
   },
   "all": {
     "n": 3333,
     "with_quantity": 380,
+    "body_only": 183,
     "coverage": 0.114
   }
 }
