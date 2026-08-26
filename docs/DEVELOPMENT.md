@@ -66,7 +66,7 @@ Commit messages describe the change only. No trailers, no footers, no
 
 README.md is refreshed at every GATE from measured figures only.
 Any push touching README.md requires
-`Select-String -Path README.md -Pattern "{{"` to return nothing.
+`Select-String -Path README.md -Pattern "\{\{"` to return nothing.
 Findings are stated with their caveats in the same paragraph, never
 deferred to a limitations section.
 
