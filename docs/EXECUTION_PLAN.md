@@ -141,7 +141,7 @@ capture supplies quantity only — see docs/methodology.md.)*
 
 ### C-TRACK — disclosure asymmetry (first; no new data)
 
-- [ ] **1.1-C1 Per-brand figures persisted.**
+- [x] 2026-08-26 **1.1-C1 Per-brand figures persisted.**
       `src/ingest/feasibility_tier_breakdown.py` prints by-brand counts
       but persists only by-tier. Make it write both to
       `data/raw/feasibility/_tier_breakdown.json`, strict rules
@@ -149,7 +149,7 @@ capture supplies quantity only — see docs/methodology.md.)*
       Done when: the JSON carries every brand's n / with_quantity /
       coverage and the by-tier totals are unchanged (drugstore 1,098 /
       0; all 380 / 11.4%).
-- [ ] **1.1-C2 Finding #1 — disclosure asymmetry.** Write
+- [x] 2026-08-26 **1.1-C2 Finding #1 — disclosure asymmetry.** Write
       `reports/final_insights.md` with finding #1: on brand-owned
       storefronts, net quantity is disclosed on 0 of 1,098 drugstore
       products — five brands, each at zero, so the zero is uniform, not
@@ -176,7 +176,7 @@ capture supplies quantity only — see docs/methodology.md.)*
       assumed.
       Done when: the file exists, docs/DEVELOPMENT.md points to it,
       and the rules forbid a price field on any capture template.
-- [ ] **1.1-B1 Pre-register the drugstore capture list.** Before any
+- [x] 2026-08-26 250 drawn (50/brand, 19 categories) from 631 eligible; 30-product OCR sample; byte-identical on re-run; committed before any size was read. **1.1-B1 Pre-register the drugstore capture list.** Before any
       size is read (§4). A seeded, deterministic script draws from the
       1,098 drugstore storefront products already collected: a
       transparent category guess from Shopify product_type and title
