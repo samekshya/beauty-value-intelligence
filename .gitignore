@@ -18,3 +18,6 @@ data/raw/obf/*.csv
 data/raw/obf/*.jsonl
 data/raw/obf/*.gz
 data/staging/obf_us_makeup.parquet
+
+# Stage 1.1 OCR test: storefront images are bulky and re-downloadable
+data/raw/capture/images/

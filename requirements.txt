@@ -20,3 +20,8 @@ jupyterlab==4.5.1
 
 # tests (Stage 1.2 gate: tests pass from a clean environment)
 pytest==8.4.2
+
+# Stage 1.1 (acquisition): OCR test on storefront product images (1.1-B2)
+rapidocr-onnxruntime==1.2.3
+onnxruntime==1.29.0
+pillow==12.3.0
