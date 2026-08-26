@@ -124,7 +124,7 @@ Authority: docs/PROJECT_SPEC.md (§ references) · docs/ROADMAP.md (gates)
 - [x] 2026-08-26 Decision: **B + C, C first, then B. A rejected** (356 of the 380 quantity rows are two brands). Owner's rationale: C needs no new data and delivers a measured finding immediately, so the project is complete even if B's manual labour stalls. ⛔ **GATE 1.0 — human chooses the branch.** Present the memo in
       ≤ 30 lines. Wait.
 
-- [ ] **1.0-G Post-gate rewrite.** Rewrite the Stage 1.1 section below
+- [x] 2026-08-26 **1.0-G Post-gate rewrite.** Rewrite the Stage 1.1 section below
       to match the chosen branch: concrete sources, concrete targets,
       concrete ingestion tasks. Update docs/DEVELOPMENT.md if conventions change.
       Done when: Stage 1.1 below contains no BRANCH-DEPENDENT markers.
@@ -164,7 +164,7 @@ capture supplies quantity only — see docs/methodology.md.)*
 
 ### B-TRACK — drugstore quantity by capture (after C)
 
-- [ ] **1.1-B0 Methodology rule.** `docs/methodology.md`, written
+- [x] 2026-08-26 **1.1-B0 Methodology rule.** `docs/methodology.md`, written
       before any capture: physical capture supplies QUANTITY only;
       price always from the US storefront snapshot; Nepal shelf prices
       carry an import premium that §96 treats as a separate question
@@ -331,6 +331,19 @@ everything with the documented commands; and (4) the human can answer
 
 ## DEVIATION LOG
 *(one line each, dated, newest first)*
+
+- 2026-08-26 · Proposal, not a task: prestige brands at 0% storefront
+  disclosure (Anastasia Beverly Hills, Tarte, Saie, Tower 28, Haus
+  Labs, Juvia's Place, Morphe) would need the same capture route for a
+  like-for-like §98 comparison; the owner's B-track names drugstore
+  only. Raise at Gate 1.1.
+- 2026-08-26 · 1.1-B2 (OCR on storefront images) is a new task added at
+  the owner's direction at Gate 1.0, not from the spec; its
+  dependencies (RapidOCR, pip-only) enter requirements.txt at the start
+  of Stage 1.1 per docs/DEVELOPMENT.md.
+- 2026-08-26 · Stage 1.1 rewritten wholesale under 1.0-G's explicit
+  authority; the original 1.1-a/b/d tasks are kept verbatim under
+  SPINE, 1.1-c now points at the B-track instead of a branch marker.
 
 - 2026-08-26 · SerpApi probe: the first run's 7th call was charged but
   hung ~54 min before its nominal 60 s read timeout fired and the script
