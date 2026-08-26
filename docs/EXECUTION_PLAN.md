@@ -117,12 +117,17 @@ hint only.
 
 ## Stage 1.1 — B-TRACK · Quantity capture
 
-- [ ] **1.1-B1 Pre-register the capture list.** Fixed list of drugstore
+- [x] 2026-08-26 **1.1-B1 Pre-register the capture list.** Fixed list of drugstore
       products to capture, chosen BEFORE any size is read, committed
       and git-timestamped. Selection rule stated (e.g. top-N by
       category coverage). This prevents choosing products whose sizes
       happen to support a conclusion. §4.
       Done when: docs/capture_list.md committed, with selection rule.
+      - [x] 2026-08-26 CSVs registered by commit 07c7ca3 before any size
+            was read (250 drawn, 50 per brand, 19 categories; 30-product
+            OCR sample); re-run reproduces both CSVs byte for byte;
+            docs/capture_list.md states the rule and the registering
+            commit.
 
 - [ ] **1.1-B2 OCR feasibility test.** Product images from storefronts
       already crawled — permitted source, already collected. Packaging
