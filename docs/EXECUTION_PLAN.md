@@ -140,13 +140,21 @@ hint only.
             docs/capture_list.md states the rule and the registering
             commit.
 
-- [ ] **1.1-B2 OCR feasibility test.** Product images from storefronts
+- [x] 2026-08-27 **1.1-B2 OCR feasibility test.** Product images from storefronts
       already crawled — permitted source, already collected. Packaging
       in product photos frequently prints net contents. Test OCR on 30
       drugstore products from the pre-registered list. Report measured
       hit rate and error modes. Do not proceed to manual capture
       before this number exists.
       Done when: measured hit rate committed to the report.
+      - [x] 2026-08-27 8 of 30 (26.7%) under the pre-registered rule, 9 of
+            30 (30.0%) under a labelled post-hoc amendment; 8 of 8 hits
+            verified correct against their images; 19 of 22 misses have no
+            size on the item photographed, so the ceiling with these images
+            is 11 of 30 (36.7%), below the 40% threshold.
+            reports/ocr_feasibility_report.md; outputs in data/raw/capture/
+            (ocr/, _ocr_probe_summary.json, _ocr_probe_analysis.json,
+            _ocr_probe_visual_audit.csv).
 
 - [ ] ⛔ **HUMAN — OCR go/no-go.** ~40%+ hit rate makes OCR the primary
       route and shop visits unnecessary. Below that, decide whether to
@@ -555,6 +563,25 @@ Done when all four hold:
 
 # DEVIATION LOG *(newest first, one line, dated)*
 
+- 2026-08-27 · 1.1-B2: `_ocr_probe_analysis.json` on disk had been written
+  when 15 of 30 products had output (3 of 15); the probe itself had
+  finished all 30. Re-run on all 30 before any figure was cited.
+- 2026-08-27 · 1.1-B2 judgement call: the "amended" normalisation (space
+  after a glued NET WT label, O-for-0 before a decimal) was written after
+  reading the outputs. Post hoc — reported second and labelled, never as
+  the headline.
+- 2026-08-27 · 1.1-B2: misses classified by eye from the images (36
+  inspected) and recorded per product in `_ocr_probe_visual_audit.csv`. A
+  manual step — re-auditable from the image URLs in `ocr/*.json`, not
+  re-runnable.
+- 2026-08-27 · 1.1-B2 surprise: three of 30 category guesses are wrong
+  (19 and 25 are palettes guessed eyeshadow_single; 20 is an eyeliner
+  guessed primer, outside §7). Keyword rule; flagged for the 1.2-H audit;
+  the registered list is not changed.
+- 2026-08-27 · 1.1-B2: the report is a new file,
+  `reports/ocr_feasibility_report.md`, not a section of the Stage 1.0
+  source feasibility report, whose status line declares its measurements
+  complete.
 - 2026-08-27 · 1.1-C2 surprise: of the 24 non-drugstore disclosures
   outside MAC and Tom Ford, only 5 are §7 makeup products; 19 are perfume,
   skincare and face mists. On makeup the comparator is 5 of 503 (1.0%).
