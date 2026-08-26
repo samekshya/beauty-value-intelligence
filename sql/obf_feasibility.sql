@@ -171,24 +171,42 @@ SELECT
   categories_tags,
   -- US flag
   list_contains(countries_tags, 'en:united-states')            AS is_us,
-  -- makeup flag: any tag starts with one of the §7 category stems
-  len(list_filter(categories_tags, t ->
-        t LIKE 'en:foundation%'       OR t LIKE 'en:concealer%'
-     OR t LIKE 'en:blush%'            OR t LIKE 'en:bronzer%'
-     OR t LIKE 'en:highlighter%'      OR t LIKE 'en:face-powder%'
-     OR t LIKE 'en:setting-powder%'   OR t LIKE 'en:pressed-powder%'
-     OR t LIKE 'en:loose-powder%'     OR t LIKE 'en:compact-powder%'
-     OR t LIKE 'en:lip-liner%'        OR t LIKE 'en:lip-pencil%'
-     OR t LIKE 'en:lipstick%'         OR t LIKE 'en:liquid-lipstick%'
-     OR t LIKE 'en:lip-gloss%'        OR t LIKE 'en:lipgloss%'
-     OR t LIKE 'en:mascara%'
-     OR t LIKE 'en:eyebrow%'          OR t LIKE 'en:brow-%'
-     OR t LIKE 'en:primer%'           OR t LIKE 'en:makeup-primer%'
-     OR t LIKE 'en:setting-spray%'    OR t LIKE 'en:fixing-spray%'
-     OR t LIKE 'en:eyeshadow%'        OR t LIKE 'en:eye-shadow%'
+  -- makeup flag (strict): a tag naming a §7 product type. Tags are
+  -- case-folded and space->hyphen normalised first, because contributor
+  -- tags outside the taxonomy keep their spelling ('en:Volumizing
+  -- mascaras', 'en:Face powders'). Removers, brushes, tools and lash/brow
+  -- growth serums are excluded by name. Nail products are not in §7.
+  len(list_filter(list_transform(categories_tags, t -> replace(lower(t), ' ', '-')), n ->
+     (   n LIKE 'en:foundation%'        OR n LIKE 'en:concealer%'
+      OR n LIKE 'en:%blush%'            OR n LIKE 'en:bronzer%'
+      OR n LIKE 'en:%highlighter%'      OR n LIKE 'en:face-powder%'
+      OR n LIKE 'en:setting-powder%'    OR n LIKE 'en:pressed-powder%'
+      OR n LIKE 'en:loose-powder%'      OR n LIKE 'en:compact-powder%'
+      OR n LIKE 'en:translucent-powder%' OR n LIKE 'en:make-up-powder%'
+      OR n LIKE 'en:lip-liner%'         OR n LIKE 'en:lip-pencil%'
+      OR n LIKE 'en:%lipstick%'
+      OR n LIKE 'en:lip-gloss%'         OR n LIKE 'en:lipgloss%'
+      OR n LIKE 'en:mascara%'           OR n LIKE 'en:%-mascaras'
+      OR n LIKE 'en:eyebrow%'           OR n LIKE 'en:brow-%'
+      OR n LIKE 'en:primer%'            OR n LIKE 'en:makeup-primer%'
+      OR n LIKE 'en:setting-spray%'     OR n LIKE 'en:fixing-spray%'
+      OR n LIKE 'en:eyeshadow%'         OR n LIKE 'en:eye-shadow%'
+     )
+     AND NOT (n LIKE '%remover%' OR n LIKE '%brush%'  OR n LIKE '%growth%'
+           OR n LIKE '%treatment%' OR n LIKE '%accessor%' OR n LIKE '%tool%')
   )) > 0                                                       AS is_makeup,
-  -- the broad tag, reported for context only
-  list_contains(categories_tags, 'en:make-up')                 AS has_broad_makeup_tag
+  -- makeup flag (family): an OBF makeup *family* tag - "this is makeup"
+  -- without saying which §7 type. Counted as makeup, but such a row needs
+  -- name-based classification before it could join a category. Exact
+  -- match, not prefix, so 'en:eye-makeup-remover' does not qualify.
+  len(list_filter(list_transform(categories_tags, t -> replace(lower(t), ' ', '-')), n ->
+        n IN ('en:makeup', 'en:make-up',
+              'en:face-makeup', 'en:face-make-up',
+              'en:eyes-makeup', 'en:eye-makeup', 'en:eye-make-up',
+              'en:lip-makeup', 'en:lip-make-up', 'en:lip-cosmetics')
+  )) > 0                                                       AS has_family_tag,
+  -- no category at all: the row is invisible to both flags
+  categories_tags IS NULL OR len(categories_tags) = 0         AS no_category
 FROM obf_parquet;
 
 -- 1.1  Funnel. Every stage reported so the filters can be audited.
@@ -196,15 +214,21 @@ SELECT
   count(*)                                                     AS all_rows,
   count(*) FILTER (WHERE is_us)                                AS us_rows,
   count(*) FILTER (WHERE is_makeup)                            AS makeup_rows,
-  count(*) FILTER (WHERE has_broad_makeup_tag)                 AS broad_makeup_tag_rows,
-  count(*) FILTER (WHERE is_us AND is_makeup)                  AS us_makeup_rows
+  count(*) FILTER (WHERE has_family_tag)                       AS family_tag_rows,
+  count(*) FILTER (WHERE is_makeup OR has_family_tag)          AS makeup_broad_rows,
+  count(*) FILTER (WHERE is_makeup AND is_us)                  AS us_makeup_rows,
+  count(*) FILTER (WHERE is_us AND (is_makeup OR has_family_tag))
+                                                               AS us_makeup_broad_rows,
+  count(*) FILTER (WHERE is_us AND no_category)                AS us_rows_without_category
 FROM obf_scope;
+-- us_rows_without_category: rows no category filter can see. If this is a
+-- large share of us_rows, the makeup counts above are a floor, not a count.
 
 -- 1.2  What category tags do US makeup rows actually carry? Needed to map
 --      onto config/categories.yaml and to catch stems the filter missed.
 SELECT tag, count(*) AS n
 FROM obf_scope, unnest(categories_tags) AS u(tag)
-WHERE is_us AND is_makeup AND tag LIKE 'en:%'
+WHERE is_us AND (is_makeup OR has_family_tag) AND lower(tag) LIKE 'en:%'
 GROUP BY tag
 ORDER BY n DESC
 LIMIT 60;
@@ -213,7 +237,7 @@ LIMIT 60;
 --      - this is how many §11 brands OBF can actually serve.
 SELECT brands, count(*) AS n
 FROM obf_scope
-WHERE is_us AND is_makeup
+WHERE is_us AND (is_makeup OR has_family_tag)
 GROUP BY brands
 ORDER BY n DESC
 LIMIT 80;
@@ -252,21 +276,24 @@ FROM (
     UNION ALL
     SELECT 'makeup'         AS scope, * FROM obf_scope WHERE is_makeup
     UNION ALL
-    SELECT 'us_makeup'      AS scope, * FROM obf_scope WHERE is_us AND is_makeup
+    SELECT 'us_makeup'      AS scope, * FROM obf_scope WHERE is_makeup AND is_us
+    UNION ALL
+    SELECT 'us_makeup_broad' AS scope, * FROM obf_scope WHERE is_us AND (is_makeup OR has_family_tag)
   )
   GROUP BY scope
 )
-ORDER BY CASE scope WHEN 'all' THEN 1 WHEN 'us' THEN 2 WHEN 'makeup' THEN 3 ELSE 4 END;
+ORDER BY CASE scope WHEN 'all' THEN 1 WHEN 'us' THEN 2 WHEN 'makeup' THEN 3
+                    WHEN 'us_makeup' THEN 4 ELSE 5 END;
 
 SELECT * FROM obf_quantity_fill;
--- The row that matters is us_makeup / parsed_with_unit_pct.
+-- The rows that matter are us_makeup and us_makeup_broad. Read n first.
 -- Against §88's 90% target. Against the 50% switch trigger in the report.
 
 -- 2.1  Unit vocabulary on parsed quantities. Must map onto
 --      config/unit_rules.yaml unit_tokens; anything else is a parser task.
 SELECT product_quantity_unit, count(*) AS n
 FROM obf_scope
-WHERE is_us AND is_makeup AND try_cast(product_quantity AS DOUBLE) > 0
+WHERE is_us AND (is_makeup OR has_family_tag) AND try_cast(product_quantity AS DOUBLE) > 0
 GROUP BY 1 ORDER BY n DESC;
 
 -- 2.2  Raw vs parsed disagreement. If product_quantity is derived from
@@ -280,14 +307,14 @@ SELECT
 FROM (
   SELECT
     nullif(trim(quantity), '') IS NOT NULL                     AS raw_ok,
-    try_cast(product_quantity AS DOUBLE) > 0                   AS parsed_ok
-  FROM obf_scope WHERE is_us AND is_makeup
+    coalesce(try_cast(product_quantity AS DOUBLE) > 0, FALSE)  AS parsed_ok
+  FROM obf_scope WHERE is_us AND (is_makeup OR has_family_tag)
 );
 
 -- 2.3  Sample of raw quantity strings - what the parser will face.
 SELECT quantity, count(*) AS n
 FROM obf_scope
-WHERE is_us AND is_makeup AND nullif(trim(quantity), '') IS NOT NULL
+WHERE is_us AND (is_makeup OR has_family_tag) AND nullif(trim(quantity), '') IS NOT NULL
 GROUP BY 1 ORDER BY n DESC
 LIMIT 50;
 
@@ -295,9 +322,6 @@ LIMIT 50;
 -- ============================================================================
 -- PART 3 — FILL RATE BY TIER.  Does OBF fix the DRUGSTORE hole specifically?
 -- ============================================================================
--- Brand matching is deliberately crude (case-insensitive substring on the
--- §11 names) because this is a feasibility count, not entity resolution.
--- Over-matching is visible in Part 1.3 and can be corrected by hand.
 
 CREATE OR REPLACE TABLE tier_brands (brand VARCHAR, tier VARCHAR);
 INSERT INTO tier_brands VALUES
@@ -318,42 +342,97 @@ INSERT INTO tier_brands VALUES
   ('armani','luxury'),('givenchy','luxury'),('tom ford','luxury'),
   ('chanel','luxury'),('guerlain','luxury');
 
+-- Brand match is word-bounded ("mac" must not match "pharmacy") on the
+-- free-text brands field, case-folded. Still crude: multi-brand strings
+-- ("L'Oréal, L'Oreal Consumer products, L'Oréal Paris") match on any part.
+-- "Broad" = strict §7 tag OR a makeup family tag; "strict" = §7 tag only.
 CREATE OR REPLACE VIEW obf_by_tier AS
 SELECT
   t.tier,
-  count(DISTINCT s.code)                                                  AS n,
+  count(DISTINCT s.code) FILTER (WHERE s.is_makeup)                        AS n_strict,
+  count(DISTINCT s.code) FILTER (WHERE s.is_makeup
+        AND try_cast(s.product_quantity AS DOUBLE) > 0
+        AND nullif(trim(s.product_quantity_unit), '') IS NOT NULL)         AS n_strict_parsed_with_unit,
+  count(DISTINCT s.code)                                                   AS n_broad,
   count(DISTINCT s.code) FILTER (WHERE try_cast(s.product_quantity AS DOUBLE) > 0
-                                   AND nullif(trim(s.product_quantity_unit), '') IS NOT NULL)
-                                                                          AS n_parsed_with_unit,
+        AND nullif(trim(s.product_quantity_unit), '') IS NOT NULL)         AS n_broad_parsed_with_unit,
   round(count(DISTINCT s.code) FILTER (WHERE try_cast(s.product_quantity AS DOUBLE) > 0
-                                         AND nullif(trim(s.product_quantity_unit), '') IS NOT NULL)
-        * 100.0 / count(DISTINCT s.code), 1)                              AS parsed_with_unit_pct,
+        AND nullif(trim(s.product_quantity_unit), '') IS NOT NULL)
+        * 100.0 / count(DISTINCT s.code), 1)                               AS broad_parsed_with_unit_pct,
   count(DISTINCT s.code) FILTER (WHERE nullif(trim(s.quantity), '') IS NOT NULL)
-                                                                          AS n_raw_quantity
+                                                                           AS n_broad_raw_quantity
 FROM obf_scope s
 JOIN tier_brands t
-  ON lower(s.brands) LIKE '%' || t.brand || '%'
-WHERE s.is_us AND s.is_makeup
+  ON regexp_matches(lower(s.brands),
+                    '(^|[^a-z])' || replace(t.brand, '.', '\.') || '([^a-z]|$)')
+WHERE s.is_us AND (s.is_makeup OR s.has_family_tag)
 GROUP BY t.tier
 ORDER BY CASE t.tier WHEN 'drugstore' THEN 1 WHEN 'mid_range' THEN 2
                      WHEN 'high_end' THEN 3 ELSE 4 END;
 
 SELECT * FROM obf_by_tier;
--- drugstore / parsed_with_unit_pct is the single number Stage 1.1 is waiting on.
+-- drugstore / n_broad_parsed_with_unit is the single number Stage 1.1 is
+-- waiting on. Read n before the percentage: a rate on a handful of rows
+-- is not a rate.
 
--- 3.1  Per-brand within drugstore.
+-- 3.1  Per-brand within drugstore, US-tagged rows.
 SELECT
   t.brand,
-  count(DISTINCT s.code)                                                  AS n,
-  count(DISTINCT s.code) FILTER (WHERE try_cast(s.product_quantity AS DOUBLE) > 0)
-                                                                          AS n_parsed,
-  round(count(DISTINCT s.code) FILTER (WHERE try_cast(s.product_quantity AS DOUBLE) > 0)
-        * 100.0 / count(DISTINCT s.code), 1)                              AS parsed_pct
+  count(DISTINCT s.code)                                                  AS n_broad,
+  count(DISTINCT s.code) FILTER (WHERE s.is_makeup)                       AS n_strict,
+  count(DISTINCT s.code) FILTER (WHERE try_cast(s.product_quantity AS DOUBLE) > 0
+        AND nullif(trim(s.product_quantity_unit), '') IS NOT NULL)        AS n_parsed_with_unit
 FROM obf_scope s
-JOIN tier_brands t ON lower(s.brands) LIKE '%' || t.brand || '%'
-WHERE s.is_us AND s.is_makeup AND t.tier = 'drugstore'
+JOIN tier_brands t
+  ON regexp_matches(lower(s.brands),
+                    '(^|[^a-z])' || replace(t.brand, '.', '\.') || '([^a-z]|$)')
+WHERE s.is_us AND (s.is_makeup OR s.has_family_tag) AND t.tier = 'drugstore'
 GROUP BY t.brand
-ORDER BY n DESC;
+ORDER BY n_broad DESC;
+
+-- 3.2  The same, with the US filter REMOVED. Reported because the US tag
+--      under-counts, but read with care: a row tagged to another market
+--      carries THAT market's pack size, and pack sizes differ across
+--      markets for the same product name. With no barcode on the spine
+--      side, such a quantity cannot be verified as the US size. This is a
+--      ceiling on what OBF holds, not a supply of usable US quantities.
+SELECT
+  t.tier,
+  count(DISTINCT s.code)                                                  AS n_broad_any_country,
+  count(DISTINCT s.code) FILTER (WHERE s.is_us)                           AS n_us_tagged,
+  count(DISTINCT s.code) FILTER (WHERE try_cast(s.product_quantity AS DOUBLE) > 0
+        AND nullif(trim(s.product_quantity_unit), '') IS NOT NULL)        AS n_parsed_with_unit_any_country,
+  count(DISTINCT t.brand)                                                 AS brands_present
+FROM obf_scope s
+JOIN tier_brands t
+  ON regexp_matches(lower(s.brands),
+                    '(^|[^a-z])' || replace(t.brand, '.', '\.') || '([^a-z]|$)')
+WHERE (s.is_makeup OR s.has_family_tag)
+GROUP BY t.tier
+ORDER BY CASE t.tier WHEN 'drugstore' THEN 1 WHEN 'mid_range' THEN 2
+                     WHEN 'high_end' THEN 3 ELSE 4 END;
+
+-- 3.3  Drugstore per brand, any country, with where those rows are tagged.
+SELECT
+  t.brand,
+  count(DISTINCT s.code)                                                  AS n_broad_any_country,
+  count(DISTINCT s.code) FILTER (WHERE s.is_us)                           AS n_us_tagged,
+  count(DISTINCT s.code) FILTER (WHERE try_cast(s.product_quantity AS DOUBLE) > 0
+        AND nullif(trim(s.product_quantity_unit), '') IS NOT NULL)        AS n_parsed_with_unit_any_country,
+  (SELECT string_agg(c || ':' || k, ' ' ORDER BY k DESC) FROM (
+     SELECT replace(u.c, 'en:', '') AS c, count(*) AS k
+     FROM obf_scope s2, unnest(s2.countries_tags) AS u(c)
+     WHERE (s2.is_makeup OR s2.has_family_tag)
+       AND regexp_matches(lower(s2.brands),
+                          '(^|[^a-z])' || replace(t.brand, '.', '\.') || '([^a-z]|$)')
+     GROUP BY 1 ORDER BY k DESC LIMIT 3))                                 AS top_countries
+FROM obf_scope s
+JOIN tier_brands t
+  ON regexp_matches(lower(s.brands),
+                    '(^|[^a-z])' || replace(t.brand, '.', '\.') || '([^a-z]|$)')
+WHERE (s.is_makeup OR s.has_family_tag) AND t.tier = 'drugstore'
+GROUP BY t.brand
+ORDER BY n_broad_any_country DESC;
 
 
 -- ============================================================================
@@ -362,7 +441,7 @@ ORDER BY n DESC;
 -- The spine has no barcodes (UPC/EAN absent, measured). So the join is by
 -- normalised brand + fuzzy product name - §22 tiers 2-3, not tier 1.
 -- This part only measures what OBF offers for that: how many US makeup rows
--- have a non-empty product_name AND a non-empty brand.
+-- (broad scope) have a non-empty product_name AND a non-empty brand.
 
 SELECT
   count(*)                                                                AS us_makeup_rows,
@@ -372,7 +451,7 @@ SELECT
                      AND len(product_name) > 0
                      AND try_cast(product_quantity AS DOUBLE) > 0)       AS joinable_with_quantity
 FROM obf_scope
-WHERE is_us AND is_makeup;
+WHERE is_us AND (is_makeup OR has_family_tag);
 -- joinable_with_quantity is the ceiling on what OBF can add to the spine.
 
 
@@ -380,5 +459,5 @@ WHERE is_us AND is_makeup;
 -- PART 5 — PERSIST.  Raw scope table to staging for inspection. Read-only
 -- on data/raw/ - nothing here writes back into the export.
 -- ============================================================================
-COPY (SELECT * FROM obf_scope WHERE is_us AND is_makeup)
+COPY (SELECT * FROM obf_scope WHERE is_us AND (is_makeup OR has_family_tag))
   TO 'data/staging/obf_us_makeup.parquet' (FORMAT PARQUET);
