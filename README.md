@@ -40,6 +40,15 @@ their own storefronts, confirmed by two independent methods. Every US
 retailer that sells mass-market makeup (Sephora, Ulta, Target, Walmart)
 is closed to automated collection on its terms.
 
+The two remaining candidates were measured on 2026-08-26. Open Beauty
+Facts has a well-parsed quantity field but almost no US makeup in it: 57
+US-tagged makeup rows in 73,747, ten of them drugstore products with a
+quantity. Google Shopping listing titles offer a candidate size for 12 of
+20 drugstore products probed, on 5% of listings and with conflicting
+figures for the same product — a hint to verify, not a source. The
+feasibility report closes with a decision memo setting out three paths;
+the choice is pending.
+
 The full evidence, with every clause quoted and every figure traceable to
 a script in this repository, is in
 [`reports/source_feasibility_report.md`](reports/source_feasibility_report.md).
