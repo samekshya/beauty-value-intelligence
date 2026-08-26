@@ -468,6 +468,15 @@ hint only.
       diverging.
       Done when: green.
 
+- [ ] **4-m0 Diagrams and screenshots.** diagrams/ containing:
+      pipeline architecture (sources → raw → staging → processed →
+      analytics → DuckDB → app), data model showing the products /
+      offers / variants / sizes separation, and one screenshot per
+      dashboard page. README_TEMPLATE.md references these; without
+      them the README reads as a wall of text.
+      Done when: every image referenced by README_TEMPLATE.md exists
+      in diagrams/ and renders.
+
 - [ ] **4-m README.** Built from docs/README_TEMPLATE.md. Before
       commit: `Select-String -Path README.md -Pattern "\{\{"` must
       return nothing. Every figure from measured output.
