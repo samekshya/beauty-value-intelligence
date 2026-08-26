@@ -77,10 +77,13 @@ def run(con: duckdb.DuckDBPyConnection, sql: str, stop_on_integrity_fail: bool =
 
             if stop_on_integrity_fail and "obf_integrity" in stmt and "verdict" in df.columns:
                 verdict = str(df["verdict"].iloc[0])
-                if not verdict.startswith("PASS"):
+                if verdict.startswith("FAIL"):
                     print(f"\n!! EXPORT INTEGRITY: {verdict}")
                     print("   Stopping. Nothing below Part 0 is reported on a suspect export.")
                     sys.exit(3)
+                if verdict.startswith("WARN"):
+                    print(f"\n!! EXPORT INTEGRITY: {verdict}")
+                    print("   Continuing. State this verdict before any figure below.")
 
 
 def with_pd_opts(fn) -> None:
@@ -110,7 +113,9 @@ def build_selftest(tmp: Path) -> tuple[Path, Path]:
           CASE WHEN i % 4 = 0 THEN '' ELSE '30' END                       AS product_quantity,
           CASE WHEN i % 4 = 0 THEN '' ELSE 'ml' END                       AS product_quantity_unit,
           CASE WHEN i % 3 = 0 THEN ['en:france'] ELSE ['en:united-states'] END AS countries_tags,
-          CASE WHEN i % 2 = 0 THEN ['en:make-up','en:lipsticks'] ELSE ['en:shampoos'] END AS categories_tags
+          CASE WHEN i % 2 = 0 THEN ['en:make-up','en:lipsticks'] ELSE ['en:shampoos'] END AS categories_tags,
+          1700000000 + i                                                  AS created_t,
+          1700000000 + i                                                  AS last_modified_t
         FROM range(1200) t(i)
         """
     )
@@ -122,6 +127,7 @@ def build_selftest(tmp: Path) -> tuple[Path, Path]:
           SELECT code,
                  list_aggregate(product_name, 'string_agg', ',')   AS product_name,
                  brands, quantity, product_quantity, product_quantity_unit,
+                 created_t, last_modified_t,
                  list_aggregate(countries_tags, 'string_agg', ',')  AS countries_tags,
                  list_aggregate(categories_tags, 'string_agg', ',') AS categories_tags
           FROM fake
@@ -135,7 +141,10 @@ def build_selftest(tmp: Path) -> tuple[Path, Path]:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--site-total", type=int, default=None,
-                    help="Route 1 corroboration: product count read from the site")
+                    help="Route 1 corroboration: product count from outside the files "
+                         "(site, or the publisher's advertised row count)")
+    ap.add_argument("--total-source", default=None,
+                    help="where --site-total came from; printed for provenance")
     ap.add_argument("--selftest", action="store_true")
     ap.add_argument("--parquet", default="data/raw/obf/obf.parquet")
     ap.add_argument("--csv", default="data/raw/obf/obf.csv")
@@ -159,10 +168,13 @@ def main() -> None:
         for p in (args.parquet, args.csv):
             if not (ROOT / p).exists():
                 sys.exit(f"missing export: {p}")
+        print(f"parquet: {args.parquet}")
+        print(f"csv:     {args.csv}")
 
     if args.site_total is not None:
         sql = sql.replace("SET VARIABLE site_total   = NULL;",
                           f"SET VARIABLE site_total   = {args.site_total};")
+        print(f"external total: {args.site_total} ({args.total_source or 'source not stated'})")
 
     os.chdir(ROOT)
     con = duckdb.connect()

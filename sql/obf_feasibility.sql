@@ -9,7 +9,9 @@
 -- INPUTS  (place in data/raw/obf/ — filenames are parameters below)
 --   Route 2, primary:   Parquet export   -> obf.parquet
 --                       CSV export       -> obf.csv
---   Route 1, corroboration: the product count read from the site, by hand.
+--   Route 1, corroboration: a product count from outside the files - read
+--                           from the site by hand, or the row count the
+--                           publisher advertises for the same export.
 --
 -- RUN ORDER
 --   Part 0 must pass before anything in Parts 1-4 is believed.
@@ -62,6 +64,10 @@ CREATE OR REPLACE TABLE obf_csv AS
   );
 
 -- 0.2  Flavour agreement. This is Route 2: no external number required.
+--      Exception: exports are generated on different schedules, so a fresh
+--      flavour can legitimately out-count a stale one. That disagreement is
+--      downgraded to WARN only when the csv is at least 30 days staler AND
+--      an external total (Route 1) agrees with the parquet. Otherwise FAIL.
 CREATE OR REPLACE VIEW obf_integrity AS
 WITH c AS (
   SELECT
@@ -69,26 +75,43 @@ WITH c AS (
     (SELECT count(*) FROM obf_csv)                             AS csv_rows,
     (SELECT count(DISTINCT code) FROM obf_parquet)             AS parquet_distinct_codes,
     (SELECT count(DISTINCT code) FROM obf_csv)                 AS csv_distinct_codes,
+    (SELECT max(last_modified_t) FROM obf_parquet)             AS parquet_last_edit_t,
+    (SELECT max(try_cast(last_modified_t AS BIGINT)) FROM obf_csv)
+                                                               AS csv_last_edit_t,
     getvariable('site_total')                                  AS site_total
+), d AS (
+  SELECT
+    parquet_rows, csv_rows, parquet_distinct_codes, csv_distinct_codes, site_total,
+    to_timestamp(parquet_last_edit_t)::DATE                    AS parquet_last_edit,
+    to_timestamp(csv_last_edit_t)::DATE                        AS csv_last_edit,
+    ((parquet_last_edit_t - csv_last_edit_t) // 86400)::INTEGER
+                                                               AS snapshot_gap_days,
+    abs(parquet_rows - csv_rows) * 1.0 / greatest(parquet_rows, csv_rows)
+                                                               AS flavour_disagreement,
+    CASE WHEN site_total IS NULL THEN NULL
+         ELSE abs(parquet_rows - site_total) * 1.0 / site_total END
+                                                               AS external_disagreement
+  FROM c
 )
 SELECT
   *,
-  abs(parquet_rows - csv_rows) * 1.0 / greatest(parquet_rows, csv_rows)
-                                                               AS flavour_disagreement,
   CASE
     WHEN least(parquet_rows, csv_rows) < 1000
       THEN 'FAIL: a flavour has under 1,000 rows - truncated export'
-    WHEN abs(parquet_rows - csv_rows) * 1.0 / greatest(parquet_rows, csv_rows)
-         > getvariable('tolerance')
-      THEN 'FAIL: flavours disagree by more than tolerance - re-download both'
+    WHEN external_disagreement > getvariable('tolerance')
+      THEN 'FAIL: parquet disagrees with the external total by more than tolerance'
+    WHEN flavour_disagreement > getvariable('tolerance')
+         AND external_disagreement IS NOT NULL
+         AND snapshot_gap_days >= 30
+      THEN 'WARN: flavours disagree, but the csv is a stale snapshot (see snapshot_gap_days) and the parquet matches the external total - proceeding on the parquet only'
+    WHEN flavour_disagreement > getvariable('tolerance')
+      THEN 'FAIL: flavours disagree by more than tolerance and nothing explains it - re-download both'
     WHEN parquet_distinct_codes < parquet_rows * 0.95
       THEN 'WARN: >5% duplicate barcodes in parquet - check before trusting'
-    WHEN site_total IS NOT NULL
-         AND abs(parquet_rows - site_total) * 1.0 / site_total > getvariable('tolerance')
-      THEN 'FAIL: parquet disagrees with site total by more than tolerance'
     ELSE 'PASS'
   END AS verdict
-FROM c;
+FROM d;
+
 
 SELECT * FROM obf_integrity;
 
