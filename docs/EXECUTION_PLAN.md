@@ -121,7 +121,7 @@ Authority: docs/PROJECT_SPEC.md (§ references) · docs/ROADMAP.md (gates)
       Done when: the memo is the final section of the feasibility
       report and Stage 1.0's gate checklist in ROADMAP.md is satisfied.
 
-- [ ] ⛔ **GATE 1.0 — human chooses the branch.** Present the memo in
+- [x] 2026-08-26 Decision: **B + C, C first, then B. A rejected** (356 of the 380 quantity rows are two brands). Owner's rationale: C needs no new data and delivers a measured finding immediately, so the project is complete even if B's manual labour stalls. ⛔ **GATE 1.0 — human chooses the branch.** Present the memo in
       ≤ 30 lines. Wait.
 
 - [ ] **1.0-G Post-gate rewrite.** Rewrite the Stage 1.1 section below
@@ -132,23 +132,117 @@ Authority: docs/PROJECT_SPEC.md (§ references) · docs/ROADMAP.md (gates)
 ---
 
 ## PHASE 1 · STAGE 1.1 — ACQUISITION
-*(BRANCH-DEPENDENT — rewritten at task 1.0-G. Invariants below stand
-regardless of branch.)*
+*(Rewritten at 1.0-G for the Gate 1.0 decision of 2026-08-26: B + C,
+C first. Two tracks. C needs no new data and completes first, so the
+project holds a measured finding even if B under-delivers. Invariants:
+tier never from price; every raw row carries source_name, source_url,
+collected_at, method (§24-25); nothing silently dropped; physical
+capture supplies quantity only — see docs/methodology.md.)*
+
+### C-TRACK — disclosure asymmetry (first; no new data)
+
+- [ ] **1.1-C1 Per-brand figures persisted.**
+      `src/ingest/feasibility_tier_breakdown.py` prints by-brand counts
+      but persists only by-tier. Make it write both to
+      `data/raw/feasibility/_tier_breakdown.json`, strict rules
+      unchanged, and re-run.
+      Done when: the JSON carries every brand's n / with_quantity /
+      coverage and the by-tier totals are unchanged (drugstore 1,098 /
+      0; all 380 / 11.4%).
+- [ ] **1.1-C2 Finding #1 — disclosure asymmetry.** Write
+      `reports/final_insights.md` with finding #1: on brand-owned
+      storefronts, net quantity is disclosed on 0 of 1,098 drugstore
+      products — five brands, each at zero, so the zero is uniform, not
+      an average — against 1.3% (24 of 1,814) of non-drugstore products
+      outside MAC and Tom Ford Beauty. By tier and by brand within
+      drugstore; second-method confirmation (visible page text) cited.
+      Mechanism stated honestly: one channel (brand storefronts), one
+      date, no claim about intent. Every figure traceable to
+      `_tier_breakdown.json` and `_pdp_strict_analysis.json`.
+      Done when: the finding is in reports/final_insights.md as #1,
+      figures match the JSON, and no sentence asserts or implies intent.
+
+### B-TRACK — drugstore quantity by capture (after C)
+
+- [ ] **1.1-B0 Methodology rule.** `docs/methodology.md`, written
+      before any capture: physical capture supplies QUANTITY only;
+      price always from the US storefront snapshot; Nepal shelf prices
+      carry an import premium that §96 treats as a separate question
+      and never enter a unit-price figure; SKU identity verified by
+      barcode against the US listing (product-page JSON-LD `gtin12`
+      where the brand exposes it — measured on saved pages: ColourPop,
+      essence, Milani yes; Wet n Wild, Physicians Formula no; the
+      catalogue endpoint never); unverifiable matches flagged, not
+      assumed.
+      Done when: the file exists, docs/DEVELOPMENT.md points to it,
+      and the rules forbid a price field on any capture template.
+- [ ] **1.1-B1 Pre-register the drugstore capture list.** Before any
+      size is read (§4). A seeded, deterministic script draws from the
+      1,098 drugstore storefront products already collected: a
+      transparent category guess from Shopify product_type and title
+      keywords (recorded per row with its basis), then a stratified
+      draw by brand and category to ~250 products; the first 30 in
+      seeded order form the OCR test sample. Written to
+      `data/raw/capture/drugstore_capture_list.csv` and
+      `data/raw/capture/ocr_test_sample.csv` with product id, handle,
+      storefront URL, image URLs, category guess. Committed — the git
+      timestamp is the pre-registration.
+      Done when: both CSVs are committed, the script re-creates them
+      byte-for-byte, and no quantity has been read for any row.
+- [ ] **1.1-B2 OCR test on product images — before any manual work.**
+      Download the images the catalogue JSON lists for the 30 sample
+      products (brand storefront CDN: permitted, already referenced;
+      images git-ignored and re-downloadable; provenance sidecar per
+      product). Run OCR (RapidOCR, pip-only); apply the strict size
+      rule to the recognised text; hit rate = products with at least
+      one image yielding a plausible size. Report per product which
+      image and which token. Extracted sizes are recorded for later
+      verification, not used.
+      Done when: the measured hit rate is in the feasibility report
+      with the method, stated next to the ~40% threshold.
+- [ ] ⛔ **HUMAN — OCR verdict.** Hit rate reported. At or above ~40%
+      the OCR route (B3-ocr) may replace shop visits; below it, manual
+      capture (B3-manual). Owner decides; nothing manual starts first.
+- [ ] **1.1-B3 Quantity capture — per the OCR verdict.**
+      - [ ] B3-ocr: OCR the full capture list's images; every extracted
+            size carries image URL, token, confidence and the flag
+            `ocr_unverified` until the §34 audit.
+      - [ ] B3-manual (only if OCR fails): capture template — barcode,
+            label photo, photo provenance per §25; quantity and unit
+            only; the template has no price field.
+      Done when: every capture-list row has a quantity, a unit, a
+      provenance record and an identity-verification status.
+- [ ] **1.1-B4 Barcode verification.** For the capture list, read
+      `gtin12` from product-page JSON-LD where the brand exposes it;
+      rows without a listing barcode are `identity_unverified` — kept,
+      flagged, never assumed; the verified share is reported honestly.
+      Done when: every capture row has a verification status.
+
+### SPINE — both tracks
 
 - [ ] **1.1-a Tier mapping.** brand_tier_mapping.csv per §12 for every
       brand that survived feasibility: brand, market_tier,
       classification_basis, source_or_reason, reviewed_date. Ambiguous
       cases documented. Tier never derived from price.
 - [ ] **1.1-b Ingestion pipeline** for the chosen sources →
-      data/raw/, immutable, 100% provenance (§24-25).
-- [ ] **1.1-c BRANCH-DEPENDENT: drugstore quantity route** (retailer
-      spec tables / OBF barcode joins / manual capture template with
-      photo provenance — per gate decision).
+      data/raw/, immutable, 100% provenance (§24-25). Sources: brand
+      storefront catalogues (Shopify `products.json`) and permitted
+      product pages for every reachable §11 brand — a full, dated
+      re-collection, not the feasibility probes; Open Beauty Facts
+      Parquet as a barcode-keyed quantity reference (≤ 10 US-tagged
+      drugstore rows; the 65 other-market rows as a parser test set
+      only).
+- [ ] **1.1-c Drugstore quantity route** — delivered by the B-track
+      above (B1 → B2 → verdict → B3 → B4). This line closes when B4
+      closes.
 - [ ] **1.1-d Collection audit** (notebook 02): counts by tier, brand,
       category; missing fields; duplicates. Honest coverage vs §88.
-- [ ] ⛔ **GATE 1.1** — targets per the branch (default §9: 600+
-      products, 10+ categories, 30+ brands) or the gate report states
-      exactly why not and what that costs.
+- [ ] ⛔ **GATE 1.1** — C-track: finding #1 written and traceable.
+      B-track: every capture-list row carries quantity, unit,
+      provenance and verification status. Spine: §9 targets (600+
+      products with quantity, 10+ categories, 30+ brands) or the gate
+      report states exactly why not and what that costs — the measured
+      ceiling is 380 storefront rows plus the capture list.
 
 ---
 
