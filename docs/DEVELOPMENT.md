@@ -10,6 +10,12 @@ from task to task.
 work and defines the gates. `docs/EXECUTION_PLAN.md` tracks what is done.
 Where documents disagree, the spec wins.
 
+`docs/methodology.md` holds the rules that shape every number: physical
+capture supplies quantity only and price comes from the US snapshot;
+SKU identity is verified by barcode or flagged; capture lists are
+pre-registered before any size is read. Read it before touching capture
+or unit-price code.
+
 A phase is not complete until its gate is met. Do not start the next
 phase early.
 
