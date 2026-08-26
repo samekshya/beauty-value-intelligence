@@ -7,9 +7,9 @@ smaller, and a tool on top of it that finds alternatives cheaper per unit
 rather than only cheaper at checkout. Neither the unit prices nor the tool
 exists yet. What exists is the measured reason they are hard to build.
 
-Python 3.13 · DuckDB · pandas today. SQL views, scikit-learn, Sentence
-Transformers and Streamlit are planned for later phases and are not in
-`requirements.txt`.
+Python 3.13 · DuckDB · pandas · RapidOCR today. SQL views, scikit-learn,
+Sentence Transformers and Streamlit are planned for later phases and are
+not in `requirements.txt`.
 
 ## Why this project
 
@@ -98,16 +98,25 @@ package was read.
 **Phase 1 · Stage 1.1 — acquisition. 2026-08-27.** The Stage 1.0
 feasibility gate closed on 2026-08-26 with the decision to write up the
 disclosure asymmetry first, then capture drugstore quantities. Finding 1
-is written; the capture list is registered; the OCR test on storefront
-images is underway and its hit rate is not yet reported. No unit price has
-been computed for any product.
+is written, with its tier, brand and category cuts. The capture list is
+registered. The OCR probe on storefront product images and its analysis
+script are committed; the measured hit rate is not yet committed to the
+report, so no OCR figure appears here. No unit price has been computed for
+any product.
 
 Finding 1, from [`reports/final_insights.md`](reports/final_insights.md):
 on their own storefronts, drugstore brands disclose net quantity on 0 of
 1,098 products, against 24 of 1,814 (1.3%) for non-drugstore brands
 outside MAC and Tom Ford Beauty. The asymmetry is between 0.0% and 1.3%,
 not between 0% and 17%; seven prestige brands, 942 products, are also at
-exactly zero. One channel, one date, no claim about intent.
+exactly zero. Cut by category on 2026-08-27, the drugstore zero holds in
+all 19 categories and on both unit bases — 0 of 323 weight-basis products
+and 0 of 225 volume-basis — while the other non-drugstore brands sit at 3
+of 211 (1.4%) and 2 of 218 (0.9%), so product form does not explain the
+gap. The category is a keyword guess whose precision is unmeasured, and
+1,454 of 3,333 products fall into that rule's excluded bucket. Restricted
+to makeup, the non-drugstore comparator is 5 of 503 (1.0%). One channel,
+one date, no claim about intent.
 
 Task-level progress: [`docs/EXECUTION_PLAN.md`](docs/EXECUTION_PLAN.md).
 
@@ -118,11 +127,13 @@ the network except the original probes.
 
 - `reports/source_feasibility_report.md` — every source checked, clauses
   quoted, verdicts, measured coverage, and the Stage 1.0 decision memo.
-- `reports/final_insights.md` — finding 1, each figure named to the file
-  it comes from.
+- `reports/final_insights.md` — finding 1 with its tier, brand and
+  category cuts and a one-paragraph statement for a shopper, each figure
+  named to the file it comes from.
 - `data/raw/feasibility/` — the 19 storefront catalogue responses with
   provenance (`shopify_*.json`), the strict tier and brand breakdown
-  (`_tier_breakdown.json`), the visible-text page analysis
+  (`_tier_breakdown.json`), the category cut (`_category_breakdown.json`,
+  per-product `_category_assignments.csv`), the visible-text page analysis
   (`_pdp_strict_analysis.json`), the Open Beauty Facts measurement and the
   Google Shopping probe summary. Saved product pages and the Open Beauty
   Facts exports are gitignored and re-downloadable;
@@ -133,10 +144,13 @@ the network except the original probes.
   sample. Identity and provenance fields only; no quantity, no price. The
   rule is in `docs/capture_list.md`.
 - `src/ingest/` — the probes and measurements behind the above: storefront
-  catalogue probe, coverage and tier breakdown, saved-page strict analysis,
-  Open Beauty Facts query with an export-integrity gate, Google Shopping
-  title probe with a free-tier hard stop, capture-list pre-registration.
-  `sql/obf_feasibility.sql` holds the Open Beauty Facts query.
+  catalogue probe, coverage, tier and category breakdowns, saved-page
+  strict analysis, Open Beauty Facts query with an export-integrity gate,
+  Google Shopping title probe with a free-tier hard stop, capture-list
+  pre-registration, and the OCR size probe on storefront product images
+  — bounded, resumable from disk — with its read-only analysis script.
+  The probe's outputs are not yet committed. `sql/obf_feasibility.sql`
+  holds the Open Beauty Facts query.
 - `config/` — categories with their unit basis (`categories.yaml`),
   conversions and forbidden conversions (`unit_rules.yaml`), the
   provisional brand-tier list (`tier_mapping.yaml`), the source registry
