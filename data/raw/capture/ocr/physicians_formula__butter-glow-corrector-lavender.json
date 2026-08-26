@@ -1,0 +1,115 @@
+{
+  "sample_rank": 29,
+  "brand": "Physicians Formula",
+  "handle": "butter-glow-corrector-lavender",
+  "title": "Butter Glow Corrector | Lavender",
+  "category_guess": "concealer",
+  "images_listed": 5,
+  "images_ok": 5,
+  "images_with_hit": 3,
+  "hit": true,
+  "tokens": [
+    "5.6 mL"
+  ],
+  "per_image": [
+    {
+      "index": 0,
+      "url": "https://cdn.shopify.com/s/files/1/0932/3547/8837/files/HFZSWgwg.png?v=1742575635",
+      "size": [
+        600,
+        600
+      ],
+      "hits": [
+        {
+          "pass": "full",
+          "token": "5.6 mL"
+        }
+      ],
+      "text": {
+        "full": "PHYSICIANS FORMULA Butte Gilow CORRECTOR 5.6 mL. / 0.19 FL Oz."
+      }
+    },
+    {
+      "index": 1,
+      "url": "https://cdn.shopify.com/s/files/1/0932/3547/8837/files/1qzaBMAw.png?v=1742575635",
+      "size": [
+        1500,
+        1500
+      ],
+      "hits": [],
+      "text": {
+        "full": "Luminous Finish SAFE FOR ALL SKIN TYPES",
+        "tile00": "Luminous Finish SAFE FOR ALL SKIN TYPES",
+        "tile01": "SAFE FOR ALL SKIN TYPES",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 2,
+      "url": "https://cdn.shopify.com/s/files/1/0932/3547/8837/files/kDqIriGg.png?v=1742575635",
+      "size": [
+        600,
+        600
+      ],
+      "hits": [],
+      "text": {
+        "full": "BEFORE AFTER Lavender Neutralizes Yellow Undertones + Brightens Dullness"
+      }
+    },
+    {
+      "index": 3,
+      "url": "https://cdn.shopify.com/s/files/1/0932/3547/8837/files/1741097-Butter-Glow-Corrector-Open-Sponge-Lavender.jpg?v=1742575635",
+      "size": [
+        3000,
+        3000
+      ],
+      "hits": [
+        {
+          "pass": "full",
+          "token": "5.6 mL"
+        },
+        {
+          "pass": "tile01",
+          "token": "5.6 mL"
+        },
+        {
+          "pass": "tile11",
+          "token": "5.6 mL"
+        }
+      ],
+      "text": {
+        "full": "PHYSICIANS FORMULA futt Gilow CORRECTOR 5.6mL/ 0.19Fl. Oz.",
+        "tile00": "PHYSICIANS FORMULA futt",
+        "tile01": "PHYSICIANS FORMULA futtc Gilow CORRECTOR 5.6 mL / 0.19 Fl. Oz.",
+        "tile10": "PHYSICIANS FORMULA Sutt",
+        "tile11": "PHYSICIANS FORMULA butte Galow CORRECTOR 5.6 mL / 0.19 Fl. Oz."
+      }
+    },
+    {
+      "index": 4,
+      "url": "https://cdn.shopify.com/s/files/1/0932/3547/8837/files/1741097-Butter-Glow-Corrector-Open-Applicator-Lavender.jpg?v=1742575635",
+      "size": [
+        3000,
+        3000
+      ],
+      "hits": [
+        {
+          "pass": "full",
+          "token": "5.6 mL"
+        },
+        {
+          "pass": "tile01",
+          "token": "5.6 mL"
+        }
+      ],
+      "text": {
+        "full": "PHYSICIANS FORMULA futte Gilow CORRECTOR 5.6mL/ 0.19Fl. Oz.",
+        "tile00": "PHYSICIANS FORMULA lutt",
+        "tile01": "PHYSICIANS FORMULA futte Gilow CORRECTOR 5.6 mL / 0.19 Fl. Oz.",
+        "tile10": "SICIANS RMULA ttey",
+        "tile11": "SICIANS RMULA ttey Gilon RRECTOR / 0.19 Fl. OZ."
+      }
+    }
+  ]
+}

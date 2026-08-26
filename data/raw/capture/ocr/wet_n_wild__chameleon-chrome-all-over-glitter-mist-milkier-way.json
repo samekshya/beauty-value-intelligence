@@ -1,0 +1,121 @@
+{
+  "sample_rank": 10,
+  "brand": "Wet n Wild",
+  "handle": "chameleon-chrome-all-over-glitter-mist-milkier-way",
+  "title": "Chameleon Chrome All Over Glitter Mist | Milkier Way",
+  "category_guess": "setting_spray",
+  "images_listed": 6,
+  "images_ok": 6,
+  "images_with_hit": 1,
+  "hit": true,
+  "tokens": [
+    "65 mL"
+  ],
+  "per_image": [
+    {
+      "index": 0,
+      "url": "https://cdn.shopify.com/s/files/1/0925/9221/0194/files/11850845-chameleon-chrome-all-over-mist-milkier-way-open-with-swatch.png?v=1770236175",
+      "size": [
+        1500,
+        1500
+      ],
+      "hits": [
+        {
+          "pass": "full",
+          "token": "65 mL"
+        },
+        {
+          "pass": "tile01",
+          "token": "65 mL"
+        }
+      ],
+      "text": {
+        "full": "Wet h wild chameleon chrome SALL OVER GLITTER MIST BRUME PAILLETEE INTEGRALE 65 mL /2.2 FL O7",
+        "tile00": "",
+        "tile01": "Wet h Wild chameleon chrome ALL OVER GLITTER MIST  BRUME PAILLETEE INTEGRALE 65 mL /2. 2 FL Oz",
+        "tile10": "",
+        "tile11": "vild eong ERMIST INTEGRALE"
+      }
+    },
+    {
+      "index": 1,
+      "url": "https://cdn.shopify.com/s/files/1/0925/9221/0194/files/11850845-chameleon-chrome-all-over-mist-milkier-way-swatch.png?v=1770236175",
+      "size": [
+        1500,
+        1500
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 2,
+      "url": "https://cdn.shopify.com/s/files/1/0925/9221/0194/files/11850845_GlitterMist_IMG_1_2.jpg?v=1781559994",
+      "size": [
+        1500,
+        1500
+      ],
+      "hits": [],
+      "text": {
+        "full": "Chameieong chrome ALL OVER GLITTER MIST wetnwild releon",
+        "tile00": "chameieon chrome ALLOVER GIITTERMIST",
+        "tile01": "chameieon chrome ALLOVER GLITTERMIST VERGEITTER",
+        "tile10": "eieong tome OVER RMIST",
+        "tile11": "eleong ome OVER MIST wet nwild drreleon? tome 2.2FL"
+      }
+    },
+    {
+      "index": 3,
+      "url": "https://cdn.shopify.com/s/files/1/0925/9221/0194/files/11850845_GlitterMist_IMG_2_2.jpg?v=1781559994",
+      "size": [
+        1500,
+        1500
+      ],
+      "hits": [],
+      "text": {
+        "full": "ONE-STOP GLOW wetnwilce LIGHT-REFLECTING SHIMMER FOR BODY FACE, AND HAIR 100% UNRETOUCHED",
+        "tile00": "ONE-STOP GLOW vetnwile",
+        "tile01": "vetnwile LIGHT-REFLECTING SHIMMER FOR BODY FACE,AND HAIR",
+        "tile10": "",
+        "tile11": "TING BODY, HAIR 100% UNRETOUCHED"
+      }
+    },
+    {
+      "index": 4,
+      "url": "https://cdn.shopify.com/s/files/1/0925/9221/0194/files/11850845_GlitterMist_IMG_3_2.jpg?v=1781559993",
+      "size": [
+        1500,
+        1500
+      ],
+      "hits": [],
+      "text": {
+        "full": "chameieon? chrome COLLECTION wetnw woty hameleong ichameleono wetnwid wetnwild wet nwild haele chameleong arome chrome chameleor REDEFINE YOUR ROUTINE",
+        "tile00": "chameie chrome COLLECTION wetnw chameler wotny ichameleon wetnwid",
+        "tile01": "wetnw iohameleon wetnwild wetnwild wetnwild chameleon hoar neleon chrome REDEFINE YOUR ROUTINE",
+        "tile10": "meleon chrome LLECTION wetnw ichameleono",
+        "tile11": "wetnw ichameleon wet n wild nwile wetnwild chameleong chrome RUME.PAILLE EDEFINE RROUTINE"
+      }
+    },
+    {
+      "index": 5,
+      "url": "https://cdn.shopify.com/s/files/1/0925/9221/0194/files/11850845_GlitterMist_IMG_4_2.jpg?v=1781559994",
+      "size": [
+        1500,
+        1500
+      ],
+      "hits": [],
+      "text": {
+        "full": "wetinwild caome GLITTERM ETEBINTEC SPRAY SHIFT SHINE",
+        "tile00": "wet n wild tham",
+        "tile01": "wet nwild chome GLITTER ETEBINTES SPRAY SHIFT",
+        "tile10": "wet n wild tham",
+        "tile11": "wetn wild Chaiome GLITTER! SHIFT SHINE"
+      }
+    }
+  ]
+}

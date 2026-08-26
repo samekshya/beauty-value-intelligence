@@ -1,0 +1,62 @@
+{
+  "sample_rank": 24,
+  "brand": "Physicians Formula",
+  "handle": "butter-highlighter-champagne",
+  "title": "Murumuru Butter Highlighter | Champagne",
+  "category_guess": "highlighter",
+  "images_listed": 3,
+  "images_ok": 3,
+  "images_with_hit": 0,
+  "hit": false,
+  "tokens": [],
+  "per_image": [
+    {
+      "index": 0,
+      "url": "https://cdn.shopify.com/s/files/1/0932/3547/8837/files/pf10575_case_closed_2020_f8032ae2-df80-4f60-8a75-65f7ddf59b6b.jpg?v=1742573225",
+      "size": [
+        1200,
+        1200
+      ],
+      "hits": [],
+      "text": {
+        "full": "PHYSIOIANS FORMULA lyutter HICHLIOHTER",
+        "tile00": "PHYSICIANS FORMULA",
+        "tile01": "FORMULA yutter HIGHLIGHTER",
+        "tile10": "PHYSICIANS FORMULA",
+        "tile11": "PYOICOA FORMULA HIGHLIOHTER"
+      }
+    },
+    {
+      "index": 1,
+      "url": "https://cdn.shopify.com/s/files/1/0932/3547/8837/files/pf10575_2_1_3f7725a7-426b-47e2-b2c2-561e95f9ac40.jpg?v=1742573225",
+      "size": [
+        1000,
+        1000
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 2,
+      "url": "https://cdn.shopify.com/s/files/1/0932/3547/8837/files/pf10575_5.jpg?v=1742573225",
+      "size": [
+        1200,
+        1200
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "",
+        "tile11": ""
+      }
+    }
+  ]
+}

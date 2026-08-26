@@ -1,0 +1,415 @@
+{
+  "started_at": "2026-08-26T18:18:00.035026+00:00",
+  "finished_at": "2026-08-26T18:49:28.403581+00:00",
+  "engine": "rapidocr_onnxruntime (default detector limits; 2x2 tiling compensates); full frame + 2x2 tiles with 15% overlap",
+  "size_rule": "feasibility_pdp_analyse.find_sizes after normalise_ocr (OZ/FL OZ/ML case, O-for-0, comma decimals)",
+  "max_images_per_product": 6,
+  "n_products": 30,
+  "products_with_hit": 8,
+  "hit_rate": 0.2667,
+  "images_ok": 156,
+  "images_with_hit": 13,
+  "by_brand": {
+    "ColourPop": {
+      "hits": 1,
+      "n": 6
+    },
+    "Essence": {
+      "hits": 2,
+      "n": 6
+    },
+    "Milani": {
+      "hits": 0,
+      "n": 6
+    },
+    "Physicians Formula": {
+      "hits": 2,
+      "n": 6
+    },
+    "Wet n Wild": {
+      "hits": 3,
+      "n": 6
+    }
+  },
+  "rows": [
+    {
+      "sample_rank": 1,
+      "brand": "ColourPop",
+      "handle": "pallet-town-shadow-palette",
+      "title": "Pallet Town",
+      "category_guess": "eyeshadow_palette",
+      "images_listed": 6,
+      "images_ok": 6,
+      "images_with_hit": 0,
+      "hit": false,
+      "tokens": []
+    },
+    {
+      "sample_rank": 2,
+      "brand": "Essence",
+      "handle": "jelly-grip-undereye-primer-stick",
+      "title": "jelly GRIP undereye primer stick",
+      "category_guess": "primer",
+      "images_listed": 5,
+      "images_ok": 5,
+      "images_with_hit": 0,
+      "hit": false,
+      "tokens": []
+    },
+    {
+      "sample_rank": 3,
+      "brand": "Milani",
+      "handle": "supercharged-highlighter-multistick",
+      "title": "Supercharged Highlighter Multistick",
+      "category_guess": "highlighter",
+      "images_listed": 5,
+      "images_ok": 5,
+      "images_with_hit": 0,
+      "hit": false,
+      "tokens": []
+    },
+    {
+      "sample_rank": 4,
+      "brand": "Physicians Formula",
+      "handle": "mineral-wear-diamond-perfector-color-correcting-primer",
+      "title": "Mineral Wear® Diamond Perfector™ Color-Correcting Primer",
+      "category_guess": "primer",
+      "images_listed": 3,
+      "images_ok": 3,
+      "images_with_hit": 0,
+      "hit": false,
+      "tokens": []
+    },
+    {
+      "sample_rank": 5,
+      "brand": "Wet n Wild",
+      "handle": "ultimate-brow-brow-pen-medium-brown",
+      "title": "Ultimate Brow Brow Pen | Medium Brown",
+      "category_guess": "brow",
+      "images_listed": 6,
+      "images_ok": 6,
+      "images_with_hit": 0,
+      "hit": false,
+      "tokens": []
+    },
+    {
+      "sample_rank": 6,
+      "brand": "ColourPop",
+      "handle": "dinner-date-so-juicy-plumping-gloss-balm",
+      "title": "Dinner Date",
+      "category_guess": "lip_gloss",
+      "images_listed": 6,
+      "images_ok": 6,
+      "images_with_hit": 0,
+      "hit": false,
+      "tokens": []
+    },
+    {
+      "sample_rank": 7,
+      "brand": "Essence",
+      "handle": "fix-last-keep-it-perfect-make-up-fixing-spray",
+      "title": "fix & LAST keep it PERFECT MAKE-UP FIXING SPRAY",
+      "category_guess": "setting_spray",
+      "images_listed": 5,
+      "images_ok": 5,
+      "images_with_hit": 0,
+      "hit": false,
+      "tokens": []
+    },
+    {
+      "sample_rank": 8,
+      "brand": "Milani",
+      "handle": "gilded-eyeshadow-sticks",
+      "title": "Gilded Eyeshadow Sticks",
+      "category_guess": "eyeshadow_single",
+      "images_listed": 6,
+      "images_ok": 6,
+      "images_with_hit": 0,
+      "hit": false,
+      "tokens": []
+    },
+    {
+      "sample_rank": 9,
+      "brand": "Physicians Formula",
+      "handle": "powder-paletter-multi-colored-face-powder-buff",
+      "title": "Powder Palette® Multi-Colored Face Powder | Buff",
+      "category_guess": "pressed_powder",
+      "images_listed": 3,
+      "images_ok": 3,
+      "images_with_hit": 0,
+      "hit": false,
+      "tokens": []
+    },
+    {
+      "sample_rank": 10,
+      "brand": "Wet n Wild",
+      "handle": "chameleon-chrome-all-over-glitter-mist-milkier-way",
+      "title": "Chameleon Chrome All Over Glitter Mist | Milkier Way",
+      "category_guess": "setting_spray",
+      "images_listed": 6,
+      "images_ok": 6,
+      "images_with_hit": 1,
+      "hit": true,
+      "tokens": [
+        "65 mL"
+      ]
+    },
+    {
+      "sample_rank": 11,
+      "brand": "ColourPop",
+      "handle": "storm-cloud-cloud-whip-liquid-lipstick",
+      "title": "Storm Cloud",
+      "category_guess": "liquid_lipstick",
+      "images_listed": 6,
+      "images_ok": 6,
+      "images_with_hit": 0,
+      "hit": false,
+      "tokens": []
+    },
+    {
+      "sample_rank": 12,
+      "brand": "Essence",
+      "handle": "its-bubble-gum-fun-bouncy-blush",
+      "title": "it's Bubble Gum fun bouncy blush",
+      "category_guess": "powder_blush",
+      "images_listed": 4,
+      "images_ok": 4,
+      "images_with_hit": 2,
+      "hit": true,
+      "tokens": [
+        "4.7 g",
+        "7 g"
+      ]
+    },
+    {
+      "sample_rank": 13,
+      "brand": "Milani",
+      "handle": "cheek-kiss-blush-stick-in-luminoso",
+      "title": "Cheek Kiss Blush Stick in Luminoso",
+      "category_guess": "cream_blush",
+      "images_listed": 6,
+      "images_ok": 6,
+      "images_with_hit": 0,
+      "hit": false,
+      "tokens": []
+    },
+    {
+      "sample_rank": 14,
+      "brand": "Physicians Formula",
+      "handle": "butter-blowout-mascara-black",
+      "title": "Butter Blowout Mascara",
+      "category_guess": "mascara",
+      "images_listed": 4,
+      "images_ok": 4,
+      "images_with_hit": 0,
+      "hit": false,
+      "tokens": []
+    },
+    {
+      "sample_rank": 15,
+      "brand": "Wet n Wild",
+      "handle": "bare-focus-niacinamide-skin-tint-fair-light-beige",
+      "title": "Bare Focus Niacinamide Skin Tint | Fair Light Beige",
+      "category_guess": "concealer",
+      "images_listed": 6,
+      "images_ok": 6,
+      "images_with_hit": 3,
+      "hit": true,
+      "tokens": [
+        "1.08 fl oz",
+        "1.08 fl oz.",
+        "32 mL"
+      ]
+    },
+    {
+      "sample_rank": 16,
+      "brand": "ColourPop",
+      "handle": "pink-perfection-jelly-much-eyeshadow-stick",
+      "title": "Pink Perfection",
+      "category_guess": "eyeshadow_single",
+      "images_listed": 6,
+      "images_ok": 6,
+      "images_with_hit": 0,
+      "hit": false,
+      "tokens": []
+    },
+    {
+      "sample_rank": 17,
+      "brand": "Essence",
+      "handle": "banana-loose-powder",
+      "title": "BANANA LOOSE POWDER",
+      "category_guess": "setting_powder",
+      "images_listed": 6,
+      "images_ok": 6,
+      "images_with_hit": 0,
+      "hit": false,
+      "tokens": []
+    },
+    {
+      "sample_rank": 18,
+      "brand": "Milani",
+      "handle": "amore-satin-matte-lip-creme",
+      "title": "Amore Satin Matte Lip Crème",
+      "category_guess": "liquid_lipstick",
+      "images_listed": 6,
+      "images_ok": 6,
+      "images_with_hit": 0,
+      "hit": false,
+      "tokens": []
+    },
+    {
+      "sample_rank": 19,
+      "brand": "Physicians Formula",
+      "handle": "rose-all-play-eyeshadow-bouquet",
+      "title": "Rosé All Play Eyeshadow Bouquet",
+      "category_guess": "eyeshadow_single",
+      "images_listed": 6,
+      "images_ok": 6,
+      "images_with_hit": 1,
+      "hit": true,
+      "tokens": [
+        "13.7 g"
+      ]
+    },
+    {
+      "sample_rank": 20,
+      "brand": "Wet n Wild",
+      "handle": "breakup-proof-waterproof-retractable-gel-eyeliner-charcoal",
+      "title": "Breakup Proof Waterproof Retractable Gel Eyeliner | Charcoal",
+      "category_guess": "primer",
+      "images_listed": 5,
+      "images_ok": 5,
+      "images_with_hit": 1,
+      "hit": true,
+      "tokens": [
+        "0.23 g"
+      ]
+    },
+    {
+      "sample_rank": 21,
+      "brand": "ColourPop",
+      "handle": "cuter-than-cupid-super-shock-blush",
+      "title": "Cuter than Cupid",
+      "category_guess": "powder_blush",
+      "images_listed": 6,
+      "images_ok": 6,
+      "images_with_hit": 1,
+      "hit": true,
+      "tokens": [
+        "0.27 oz"
+      ]
+    },
+    {
+      "sample_rank": 22,
+      "brand": "Essence",
+      "handle": "the-nude-edition-eyeshadow-palette",
+      "title": "the NUDE edition eyeshadow palette",
+      "category_guess": "eyeshadow_palette",
+      "images_listed": 6,
+      "images_ok": 6,
+      "images_with_hit": 0,
+      "hit": false,
+      "tokens": []
+    },
+    {
+      "sample_rank": 23,
+      "brand": "Milani",
+      "handle": "highly-rated-anti-gravity-mascara",
+      "title": "Highly Rated Anti-Gravity Mascara",
+      "category_guess": "mascara",
+      "images_listed": 6,
+      "images_ok": 6,
+      "images_with_hit": 0,
+      "hit": false,
+      "tokens": []
+    },
+    {
+      "sample_rank": 24,
+      "brand": "Physicians Formula",
+      "handle": "butter-highlighter-champagne",
+      "title": "Murumuru Butter Highlighter | Champagne",
+      "category_guess": "highlighter",
+      "images_listed": 3,
+      "images_ok": 3,
+      "images_with_hit": 0,
+      "hit": false,
+      "tokens": []
+    },
+    {
+      "sample_rank": 25,
+      "brand": "Wet n Wild",
+      "handle": "color-icon-5-pan-palette-full-bloomin",
+      "title": "Color Icon 5 Pan Eye & Face Palette | Full Bloomin'",
+      "category_guess": "eyeshadow_single",
+      "images_listed": 3,
+      "images_ok": 3,
+      "images_with_hit": 0,
+      "hit": false,
+      "tokens": []
+    },
+    {
+      "sample_rank": 26,
+      "brand": "ColourPop",
+      "handle": "high-demand-blush-stix",
+      "title": "High Demand",
+      "category_guess": "cream_blush",
+      "images_listed": 6,
+      "images_ok": 6,
+      "images_with_hit": 0,
+      "hit": false,
+      "tokens": []
+    },
+    {
+      "sample_rank": 27,
+      "brand": "Essence",
+      "handle": "all-about-soft-glow-fixing-compact-powder-waterproof",
+      "title": "soft glow! fixing compact powder waterproof",
+      "category_guess": "pressed_powder",
+      "images_listed": 6,
+      "images_ok": 6,
+      "images_with_hit": 1,
+      "hit": true,
+      "tokens": [
+        "8 g"
+      ]
+    },
+    {
+      "sample_rank": 28,
+      "brand": "Milani",
+      "handle": "baked-blush-1",
+      "title": "Baked Blush",
+      "category_guess": "powder_blush",
+      "images_listed": 6,
+      "images_ok": 6,
+      "images_with_hit": 0,
+      "hit": false,
+      "tokens": []
+    },
+    {
+      "sample_rank": 29,
+      "brand": "Physicians Formula",
+      "handle": "butter-glow-corrector-lavender",
+      "title": "Butter Glow Corrector | Lavender",
+      "category_guess": "concealer",
+      "images_listed": 5,
+      "images_ok": 5,
+      "images_with_hit": 3,
+      "hit": true,
+      "tokens": [
+        "5.6 mL"
+      ]
+    },
+    {
+      "sample_rank": 30,
+      "brand": "Wet n Wild",
+      "handle": "megalast-liquid-catsuit-high-shine-lipstick-bad-girl-s-club",
+      "title": "MegaLast Liquid Catsuit High-Shine Lipstick | Bad Girl's Club",
+      "category_guess": "liquid_lipstick",
+      "images_listed": 3,
+      "images_ok": 3,
+      "images_with_hit": 0,
+      "hit": false,
+      "tokens": []
+    }
+  ]
+}

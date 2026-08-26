@@ -1,0 +1,110 @@
+{
+  "sample_rank": 13,
+  "brand": "Milani",
+  "handle": "cheek-kiss-blush-stick-in-luminoso",
+  "title": "Cheek Kiss Blush Stick in Luminoso",
+  "category_guess": "cream_blush",
+  "images_listed": 6,
+  "images_ok": 6,
+  "images_with_hit": 0,
+  "hit": false,
+  "tokens": [],
+  "per_image": [
+    {
+      "index": 0,
+      "url": "https://cdn.shopify.com/s/files/1/1824/2901/files/1_Luminoso_BlushStick_110_PDP_PoductWithSwatch.png?v=1715357448",
+      "size": [
+        2000,
+        2000
+      ],
+      "hits": [],
+      "text": {
+        "full": "MILAII CHEEK KISSS BLUSH STICK BATON DE FARD AJOUES",
+        "tile00": "",
+        "tile01": "MILAnI CHEEK KISSC BLUSH STICK BATON DE FARD A JOUES",
+        "tile10": "miionI",
+        "tile11": "MILAnI CHEEK KISSO BLUSH STICK BATON DE FARD AJOUES"
+      }
+    },
+    {
+      "index": 1,
+      "url": "https://cdn.shopify.com/s/files/1/1824/2901/files/PDP_video_luminoso-cheekstick_4x5_THUMBNAIL.png?v=1715357653",
+      "size": [
+        2049,
+        2049
+      ],
+      "hits": [],
+      "text": {
+        "full": "CHEEK KISS CREAM BLUSH STICK LUMINOSO MILAnI CHEEK KISS BLUSH STICK BATON DE FARD AJOUES",
+        "tile00": "CHEEK KI CREAMBLUSH ST LUINO MILAnI",
+        "tile01": "CREAMBLUSHS LUMINO MILAnI CHEEK KISS BLUSH STICK BATON DE FARD AJOUES",
+        "tile10": "HEEKKISS AMBLUSHSTICK MNOSO mILAnI",
+        "tile11": "AMBLUSHSIICK MINOSO MILAnI CHEEK KISSO BLUSH STICK BATON DE FARD AJOUES"
+      }
+    },
+    {
+      "index": 2,
+      "url": "https://cdn.shopify.com/s/files/1/1824/2901/files/3_LuminosoBlushStick_PDP_Stylized.png?v=1715357653",
+      "size": [
+        2000,
+        2000
+      ],
+      "hits": [],
+      "text": {
+        "full": "MILAN MILAM mILAN BLUSH STICK CHEEK KISSO CHEEK KISS A JOUES BLUSH STICK BLUSH STICK BATON DE FARD BATON DE FARD A JOUES A JOUES",
+        "tile00": "mILAnI",
+        "tile01": "MILANI mILAn BLUSH STICK CHEEK KISS A JOUES BLUSH STICK BATON DE FARD A JOUES",
+        "tile10": "mILAnI",
+        "tile11": "MILAnI nILAnI BLUSH STICK CHEEK KISS A JOUES BLUSH STICK BATON DE FARD A JOUES"
+      }
+    },
+    {
+      "index": 3,
+      "url": "https://cdn.shopify.com/s/files/1/1824/2901/files/4_LuminosoBlushStic_PDP_BA-Quad.jpg?v=1715789631",
+      "size": [
+        2000,
+        2000
+      ],
+      "hits": [],
+      "text": {
+        "full": "CHEEKKISS CREAM BLUSH STICK BEFORE MILAnI CHEEK KISS BLUSH STICK BATON DEFARD A JOUES AFTER",
+        "tile00": "CHEEKKIS CREAM BLUSH STI BEFORE",
+        "tile01": "BEFORE MILAnI CHEEK KISSO BLUSH STICK BATON DE FARD A JOUES AFTER",
+        "tile10": "IEEKKISS EAM BLUSH STICK BEFORE",
+        "tile11": "BEFORE AFTER"
+      }
+    },
+    {
+      "index": 4,
+      "url": "https://cdn.shopify.com/s/files/1/1824/2901/files/6_LuminosoBlushStick_PDP_Infographic.png?v=1715789631",
+      "size": [
+        2000,
+        2000
+      ],
+      "hits": [],
+      "text": {
+        "full": "OHEEKKISS CREAM BLUSH STICK AVOCADO OIL JOJOBA SEED OIL CASTOR SEED OIL mILAnI CHEEK KISS BLUSH STICK BATON DE FARD VITAMIN E AJOUES",
+        "tile00": "OHEEKKI CREAM BLUSH STI AVOCADO OIL",
+        "tile01": "CASTOR SEED OIL MILAnI CHEEK KISS BLUSH STICK BATON DE FARD A JOUES",
+        "tile10": "HEEKKISS EAM BLUSH STICK JOJOBA SEED OIL",
+        "tile11": "JOJOBA SEED OIL MILAnI CHEEK KISS BLUSH STICK BATON DE FARD VITAMIN E AJOUES"
+      }
+    },
+    {
+      "index": 5,
+      "url": "https://cdn.shopify.com/s/files/1/1824/2901/files/7_Luminoso_BlushStick_110_PDP_OpenPoduct.png?v=1715789631",
+      "size": [
+        2000,
+        2000
+      ],
+      "hits": [],
+      "text": {
+        "full": "CHEEK KISS BLUSH STICK BATON DE FARD A JOUES",
+        "tile00": "mIIAnI",
+        "tile01": "MILAnI CHEEK KISS BLUSH STICK BATON DE FARD A JOUES",
+        "tile10": "mILAnI",
+        "tile11": "MILAnI CHEEK KISS BLUSH STICK BATON DE FARD A JOUES"
+      }
+    }
+  ]
+}

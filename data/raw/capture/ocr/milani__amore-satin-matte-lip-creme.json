@@ -1,0 +1,110 @@
+{
+  "sample_rank": 18,
+  "brand": "Milani",
+  "handle": "amore-satin-matte-lip-creme",
+  "title": "Amore Satin Matte Lip Crème",
+  "category_guess": "liquid_lipstick",
+  "images_listed": 6,
+  "images_ok": 6,
+  "images_with_hit": 0,
+  "hit": false,
+  "tokens": [],
+  "per_image": [
+    {
+      "index": 0,
+      "url": "https://cdn.shopify.com/s/files/1/1824/2901/products/MASM_AmoreSatinMattie_01_Lavish_PDP_1.png?v=1655839319",
+      "size": [
+        2048,
+        2048
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "malte LANI",
+        "tile01": "",
+        "tile10": "Sutin LANI",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 1,
+      "url": "https://cdn.shopify.com/s/files/1/1824/2901/products/MASM_AmoreMatteSatin_01_3.png?v=1655839319",
+      "size": [
+        2048,
+        2048
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 2,
+      "url": "https://cdn.shopify.com/s/files/1/1824/2901/products/MASM_AmoreSatinMatte_01_Lavish_RGB_300_Product_Open.png?v=1655839319",
+      "size": [
+        2048,
+        2048
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 3,
+      "url": "https://cdn.shopify.com/s/files/1/1824/2901/products/MASM_AmoreSatinMatte_01_Lavish_RGB_300_Product_Closed.png?v=1655839319",
+      "size": [
+        2048,
+        2048
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "LANI",
+        "tile01": "",
+        "tile10": "Maite Suftin",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 4,
+      "url": "https://cdn.shopify.com/s/files/1/1824/2901/products/MASM_AmoreMatteSatin_01_5.png?v=1655839942",
+      "size": [
+        2048,
+        2048
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 5,
+      "url": "https://cdn.shopify.com/s/files/1/1824/2901/products/MASM_AmoreMatteSatin_01_6.png?v=1655839942",
+      "size": [
+        2048,
+        2048
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "",
+        "tile11": ""
+      }
+    }
+  ]
+}

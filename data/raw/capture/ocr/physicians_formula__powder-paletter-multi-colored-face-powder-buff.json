@@ -1,0 +1,50 @@
+{
+  "sample_rank": 9,
+  "brand": "Physicians Formula",
+  "handle": "powder-paletter-multi-colored-face-powder-buff",
+  "title": "Powder Palette® Multi-Colored Face Powder | Buff",
+  "category_guess": "pressed_powder",
+  "images_listed": 3,
+  "images_ok": 3,
+  "images_with_hit": 0,
+  "hit": false,
+  "tokens": [],
+  "per_image": [
+    {
+      "index": 0,
+      "url": "https://cdn.shopify.com/s/files/1/0932/3547/8837/files/2715-Front.jpg?v=1742572864",
+      "size": [
+        600,
+        553
+      ],
+      "hits": [],
+      "text": {
+        "full": ""
+      }
+    },
+    {
+      "index": 1,
+      "url": "https://cdn.shopify.com/s/files/1/0932/3547/8837/files/2715-Open.jpg?v=1742572864",
+      "size": [
+        571,
+        600
+      ],
+      "hits": [],
+      "text": {
+        "full": ""
+      }
+    },
+    {
+      "index": 2,
+      "url": "https://cdn.shopify.com/s/files/1/0932/3547/8837/files/2715-Swatch.jpg?v=1742572864",
+      "size": [
+        600,
+        600
+      ],
+      "hits": [],
+      "text": {
+        "full": ""
+      }
+    }
+  ]
+}

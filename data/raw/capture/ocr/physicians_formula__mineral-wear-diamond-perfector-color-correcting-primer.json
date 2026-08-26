@@ -1,0 +1,50 @@
+{
+  "sample_rank": 4,
+  "brand": "Physicians Formula",
+  "handle": "mineral-wear-diamond-perfector-color-correcting-primer",
+  "title": "Mineral Wear® Diamond Perfector™ Color-Correcting Primer",
+  "category_guess": "primer",
+  "images_listed": 3,
+  "images_ok": 3,
+  "images_with_hit": 0,
+  "hit": false,
+  "tokens": [],
+  "per_image": [
+    {
+      "index": 0,
+      "url": "https://cdn.shopify.com/s/files/1/0932/3547/8837/files/nhenx1l7aklx1hl5gcmg.jpg?v=1742575948",
+      "size": [
+        600,
+        600
+      ],
+      "hits": [],
+      "text": {
+        "full": "PHYSICIANS FORMULA MINERAL WEARS iamond Perfector COLOR-CORRECTING BASE CORRECTRICE DETEINT"
+      }
+    },
+    {
+      "index": 1,
+      "url": "https://cdn.shopify.com/s/files/1/0932/3547/8837/files/t51e2rzhskj0na1x73za.jpg?v=1742575949",
+      "size": [
+        600,
+        600
+      ],
+      "hits": [],
+      "text": {
+        "full": ""
+      }
+    },
+    {
+      "index": 2,
+      "url": "https://cdn.shopify.com/s/files/1/0932/3547/8837/files/on4fb3vhbkydmiojlwp9.jpg?v=1742575949",
+      "size": [
+        600,
+        600
+      ],
+      "hits": [],
+      "text": {
+        "full": "MINEPALWEAR Jiamond Perfector COLOR-CORRECTING PRIMER BASE CORRECTRICE DETEINT"
+      }
+    }
+  ]
+}

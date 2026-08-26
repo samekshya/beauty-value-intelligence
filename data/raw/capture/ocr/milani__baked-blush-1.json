@@ -1,0 +1,110 @@
+{
+  "sample_rank": 28,
+  "brand": "Milani",
+  "handle": "baked-blush-1",
+  "title": "Baked Blush",
+  "category_guess": "powder_blush",
+  "images_listed": 6,
+  "images_ok": 6,
+  "images_with_hit": 0,
+  "hit": false,
+  "tokens": [],
+  "per_image": [
+    {
+      "index": 0,
+      "url": "https://cdn.shopify.com/s/files/1/1824/2901/files/1_BakedBlush_01_PDP_PoductWithSwatch_1fd650a7-46ec-4dfe-9fe0-061252fe6056.png?v=1765489419",
+      "size": [
+        2000,
+        2000
+      ],
+      "hits": [],
+      "text": {
+        "full": "BAKED BLUSH FARD A JOUES CUIT",
+        "tile00": "MILANI BAKED BLUSH FARD A JOUES CUIT",
+        "tile01": "MILAnI BAKED BLUSH FARD A JOUES CUIT",
+        "tile10": "IUUTIU BAKED BLUSH FARD A JOUES CUIT",
+        "tile11": "BAKED BLUSH FARD A JOUES CUIT"
+      }
+    },
+    {
+      "index": 1,
+      "url": "https://cdn.shopify.com/s/files/1/1824/2901/files/PDP_video_bakedblush_2025revamp_4x5_THUMBNAIL.png?v=1765501342",
+      "size": [
+        922,
+        922
+      ],
+      "hits": [],
+      "text": {
+        "full": "m I LAn I NEW G IMPROVED Baked Blush",
+        "tile00": "mILANI",
+        "tile01": "NEW G IMPROVED Baked Blush",
+        "tile10": "mILANI",
+        "tile11": "ROVED Blush"
+      }
+    },
+    {
+      "index": 2,
+      "url": "https://cdn.shopify.com/s/files/1/1824/2901/files/OLD-VS-NEW.png?v=1765840328",
+      "size": [
+        2000,
+        2000
+      ],
+      "hits": [],
+      "text": {
+        "full": "Even longerwearup to 12HOURS NOW INFUSED WITH ANTIOXIDANTS NEW INCLUSIVE SHADES MILAnI BAKED BLUSH FARD AJOUES CUIT ORIGINAL NENG IMPROVED",
+        "tile00": "Even longer wear up to 12HOURS NOW INFUSED WITH ANTIOXIDA NEW INCLUSIVI SHADES",
+        "tile01": "NEW INCLUSIV SHADES ORIGINAL",
+        "tile10": "Even longer wear up to 2 HOURS NOW INFUSED WITH TIOXIDANTS NEW NCLUSVE SHADES",
+        "tile11": "NEW NCLUSIVE SHADES BAKED BLUSH FARD A JOUES CUIT NEG IMPROVED"
+      }
+    },
+    {
+      "index": 3,
+      "url": "https://cdn.shopify.com/s/files/1/1824/2901/files/3_Baked-Blush_PDP_Stylized.png?v=1765840328",
+      "size": [
+        2000,
+        2000
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "",
+        "tile11": "LIR"
+      }
+    },
+    {
+      "index": 4,
+      "url": "https://cdn.shopify.com/s/files/1/1824/2901/files/01_Dolce_Pink.png?v=1765840328",
+      "size": [
+        2000,
+        2000
+      ],
+      "hits": [],
+      "text": {
+        "full": "DOLCE PINK",
+        "tile00": "DOLCE PINK",
+        "tile01": "DOLCE PINK",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 5,
+      "url": "https://cdn.shopify.com/s/files/1/1824/2901/files/Blush_Layering.png?v=1765840328",
+      "size": [
+        2000,
+        2000
+      ],
+      "hits": [],
+      "text": {
+        "full": "CIAOBELLA TLAYER Layer for a custom flush 2LAYERS 3LAYERS",
+        "tile00": "CIAO BELLA Layer for a custom flush",
+        "tile01": "2LAYERS",
+        "tile10": "TLAYER sh",
+        "tile11": "3LAYERS"
+      }
+    }
+  ]
+}

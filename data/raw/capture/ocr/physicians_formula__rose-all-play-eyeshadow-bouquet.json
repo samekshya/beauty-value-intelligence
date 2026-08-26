@@ -1,0 +1,117 @@
+{
+  "sample_rank": 19,
+  "brand": "Physicians Formula",
+  "handle": "rose-all-play-eyeshadow-bouquet",
+  "title": "Rosé All Play Eyeshadow Bouquet",
+  "category_guess": "eyeshadow_single",
+  "images_listed": 6,
+  "images_ok": 6,
+  "images_with_hit": 1,
+  "hit": true,
+  "tokens": [
+    "13.7 g"
+  ],
+  "per_image": [
+    {
+      "index": 0,
+      "url": "https://cdn.shopify.com/s/files/1/0932/3547/8837/files/1711516.jpg?v=1742574012",
+      "size": [
+        1200,
+        1200
+      ],
+      "hits": [
+        {
+          "pass": "full",
+          "token": "13.7 g"
+        },
+        {
+          "pass": "tile01",
+          "token": "13.7 g"
+        },
+        {
+          "pass": "tile11",
+          "token": "13.7 g"
+        }
+      ],
+      "text": {
+        "full": "SICI 2RMI ROSEALLPLAY EYESHADOWBOUQUET/BOUQUETDEFARDSAPAUPIERES Total NetWt./PoidsNet Total:13.7g/ 0.48Oz.",
+        "tile00": "PEIYSICI FORM",
+        "tile01": "PLIYSIC PORM ROSEALLPLAY EYESHADOWBOUQUET/BOUQUETDEFARDSAF Total Net Wt. / Poids Net Total: 13.7 g / 0.48 Oz.",
+        "tile10": "PHIYSICI FORMUL",
+        "tile11": "SICI PORMI ROSEALLPLAY OWBOUQUET/BOUQUETDEFARDSAPAUPIERES Total Net Wt. / PoidsNet Total:13.7g/ 0.48Oz."
+      }
+    },
+    {
+      "index": 1,
+      "url": "https://cdn.shopify.com/s/files/1/0932/3547/8837/files/1711516_2.jpg?v=1742574012",
+      "size": [
+        1200,
+        1200
+      ],
+      "hits": [],
+      "text": {
+        "full": "EOKWOrV 2ADI2YH9",
+        "tile00": "EOKWOFV bHA2ICVM2",
+        "tile01": "",
+        "tile10": "EOKWNrV bH2ICIVM2",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 2,
+      "url": "https://cdn.shopify.com/s/files/1/0932/3547/8837/files/Rose-All-Play-Eyeshadow-Bouquet-Swatches.jpg?v=1742574012",
+      "size": [
+        600,
+        480
+      ],
+      "hits": [],
+      "text": {
+        "full": ""
+      }
+    },
+    {
+      "index": 3,
+      "url": "https://cdn.shopify.com/s/files/1/0932/3547/8837/files/1711516_11.jpg?v=1742574012",
+      "size": [
+        1200,
+        1200
+      ],
+      "hits": [],
+      "text": {
+        "full": "FreshBouquet FreshBouquet Nice Stems Nice Stems Bottomless Brunch Bottomless Brunch Flor Real Flor Real Sure, Wine Not? Sure. Wine Not? Yes Way Rose Yes Way Rose Winestone Cowboy Winestone Cowboy Berry Chic Berry Chic Pinkies Out Pinkies Out Super Bloom Super Bloom FlowerMarket FlowerMarket Last Call Last Call",
+        "tile00": "Fresh Bouquet NiceStems Bottomless Brunch Flor Real Sure, Wine Not?",
+        "tile01": "FreshBouquet Nice Stems Bottomless Brunch Flor Real Sure.Wine Not? Yes Way Rosé Winestone Cowboy Berry Chic Pinkies Out Super Bloom FlowerMarket Last Call",
+        "tile10": "Bouquet Fresh Bouquet Stems NiceStems ss Brunch Bottomless Brunch Real Flor Real ineNot? Sure. Wine Not?",
+        "tile11": "Fresh Bouquet Bouquet Stems Nice Stems ss Brunch Bottomless Brunch Real Flor Real ine Not? Sure. Wine Not? ay Rosé Yes Way Rose he Cowboy Winestone Cowboy yChic Berry Chic es Out Pinkies Out Bloom Super Bloom Market FlowerMarket Call Last Call"
+      }
+    },
+    {
+      "index": 4,
+      "url": "https://cdn.shopify.com/s/files/1/0932/3547/8837/files/Rose-All-Play-Eyeshadow-Bouquet-Model-Eye.jpg?v=1742574012",
+      "size": [
+        600,
+        479
+      ],
+      "hits": [],
+      "text": {
+        "full": ""
+      }
+    },
+    {
+      "index": 5,
+      "url": "https://cdn.shopify.com/s/files/1/0932/3547/8837/files/1711516_6_1.jpg?v=1742574012",
+      "size": [
+        1200,
+        1200
+      ],
+      "hits": [],
+      "text": {
+        "full": "MODEL IS WEARING: ROSEALLDAY ROSEALLPLAY EYESHADOWBOUOUEI",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "MODEL IS WEARING: ROSEALLDAY ROSEALLPLAY EYESHADOWBOUOUET",
+        "tile11": ""
+      }
+    }
+  ]
+}

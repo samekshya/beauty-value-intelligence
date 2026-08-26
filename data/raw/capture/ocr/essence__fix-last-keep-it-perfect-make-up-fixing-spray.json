@@ -1,0 +1,94 @@
+{
+  "sample_rank": 7,
+  "brand": "Essence",
+  "handle": "fix-last-keep-it-perfect-make-up-fixing-spray",
+  "title": "fix & LAST keep it PERFECT MAKE-UP FIXING SPRAY",
+  "category_guess": "setting_spray",
+  "images_listed": 5,
+  "images_ok": 5,
+  "images_with_hit": 0,
+  "hit": false,
+  "tokens": [],
+  "per_image": [
+    {
+      "index": 0,
+      "url": "https://cdn.shopify.com/s/files/1/1115/2926/files/4059729490452_3.png?v=1733161675",
+      "size": [
+        1000,
+        1000
+      ],
+      "hits": [],
+      "text": {
+        "full": "essence fix& LAST keep it PERFECT MAKE-UP FIXING SPRAY WITH HYALURON FREE FROM OIL·ALCOHOL",
+        "tile00": "essence fix&",
+        "tile01": "essence fix& LAST keep it PERFECT MAKE-UP FIXING SPRAY WITH HYALURON FREE FROM OIL·ALCOHOL",
+        "tile10": "essence fix&",
+        "tile11": "essence fix& LAST keep it PERFECT MAKE-UP FIXING SPRAY WITH HYALURON FREE FROM OILALCOHOL"
+      }
+    },
+    {
+      "index": 1,
+      "url": "https://cdn.shopify.com/s/files/1/1115/2926/files/4059729490452_2.png?v=1733161675",
+      "size": [
+        1000,
+        1000
+      ],
+      "hits": [],
+      "text": {
+        "full": "essence fix& LAST keep it PERFECT MAKE-UP FIXING SPRAY WITH HYALURON FREE FROM OIL · ALCOHOL",
+        "tile00": "essence fix&",
+        "tile01": "essence fix& LAST keep it PERFECT MAKE-UP FIXING SPRAY WITH HYALURON FREE FROM OIL ·ALCOHOL",
+        "tile10": "essence fix&",
+        "tile11": "essence fix& LAST keep it PERFECT MAKE-UP FIXING SPRAY WITH HYALURON FREE FROM OIL·ALCOHOL"
+      }
+    },
+    {
+      "index": 2,
+      "url": "https://cdn.shopify.com/s/files/1/1115/2926/files/4059729490452_1.png?v=1733161675",
+      "size": [
+        1000,
+        1000
+      ],
+      "hits": [],
+      "text": {
+        "full": "FREE FROM OIL-ALCONI",
+        "tile00": "ke FREE FROM OIL-ALCON",
+        "tile01": "ke MA FREEFRON OIL-ALCONI",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 3,
+      "url": "https://cdn.shopify.com/s/files/1/1115/2926/files/4059729490452_7.png?v=1733161675",
+      "size": [
+        1000,
+        1000
+      ],
+      "hits": [],
+      "text": {
+        "full": "essence fix& LAST KeepitPERFECT MAKE-UP FIXING SPRAY WITH HYALURON FREEFROM OIL·ALCOHOL",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "essence",
+        "tile11": "essence fix& LAST KeepitPERFECT MAKE-UPFIXING SPRAY WITH HYALURON FREE FROM"
+      }
+    },
+    {
+      "index": 4,
+      "url": "https://cdn.shopify.com/s/files/1/1115/2926/files/4059729490452_4.png?v=1733161675",
+      "size": [
+        1000,
+        1000
+      ],
+      "hits": [],
+      "text": {
+        "full": "essence fix& LAST MAKE-UPFIXING SPR WITH HYALURON FREE FROM OILALCOHOL",
+        "tile00": "essence fix&",
+        "tile01": "essence fix& LAST WITH HYALURON FREEFROM OIL·ALCOHOL",
+        "tile10": "essence fix",
+        "tile11": "essence fix& AST PERFECT FIXING SPR ALURON"
+      }
+    }
+  ]
+}

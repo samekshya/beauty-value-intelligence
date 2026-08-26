@@ -1,0 +1,110 @@
+{
+  "sample_rank": 11,
+  "brand": "ColourPop",
+  "handle": "storm-cloud-cloud-whip-liquid-lipstick",
+  "title": "Storm Cloud",
+  "category_guess": "liquid_lipstick",
+  "images_listed": 6,
+  "images_ok": 6,
+  "images_with_hit": 0,
+  "hit": false,
+  "tokens": [],
+  "per_image": [
+    {
+      "index": 0,
+      "url": "https://cdn.shopify.com/s/files/1/1338/0845/files/CloudWhipBlurringLiquidLipstick_StormCloud_ECOM_c0e5a075-135b-49af-b703-af9cf39a0a2d.jpg?v=1786233774",
+      "size": [
+        3000,
+        3000
+      ],
+      "hits": [],
+      "text": {
+        "full": "COLOURPOP",
+        "tile00": "URPOP",
+        "tile01": "COLOURPOP",
+        "tile10": "",
+        "tile11": "COLOURPOP"
+      }
+    },
+    {
+      "index": 1,
+      "url": "https://cdn.shopify.com/s/files/1/1338/0845/files/CloudWhipBlurringLiquidLipstick_StormCloud_Model_LipMacro_eaeb8b6a-8b09-4a8f-81bd-653af5aeb954.jpg?v=1778614231",
+      "size": [
+        3008,
+        3008
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 2,
+      "url": "https://cdn.shopify.com/s/files/1/1338/0845/files/CloudWhipBlurringLiquidLipstick_StormCloud_Infographic_ColourMeetsComfort.jpg?v=1778614231",
+      "size": [
+        3000,
+        3000
+      ],
+      "hits": [],
+      "text": {
+        "full": "COLOUR MEETS COMFORT Blurring Buildable Colour Modern Whipped Liquid Lipstick Diffused Finish That Lasts",
+        "tile00": "COLOUR MEETS COMFORT Blurring Buildable Colour Modern Whipped Liquid Lipstick Diffused Finish That Lasts",
+        "tile01": "Modern Whipped Liquid Lipstick Diffused Finish That Lasts",
+        "tile10": "ETS",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 3,
+      "url": "https://cdn.shopify.com/s/files/1/1338/0845/files/CloudWhipBlurringLiquidLipstick_StormCloud_Macro_Lip_ModelWears.jpg?v=1778614230",
+      "size": [
+        3000,
+        3000
+      ],
+      "hits": [],
+      "text": {
+        "full": "Blur it. Build it. The sky's the limit. MODEL WEARS WHAT THE FLUFF BUILDABLE BLURRED",
+        "tile00": "Blur it. Build i The sky's the lir MODEL WEARS WHAT THE FLU",
+        "tile01": "BLURRED",
+        "tile10": "lur it. Build it. sky's the limit. ODEL WEARS WHAT THE FLUFF",
+        "tile11": "BUILDABLE"
+      }
+    },
+    {
+      "index": 4,
+      "url": "https://cdn.shopify.com/s/files/1/1338/0845/files/CloudWhipBlurringLiquidLipstick_StormCloud_ArmSwatch.jpg?v=1778614231",
+      "size": [
+        3000,
+        3000
+      ],
+      "hits": [],
+      "text": {
+        "full": "CANDY FLOSS IN A HAZE FLOATING ON AIR WHAT THE FLUFF FLUFFING CUTE ON CLOUD9 SKY'S THE LIMIT MILE HIGH SO DREAMY PRETTY AURA STORM CLOUD CLOUDY HOUR COLOURPOP",
+        "tile00": "CANDY FLOSS IN A HAZE FLOATING ON AIR WHAT THE FLUFF FLUFFING CUTE ON CLOUD 9 SKY'S THE LIMIT MILE HIGH SO DREAMY",
+        "tile01": "FLUFFING CUTE ON CLOUD9 SKY'S THE LIMIT MILE HIGH SO DREAMY PRETTY AURA STORM CLOUD CLOUDY HOUR COLOURPOP",
+        "tile10": "CANDY FLOSS IN A HAZE FLOATING ON AIR WHAT THE FLUFF FLUFFING CUTE ONCLOUD 9 SKY'S THE LIMIT MILE HIGH SO DREAMY",
+        "tile11": "FLUFFING CUTE ON CLOUD 9 SKY'S THE LIMIT MILE HIGH SO DREAMY PRETTY AURA STORM CLOUD CLOUDY HOUR COLOURPOP"
+      }
+    },
+    {
+      "index": 5,
+      "url": "https://cdn.shopify.com/s/files/1/1338/0845/files/CloudWhipBlurringLiquidLipstick_StormCloud_Infographic.jpg?v=1778614231",
+      "size": [
+        3000,
+        3000
+      ],
+      "hits": [],
+      "text": {
+        "full": "SH INGREDIENTS Marshmallow Root Extract nourishing Cloudberry Oil antioxidant-rich Hyaluronic Acid hydrating",
+        "tile00": "SH INGREDIENTS Marshmallow Root Extract nourishing Cloudberry Oil antioxidant-rich",
+        "tile01": "omms Root Extract nourishing Cloudberry Oil antioxidant-rich Hyaluronic Acid hydrating",
+        "tile10": "ENTS nallow tract ng erryOil ant-rich",
+        "tile11": "tract ng erryOil ant-rich onicAcid ng"
+      }
+    }
+  ]
+}

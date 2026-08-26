@@ -1,0 +1,177 @@
+{
+  "sample_rank": 15,
+  "brand": "Wet n Wild",
+  "handle": "bare-focus-niacinamide-skin-tint-fair-light-beige",
+  "title": "Bare Focus Niacinamide Skin Tint | Fair Light Beige",
+  "category_guess": "concealer",
+  "images_listed": 6,
+  "images_ok": 6,
+  "images_with_hit": 3,
+  "hit": true,
+  "tokens": [
+    "1.08 fl oz",
+    "1.08 fl oz.",
+    "32 mL"
+  ],
+  "per_image": [
+    {
+      "index": 0,
+      "url": "https://cdn.shopify.com/s/files/1/0925/9221/0194/files/1116088_bare_focus_niacinamide_skin_tint_fair_light_beige-front-with-swatch.png?v=1783629580",
+      "size": [
+        2000,
+        2000
+      ],
+      "hits": [
+        {
+          "pass": "full",
+          "token": "32 mL"
+        },
+        {
+          "pass": "full",
+          "token": "1.08 fl oz."
+        },
+        {
+          "pass": "tile01",
+          "token": "32 mL"
+        },
+        {
+          "pass": "tile01",
+          "token": "1.08 fl oz."
+        },
+        {
+          "pass": "tile11",
+          "token": "32 mL"
+        },
+        {
+          "pass": "tile11",
+          "token": "1.08 fl oz."
+        }
+      ],
+      "text": {
+        "full": "NEW / NOUVEAU -24H* HYDRATION *Clinical test on30 volunteers wet nwild barefocus NIACINAMIDE SKIN TINT SOIN TEINTE 5% niacinamide HA Hyaluronic acid Acide hyaluronique Peony extract Extrait de pivoine FAIRLIGHTBEIGE·BEIGETRESCLAIR LIGHT ·CLAIR COOL·FROID 32 mL / 1.08 FL. OZ.",
+        "tile00": "NEW / NOUVEAU 24H* HYDRATION *Clinicalteston30volunteers wet nwild barefocus NIACINAMIDE SKIN TINT SOIN TEINTE 5% niacinamide",
+        "tile01": "wet nwild barefocus NIACINAMIDE SKIN TINT SOIN TEINTE 5% niacinamide HA Hyaluronic acid Acide hyaluronique Peony extract Extrait de pivoine FAIR LIGHT BEIGE· BEIGE TRES CLAIR LIGHT·CLAIR COOL·FROID 32 mL / 1.08 FL. OZ.",
+        "tile10": "NEW / NOUVEAU 24H* HYDRATION Clinical teston30volunteers wet nwild barefocus NIACINAMIDE SKIN TINT SOIN TEINTE 5% niacinamide",
+        "tile11": "wet nwild barefocus NIACINAMIDE SKIN TINT SOIN TEINTE 5% niacinamide HA Hyaluronic acid Acide hyaluronique Peony extract Extrait de pivoine FAIR LIGHT BEIGE·BEIGE TRES CLAIR LIGHT·CLAIR COOL·FROID 32 mL / 1.08 FL. OZ."
+      }
+    },
+    {
+      "index": 1,
+      "url": "https://cdn.shopify.com/s/files/1/0925/9221/0194/files/1116088_bare_focus_niacinamide_skin_tint_fair_light_beige-swatch.png?v=1783629575",
+      "size": [
+        2000,
+        2000
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 2,
+      "url": "https://cdn.shopify.com/s/files/1/0925/9221/0194/files/1116088.jpg?v=1759337198",
+      "size": [
+        2000,
+        2000
+      ],
+      "hits": [],
+      "text": {
+        "full": "BEFORE AFTER Fair Light Beige 1O0%UNRETOUCHEDIMAGE",
+        "tile00": "BEFORE",
+        "tile01": "Fair Light Bei 100%UNRETOUCHE",
+        "tile10": "AFTER",
+        "tile11": "Light Beige RETOUCHEDIMAGE"
+      }
+    },
+    {
+      "index": 3,
+      "url": "https://cdn.shopify.com/s/files/1/0925/9221/0194/files/Image-5-Ingredients.jpg?v=1759337806",
+      "size": [
+        2000,
+        2000
+      ],
+      "hits": [
+        {
+          "pass": "full",
+          "token": "32 mL"
+        },
+        {
+          "pass": "full",
+          "token": "1.08 fl oz"
+        },
+        {
+          "pass": "tile11",
+          "token": "32 mL"
+        },
+        {
+          "pass": "tile11",
+          "token": "1.08 fl oz."
+        }
+      ],
+      "text": {
+        "full": "5% niacinamide HA Hyaluronic acid wetnwild barefocus NIACINAMIDE SKINTINT Peony extract SOINTEINTE 5% niacinamide HA Hyaluronicacid Acidehyaluronique Peonyextract VitaminE Extraitdepivoine AMBERBEIGE·BEIGEAMBRE MEDIUMDARK·MOYENFONCE WARM·CHAUDE 32mL/1.08FL.OZ",
+        "tile00": "5% niacinamide HA Hyaluronic acid Peony extract",
+        "tile01": "HA Hyaluronic acid Peony extract Vitamin E",
+        "tile10": "namide cacid wet nwild barefocus NIACINAMIDE SKIN TINT tract SOIN TEINTE 5% niacinamide",
+        "tile11": "cacid wetnwild barefocus NIACINAMIDE SKINTINT tract SOIN TEINTE 5% niacinamide Hyaluronicacid Acidehyaluronique Peonyextract Extraitdepivoine AMBERBEIGE·BEIGEAMBRE MEDIUMDARK·MOYENFONCE WARM·CHAUDE 32mL/1.08FL.OZ."
+      }
+    },
+    {
+      "index": 4,
+      "url": "https://cdn.shopify.com/s/files/1/0925/9221/0194/files/Image-4.1-Benefits.jpg?v=1759337258",
+      "size": [
+        2000,
+        2000
+      ],
+      "hits": [
+        {
+          "pass": "full",
+          "token": "32 mL"
+        },
+        {
+          "pass": "full",
+          "token": "1.08 fl oz."
+        },
+        {
+          "pass": "tile01",
+          "token": "32 mL"
+        },
+        {
+          "pass": "tile01",
+          "token": "1.08 fl oz."
+        },
+        {
+          "pass": "tile11",
+          "token": "1.08 fl oz."
+        }
+      ],
+      "text": {
+        "full": "Sheer Buildable Coverage Soft Satin Glow wetnwild barefocus NIACINAMIDE SKINTINT SOIN TEINTE 5% niacinamide Hyaluronicacid Acide hyaluronigue Peonyextract Extraitde pivoine 32mL/1.08FL.OZ.",
+        "tile00": "Sheer Buildable Coverage Soft Satin Glow",
+        "tile01": "Glow wetnwild barefocus NIACINAMIDE SKINTINT SOINTEINTE 5% niacinamide Hyaluronicacid Acidehyaluronique Peonyextract Extraitde pivoine 32mL/1.08FL.OZ.",
+        "tile10": "",
+        "tile11": "IDE NT NTE lamide uronigue lepivoine 1.08FL.OZ."
+      }
+    },
+    {
+      "index": 5,
+      "url": "https://cdn.shopify.com/s/files/1/0925/9221/0194/files/AMZ-PDP_BareFocus-Niacinamide-Skin-Tint_26_2.jpg?v=1783629600",
+      "size": [
+        1500,
+        1500
+      ],
+      "hits": [],
+      "text": {
+        "full": "WARMUNDERTONES NEUTRAL UNDERTONES COOL UNDERTONES Soft Ivory c Peach Ivory Porcelain Fair C Fair Light Beige Fair Beige Natural Light Rosy Light Light Medium c Light Light Medium Buff Bisque Sand c Buff Cream Beige Medium Beige AmberBeige Toffee Cocoa Caramel Deep Mocha NDeep Tan CDeep Brown Praline Chestnut Mahogany c Truffle",
+        "tile00": "WARM UNDERTONES NEUTRAL UNDERTONE Porcelain Soft Ivory Peach CFair Light Beige Fair Beige Natura Light Medium c Light CLight M Sand c Buff Cream Beige Mediur",
+        "tile01": "Light Medium c Light Light M Sand C Buff Cream Beige Mediur Toffee Caramel Cocoa Deep Tan CDeep Brown Mocha wChestnut Mahogany",
+        "tile10": "NEUTRAL UNDERTONES COOL UNDERTONES Soft Ivory Peach Ivory Fair Fair Beige Natural Light CRosy Light Light Medium CLight Medium Buff Bisque Sand Cream Beige Medium Beige Amber Beige",
+        "tile11": "Light Medium Light Medium Buff Bisque Sand Cream Beige Medium Beige Amber Beige Toffee Cocoa Deep Deep Brown Mocha Praline NMahogany c Truffle"
+      }
+    }
+  ]
+}

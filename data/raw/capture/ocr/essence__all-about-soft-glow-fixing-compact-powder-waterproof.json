@@ -1,0 +1,117 @@
+{
+  "sample_rank": 27,
+  "brand": "Essence",
+  "handle": "all-about-soft-glow-fixing-compact-powder-waterproof",
+  "title": "soft glow! fixing compact powder waterproof",
+  "category_guess": "pressed_powder",
+  "images_listed": 6,
+  "images_ok": 6,
+  "images_with_hit": 1,
+  "hit": true,
+  "tokens": [
+    "8 g"
+  ],
+  "per_image": [
+    {
+      "index": 0,
+      "url": "https://cdn.shopify.com/s/files/1/1115/2926/files/4059729542502_5.png?v=1764005388",
+      "size": [
+        1000,
+        1000
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 1,
+      "url": "https://cdn.shopify.com/s/files/1/1115/2926/files/4059729542502_4.png?v=1764005388",
+      "size": [
+        1000,
+        1000
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 2,
+      "url": "https://cdn.shopify.com/s/files/1/1115/2926/files/4059729542502_3.png?v=1764005388",
+      "size": [
+        1000,
+        1000
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 3,
+      "url": "https://cdn.shopify.com/s/files/1/1115/2926/files/4059729542502_2.png?v=1764005388",
+      "size": [
+        1000,
+        1000
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 4,
+      "url": "https://cdn.shopify.com/s/files/1/1115/2926/files/4059729542502_1.png?v=1764005388",
+      "size": [
+        1000,
+        1000
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 5,
+      "url": "https://cdn.shopify.com/s/files/1/1115/2926/files/4059729542502_6.png?v=1764005388",
+      "size": [
+        1000,
+        1000
+      ],
+      "hits": [
+        {
+          "pass": "tile01",
+          "token": "8 g"
+        }
+      ],
+      "text": {
+        "full": "essence all about softglow! fixing compact powder waterproof",
+        "tile00": "essenc all about softgl fixing",
+        "tile01": "all about softgl fixing compact poy waterproof 8g/NetWt.0.280L",
+        "tile10": "ssence about Ftglow! xing",
+        "tile11": "about Ftglow! xing ompactpowder waterproof"
+      }
+    }
+  ]
+}

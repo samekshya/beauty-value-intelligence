@@ -1,0 +1,110 @@
+{
+  "sample_rank": 8,
+  "brand": "Milani",
+  "handle": "gilded-eyeshadow-sticks",
+  "title": "Gilded Eyeshadow Sticks",
+  "category_guess": "eyeshadow_single",
+  "images_listed": 6,
+  "images_ok": 6,
+  "images_with_hit": 0,
+  "hit": false,
+  "tokens": [],
+  "per_image": [
+    {
+      "index": 0,
+      "url": "https://cdn.shopify.com/s/files/1/1824/2901/files/1_GildedEyeshadowSticks_01_PDP_ProductwithSwatch_cb0fe5f3-c26a-44e4-969f-a55507da3cf8.png?v=1692994558",
+      "size": [
+        2000,
+        2000
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 1,
+      "url": "https://cdn.shopify.com/s/files/1/1824/2901/products/2_GildedEyeshadowSticks_PDP_Video_Thumbnail.png?v=1692994558",
+      "size": [
+        2000,
+        2000
+      ],
+      "hits": [],
+      "text": {
+        "full": "GILDED EYESHADOW STICKS",
+        "tile00": "GILPED EYESHAD STICKS",
+        "tile01": "GILDED EYESHAD STICKS",
+        "tile10": "GILPED ESHADOW STIOKS",
+        "tile11": "GILDED ESHADOW STICKS"
+      }
+    },
+    {
+      "index": 2,
+      "url": "https://cdn.shopify.com/s/files/1/1824/2901/products/4_GildedEyeshadowSticks_PDP_Stylized.png?v=1692994558",
+      "size": [
+        2000,
+        2000
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 3,
+      "url": "https://cdn.shopify.com/s/files/1/1824/2901/products/3_GildedEyeshadowSticks_PDP_Model.png?v=1692994558",
+      "size": [
+        2000,
+        2000
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 4,
+      "url": "https://cdn.shopify.com/s/files/1/1824/2901/products/5_GildedEyeshadowSticks_PDP_Quad.jpg?v=1692994558",
+      "size": [
+        2000,
+        2000
+      ],
+      "hits": [],
+      "text": {
+        "full": "EYELINER SINGLE SHADOW GILDED EYESHADOW STICI GILDED EYESHADOW STICK SSOWZO LAYERED",
+        "tile00": "EYELINER SINGLE SH",
+        "tile01": "EYELINER SINGLE SH GILDED EYESHADOW STICK LAYERED",
+        "tile10": "SINGLE SHADOW",
+        "tile11": "SINGLE SHADOW GILDED EYESHADOW SSOWZO GILDED EYESHA"
+      }
+    },
+    {
+      "index": 5,
+      "url": "https://cdn.shopify.com/s/files/1/1824/2901/files/6_GildedEyeshadowSticks_PDP_ArmSwatches_37b3fec3-30f0-4017-9384-00aa9f05bc6d.png?v=1692994558",
+      "size": [
+        2000,
+        2000
+      ],
+      "hits": [],
+      "text": {
+        "full": "BLOSSOM ROSE SAND DESERT STERLING LILY MOSS TERRA MARBLE CANYON PLUM ONYX",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "BLOSSOM ROSE SAND DESERT",
+        "tile11": "BLOSSOM ROSE SAND DESERT STERLING LILY MOSS TERRA MARBLE CANYON PLUM ONYX"
+      }
+    }
+  ]
+}

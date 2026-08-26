@@ -1,0 +1,94 @@
+{
+  "sample_rank": 2,
+  "brand": "Essence",
+  "handle": "jelly-grip-undereye-primer-stick",
+  "title": "jelly GRIP undereye primer stick",
+  "category_guess": "primer",
+  "images_listed": 5,
+  "images_ok": 5,
+  "images_with_hit": 0,
+  "hit": false,
+  "tokens": [],
+  "per_image": [
+    {
+      "index": 0,
+      "url": "https://cdn.shopify.com/s/files/1/1115/2926/files/4059729490971_7.png?v=1746635260",
+      "size": [
+        1000,
+        1000
+      ],
+      "hits": [],
+      "text": {
+        "full": "essence jellyGRIP gripping & refreshing",
+        "tile00": "essence",
+        "tile01": "essence jellyGR gripping & refresh",
+        "tile10": "essence",
+        "tile11": "essence euyGRIP oping & refreshing"
+      }
+    },
+    {
+      "index": 1,
+      "url": "https://cdn.shopify.com/s/files/1/1115/2926/files/4059729490971_6.png?v=1746635260",
+      "size": [
+        1000,
+        1000
+      ],
+      "hits": [],
+      "text": {
+        "full": "essence jellyGRIP gripping & refreshing",
+        "tile00": "essence",
+        "tile01": "essence jellyGR gripping & refreshi",
+        "tile10": "essence",
+        "tile11": "essence ellyGRIP pping & refreshing"
+      }
+    },
+    {
+      "index": 2,
+      "url": "https://cdn.shopify.com/s/files/1/1115/2926/files/4059729490971_1.png?v=1746635260",
+      "size": [
+        1000,
+        1000
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 3,
+      "url": "https://cdn.shopify.com/s/files/1/1115/2926/files/4059729490971_2.png?v=1746635260",
+      "size": [
+        1000,
+        1000
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 4,
+      "url": "https://cdn.shopify.com/s/files/1/1115/2926/files/4059729490971_3.png?v=1746635260",
+      "size": [
+        1000,
+        1000
+      ],
+      "hits": [],
+      "text": {
+        "full": "jeulyGRIP",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "jeuy GRIP",
+        "tile11": "jeuy GRIP"
+      }
+    }
+  ]
+}

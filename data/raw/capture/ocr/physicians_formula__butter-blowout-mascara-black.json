@@ -1,0 +1,78 @@
+{
+  "sample_rank": 14,
+  "brand": "Physicians Formula",
+  "handle": "butter-blowout-mascara-black",
+  "title": "Butter Blowout Mascara",
+  "category_guess": "mascara",
+  "images_listed": 4,
+  "images_ok": 4,
+  "images_with_hit": 0,
+  "hit": false,
+  "tokens": [],
+  "per_image": [
+    {
+      "index": 0,
+      "url": "https://cdn.shopify.com/s/files/1/0932/3547/8837/files/1711769_murumurubutterbutterblowoutmascara_front.png?v=1742574407",
+      "size": [
+        1200,
+        1200
+      ],
+      "hits": [],
+      "text": {
+        "full": "BLOWOUT MASCARA",
+        "tile00": "BLOWOUT MASCARA",
+        "tile01": "BLOWOUT MASCARA",
+        "tile10": "BLOWOUT MASCARA",
+        "tile11": "BLOWOUT MASCARA"
+      }
+    },
+    {
+      "index": 1,
+      "url": "https://cdn.shopify.com/s/files/1/0932/3547/8837/files/1711769_murumurubutterbutterblowoutmascara_open.png?v=1742574407",
+      "size": [
+        1200,
+        1200
+      ],
+      "hits": [],
+      "text": {
+        "full": "BLOWOUT MASCARA mnti",
+        "tile00": "LOWOUT MASCARA",
+        "tile01": "BLOWOUT MASCARA",
+        "tile10": "LOWOUT MASCARA",
+        "tile11": "BLOWOUT MASCARA"
+      }
+    },
+    {
+      "index": 2,
+      "url": "https://cdn.shopify.com/s/files/1/0932/3547/8837/files/1711769_butter_blowout_mascara_swatch.png?v=1742574407",
+      "size": [
+        1200,
+        1200
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 3,
+      "url": "https://cdn.shopify.com/s/files/1/0932/3547/8837/files/1711769_4.jpg?v=1742574407",
+      "size": [
+        1200,
+        1200
+      ],
+      "hits": [],
+      "text": {
+        "full": "BEFORE AFTER",
+        "tile00": "",
+        "tile01": "BEFORE",
+        "tile10": "",
+        "tile11": "AFTER"
+      }
+    }
+  ]
+}

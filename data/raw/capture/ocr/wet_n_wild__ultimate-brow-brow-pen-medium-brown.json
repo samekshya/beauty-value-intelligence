@@ -1,0 +1,110 @@
+{
+  "sample_rank": 5,
+  "brand": "Wet n Wild",
+  "handle": "ultimate-brow-brow-pen-medium-brown",
+  "title": "Ultimate Brow Brow Pen | Medium Brown",
+  "category_guess": "brow",
+  "images_listed": 6,
+  "images_ok": 6,
+  "images_with_hit": 0,
+  "hit": false,
+  "tokens": [],
+  "per_image": [
+    {
+      "index": 0,
+      "url": "https://cdn.shopify.com/s/files/1/0925/9221/0194/files/11340616_ultumate-brow-pen_open-with-swatch.png?v=1768266010",
+      "size": [
+        1500,
+        1500
+      ],
+      "hits": [],
+      "text": {
+        "full": "BROW PEN Ultimate Brow wet nwild",
+        "tile00": "BROW PEN Ultimate Brow et nwild",
+        "tile01": "BROW PEN timate Brow wet nwild",
+        "tile10": "BROW PEN Ultimate Brow vet nwild",
+        "tile11": "BROW PEN Ultimate Brow wet nwild"
+      }
+    },
+    {
+      "index": 1,
+      "url": "https://cdn.shopify.com/s/files/1/0925/9221/0194/files/11340616_ultumate-brow-pen-swatch.png?v=1768266009",
+      "size": [
+        1500,
+        1500
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 2,
+      "url": "https://cdn.shopify.com/s/files/1/0925/9221/0194/files/11340616_UltimateBrow_MediumBrown_2.jpg?v=1769561120",
+      "size": [
+        2400,
+        2400
+      ],
+      "hits": [],
+      "text": {
+        "full": "LONG LASTI STING BROWS, PERFECTED wet nwild Jtimatel Brow PEN Ultimate Brow BROW PEN vild",
+        "tile00": "LONG-LASTIN BROWS, PERFECTED",
+        "tile01": "Ultimate Brow Ultimate Brow BROW PEN vild",
+        "tile10": "LASTING PERFECTED",
+        "tile11": "Itimate Brow PEN Ultimate Brow BROW PEN vild"
+      }
+    },
+    {
+      "index": 3,
+      "url": "https://cdn.shopify.com/s/files/1/0925/9221/0194/files/11340616_UltimateBrow_MediumBrown_3.jpg?v=1769561120",
+      "size": [
+        2400,
+        2400
+      ],
+      "hits": [],
+      "text": {
+        "full": "ULTRA-FINE BRUSH TIP Ultimate Brow BROWPEN wet nwild CREATES FEATHERED HAIR-LIKE STROKES",
+        "tile00": "ULTRA-FINE BR BROW Ultimate Brow BROWPEN et nwild nwild",
+        "tile01": "BROW Ultimate Brow BROWPEN wet nwild wet nwild CREATES HAIR-LIKE STR",
+        "tile10": "TRA-FINE BRUSH TIP",
+        "tile11": "CREATES FEATHERED IR-LIKE STROKES"
+      }
+    },
+    {
+      "index": 4,
+      "url": "https://cdn.shopify.com/s/files/1/0925/9221/0194/files/11340616_UltimateBrow_MediumBrown_4.jpg?v=1769561120",
+      "size": [
+        2400,
+        2400
+      ],
+      "hits": [],
+      "text": {
+        "full": "PRECISION -THERE FINISH FOR A BARELYA- wet nwild UltimateE BROW PEN Brow MEDIUM BROWN Ultimate Brow BROWPEN Ultimate",
+        "tile00": "MATE PREC -THERE FOR A BARELY wet nwild Ultimat BRO",
+        "tile01": "wet nwild BROW PEN Ultimate Brow BROWPEN Ultimate Brow ild Ultimate Br",
+        "tile10": "ATE PRECISION THERE FINISH RELY",
+        "tile11": "MEDIUM BROWN Ultimate Brow BROWPEN Ultimate"
+      }
+    },
+    {
+      "index": 5,
+      "url": "https://cdn.shopify.com/s/files/1/0925/9221/0194/files/11340616_UltimateBrow_MediumBrown_5.jpg?v=1769561120",
+      "size": [
+        2400,
+        2400
+      ],
+      "hits": [],
+      "text": {
+        "full": "wet nwild WATERPROOF 6 Ultimate Brow BROW PEN SMUDGE-PROOF 0 dn 16h Ultimate Brow BROWPEN wet nwild wet nwild UltimateBrow 11340616Mediu BROWPEN",
+        "tile00": "wet nwild WATERPROOF 6 Ultimate Brow BROW VPEN SMUDGE-PROOF Ultimate Brow BROWPEN wet nwild",
+        "tile01": "UltimateBrow BROWPEN wet nwild wet nwilc 1340616N",
+        "tile10": "wet nwild OF6 Ultimate BROW PEN ROOF Brow up to row PEN 16h",
+        "tile11": "up to row PEN 16h wet nwild UltimateBrow 1340616Mediu BROWPEN"
+      }
+    }
+  ]
+}

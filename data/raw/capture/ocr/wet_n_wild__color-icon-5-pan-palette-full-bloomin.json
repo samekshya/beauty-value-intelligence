@@ -1,0 +1,62 @@
+{
+  "sample_rank": 25,
+  "brand": "Wet n Wild",
+  "handle": "color-icon-5-pan-palette-full-bloomin",
+  "title": "Color Icon 5 Pan Eye & Face Palette | Full Bloomin'",
+  "category_guess": "eyeshadow_single",
+  "images_listed": 3,
+  "images_ok": 3,
+  "images_with_hit": 0,
+  "hit": false,
+  "tokens": [],
+  "per_image": [
+    {
+      "index": 0,
+      "url": "https://cdn.shopify.com/s/files/1/0925/9221/0194/files/color-icon-5-pan-palette-front_1253320c-554f-47cf-a491-ddfe6f052558.jpg?v=1743791806",
+      "size": [
+        3000,
+        3000
+      ],
+      "hits": [],
+      "text": {
+        "full": "Wet h wild",
+        "tile00": "Wet n w",
+        "tile01": "Wet hW",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 1,
+      "url": "https://cdn.shopify.com/s/files/1/0925/9221/0194/files/color-icon-5-pan-palette-swatch_4fd73335-9b82-43af-9927-94b19c693822.jpg?v=1743791806",
+      "size": [
+        3000,
+        2999
+      ],
+      "hits": [],
+      "text": {
+        "full": "Wet h wild",
+        "tile00": "Wet h wi",
+        "tile01": "",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 2,
+      "url": "https://cdn.shopify.com/s/files/1/0925/9221/0194/files/color-icon-5-pan-palette-open.jpg?v=1743791806",
+      "size": [
+        3000,
+        3000
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "",
+        "tile11": ""
+      }
+    }
+  ]
+}

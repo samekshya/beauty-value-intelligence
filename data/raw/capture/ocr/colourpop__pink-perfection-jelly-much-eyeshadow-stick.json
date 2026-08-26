@@ -1,0 +1,110 @@
+{
+  "sample_rank": 16,
+  "brand": "ColourPop",
+  "handle": "pink-perfection-jelly-much-eyeshadow-stick",
+  "title": "Pink Perfection",
+  "category_guess": "eyeshadow_single",
+  "images_listed": 6,
+  "images_ok": 6,
+  "images_with_hit": 0,
+  "hit": false,
+  "tokens": [],
+  "per_image": [
+    {
+      "index": 0,
+      "url": "https://cdn.shopify.com/s/files/1/1338/0845/files/JellyMuchEyeshadowStick_PinkPerfection_ECOM_e903b957-334b-4fd0-b524-a536a7d8ad7f.jpg?v=1779125862",
+      "size": [
+        3000,
+        3000
+      ],
+      "hits": [],
+      "text": {
+        "full": "OLOURPOT",
+        "tile00": "",
+        "tile01": "OLOURPOT",
+        "tile10": "",
+        "tile11": "OLOURPOT"
+      }
+    },
+    {
+      "index": 1,
+      "url": "https://cdn.shopify.com/s/files/1/1338/0845/files/JellyMuchEyeshadowStick_PinkPerfection_MacroEye_Grid_Swatch_c069ddc7-9ced-4255-b16c-41fb2cc1506a.jpg?v=1779125862",
+      "size": [
+        3000,
+        3000
+      ],
+      "hits": [],
+      "text": {
+        "full": "PINK PERFECTION A cool-toned pink that's just perfection",
+        "tile00": "PINK PER A cool-ton just perfeo",
+        "tile01": "PINK PER A cool-ton just perfeo",
+        "tile10": "PINK F PERFECTION A cool-toned pink that's just perfection",
+        "tile11": "PINK PERFECTION A cool-toned pink that's just perfection"
+      }
+    },
+    {
+      "index": 2,
+      "url": "https://cdn.shopify.com/s/files/1/1338/0845/files/JellyMuchEyeshadowStick_PinkPerfection_ArmSwatch_63c4c12f-127e-47ac-ae03-2d9ba66e47be.jpg?v=1779125862",
+      "size": [
+        3000,
+        3000
+      ],
+      "hits": [],
+      "text": {
+        "full": "DIAMOND GIRL AURA POINTS MAKE A TOAST REAL TALK PINK PERFECTION BIGENERGY HYPED HAPPYTEARS OFFLINE GOLDEN COAST FOREVER FRIDAY KINDA BUSY STAY JELLY HOLLYWOOD HILLS",
+        "tile00": "DIAMOND GIRL AURA POINTS MAKE A TOAST REAL TALK PINK PERFECTION BIG ENERGY HYPED HAPPY TEARS OFFLINE GOLDEN COAST",
+        "tile01": "PINK PERFECTION BIGENERGY HYPED HAPPY TEARS OFFLINE GOLDEN COAST FOREVER RFRIDAY KINDA BUSY STAY JELLY HOLLYWOOD HILLS",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 3,
+      "url": "https://cdn.shopify.com/s/files/1/1338/0845/files/JellyMuchEyeshadowStick_PinkPerfection_ModelFullFace_edb19cb6-b35a-4780-a0e9-dea9eef9214c.jpg?v=1779125862",
+      "size": [
+        3000,
+        3000
+      ],
+      "hits": [],
+      "text": {
+        "full": "IZZY inPINK PERFECTION",
+        "tile00": "",
+        "tile01": "IZZY in PINK PERFECTION",
+        "tile10": "",
+        "tile11": "FECTION"
+      }
+    },
+    {
+      "index": 4,
+      "url": "https://cdn.shopify.com/s/files/1/1338/0845/files/JellyMuchEyeshadowStick_PinkPerfection_Infographic_09b12d80-df6b-4b88-9323-81156504c6cf.jpg?v=1779125862",
+      "size": [
+        3000,
+        3000
+      ],
+      "hits": [],
+      "text": {
+        "full": "BOUNCY JELLY TEXTURE water-based gel formula INSTANT SPARKLE swipe & go USE IT ANYWHERE eyes + cheeks + lips BUILD IT UP swipe for bold sparkle or tap for diffused shimmer *Aura Points and Real Talk are not safe for use on lips.",
+        "tile00": "INSTANT SPARKLE swipe & go",
+        "tile01": "swipe c go BUILD IT UP swipe for bold sparkle or tap for diffused shimmer",
+        "tile10": "BOUNCY JELLY TEXTURE water-based gel formula",
+        "tile11": "USE IT ANYWHERE eyes + cheeks + lips *AuraPoints and Real Talk are not safe for use on lips"
+      }
+    },
+    {
+      "index": 5,
+      "url": "https://cdn.shopify.com/s/files/1/1338/0845/files/JellyMuchEyeshadowStick_PinkPerfection_ProTips_5fc86617-fa6e-426a-953c-e9aa46d2d65e.jpg?v=1779125862",
+      "size": [
+        3000,
+        3000
+      ],
+      "hits": [],
+      "text": {
+        "full": "TIPS PRO 01 03 UP CAP IT TWIST TIGHT less is more after use to lock in sparkle 02 OR SWIPE TAP eyes + cheeks + lips* AuraPointsandRealTalk are not safe for use on lips.",
+        "tile00": "PRO 01 TWIST UP less is more",
+        "tile01": "01 TWIST UP less is more 02 OR SWIPE TAP eyes + cheeks + lips* *Aura Points and Real Talk are not safe for use on lips.",
+        "tile10": "TIPS 03 CAPIT TIGHT after use to lock",
+        "tile11": "03 CAPIT TIGHT after use to lock in sparkle 02 OR SWIPE TAP eyes + cheeks + lips* *Aura Points and Real Talk are not safe for use on lips."
+      }
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "sample_rank": 20,
+  "brand": "Wet n Wild",
+  "handle": "breakup-proof-waterproof-retractable-gel-eyeliner-charcoal",
+  "title": "Breakup Proof Waterproof Retractable Gel Eyeliner | Charcoal",
+  "category_guess": "primer",
+  "images_listed": 5,
+  "images_ok": 5,
+  "images_with_hit": 1,
+  "hit": true,
+  "tokens": [
+    "0.23 g"
+  ],
+  "per_image": [
+    {
+      "index": 0,
+      "url": "https://cdn.shopify.com/s/files/1/0925/9221/0194/files/2_a859247f-31b0-477b-831e-8d717909c1b2.png?v=1743788000",
+      "size": [
+        1000,
+        1000
+      ],
+      "hits": [],
+      "text": {
+        "full": "UP 16H wetnwild",
+        "tile00": "",
+        "tile01": "RETRACTABLEGEL wetnwild IGNEURGE",
+        "tile10": "UP 16H",
+        "tile11": "wetnwild"
+      }
+    },
+    {
+      "index": 1,
+      "url": "https://cdn.shopify.com/s/files/1/0925/9221/0194/files/1115501_3.jpg?v=1743788000",
+      "size": [
+        1200,
+        1200
+      ],
+      "hits": [],
+      "text": {
+        "full": "wetnwild",
+        "tile00": "",
+        "tile01": "BREAKUPPROOF wethwild",
+        "tile10": "",
+        "tile11": "EYELINER RETRACTABLEGEL wethwild"
+      }
+    },
+    {
+      "index": 2,
+      "url": "https://cdn.shopify.com/s/files/1/0925/9221/0194/files/1115501.jpg?v=1743788000",
+      "size": [
+        1200,
+        1200
+      ],
+      "hits": [
+        {
+          "pass": "full",
+          "token": "0.23 g"
+        },
+        {
+          "pass": "tile01",
+          "token": "0.23 g"
+        },
+        {
+          "pass": "tile11",
+          "token": "0.23 g"
+        }
+      ],
+      "text": {
+        "full": "NEW/NOUVEAU 1115501 CHARCOAL CHARBON wet n wild WATERPROOFRETRACTABLEGELEYELINER LIGNEURGELRETRACTABLEHYDROFUGE BREAKUPPROOF C16H WATERPROOF CRY-PROOF HUMIDITY-PROOF SMUDGE-PROOF HYDROFUGE RESISTEALEAU ETAUXLARMES RESISTEA LHUMIDITE NETACHEPAS BREAKUPPROC wethwild NETWT POIDSNET 0.23g 0.008Oz.",
+        "tile00": "NEW/NOUVEAU 1115501 CHARCOAL CHARBON wet nwild WATERPROOFRETRACTABLEGELEYELINER LIGNEURGELRETRACTABLEHYDROFUGE BREAKUPPROOF C16H WATERPROOF CRY-PROOF HUMIDITY-PROOF SMUDGE-PROOF HYDROFUGE RESISTEALEAU ETAUXLARMES RESISTEA LHUMIDITE NETACHEPAS",
+        "tile01": "BREAKUPPROC WATERPROOFRETRACTA LIGNEURGELRETRACTABLE L16H WATERPROOF CRY-PROOF HUMIDITY-PROOF SMUDGE-PROOF HYDROFUGE RESISTEALEAU ETAUXLARMES RESISTEA LHUMIDITE NETACHEPAS NETWT POIDSNET 0.23g/ 0.008OZ.",
+        "tile10": "NEW/NOUVEAU 1115501 CHARCOAL CHARBON wet n wild WATERPROOFRETRACTABLEGELEYELINER LIGNEURGELRETRACTABLEHYDROFUGE BREAKUPPROOF L16H WATERPROOF CRY-PROOF HUMIDITY-PROOF SMUDGE-PROOF HYDROFUGE RESISTEALEAU ETAUXLARMES RESISTEA LHUMIDITE NETACHEPAS",
+        "tile11": "BREAKUPPROC WATERPROOFRETRACTA LIGNEURGELRETRACTABLE L16H WATERPROOF CRY-PROOF HUMIDITY-PROOF SMUDGE-PROOF HYDROFUGE RESISTEALEAU ETAUXLARMES RESISTEA LHUMIDITE NETACHEPAS NETWT POIDSNET 0.23g/ 0.008OZ."
+      }
+    },
+    {
+      "index": 3,
+      "url": "https://cdn.shopify.com/s/files/1/0925/9221/0194/files/1115501_4.jpg?v=1743788000",
+      "size": [
+        1200,
+        1200
+      ],
+      "hits": [],
+      "text": {
+        "full": "wet n wild 1115501 CHARCOAL CHARBON BREAKUPPROOF WATERPROOF RETRACTABLEGELEYELINER LIGNEURGELRETRACTABLE HYDROFUGE Waterproof retractablegel eyelinerglides on easilyforrich, smudge-proofcolorthatlasts up to16hours. Ligneurgelretractablequiglisse aisementpourassureruntrace d'unecouleur richequinetache pas et tientpendant16 heures. Ophthalmologist-tested Testesouscontrole ophtalmologique Safeforcontactlenswearers Sansrisquepourlespersonnes quiportentdesverresdecontact INGREDIENTS: SYNTHETIC WAX, ISODODECANE,TRIMETHYLSILOXYSIL ICATE,PHENYLPROPYLDIMETHYLSI- LOXYSILICATE,ISOBUTYLMETHACRY- LATE/BIS-HYDROXYPROPYL DIMETHICONEACRYLATE COPOLYMER,MICROCRYSTALLINE WAX/CIREMICROCRISTALLINE, CAPRYLIC/CAPRICTRIGLYCERIDE, POLYISOPRENE,METHYL METHACRYLATECROSSPOLYMER, DIMETHICONE,VP/HEXADECENE COPOLYMER,DISTEARDIMONIUM HECTORITE,PROPYLENECARBONATE [+/-(MAY CONTAIN/PEUT CONTENIR): IRONOXIDES(CI77499),TITANIUM DIOXIDE(CI77891),MANGANESE VIOLET (CI 77742)]。 [2207-1.2S] NOTTESTEDONANIMALS NONTESTESURDESANIMAUX DIST.BY/PAR:MARKWINSBEAUTY BRANDS,INC. CITYOFINDUSTRY,CA91789 MADEINMEXICO/FABRIQUEAU MEXIQUE 7780215501",
+        "tile00": "wet n wild 1115501 CHARCOAL CHARBON BREAKUPPROOF WATERPROOF RETRACTABLEGELEYELINER LIGNEURGELRETRACTABLE HYDROFUGE Waterproofretractablegel eyelinerglidesoneasilyforrich, smudge-proofcolorthatlasts up to 16 hours. Ligneurgelretractablequiglisse aisementpourassureruntrace d'une couleur richequinetache pas et tient pendant 16 heures. Ophthalmologist-tested Testesouscontrole ophtalmologique Safeforcontactlens wearers Sansrisquepourlespersonnes quiportentdesverresdecontact INGREDIENTS:SYNTHETICWAX ISODODECANE,TRIMETHYLSILOXYSIL- ICATEPHENYLPROPYLDIMETHYLSI- LOXYSILICATEISOBUTYLMETHACRY- LATE/BIS-HYDROXYPROPYL DIMETHICONEACRYLATE COPOLYMER,MICROCRYSTALLINE WAX/CIREMICROCRISTALLINE CAPRYLIC/CAPRICTRIGLYCERIDE,",
+        "tile01": "Ligneurgel retractablequiglisse aisementpourassureruntrace d'unecouleur richequi netache pas et tient pendant 16 heures. Ophthalmologist-tested Testesouscontrole ophtalmologique Safeforcontactlenswearers Sansrisquepourlespersonnes quiportentdesverresdecontact INGREDIENTS: SYNTHETIC WAX, ISODODECANE,TRIMETHYLSILOXYSIL- ICATE,PHENYLPROPYLDIMETHYLSI- LOXYSILICATE,ISOBUTYLMETHACRY- LATE/BIS-HYDROXYPROPYL DIMETHICONEACRYLATE COPOLYMER,MICROCRYSTALLINE WAX/CIREMICROCRISTALLINE CAPRYLIC/CAPRICTRIGLYCERIDE, POLYISOPRENE,METHY METHACRYLATECROSSPOLYMER, DIMETHICONE,VP/HEXADECENE COPOLYMER,DISTEARDIMONIUM HECTORITE,PROPYLENECARBONATE [+/-(MAYCONTAIN/PEUTCONTENIR): IRONOXIDES(CI77499),TITANIUM DIOXIDE(CI77891),MANGANESE VIOLET (CI77742)]。[2207-1.2S] NOTTESTEDONANIMALS NONTESTE SURDESANIMAUX DIST.BY/PAR:MARKWINSBEAUTY BRANDS,INC. CITYOFINDUSTRY,CA91789 MADEINMEXICO/FABRIQUEAUMEXIQUE 7780215501",
+        "tile10": "wet n wild 1115501 CHARCOAL CHARBON BREAKUPPROOF WATERPROOF RETRACTABLEGELEYELINER LIGNEURGELRETRACTABLE HYDROFUGE Waterproofretractablegel eyelinerglidesoneasilyforrich, smudge-proofcolorthatlasts up to 16 hours. Ligneurgelretractablequiglisse aisementpourassureruntrace d'unecouleurriche quinetache pas et tient pendant 16 heures. Ophthalmologist-tested Testesouscontrole ophtalmologique Safeforcontactlenswearers Sansrisquepourlespersonnes quiportentdesverresdecontact INGREDIENTS:SYNTHETICWAX ISODODECANE,TRIMETHYLSILOXYSIL- ICATE,PHENYLPROPYLDIMETHYLSI- LOXYSILICATE,ISOBUTYLMETHACRY- LATE/BIS-HYDROXYPROPYL DIMETHICONEACRYLATE COPOLYMER,MICROCRYSTALLINE WAX/CIREMICROCRISTALLINE CAPRYLIC/CAPRICTRIGLYCERIDE",
+        "tile11": "Ligneurgel retractablequiglisse aisementpourassureruntrace d'unecouleurrichequinetache pas et tientpendant16heures. Ophthalmologist-tested Testesouscontrole ophtalmologique Safeforcontactlenswearers Sansrisquepourlespersonnes quiportentdesverresdecontact INGREDIENTS:SYNTHETICWAX ISODODECANETRIMETHYLSILOXYSIL- ICATE,PHENYLPROPYLDIMETHYLSI- LOXYSILICATE,ISOBUTYLMETHACRY- LATE/BIS-HYDROXYPROPYL DIMETHICONEACRYLATE COPOLYMER,MICROCRYSTALLINE WAX/CIREMICROCRISTALLINE CAPRYLIC/CAPRICTRIGLYCERIDE, POLYISOPRENE,METHYL METHACRYLATECROSSPOLYMER, DIMETHICONE,VP/HEXADECENE COPOLYMER,DISTEARDIMONIUM HECTORITE,PROPYLENECARBONATE, [+/-(MAY CONTAIN/PEUT CONTENIR): IRONOXIDES(CI77499),TITANIUM DIOXIDE(CI77891),MANGANESE VIOLET (CI77742)]。[2207-1.2S] NOTTESTEDONANIMALS NONTESTESURDESANIMAUX DIST.BY/PAR:MARKWINSBEAUTY BRANDS,INC. CITYOFINDUSTRY,CA91789 MADEINMEXICO/FABRIQUEAUMEXIQUE 7780215501"
+      }
+    },
+    {
+      "index": 4,
+      "url": "https://cdn.shopify.com/s/files/1/0925/9221/0194/files/1115501_5.jpg?v=1743788000",
+      "size": [
+        1200,
+        1200
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "",
+        "tile11": ""
+      }
+    }
+  ]
+}

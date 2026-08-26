@@ -1,0 +1,95 @@
+{
+  "sample_rank": 12,
+  "brand": "Essence",
+  "handle": "its-bubble-gum-fun-bouncy-blush",
+  "title": "it's Bubble Gum fun bouncy blush",
+  "category_guess": "powder_blush",
+  "images_listed": 4,
+  "images_ok": 4,
+  "images_with_hit": 2,
+  "hit": true,
+  "tokens": [
+    "4.7 g",
+    "7 g"
+  ],
+  "per_image": [
+    {
+      "index": 0,
+      "url": "https://cdn.shopify.com/s/files/1/1115/2926/files/4059729484253_1.png?v=1736976277",
+      "size": [
+        1000,
+        1000
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 1,
+      "url": "https://cdn.shopify.com/s/files/1/1115/2926/files/4059729484253_2.png?v=1736976277",
+      "size": [
+        1000,
+        1000
+      ],
+      "hits": [],
+      "text": {
+        "full": "essence Bubble Gum bouncy blush",
+        "tile00": "essence Bubble",
+        "tile01": "Bubble bouncy blush",
+        "tile10": "essence bbleGum",
+        "tile11": "ble Gum bouncy blush B/Netwt.0.160z."
+      }
+    },
+    {
+      "index": 2,
+      "url": "https://cdn.shopify.com/s/files/1/1115/2926/files/4059729484253_4.png?v=1736976277",
+      "size": [
+        1000,
+        1000
+      ],
+      "hits": [
+        {
+          "pass": "full",
+          "token": "7 g"
+        },
+        {
+          "pass": "tile11",
+          "token": "4.7 g"
+        }
+      ],
+      "text": {
+        "full": "essence essence Bubble Gum bouncy blushy essence shbblegu bouncy 4. 7g/Net Wt.0",
+        "tile00": "essence BubbleGum us bouncy blush",
+        "tile01": "essence Bubble Gum bouncy blush",
+        "tile10": "essence bouncy blush um",
+        "tile11": "lum OL. essence bouncy 4.7g/Net Wt.0"
+      }
+    },
+    {
+      "index": 3,
+      "url": "https://cdn.shopify.com/s/files/1/1115/2926/files/4059729484253_5.png?v=1736976277",
+      "size": [
+        1000,
+        1000
+      ],
+      "hits": [
+        {
+          "pass": "tile00",
+          "token": "4.7 g"
+        }
+      ],
+      "text": {
+        "full": "99.8",
+        "tile00": "4.7g/NeW",
+        "tile01": "ess bele",
+        "tile10": "",
+        "tile11": ""
+      }
+    }
+  ]
+}

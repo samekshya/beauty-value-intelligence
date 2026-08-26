@@ -1,0 +1,110 @@
+{
+  "sample_rank": 26,
+  "brand": "ColourPop",
+  "handle": "high-demand-blush-stix",
+  "title": "High Demand",
+  "category_guess": "cream_blush",
+  "images_listed": 6,
+  "images_ok": 6,
+  "images_with_hit": 0,
+  "hit": false,
+  "tokens": [],
+  "per_image": [
+    {
+      "index": 0,
+      "url": "https://cdn.shopify.com/s/files/1/1338/0845/files/BlushStix_HighDemand_ECOM_79d18445-8b93-4e1d-bd06-c6dcafc38db4.jpg?v=1786233624",
+      "size": [
+        3000,
+        3000
+      ],
+      "hits": [],
+      "text": {
+        "full": "blush COLOURPOP",
+        "tile00": "blush",
+        "tile01": "blush COLOURPOP",
+        "tile10": "blush",
+        "tile11": "blush COLOURPOP"
+      }
+    },
+    {
+      "index": 1,
+      "url": "https://cdn.shopify.com/s/files/1/1338/0845/files/BlushStix_HighDemand_Swatch_708e262b-6fb1-4486-8191-585671a999de.jpg?v=1778556249",
+      "size": [
+        3000,
+        3000
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 2,
+      "url": "https://cdn.shopify.com/s/files/1/1338/0845/files/BlushStix_HighDemand_Macro_Face_Grid_3a88401e-d33a-4536-91e0-d5a8d4837c93.jpg?v=1778556249",
+      "size": [
+        3000,
+        3000
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 3,
+      "url": "https://cdn.shopify.com/s/files/1/1338/0845/files/BlushStix_HighDemand_Swatch_Schematic_6ef711f1-05ba-4b78-bfa9-98b195b09eeb.jpg?v=1778556249",
+      "size": [
+        3000,
+        3000
+      ],
+      "hits": [],
+      "text": {
+        "full": "9 NEW SHADES 01 01 AM I THE EDRAMA? 02 S-TIER 02 03 DIGICAM 04 WHIMSY 03 05 DREAM 1STATE 06 GOING PLACES 07 LOVE TO SEE IT 08 BEACH BLVD PEARL 04 FINISH 09 HIGH D DEMAND 10 MINI ME 05 11 COOL IT 12 25/8 06 30G FAVES 10 07 11 08 09",
+        "tile00": "01 AMITHE DRAMA? 02 S-TIER 03 DIGICAM 04 WHIMSY 05 DREAM STATE 06 GOING PLACES 07 LOVE  TO SEE IT 08 BEACH BLVD 09 HIGH DEMAND 10 MINI ME 11 COOL IT 12 25/8",
+        "tile01": "07 TO LOVE SEE IT 08 BEACH BLVD 09 HIGH DEMAND 10 MINI ME 11 COOL IT 12 25/8 30G FAVES 10 11 12",
+        "tile10": "NEW SHADES 01 02 03 PEARL 04 FINISH 05 06",
+        "tile11": "PEARL 04 FINISH 05 06 07 08 09"
+      }
+    },
+    {
+      "index": 4,
+      "url": "https://cdn.shopify.com/s/files/1/1338/0845/files/BlushStix_HighDemand_Model_FullFace_Fair_67520ed4-c43b-485d-87ad-c3f7028d1e8c.jpg?v=1778556249",
+      "size": [
+        3000,
+        3000
+      ],
+      "hits": [],
+      "text": {
+        "full": "BENTLEY WearS HIGH DEMAND",
+        "tile00": "",
+        "tile01": "BENTLEY WearS HIGH DEMAND",
+        "tile10": "",
+        "tile11": "IGH DEMAND"
+      }
+    },
+    {
+      "index": 5,
+      "url": "https://cdn.shopify.com/s/files/1/1338/0845/files/BlushStix_HighDemand_Infographic_497d7bf6-a479-4a3c-b7f1-77efd61cf601.jpg?v=1778556249",
+      "size": [
+        3000,
+        3000
+      ],
+      "hits": [],
+      "text": {
+        "full": "Swipe, Blend Glow BUILDABLE BLENDABLE NEW HYDRATING FORMULA DEWY, GLOWY FINISH TRAVEL OR TOUCH-UP",
+        "tile00": "Swipe, Blend Glow NE FOI DEWY, GLOWY FINISH",
+        "tile01": "NE FOI DEWY, GLOWY FINISH TRAVEL OR TOUCH-UP",
+        "tile10": "BUILDABLE + BLENDABLE NEW HYDRATING FORMULA GLOWY",
+        "tile11": "NEW HYDRATING FORMULA GLOWY"
+      }
+    }
+  ]
+}

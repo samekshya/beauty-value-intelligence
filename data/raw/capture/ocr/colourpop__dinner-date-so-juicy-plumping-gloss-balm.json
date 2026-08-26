@@ -1,0 +1,110 @@
+{
+  "sample_rank": 6,
+  "brand": "ColourPop",
+  "handle": "dinner-date-so-juicy-plumping-gloss-balm",
+  "title": "Dinner Date",
+  "category_guess": "lip_gloss",
+  "images_listed": 6,
+  "images_ok": 6,
+  "images_with_hit": 0,
+  "hit": false,
+  "tokens": [],
+  "per_image": [
+    {
+      "index": 0,
+      "url": "https://cdn.shopify.com/s/files/1/1338/0845/files/SoJuicyGlossyBalmStick_DinnerDate_ECOM.jpg?v=1779905150",
+      "size": [
+        3000,
+        3000
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 1,
+      "url": "https://cdn.shopify.com/s/files/1/1338/0845/files/SoJuicyGlossyBalmStick_DinnerDate_Macro_Lip_Grid_Swatch.jpg?v=1779905150",
+      "size": [
+        3000,
+        3000
+      ],
+      "hits": [],
+      "text": {
+        "full": "DINNER DATE cool pink flirty,fun, fabulous",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "",
+        "tile11": "DINNER DATE cool pink flirty,fun, fabulous"
+      }
+    },
+    {
+      "index": 2,
+      "url": "https://cdn.shopify.com/s/files/1/1338/0845/files/SoJuicyPlumpingGlossBalmStick_DinnerDate_ArmSwatch.jpg?v=1779999726",
+      "size": [
+        3000,
+        3000
+      ],
+      "hits": [],
+      "text": {
+        "full": "DOE VACAY MODE DELULU FORBIDDENLOVE PASSENGER PRINCESS DINNER DATE TEA SESH HEART  CAKE IMO GUAVA GLAZE DOLLED UP MADEFORME PSL BERRY SPRITZ",
+        "tile00": "DOE VACAYMODE DELULU FORBIDDENLOVE PASSENGER PRINCESS DINNERDATE TEA SESH HEART CAKE IMO",
+        "tile01": "PASSENGER PRINCESS DINNER DATE TEA SESH HEART CAKE IMO GUAVA GLAZE DOLLEDUP MADEFORME PSL BERRY SPRITZ",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 3,
+      "url": "https://cdn.shopify.com/s/files/1/1338/0845/files/SoJuicyPlumpingGlossBalmStick_DinnerDate_Swatch_ShadeName.jpg?v=1779999726",
+      "size": [
+        3000,
+        3000
+      ],
+      "hits": [],
+      "text": {
+        "full": "07 01 DOE MADE FOR ME 13 DELULU 02 PSL 08 14 GUAVA GLAZE TEA SESH 03 09 BERRY SPRITZ IMO 04 10 DOLLED UP VACAY MODE 05 11 FORBIDDEN LOVE HEART CAKE 06 DINNER DATE 12 PASSENGER PRINCESS 05 12 04 13 01 03 07 02 06 08 14 09 10 11",
+        "tile00": "01 07 MADE FOR ME DOE 02 PSL 08 GUAVA GLAZE 03 09 BERRY SPRITZ IMO 04 DOLLED UP 10 VACAY MODE 05 11 FORBIDDEN LOVE HEART CAKE 06 DINNER DATE 12 PASSENGER PR 12 01 03",
+        "tile01": "12 01 03 07 02 08 09 10",
+        "tile10": "07 DOE 13 DELULU 08 GUAVA  GLAZE TEA SESH 09 IMO 10 VACAY MODE 11 HEART CAKE 12 PASSENGER PRINCESS 05 04 03",
+        "tile11": "04 13 03 07 06 08 14 11"
+      }
+    },
+    {
+      "index": 4,
+      "url": "https://cdn.shopify.com/s/files/1/1338/0845/files/SoJuicyGlossyBalmStick_MadeforMe_Infographic.jpg?v=1779905113",
+      "size": [
+        3000,
+        3000
+      ],
+      "hits": [],
+      "text": {
+        "full": "The proof is in the PLUMP 100% agree lip lines conditioned and hydrated 97% agree lip texture and lip lines look smooth 97% agree lips look visibly plump",
+        "tile00": "The proof is in the PLUMP 100% agree lip lines conditioned and hydrated",
+        "tile01": "PLOMP 100% agree lip lines conditioned and hydrated 97% agree lip texture and lip lines look smooth 97% agree lipslook visibly plump",
+        "tile10": "rated",
+        "tile11": "rated"
+      }
+    },
+    {
+      "index": 5,
+      "url": "https://cdn.shopify.com/s/files/1/1338/0845/files/SoJuicyGlossyBalmStick_DinnerDate_Swatch.jpg?v=1786239002",
+      "size": [
+        3000,
+        3000
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "",
+        "tile11": ""
+      }
+    }
+  ]
+}

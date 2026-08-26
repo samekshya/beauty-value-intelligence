@@ -1,0 +1,125 @@
+{
+  "sample_rank": 21,
+  "brand": "ColourPop",
+  "handle": "cuter-than-cupid-super-shock-blush",
+  "title": "Cuter than Cupid",
+  "category_guess": "powder_blush",
+  "images_listed": 6,
+  "images_ok": 6,
+  "images_with_hit": 1,
+  "hit": true,
+  "tokens": [
+    "0.27 oz"
+  ],
+  "per_image": [
+    {
+      "index": 0,
+      "url": "https://cdn.shopify.com/s/files/1/1338/0845/files/HeartToGet_SSBlush_CuterThanCupid_ProductStylized.jpg?v=1768423713",
+      "size": [
+        3000,
+        3000
+      ],
+      "hits": [
+        {
+          "pass": "full",
+          "token": "0.27 oz"
+        },
+        {
+          "pass": "tile10",
+          "token": "0.27 oz"
+        },
+        {
+          "pass": "tile11",
+          "token": "0.27 oz"
+        }
+      ],
+      "text": {
+        "full": "COLOURPOP CUTER. SUPER SHOCK BLUSH NETWT.7.65g(0.27oz)",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "CUTER. tham caupid SUPER SHOCK BLUSH NETWT.7.65g(0.27oz)",
+        "tile11": "OUTER. tham cupid SUPER SHOCK BLUSH NETWT.7.65g(0.27oz)"
+      }
+    },
+    {
+      "index": 1,
+      "url": "https://cdn.shopify.com/s/files/1/1338/0845/files/HeartToGet_Bundle_SorryNotSorry_ModelFullFace.jpg?v=1768423713",
+      "size": [
+        3000,
+        3000
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 2,
+      "url": "https://cdn.shopify.com/s/files/1/1338/0845/files/HeartToGet_Bundle_SorryNotSorry_ModelFullFace_Grid.jpg?v=1768423713",
+      "size": [
+        3000,
+        3000
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 3,
+      "url": "https://cdn.shopify.com/s/files/1/1338/0845/files/HeartToGet_SSBlush_CuterThanCupid_ProductStylized_Compact_6d57d6da-eb00-4ed4-b1dd-f3dbf3ef27fe.jpg?v=1768423713",
+      "size": [
+        3008,
+        3008
+      ],
+      "hits": [],
+      "text": {
+        "full": "CoLOURPOP",
+        "tile00": "COLOURPOP",
+        "tile01": "COLOURPOP",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 4,
+      "url": "https://cdn.shopify.com/s/files/1/1338/0845/files/HeartToGet_SSBlush_NotYourBaby_Infographic.jpg?v=1768423713",
+      "size": [
+        3000,
+        3000
+      ],
+      "hits": [],
+      "text": {
+        "full": "Bouncy, Pearlized Formula Uitra-buildable Blendable Weightless Glowy Finish",
+        "tile00": "Bouncy, Pearlized Formula Ultra-buildable Blendable",
+        "tile01": "Formuid Ultra-buildable Blendable Weightless Glowy Finish",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 5,
+      "url": "https://cdn.shopify.com/s/files/1/1338/0845/files/HeartToGet_SSBlush_CuterThanCupid_ECOM.jpg?v=1768497159",
+      "size": [
+        3008,
+        3008
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "",
+        "tile11": ""
+      }
+    }
+  ]
+}

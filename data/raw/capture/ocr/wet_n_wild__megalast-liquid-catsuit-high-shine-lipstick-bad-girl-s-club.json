@@ -1,0 +1,50 @@
+{
+  "sample_rank": 30,
+  "brand": "Wet n Wild",
+  "handle": "megalast-liquid-catsuit-high-shine-lipstick-bad-girl-s-club",
+  "title": "MegaLast Liquid Catsuit High-Shine Lipstick | Bad Girl's Club",
+  "category_guess": "liquid_lipstick",
+  "images_listed": 3,
+  "images_ok": 3,
+  "images_with_hit": 0,
+  "hit": false,
+  "tokens": [],
+  "per_image": [
+    {
+      "index": 0,
+      "url": "https://cdn.shopify.com/s/files/1/0925/9221/0194/files/968a_1.png?v=1743780276",
+      "size": [
+        660,
+        660
+      ],
+      "hits": [],
+      "text": {
+        "full": "LIQUIDC"
+      }
+    },
+    {
+      "index": 1,
+      "url": "https://cdn.shopify.com/s/files/1/0925/9221/0194/files/968a_2.png?v=1743780276",
+      "size": [
+        660,
+        660
+      ],
+      "hits": [],
+      "text": {
+        "full": "atsui"
+      }
+    },
+    {
+      "index": 2,
+      "url": "https://cdn.shopify.com/s/files/1/0925/9221/0194/files/968a_3.png?v=1743780276",
+      "size": [
+        660,
+        311
+      ],
+      "hits": [],
+      "text": {
+        "full": ""
+      }
+    }
+  ]
+}

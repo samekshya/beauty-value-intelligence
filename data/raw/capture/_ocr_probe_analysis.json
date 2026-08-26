@@ -1,0 +1,2046 @@
+{
+  "source": "data/raw/capture/ocr/*.json from ocr_size_probe.py; no OCR re-run",
+  "sample": "data/raw/capture/ocr_test_sample.csv (30 products, pre-registered)",
+  "n_products_with_output": 30,
+  "primary": {
+    "rule": "find_sizes(normalise_ocr(text)) as run",
+    "hits": 8,
+    "hit_rate": 0.2667
+  },
+  "amended": {
+    "rule": "post hoc: space after a glued NET WT label; O-for-0 before a decimal",
+    "hits": 9,
+    "hit_rate": 0.3
+  },
+  "threshold_from_plan": 0.4,
+  "images": {
+    "read": 156,
+    "blank": 50,
+    "small_no_tiling": 13,
+    "fragment_no_size": 1
+  },
+  "by_brand": {
+    "ColourPop": {
+      "n": 6,
+      "primary": 1,
+      "amended": 2
+    },
+    "Essence": {
+      "n": 6,
+      "primary": 2,
+      "amended": 2
+    },
+    "Milani": {
+      "n": 6,
+      "primary": 0,
+      "amended": 0
+    },
+    "Physicians Formula": {
+      "n": 6,
+      "primary": 2,
+      "amended": 2
+    },
+    "Wet n Wild": {
+      "n": 6,
+      "primary": 3,
+      "amended": 3
+    }
+  },
+  "rows": [
+    {
+      "sample_rank": 1,
+      "brand": "ColourPop",
+      "handle": "pallet-town-shadow-palette",
+      "category_guess": "eyeshadow_palette",
+      "images_ok": 6,
+      "primary_hit": false,
+      "amended_hit": true,
+      "primary_tokens": [],
+      "amended_tokens": [
+        "0.95 oz",
+        "26.5 g"
+      ],
+      "blank_images": 2,
+      "small_images": 0,
+      "fragment_images": 0,
+      "images": [
+        {
+          "index": 0,
+          "long_side_px": 2400,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [
+            "0.95 oz",
+            "26.5 g"
+          ],
+          "fragments": []
+        },
+        {
+          "index": 1,
+          "long_side_px": 2400,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 2,
+          "long_side_px": 2400,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 3,
+          "long_side_px": 2400,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 4,
+          "long_side_px": 2400,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 5,
+          "long_side_px": 2400,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        }
+      ]
+    },
+    {
+      "sample_rank": 2,
+      "brand": "Essence",
+      "handle": "jelly-grip-undereye-primer-stick",
+      "category_guess": "primer",
+      "images_ok": 5,
+      "primary_hit": false,
+      "amended_hit": false,
+      "primary_tokens": [],
+      "amended_tokens": [],
+      "blank_images": 2,
+      "small_images": 0,
+      "fragment_images": 0,
+      "images": [
+        {
+          "index": 0,
+          "long_side_px": 1000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 1,
+          "long_side_px": 1000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 2,
+          "long_side_px": 1000,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 3,
+          "long_side_px": 1000,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 4,
+          "long_side_px": 1000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        }
+      ]
+    },
+    {
+      "sample_rank": 3,
+      "brand": "Milani",
+      "handle": "supercharged-highlighter-multistick",
+      "category_guess": "highlighter",
+      "images_ok": 5,
+      "primary_hit": false,
+      "amended_hit": false,
+      "primary_tokens": [],
+      "amended_tokens": [],
+      "blank_images": 0,
+      "small_images": 0,
+      "fragment_images": 0,
+      "images": [
+        {
+          "index": 0,
+          "long_side_px": 2000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 1,
+          "long_side_px": 2000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 2,
+          "long_side_px": 2000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 3,
+          "long_side_px": 2000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 4,
+          "long_side_px": 2000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        }
+      ]
+    },
+    {
+      "sample_rank": 4,
+      "brand": "Physicians Formula",
+      "handle": "mineral-wear-diamond-perfector-color-correcting-primer",
+      "category_guess": "primer",
+      "images_ok": 3,
+      "primary_hit": false,
+      "amended_hit": false,
+      "primary_tokens": [],
+      "amended_tokens": [],
+      "blank_images": 1,
+      "small_images": 3,
+      "fragment_images": 0,
+      "images": [
+        {
+          "index": 0,
+          "long_side_px": 600,
+          "blank": false,
+          "small": true,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 1,
+          "long_side_px": 600,
+          "blank": true,
+          "small": true,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 2,
+          "long_side_px": 600,
+          "blank": false,
+          "small": true,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        }
+      ]
+    },
+    {
+      "sample_rank": 5,
+      "brand": "Wet n Wild",
+      "handle": "ultimate-brow-brow-pen-medium-brown",
+      "category_guess": "brow",
+      "images_ok": 6,
+      "primary_hit": false,
+      "amended_hit": false,
+      "primary_tokens": [],
+      "amended_tokens": [],
+      "blank_images": 1,
+      "small_images": 0,
+      "fragment_images": 0,
+      "images": [
+        {
+          "index": 0,
+          "long_side_px": 1500,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 1,
+          "long_side_px": 1500,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 2,
+          "long_side_px": 2400,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 3,
+          "long_side_px": 2400,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 4,
+          "long_side_px": 2400,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 5,
+          "long_side_px": 2400,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        }
+      ]
+    },
+    {
+      "sample_rank": 6,
+      "brand": "ColourPop",
+      "handle": "dinner-date-so-juicy-plumping-gloss-balm",
+      "category_guess": "lip_gloss",
+      "images_ok": 6,
+      "primary_hit": false,
+      "amended_hit": false,
+      "primary_tokens": [],
+      "amended_tokens": [],
+      "blank_images": 2,
+      "small_images": 0,
+      "fragment_images": 0,
+      "images": [
+        {
+          "index": 0,
+          "long_side_px": 3000,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 1,
+          "long_side_px": 3000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 2,
+          "long_side_px": 3000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 3,
+          "long_side_px": 3000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 4,
+          "long_side_px": 3000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 5,
+          "long_side_px": 3000,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        }
+      ]
+    },
+    {
+      "sample_rank": 7,
+      "brand": "Essence",
+      "handle": "fix-last-keep-it-perfect-make-up-fixing-spray",
+      "category_guess": "setting_spray",
+      "images_ok": 5,
+      "primary_hit": false,
+      "amended_hit": false,
+      "primary_tokens": [],
+      "amended_tokens": [],
+      "blank_images": 0,
+      "small_images": 0,
+      "fragment_images": 0,
+      "images": [
+        {
+          "index": 0,
+          "long_side_px": 1000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 1,
+          "long_side_px": 1000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 2,
+          "long_side_px": 1000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 3,
+          "long_side_px": 1000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 4,
+          "long_side_px": 1000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        }
+      ]
+    },
+    {
+      "sample_rank": 8,
+      "brand": "Milani",
+      "handle": "gilded-eyeshadow-sticks",
+      "category_guess": "eyeshadow_single",
+      "images_ok": 6,
+      "primary_hit": false,
+      "amended_hit": false,
+      "primary_tokens": [],
+      "amended_tokens": [],
+      "blank_images": 3,
+      "small_images": 0,
+      "fragment_images": 0,
+      "images": [
+        {
+          "index": 0,
+          "long_side_px": 2000,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 1,
+          "long_side_px": 2000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 2,
+          "long_side_px": 2000,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 3,
+          "long_side_px": 2000,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 4,
+          "long_side_px": 2000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 5,
+          "long_side_px": 2000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        }
+      ]
+    },
+    {
+      "sample_rank": 9,
+      "brand": "Physicians Formula",
+      "handle": "powder-paletter-multi-colored-face-powder-buff",
+      "category_guess": "pressed_powder",
+      "images_ok": 3,
+      "primary_hit": false,
+      "amended_hit": false,
+      "primary_tokens": [],
+      "amended_tokens": [],
+      "blank_images": 3,
+      "small_images": 3,
+      "fragment_images": 0,
+      "images": [
+        {
+          "index": 0,
+          "long_side_px": 600,
+          "blank": true,
+          "small": true,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 1,
+          "long_side_px": 600,
+          "blank": true,
+          "small": true,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 2,
+          "long_side_px": 600,
+          "blank": true,
+          "small": true,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        }
+      ]
+    },
+    {
+      "sample_rank": 10,
+      "brand": "Wet n Wild",
+      "handle": "chameleon-chrome-all-over-glitter-mist-milkier-way",
+      "category_guess": "setting_spray",
+      "images_ok": 6,
+      "primary_hit": true,
+      "amended_hit": true,
+      "primary_tokens": [
+        "65 mL"
+      ],
+      "amended_tokens": [
+        "65 mL"
+      ],
+      "blank_images": 1,
+      "small_images": 0,
+      "fragment_images": 0,
+      "images": [
+        {
+          "index": 0,
+          "long_side_px": 1500,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [
+            "65 mL"
+          ],
+          "amended_tokens": [
+            "65 mL"
+          ],
+          "fragments": []
+        },
+        {
+          "index": 1,
+          "long_side_px": 1500,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 2,
+          "long_side_px": 1500,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 3,
+          "long_side_px": 1500,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 4,
+          "long_side_px": 1500,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 5,
+          "long_side_px": 1500,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        }
+      ]
+    },
+    {
+      "sample_rank": 11,
+      "brand": "ColourPop",
+      "handle": "storm-cloud-cloud-whip-liquid-lipstick",
+      "category_guess": "liquid_lipstick",
+      "images_ok": 6,
+      "primary_hit": false,
+      "amended_hit": false,
+      "primary_tokens": [],
+      "amended_tokens": [],
+      "blank_images": 1,
+      "small_images": 0,
+      "fragment_images": 0,
+      "images": [
+        {
+          "index": 0,
+          "long_side_px": 3000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 1,
+          "long_side_px": 3008,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 2,
+          "long_side_px": 3000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 3,
+          "long_side_px": 3000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 4,
+          "long_side_px": 3000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 5,
+          "long_side_px": 3000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        }
+      ]
+    },
+    {
+      "sample_rank": 12,
+      "brand": "Essence",
+      "handle": "its-bubble-gum-fun-bouncy-blush",
+      "category_guess": "powder_blush",
+      "images_ok": 4,
+      "primary_hit": true,
+      "amended_hit": true,
+      "primary_tokens": [
+        "4.7 g",
+        "7 g"
+      ],
+      "amended_tokens": [
+        "4.7 g",
+        "7 g"
+      ],
+      "blank_images": 1,
+      "small_images": 0,
+      "fragment_images": 0,
+      "images": [
+        {
+          "index": 0,
+          "long_side_px": 1000,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 1,
+          "long_side_px": 1000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 2,
+          "long_side_px": 1000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [
+            "4.7 g",
+            "7 g"
+          ],
+          "amended_tokens": [
+            "4.7 g",
+            "7 g"
+          ],
+          "fragments": []
+        },
+        {
+          "index": 3,
+          "long_side_px": 1000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [
+            "4.7 g"
+          ],
+          "amended_tokens": [
+            "4.7 g"
+          ],
+          "fragments": []
+        }
+      ]
+    },
+    {
+      "sample_rank": 13,
+      "brand": "Milani",
+      "handle": "cheek-kiss-blush-stick-in-luminoso",
+      "category_guess": "cream_blush",
+      "images_ok": 6,
+      "primary_hit": false,
+      "amended_hit": false,
+      "primary_tokens": [],
+      "amended_tokens": [],
+      "blank_images": 0,
+      "small_images": 0,
+      "fragment_images": 0,
+      "images": [
+        {
+          "index": 0,
+          "long_side_px": 2000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 1,
+          "long_side_px": 2049,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 2,
+          "long_side_px": 2000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 3,
+          "long_side_px": 2000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 4,
+          "long_side_px": 2000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 5,
+          "long_side_px": 2000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        }
+      ]
+    },
+    {
+      "sample_rank": 14,
+      "brand": "Physicians Formula",
+      "handle": "butter-blowout-mascara-black",
+      "category_guess": "mascara",
+      "images_ok": 4,
+      "primary_hit": false,
+      "amended_hit": false,
+      "primary_tokens": [],
+      "amended_tokens": [],
+      "blank_images": 1,
+      "small_images": 0,
+      "fragment_images": 0,
+      "images": [
+        {
+          "index": 0,
+          "long_side_px": 1200,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 1,
+          "long_side_px": 1200,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 2,
+          "long_side_px": 1200,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 3,
+          "long_side_px": 1200,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        }
+      ]
+    },
+    {
+      "sample_rank": 15,
+      "brand": "Wet n Wild",
+      "handle": "bare-focus-niacinamide-skin-tint-fair-light-beige",
+      "category_guess": "concealer",
+      "images_ok": 6,
+      "primary_hit": true,
+      "amended_hit": true,
+      "primary_tokens": [
+        "1.08 fl oz",
+        "1.08 fl oz.",
+        "32 mL"
+      ],
+      "amended_tokens": [
+        "1.08 fl oz",
+        "1.08 fl oz.",
+        "32 mL"
+      ],
+      "blank_images": 1,
+      "small_images": 0,
+      "fragment_images": 0,
+      "images": [
+        {
+          "index": 0,
+          "long_side_px": 2000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [
+            "1.08 fl oz.",
+            "32 mL"
+          ],
+          "amended_tokens": [
+            "1.08 fl oz.",
+            "32 mL"
+          ],
+          "fragments": []
+        },
+        {
+          "index": 1,
+          "long_side_px": 2000,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 2,
+          "long_side_px": 2000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 3,
+          "long_side_px": 2000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [
+            "1.08 fl oz",
+            "1.08 fl oz.",
+            "32 mL"
+          ],
+          "amended_tokens": [
+            "1.08 fl oz",
+            "1.08 fl oz.",
+            "32 mL"
+          ],
+          "fragments": []
+        },
+        {
+          "index": 4,
+          "long_side_px": 2000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [
+            "1.08 fl oz.",
+            "32 mL"
+          ],
+          "amended_tokens": [
+            "1.08 fl oz.",
+            "32 mL"
+          ],
+          "fragments": []
+        },
+        {
+          "index": 5,
+          "long_side_px": 1500,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        }
+      ]
+    },
+    {
+      "sample_rank": 16,
+      "brand": "ColourPop",
+      "handle": "pink-perfection-jelly-much-eyeshadow-stick",
+      "category_guess": "eyeshadow_single",
+      "images_ok": 6,
+      "primary_hit": false,
+      "amended_hit": false,
+      "primary_tokens": [],
+      "amended_tokens": [],
+      "blank_images": 0,
+      "small_images": 0,
+      "fragment_images": 0,
+      "images": [
+        {
+          "index": 0,
+          "long_side_px": 3000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 1,
+          "long_side_px": 3000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 2,
+          "long_side_px": 3000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 3,
+          "long_side_px": 3000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 4,
+          "long_side_px": 3000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 5,
+          "long_side_px": 3000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        }
+      ]
+    },
+    {
+      "sample_rank": 17,
+      "brand": "Essence",
+      "handle": "banana-loose-powder",
+      "category_guess": "setting_powder",
+      "images_ok": 6,
+      "primary_hit": false,
+      "amended_hit": false,
+      "primary_tokens": [],
+      "amended_tokens": [],
+      "blank_images": 4,
+      "small_images": 0,
+      "fragment_images": 0,
+      "images": [
+        {
+          "index": 0,
+          "long_side_px": 1000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 1,
+          "long_side_px": 1000,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 2,
+          "long_side_px": 1000,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 3,
+          "long_side_px": 1000,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 4,
+          "long_side_px": 1000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 5,
+          "long_side_px": 1000,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        }
+      ]
+    },
+    {
+      "sample_rank": 18,
+      "brand": "Milani",
+      "handle": "amore-satin-matte-lip-creme",
+      "category_guess": "liquid_lipstick",
+      "images_ok": 6,
+      "primary_hit": false,
+      "amended_hit": false,
+      "primary_tokens": [],
+      "amended_tokens": [],
+      "blank_images": 4,
+      "small_images": 0,
+      "fragment_images": 0,
+      "images": [
+        {
+          "index": 0,
+          "long_side_px": 2048,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 1,
+          "long_side_px": 2048,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 2,
+          "long_side_px": 2048,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 3,
+          "long_side_px": 2048,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 4,
+          "long_side_px": 2048,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 5,
+          "long_side_px": 2048,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        }
+      ]
+    },
+    {
+      "sample_rank": 19,
+      "brand": "Physicians Formula",
+      "handle": "rose-all-play-eyeshadow-bouquet",
+      "category_guess": "eyeshadow_single",
+      "images_ok": 6,
+      "primary_hit": true,
+      "amended_hit": true,
+      "primary_tokens": [
+        "13.7 g"
+      ],
+      "amended_tokens": [
+        "13.7 g"
+      ],
+      "blank_images": 2,
+      "small_images": 2,
+      "fragment_images": 0,
+      "images": [
+        {
+          "index": 0,
+          "long_side_px": 1200,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [
+            "13.7 g"
+          ],
+          "amended_tokens": [
+            "13.7 g"
+          ],
+          "fragments": []
+        },
+        {
+          "index": 1,
+          "long_side_px": 1200,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 2,
+          "long_side_px": 600,
+          "blank": true,
+          "small": true,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 3,
+          "long_side_px": 1200,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 4,
+          "long_side_px": 600,
+          "blank": true,
+          "small": true,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 5,
+          "long_side_px": 1200,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        }
+      ]
+    },
+    {
+      "sample_rank": 20,
+      "brand": "Wet n Wild",
+      "handle": "breakup-proof-waterproof-retractable-gel-eyeliner-charcoal",
+      "category_guess": "primer",
+      "images_ok": 5,
+      "primary_hit": true,
+      "amended_hit": true,
+      "primary_tokens": [
+        "0.23 g"
+      ],
+      "amended_tokens": [
+        "0.23 g"
+      ],
+      "blank_images": 1,
+      "small_images": 0,
+      "fragment_images": 0,
+      "images": [
+        {
+          "index": 0,
+          "long_side_px": 1000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 1,
+          "long_side_px": 1200,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 2,
+          "long_side_px": 1200,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [
+            "0.23 g"
+          ],
+          "amended_tokens": [
+            "0.23 g"
+          ],
+          "fragments": []
+        },
+        {
+          "index": 3,
+          "long_side_px": 1200,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 4,
+          "long_side_px": 1200,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        }
+      ]
+    },
+    {
+      "sample_rank": 21,
+      "brand": "ColourPop",
+      "handle": "cuter-than-cupid-super-shock-blush",
+      "category_guess": "powder_blush",
+      "images_ok": 6,
+      "primary_hit": true,
+      "amended_hit": true,
+      "primary_tokens": [
+        "0.27 oz"
+      ],
+      "amended_tokens": [
+        "0.27 oz",
+        "7.65 g"
+      ],
+      "blank_images": 3,
+      "small_images": 0,
+      "fragment_images": 0,
+      "images": [
+        {
+          "index": 0,
+          "long_side_px": 3000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [
+            "0.27 oz"
+          ],
+          "amended_tokens": [
+            "0.27 oz",
+            "7.65 g"
+          ],
+          "fragments": []
+        },
+        {
+          "index": 1,
+          "long_side_px": 3000,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 2,
+          "long_side_px": 3000,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 3,
+          "long_side_px": 3008,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 4,
+          "long_side_px": 3000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 5,
+          "long_side_px": 3008,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        }
+      ]
+    },
+    {
+      "sample_rank": 22,
+      "brand": "Essence",
+      "handle": "the-nude-edition-eyeshadow-palette",
+      "category_guess": "eyeshadow_palette",
+      "images_ok": 6,
+      "primary_hit": false,
+      "amended_hit": false,
+      "primary_tokens": [],
+      "amended_tokens": [],
+      "blank_images": 5,
+      "small_images": 0,
+      "fragment_images": 0,
+      "images": [
+        {
+          "index": 0,
+          "long_side_px": 1000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 1,
+          "long_side_px": 1000,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 2,
+          "long_side_px": 1000,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 3,
+          "long_side_px": 1000,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 4,
+          "long_side_px": 1000,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 5,
+          "long_side_px": 1000,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        }
+      ]
+    },
+    {
+      "sample_rank": 23,
+      "brand": "Milani",
+      "handle": "highly-rated-anti-gravity-mascara",
+      "category_guess": "mascara",
+      "images_ok": 6,
+      "primary_hit": false,
+      "amended_hit": false,
+      "primary_tokens": [],
+      "amended_tokens": [],
+      "blank_images": 1,
+      "small_images": 0,
+      "fragment_images": 0,
+      "images": [
+        {
+          "index": 0,
+          "long_side_px": 2000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 1,
+          "long_side_px": 2000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 2,
+          "long_side_px": 2000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 3,
+          "long_side_px": 2000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 4,
+          "long_side_px": 2000,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 5,
+          "long_side_px": 2000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        }
+      ]
+    },
+    {
+      "sample_rank": 24,
+      "brand": "Physicians Formula",
+      "handle": "butter-highlighter-champagne",
+      "category_guess": "highlighter",
+      "images_ok": 3,
+      "primary_hit": false,
+      "amended_hit": false,
+      "primary_tokens": [],
+      "amended_tokens": [],
+      "blank_images": 2,
+      "small_images": 0,
+      "fragment_images": 0,
+      "images": [
+        {
+          "index": 0,
+          "long_side_px": 1200,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 1,
+          "long_side_px": 1000,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 2,
+          "long_side_px": 1200,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        }
+      ]
+    },
+    {
+      "sample_rank": 25,
+      "brand": "Wet n Wild",
+      "handle": "color-icon-5-pan-palette-full-bloomin",
+      "category_guess": "eyeshadow_single",
+      "images_ok": 3,
+      "primary_hit": false,
+      "amended_hit": false,
+      "primary_tokens": [],
+      "amended_tokens": [],
+      "blank_images": 1,
+      "small_images": 0,
+      "fragment_images": 0,
+      "images": [
+        {
+          "index": 0,
+          "long_side_px": 3000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 1,
+          "long_side_px": 3000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 2,
+          "long_side_px": 3000,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        }
+      ]
+    },
+    {
+      "sample_rank": 26,
+      "brand": "ColourPop",
+      "handle": "high-demand-blush-stix",
+      "category_guess": "cream_blush",
+      "images_ok": 6,
+      "primary_hit": false,
+      "amended_hit": false,
+      "primary_tokens": [],
+      "amended_tokens": [],
+      "blank_images": 2,
+      "small_images": 0,
+      "fragment_images": 1,
+      "images": [
+        {
+          "index": 0,
+          "long_side_px": 3000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 1,
+          "long_side_px": 3000,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 2,
+          "long_side_px": 3000,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 3,
+          "long_side_px": 3000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": [
+            "E 05 11 COOL IT 12 25/8 06 30G FAVES 10 07 11 08 09 01 AMI",
+            "MINI ME 11 COOL IT 12 25/8 30G FAVES 10 11 12 NEW SHADES 0"
+          ]
+        },
+        {
+          "index": 4,
+          "long_side_px": 3000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 5,
+          "long_side_px": 3000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        }
+      ]
+    },
+    {
+      "sample_rank": 27,
+      "brand": "Essence",
+      "handle": "all-about-soft-glow-fixing-compact-powder-waterproof",
+      "category_guess": "pressed_powder",
+      "images_ok": 6,
+      "primary_hit": true,
+      "amended_hit": true,
+      "primary_tokens": [
+        "8 g"
+      ],
+      "amended_tokens": [
+        "8 g"
+      ],
+      "blank_images": 5,
+      "small_images": 0,
+      "fragment_images": 0,
+      "images": [
+        {
+          "index": 0,
+          "long_side_px": 1000,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 1,
+          "long_side_px": 1000,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 2,
+          "long_side_px": 1000,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 3,
+          "long_side_px": 1000,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 4,
+          "long_side_px": 1000,
+          "blank": true,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 5,
+          "long_side_px": 1000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [
+            "8 g"
+          ],
+          "amended_tokens": [
+            "8 g"
+          ],
+          "fragments": []
+        }
+      ]
+    },
+    {
+      "sample_rank": 28,
+      "brand": "Milani",
+      "handle": "baked-blush-1",
+      "category_guess": "powder_blush",
+      "images_ok": 6,
+      "primary_hit": false,
+      "amended_hit": false,
+      "primary_tokens": [],
+      "amended_tokens": [],
+      "blank_images": 0,
+      "small_images": 0,
+      "fragment_images": 0,
+      "images": [
+        {
+          "index": 0,
+          "long_side_px": 2000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 1,
+          "long_side_px": 922,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 2,
+          "long_side_px": 2000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 3,
+          "long_side_px": 2000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 4,
+          "long_side_px": 2000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 5,
+          "long_side_px": 2000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        }
+      ]
+    },
+    {
+      "sample_rank": 29,
+      "brand": "Physicians Formula",
+      "handle": "butter-glow-corrector-lavender",
+      "category_guess": "concealer",
+      "images_ok": 5,
+      "primary_hit": true,
+      "amended_hit": true,
+      "primary_tokens": [
+        "5.6 mL"
+      ],
+      "amended_tokens": [
+        "5.6 mL"
+      ],
+      "blank_images": 0,
+      "small_images": 2,
+      "fragment_images": 0,
+      "images": [
+        {
+          "index": 0,
+          "long_side_px": 600,
+          "blank": false,
+          "small": true,
+          "primary_tokens": [
+            "5.6 mL"
+          ],
+          "amended_tokens": [
+            "5.6 mL"
+          ],
+          "fragments": []
+        },
+        {
+          "index": 1,
+          "long_side_px": 1500,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 2,
+          "long_side_px": 600,
+          "blank": false,
+          "small": true,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 3,
+          "long_side_px": 3000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [
+            "5.6 mL"
+          ],
+          "amended_tokens": [
+            "5.6 mL"
+          ],
+          "fragments": []
+        },
+        {
+          "index": 4,
+          "long_side_px": 3000,
+          "blank": false,
+          "small": false,
+          "primary_tokens": [
+            "5.6 mL"
+          ],
+          "amended_tokens": [
+            "5.6 mL"
+          ],
+          "fragments": []
+        }
+      ]
+    },
+    {
+      "sample_rank": 30,
+      "brand": "Wet n Wild",
+      "handle": "megalast-liquid-catsuit-high-shine-lipstick-bad-girl-s-club",
+      "category_guess": "liquid_lipstick",
+      "images_ok": 3,
+      "primary_hit": false,
+      "amended_hit": false,
+      "primary_tokens": [],
+      "amended_tokens": [],
+      "blank_images": 1,
+      "small_images": 3,
+      "fragment_images": 0,
+      "images": [
+        {
+          "index": 0,
+          "long_side_px": 660,
+          "blank": false,
+          "small": true,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 1,
+          "long_side_px": 660,
+          "blank": false,
+          "small": true,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        },
+        {
+          "index": 2,
+          "long_side_px": 660,
+          "blank": true,
+          "small": true,
+          "primary_tokens": [],
+          "amended_tokens": [],
+          "fragments": []
+        }
+      ]
+    }
+  ]
+}

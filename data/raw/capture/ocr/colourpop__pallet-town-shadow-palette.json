@@ -1,0 +1,110 @@
+{
+  "sample_rank": 1,
+  "brand": "ColourPop",
+  "handle": "pallet-town-shadow-palette",
+  "title": "Pallet Town",
+  "category_guess": "eyeshadow_palette",
+  "images_listed": 6,
+  "images_ok": 6,
+  "images_with_hit": 0,
+  "hit": false,
+  "tokens": [],
+  "per_image": [
+    {
+      "index": 0,
+      "url": "https://cdn.shopify.com/s/files/1/1338/0845/files/EyePalette-PalletTown-Into-with-UC.jpg?v=1713892603",
+      "size": [
+        2400,
+        2400
+      ],
+      "hits": [],
+      "text": {
+        "full": "Pokenoy COLOURPOP PaKeNON· CoLOVRPOP ELITE SAFERO ISLANO EYESHADOWPALETTE TOTALNETWT.26.5g (O.95oz) 2024Pokemon/Nintendo/Creatures/GAMEFREAK.",
+        "tile00": "Pekenoy ~ CoLoURop",
+        "tile01": "PoKeMoy  CoLoURPop EYESHADOWPALETTE TOTALNETWT.26.5g (O.95oz) 20",
+        "tile10": "PoKeMoy COLOURPOP POP",
+        "tile11": "COLoURPOt 2O24Pokemon/Nintendo/Creatures/GAMEFREAK."
+      }
+    },
+    {
+      "index": 1,
+      "url": "https://cdn.shopify.com/s/files/1/1338/0845/files/EyePalette-PalletTown_2416.jpg?v=1770226322",
+      "size": [
+        2400,
+        2400
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 2,
+      "url": "https://cdn.shopify.com/s/files/1/1338/0845/files/EyePalette-PalletTown_2459.jpg?v=1770226322",
+      "size": [
+        2400,
+        2400
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 3,
+      "url": "https://cdn.shopify.com/s/files/1/1338/0845/files/EyePalette-PallettTown-PianoSwatch.jpg?v=1713892611",
+      "size": [
+        2400,
+        2400
+      ],
+      "hits": [],
+      "text": {
+        "full": "Poenoy COLOURPOP FOSSII JELLY CENTER OFF AL BL SOOHD PAN CITY INDIGO 2024Pokemon/Nintendo/Creatures/GAMEFREAK.",
+        "tile00": "COLOURPOP JELL",
+        "tile01": "NO JELLY INDIG 20",
+        "tile10": "PoKeMoy COLOURPOP FO",
+        "tile11": "JELLY NOI BL 2024Pokemon/Nintendo/Creatures/GAMEFREAK."
+      }
+    },
+    {
+      "index": 4,
+      "url": "https://cdn.shopify.com/s/files/1/1338/0845/files/EyePalette-PalletTown-Full-Crush.jpg?v=1713892657",
+      "size": [
+        2400,
+        2400
+      ],
+      "hits": [],
+      "text": {
+        "full": "Poeney COLOURPOP TM EVOLUTION CELADONCITYJELLY DONUT GYMLEADER FOSSIL ELITE FOUR POKEMON CERULEAN CITY TALLGRASS BLASTINGOFF VERMILION CITYSAFFRON CITY CENTER LAVENDER VIRIDIAN CITY S.S.ANNE CHAMPION TOWN CINNABAR INDIGOLEAGUE DRYING PAN PEWTERCITY FAINTED TRAINER'S PATH ISLAND @2024Pokemon/Nintendo/Creatures/GAMEFREAK",
+        "tile00": "Pekeney CoL TM EVOLUTIONCELADON CITY JELLY DONUT GYMLEADER POKEMON CERULEAN CITY TALLGRASSA BLASTINGOFF CENTER VIRIDIAN CITY S.S.ANNE TLAVENDER FUCHSIA CITY TOWN",
+        "tile01": "POKEMON CERULEAN CITY TALLGRASS BLASTING OFF CENTER S.S.ANNE VIRIDIAN CITY LAVENDER FUCHSIA CITY TOWN INDIGO LEAGUE FAINTED DRYING PAN PEWTERCITY 20",
+        "tile10": "COLOURPOP TM JELLY DONUT GYMLEADER FOSSIL ELITE'FOUR POKEMON BLASTINGOFF VERMILION CITY SAFFRON CITY CENTER LAVENDER FUCHSIA CITYI CHOOSE YOU! !iCHAMPION TOWN",
+        "tile11": "POKEMON BLASTINGOFF VERMILION CITYSAFFRON CITY CENTER LAVENDER FUCHSIA CITYICHOOSE YOU! CHAMPION TOWN CINNABAR DRYINGPAN PEWTER CITY TRAINER'SPATH ISLAND 2024Pokemon/Nintendo/Creatures/GAMEFREAK."
+      }
+    },
+    {
+      "index": 5,
+      "url": "https://cdn.shopify.com/s/files/1/1338/0845/files/EyePalette-PalletTown-ArmSwatch-2_403b1857-7ff3-4e26-a75d-5348d726e886.jpg?v=1770226322",
+      "size": [
+        2400,
+        2400
+      ],
+      "hits": [],
+      "text": {
+        "full": "GYMLEADER POKEMONCENTER FUCHSIA CITY PEWTER CITY FOSSIL VERMILION CITY I CHOOSE YOU! CINNABAR ISLAND ELITEFOUR SAFFRON CITY CHAMPION TRAINER'S PATH COLOURPOP 2O24Pokemon/Nintendo/Creatures/GAMEFREAK",
+        "tile00": "GYMLEADER POKEMON CENTER FUCHSIA CITY PEWTER CITY FOSSIL VERMILION CITY I CHOOSE YOU! CINNABAR ISLAND",
+        "tile01": "PEWTER CITY FOSSIL VERMILION CITY I CHOOSE YOU! CINNABAR ISLAND ELITEFOUR SAFFRON CITY CHAMPION TRAINER'SPATH COLOURPOP",
+        "tile10": "GYMLEADER POKEMON CENTER FUCHSIA CITY PEWTER CITY FOSSIL VERMILION CITY I CHOOSE YOU! CINNABAR ISLAND",
+        "tile11": "PEWTER CITY FOSSIL VERMILIONCITY I CHOOSE YOU! CINNABARISLAND ELITEFOUR SAFFRON CITY CHAMPION TRAINER'SPATH COLOURPOP 2O24Pokemon/Nintendo/Creatures/GAMEFREAK"
+      }
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "sample_rank": 23,
+  "brand": "Milani",
+  "handle": "highly-rated-anti-gravity-mascara",
+  "title": "Highly Rated Anti-Gravity Mascara",
+  "category_guess": "mascara",
+  "images_listed": 6,
+  "images_ok": 6,
+  "images_with_hit": 0,
+  "hit": false,
+  "tokens": [],
+  "per_image": [
+    {
+      "index": 0,
+      "url": "https://cdn.shopify.com/s/files/1/1824/2901/files/1_HighlyRated_AntiGravity_110_PDP_ProductWithSwatch.png?v=1686008068",
+      "size": [
+        2000,
+        2000
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "",
+        "tile01": "HIGHLYKt*",
+        "tile10": "GRAVITY?",
+        "tile11": "HIGHLYKt*"
+      }
+    },
+    {
+      "index": 1,
+      "url": "https://cdn.shopify.com/s/files/1/1824/2901/files/2.1_PDP_video_antigravity-mascara-original_brownblack_4x5_THUMBNAIL_2.jpg?v=1688579026",
+      "size": [
+        2000,
+        2000
+      ],
+      "hits": [],
+      "text": {
+        "full": "HIGHLY Krte ** ANTIGRAVITY MASCARA mILANI",
+        "tile00": "Krte × HIGHLY MASCARA",
+        "tile01": "mILAN",
+        "tile10": "VITY MASCARA",
+        "tile11": "mILANI"
+      }
+    },
+    {
+      "index": 2,
+      "url": "https://cdn.shopify.com/s/files/1/1824/2901/files/3_HighlyRatedAnti-GravityMascaraBrownBlack_PDP_Stylized.png?v=1688579026",
+      "size": [
+        2000,
+        2000
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "SRAVITY **14",
+        "tile01": "ANTIGRAVITY",
+        "tile10": "MASCARA RA",
+        "tile11": "MASCARA ANIIGRA"
+      }
+    },
+    {
+      "index": 3,
+      "url": "https://cdn.shopify.com/s/files/1/1824/2901/files/4_HighlyRatedAnti-GravityMascaraBrownBlack_PDP_BA_1.png?v=1688579026",
+      "size": [
+        2000,
+        2000
+      ],
+      "hits": [],
+      "text": {
+        "full": "HIGHLY ANTI-GRAVITY MASCARA BROWN BLACK Prepare for lash lift-offl Infused with nourishing Castor Oil the intense black formula applies seamlessly without clumping or smudging for up to 24HRS of of extreme volume, length & lift. BEFORE AFTER",
+        "tile00": "Knt HIGHLY ANTI-GRAVITY MASC BROWN BLACK Prepare for lash lift-off! Infused with nouris the intense black formula applies seamlessly w smudging for up to 24HRS of of extreme v",
+        "tile01": "BEFORE",
+        "tile10": "IGHLY I-GRAVITY MASCARA BROWN BLACK ift-off! Infused with nourishing Castor Oil, ula applies seamlessly without clumping or o 24HRS of of extreme volume, length & lift.",
+        "tile11": "AFTER"
+      }
+    },
+    {
+      "index": 4,
+      "url": "https://cdn.shopify.com/s/files/1/1824/2901/files/5_HighlyRatedAnti-GravityMascaraBrownBlack_PDP_Swatch.png?v=1688579026",
+      "size": [
+        2000,
+        2000
+      ],
+      "hits": [],
+      "text": {
+        "full": "",
+        "tile00": "",
+        "tile01": "",
+        "tile10": "",
+        "tile11": ""
+      }
+    },
+    {
+      "index": 5,
+      "url": "https://cdn.shopify.com/s/files/1/1824/2901/files/6_HighlyRatedAnti-GravityMascaraBrownBlack_PDP_Infographic.png?v=1688579026",
+      "size": [
+        2000,
+        2000
+      ],
+      "hits": [],
+      "text": {
+        "full": "HIGHLY ANTI-GRAVITY MASCARA BROWN BLACK 93% OF CONSUMERS SAW EXTREME VOLUME & INSTANT LIFT 90% OF CONSUMERS SAW INSTANT LENGTH* UPTO 24HR WEAR oserveca cansume",
+        "tile00": "Knt HIGHLY ANTI-GRAVITY MASCARA BROWN BLACK 93% OF CONSUMERS SAW EXTREME VOLUME & INSTANT LIFT* 90% OF CONSUMERS SAW",
+        "tile01": "OF CONSUMERS SAW EXTREME VOLUME & INSTANT LIFT* 90% OF CONSUMERS SAW INSTANT LENGTH UP TO 24HR WEAR *Results observed in a consumer panel survey",
+        "tile10": "Knten MASCARA BLACK AW EXTREME STANT LIFT ERS SAW",
+        "tile11": "10 AW EXTREME STANT LIFT ERS SAW ENGTH HR sumer panel survey"
+      }
+    }
+  ]
+}
