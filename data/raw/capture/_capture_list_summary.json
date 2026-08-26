@@ -1,0 +1,145 @@
+{
+  "written_at": "2026-08-26T17:48:44.112544+00:00",
+  "seed": 20260826,
+  "per_brand": 50,
+  "ocr_sample_per_brand": 6,
+  "sources": [
+    {
+      "brand": "ColourPop",
+      "file": "shopify_colourpop.json",
+      "source_url": "https://colourpop.com/products.json?limit=250",
+      "collected_at": "2026-08-21T20:14:37.975476+00:00",
+      "product_count": 250
+    },
+    {
+      "brand": "Essence",
+      "file": "shopify_essence.json",
+      "source_url": "https://essencemakeup.com/products.json?limit=250",
+      "collected_at": "2026-08-21T20:14:32.033787+00:00",
+      "product_count": 233
+    },
+    {
+      "brand": "Milani",
+      "file": "shopify_milani.json",
+      "source_url": "https://www.milanicosmetics.com/products.json?limit=250",
+      "collected_at": "2026-08-21T20:14:28.836431+00:00",
+      "product_count": 161
+    },
+    {
+      "brand": "Physicians Formula",
+      "file": "shopify_physicians_formula.json",
+      "source_url": "https://www.physiciansformula.com/products.json?limit=250",
+      "collected_at": "2026-08-21T20:14:41.077411+00:00",
+      "product_count": 204
+    },
+    {
+      "brand": "Wet n Wild",
+      "file": "shopify_wet_n_wild.json",
+      "source_url": "https://www.wetnwildbeauty.com/products.json?limit=250",
+      "collected_at": "2026-08-21T20:14:34.966731+00:00",
+      "product_count": 250
+    }
+  ],
+  "universe": 1098,
+  "excluded_by_word_list": 331,
+  "out_of_scope_after_exclusion": 136,
+  "eligible": 631,
+  "eligible_by_brand": {
+    "ColourPop": 122,
+    "Essence": 101,
+    "Milani": 77,
+    "Physicians Formula": 148,
+    "Wet n Wild": 183
+  },
+  "eligible_by_category": {
+    "bronzer": 88,
+    "brow": 42,
+    "concealer": 48,
+    "cream_blush": 15,
+    "eyeshadow_palette": 23,
+    "eyeshadow_single": 53,
+    "foundation": 3,
+    "highlighter": 41,
+    "lip_gloss": 87,
+    "lip_liner": 23,
+    "lipstick": 81,
+    "liquid_blush": 5,
+    "liquid_lipstick": 20,
+    "mascara": 26,
+    "powder_blush": 9,
+    "pressed_powder": 17,
+    "primer": 19,
+    "setting_powder": 14,
+    "setting_spray": 17
+  },
+  "drawn": 250,
+  "drawn_by_brand": {
+    "ColourPop": 50,
+    "Essence": 50,
+    "Milani": 50,
+    "Physicians Formula": 50,
+    "Wet n Wild": 50
+  },
+  "drawn_by_category": {
+    "bronzer": 20,
+    "brow": 16,
+    "concealer": 14,
+    "cream_blush": 8,
+    "eyeshadow_palette": 13,
+    "eyeshadow_single": 17,
+    "foundation": 3,
+    "highlighter": 21,
+    "lip_gloss": 22,
+    "lip_liner": 11,
+    "lipstick": 21,
+    "liquid_blush": 5,
+    "liquid_lipstick": 12,
+    "mascara": 14,
+    "powder_blush": 7,
+    "pressed_powder": 11,
+    "primer": 11,
+    "setting_powder": 11,
+    "setting_spray": 13
+  },
+  "ocr_sample": 30,
+  "ocr_sample_by_brand": {
+    "ColourPop": 6,
+    "Essence": 6,
+    "Milani": 6,
+    "Physicians Formula": 6,
+    "Wet n Wild": 6
+  },
+  "ocr_sample_by_category": {
+    "brow": 1,
+    "concealer": 2,
+    "cream_blush": 2,
+    "eyeshadow_palette": 2,
+    "eyeshadow_single": 4,
+    "highlighter": 2,
+    "lip_gloss": 1,
+    "liquid_lipstick": 3,
+    "mascara": 2,
+    "powder_blush": 3,
+    "pressed_powder": 2,
+    "primer": 3,
+    "setting_powder": 1,
+    "setting_spray": 2
+  },
+  "fields": [
+    "list_rank",
+    "brand_rank",
+    "brand",
+    "product_id",
+    "handle",
+    "title",
+    "product_type",
+    "category_guess",
+    "category_basis",
+    "storefront_url",
+    "image_count",
+    "image_urls",
+    "catalogue_file",
+    "catalogue_collected_at"
+  ],
+  "note": "identity and provenance only; no quantity, no price"
+}
