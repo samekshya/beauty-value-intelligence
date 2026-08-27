@@ -1,0 +1,271 @@
+{
+  "source_list": "data\\raw\\capture\\drugstore_capture_list.csv",
+  "rows": 250,
+  "priority_rule": {
+    "basis": "comparator_with_quantity = MAC + Tom Ford Beauty + every other non-drugstore brand, products with a structured-slot quantity in the same category, from data/raw/feasibility/_category_breakdown.json",
+    "tier_1": ">= 5",
+    "tier_2": "1-4",
+    "tier_3": "0",
+    "within_tier": "list_rank (seeded draw order)"
+  },
+  "comparator_by_category": {
+    "bronzer": {
+      "mac_tf_with_quantity": 16,
+      "prestige_ex_with_quantity": 0,
+      "comparator_with_quantity": 16,
+      "tier": 1
+    },
+    "brow": {
+      "mac_tf_with_quantity": 18,
+      "prestige_ex_with_quantity": 0,
+      "comparator_with_quantity": 18,
+      "tier": 1
+    },
+    "concealer": {
+      "mac_tf_with_quantity": 2,
+      "prestige_ex_with_quantity": 0,
+      "comparator_with_quantity": 2,
+      "tier": 2
+    },
+    "cream_blush": {
+      "mac_tf_with_quantity": 1,
+      "prestige_ex_with_quantity": 0,
+      "comparator_with_quantity": 1,
+      "tier": 2
+    },
+    "eyeshadow_palette": {
+      "mac_tf_with_quantity": 1,
+      "prestige_ex_with_quantity": 0,
+      "comparator_with_quantity": 1,
+      "tier": 2
+    },
+    "eyeshadow_single": {
+      "mac_tf_with_quantity": 27,
+      "prestige_ex_with_quantity": 0,
+      "comparator_with_quantity": 27,
+      "tier": 1
+    },
+    "foundation": {
+      "mac_tf_with_quantity": 6,
+      "prestige_ex_with_quantity": 0,
+      "comparator_with_quantity": 6,
+      "tier": 1
+    },
+    "highlighter": {
+      "mac_tf_with_quantity": 1,
+      "prestige_ex_with_quantity": 0,
+      "comparator_with_quantity": 1,
+      "tier": 2
+    },
+    "lip_gloss": {
+      "mac_tf_with_quantity": 20,
+      "prestige_ex_with_quantity": 0,
+      "comparator_with_quantity": 20,
+      "tier": 1
+    },
+    "lip_liner": {
+      "mac_tf_with_quantity": 1,
+      "prestige_ex_with_quantity": 0,
+      "comparator_with_quantity": 1,
+      "tier": 2
+    },
+    "lipstick": {
+      "mac_tf_with_quantity": 57,
+      "prestige_ex_with_quantity": 0,
+      "comparator_with_quantity": 57,
+      "tier": 1
+    },
+    "liquid_blush": {
+      "mac_tf_with_quantity": 0,
+      "prestige_ex_with_quantity": 0,
+      "comparator_with_quantity": 0,
+      "tier": 3
+    },
+    "liquid_lipstick": {
+      "mac_tf_with_quantity": 12,
+      "prestige_ex_with_quantity": 0,
+      "comparator_with_quantity": 12,
+      "tier": 1
+    },
+    "mascara": {
+      "mac_tf_with_quantity": 2,
+      "prestige_ex_with_quantity": 0,
+      "comparator_with_quantity": 2,
+      "tier": 2
+    },
+    "powder_blush": {
+      "mac_tf_with_quantity": 7,
+      "prestige_ex_with_quantity": 0,
+      "comparator_with_quantity": 7,
+      "tier": 1
+    },
+    "pressed_powder": {
+      "mac_tf_with_quantity": 0,
+      "prestige_ex_with_quantity": 1,
+      "comparator_with_quantity": 1,
+      "tier": 2
+    },
+    "primer": {
+      "mac_tf_with_quantity": 2,
+      "prestige_ex_with_quantity": 1,
+      "comparator_with_quantity": 3,
+      "tier": 2
+    },
+    "setting_powder": {
+      "mac_tf_with_quantity": 0,
+      "prestige_ex_with_quantity": 2,
+      "comparator_with_quantity": 2,
+      "tier": 2
+    },
+    "setting_spray": {
+      "mac_tf_with_quantity": 0,
+      "prestige_ex_with_quantity": 1,
+      "comparator_with_quantity": 1,
+      "tier": 2
+    }
+  },
+  "by_tier": {
+    "1": 118,
+    "2": 127,
+    "3": 5
+  },
+  "by_tier_brand": {
+    "tier_1": {
+      "ColourPop": 32,
+      "Essence": 20,
+      "Milani": 22,
+      "Physicians Formula": 19,
+      "Wet n Wild": 25
+    },
+    "tier_2": {
+      "ColourPop": 16,
+      "Essence": 28,
+      "Milani": 27,
+      "Physicians Formula": 31,
+      "Wet n Wild": 25
+    },
+    "tier_3": {
+      "ColourPop": 2,
+      "Essence": 2,
+      "Milani": 1
+    }
+  },
+  "by_tier_category": {
+    "tier_1": {
+      "bronzer": 20,
+      "brow": 16,
+      "eyeshadow_single": 17,
+      "foundation": 3,
+      "lip_gloss": 22,
+      "lipstick": 21,
+      "liquid_lipstick": 12,
+      "powder_blush": 7
+    },
+    "tier_2": {
+      "concealer": 14,
+      "cream_blush": 8,
+      "eyeshadow_palette": 13,
+      "highlighter": 21,
+      "lip_liner": 11,
+      "mascara": 14,
+      "pressed_powder": 11,
+      "primer": 11,
+      "setting_powder": 11,
+      "setting_spray": 13
+    },
+    "tier_3": {
+      "liquid_blush": 5
+    }
+  },
+  "with_storefront_sku": 250,
+  "with_ocr_candidate": 9,
+  "ocr_candidates": [
+    {
+      "list_rank": 1,
+      "brand": "ColourPop",
+      "handle": "pallet-town-shadow-palette",
+      "printed": "TOTAL NET WT. 26.5g (0.95oz)",
+      "rule": "amended"
+    },
+    {
+      "list_rank": 5,
+      "brand": "ColourPop",
+      "handle": "cuter-than-cupid-super-shock-blush",
+      "printed": "SUPER SHOCK BLUSH NET WT. 7.65g (0.27oz)",
+      "rule": "primary"
+    },
+    {
+      "list_rank": 53,
+      "brand": "Essence",
+      "handle": "its-bubble-gum-fun-bouncy-blush",
+      "printed": "4.7g/Net Wt. 0.16 oz.",
+      "rule": "primary"
+    },
+    {
+      "list_rank": 56,
+      "brand": "Essence",
+      "handle": "all-about-soft-glow-fixing-compact-powder-waterproof",
+      "printed": "8 g/Net Wt. 0.28 oz.",
+      "rule": "primary"
+    },
+    {
+      "list_rank": 154,
+      "brand": "Physicians Formula",
+      "handle": "rose-all-play-eyeshadow-bouquet",
+      "printed": "Total Net Wt. / Poids Net Total: 13.7 g / 0.48 Oz.",
+      "rule": "primary"
+    },
+    {
+      "list_rank": 156,
+      "brand": "Physicians Formula",
+      "handle": "butter-glow-corrector-lavender",
+      "printed": "5.6 mL / 0.19 Fl. Oz.",
+      "rule": "primary"
+    },
+    {
+      "list_rank": 202,
+      "brand": "Wet n Wild",
+      "handle": "chameleon-chrome-all-over-glitter-mist-milkier-way",
+      "printed": "65 mL / 2.2 FL. OZ.",
+      "rule": "primary"
+    },
+    {
+      "list_rank": 203,
+      "brand": "Wet n Wild",
+      "handle": "bare-focus-niacinamide-skin-tint-fair-light-beige",
+      "printed": "32 mL / 1.08 FL. OZ.",
+      "rule": "primary"
+    },
+    {
+      "list_rank": 204,
+      "brand": "Wet n Wild",
+      "handle": "breakup-proof-waterproof-retractable-gel-eyeliner-charcoal",
+      "printed": "NET WT / POIDS NET 0.23 g / 0.008 OZ.",
+      "rule": "primary"
+    }
+  ],
+  "capture_fields": [
+    "capture_status",
+    "capture_date",
+    "shop",
+    "captured_by",
+    "product_name_as_printed",
+    "shade_as_printed",
+    "item_number_as_printed",
+    "barcode_digits",
+    "barcode_source",
+    "sold_with_carton",
+    "net_contents_as_printed",
+    "net_contents_location",
+    "pack_count",
+    "form_as_seen",
+    "origin_line_as_printed",
+    "photo_front",
+    "photo_net_contents",
+    "photo_barcode",
+    "photo_other",
+    "ocr_candidate_confirmed",
+    "notes"
+  ],
+  "note": "identity and provenance only; no quantity, no price"
+}
