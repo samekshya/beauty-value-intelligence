@@ -102,11 +102,13 @@ is written, with its tier, brand and category cuts. The capture list is
 registered. The OCR probe on storefront product images read a net quantity
 for 8 of the 30 pre-registered drugstore products (26.7%), every one of
 the 8 correct against the image; 19 of the 22 misses have no size on the
-item the storefront photographs, so better OCR would not move them. The
-plan's threshold for OCR as the primary route is about 40%, and the
-go/no-go decision is pending
+item the storefront photographs, so better OCR would not move them
 ([`reports/ocr_feasibility_report.md`](reports/ocr_feasibility_report.md)).
-No unit price has been computed for any product.
+Against the plan's threshold of about 40%, OCR was judged not viable on
+2026-08-27; net quantity will be read from packaging in hand, on a
+capture sheet and protocol fixed before any pack is read
+(`docs/shelf_capture_protocol.md`). No pack has been read yet. No unit
+price has been computed for any product.
 
 Finding 1, from [`reports/final_insights.md`](reports/final_insights.md):
 on their own storefronts, drugstore brands disclose net quantity on 0 of
@@ -150,7 +152,10 @@ the network except the original probes.
   per-product recognised text with every image's URL (`ocr/`), the run
   summary, the analysis, and a by-eye audit of all 30 products
   (`_ocr_probe_visual_audit.csv`). The images are gitignored and
-  re-downloadable.
+  re-downloadable. And the shelf-capture sheet
+  (`shelf_capture_template.csv`): the 250 registered products in a fixed
+  capture order with identity columns pre-filled and the capture columns
+  blank; built by `src/ingest/build_capture_template.py`, no price field.
 - `reports/ocr_feasibility_report.md` — the OCR test: hit rate under the
   pre-registered rule and under a labelled post-hoc one, every hit checked
   against its image, the misses classified, and the ceiling.
@@ -168,7 +173,9 @@ the network except the original probes.
 - `docs/` — `PROJECT_SPEC.md` (authoritative), `ROADMAP.md` (phase gates),
   `EXECUTION_PLAN.md` (progress), `DEVELOPMENT.md` (conventions, hazards),
   `methodology.md` (the rules that shape every number), `capture_list.md`,
-  `README_TEMPLATE.md` (the skeleton of the final README).
+  `shelf_capture_protocol.md` (how packaging is read and photographed, and
+  how a stranger re-audits it), `README_TEMPLATE.md` (the skeleton of the
+  final README).
 - `requirements.txt` — Phase 1 dependencies only. Setup is in
   `docs/DEVELOPMENT.md`.
 
