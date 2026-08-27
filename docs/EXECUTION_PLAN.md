@@ -177,11 +177,18 @@ hint only.
       packaging + barcode for the pre-registered list. Kathmandu.
       Claude Code prepares the capture template first (see 1.1-B4).
 
-- [ ] **1.1-B4 CONDITIONAL: capture template.** CSV template plus
+- [x] 2026-08-27 **1.1-B4 CONDITIONAL: capture template.** CSV template plus
       instructions: barcode, net contents as printed, photo filename,
       capture date, shop. Designed so a stranger could re-audit the
       photos even if they cannot re-run the capture. §25, §89.
       Done when: template + instructions committed.
+      - [x] 2026-08-27 data/raw/capture/shelf_capture_template.csv (250
+            rows, fixed capture order, identity pre-filled, capture columns
+            blank, no price field) built by
+            src/ingest/build_capture_template.py from committed files,
+            byte-identical on re-run; docs/shelf_capture_protocol.md holds
+            the priority rule, the verbatim fields, the three photographs
+            per product and the re-audit path.
 
 - [ ] **1.1-B5 SKU identity verification.** Every captured quantity
       matched to its US listing by barcode. Unverifiable matches
@@ -569,6 +576,27 @@ Done when all four hold:
 
 # DEVIATION LOG *(newest first, one line, dated)*
 
+- 2026-08-27 · 1.1-B4 judgement call: a priority order for partial
+  capture was fixed before any pack is read — tier by the prestige
+  comparator's measured disclosure in the same category
+  (`_category_breakdown.json`: ≥5 → tier 1, 118 products; 1–4 → tier 2,
+  127; 0 → tier 3, 5), `list_rank` within tier. Category-level and
+  product-blind, so it cannot select on quantity. A proposal the owner
+  can overrule before the first trip.
+- 2026-08-27 · 1.1-B4: the storefront catalogue has no barcode field but a
+  variant `sku` for 250 of 250 registered products; the pack's printed
+  item number is captured as a second identity key for 1.1-B5 beside the
+  barcode. ColourPop's SKUs are descriptive codes
+  (`SoJuicyStick-DinnerDate`), unlikely to be printed on a pack.
+- 2026-08-27 · 1.1-B4: nine OCR candidates pre-filled, not eight — the
+  ninth is product 1's value read under the post-hoc rule and verified by
+  eye; labelled `amended` on the sheet.
+- 2026-08-27 · 1.1-B4: photographs are gitignored
+  (`data/raw/capture/photos/`); a sha256 manifest is committed at 1.1-B7
+  so the archive is verifiable without the files.
+- 2026-08-27 · Go/no-go decided by the owner: OCR not viable (8 of 30,
+  ceiling 11 of 30, 19 misses with no size in any image). Manual route;
+  1.1-B3 ticked as condition not met.
 - 2026-08-27 · 1.1-B2: `_ocr_probe_analysis.json` on disk had been written
   when 15 of 30 products had output (3 of 15); the probe itself had
   finished all 30. Re-run on all 30 before any figure was cited.
