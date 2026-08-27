@@ -55,8 +55,11 @@ plus every other non-drugstore brand, structured-slot rule). From it:
 | **2** | comparator with quantity 1–4 | highlighter, concealer, mascara, eyeshadow palettes, setting spray, primer, lip liner, setting powder, pressed powder, cream blush | 127 |
 | **3** | comparator with quantity 0 | liquid blush | 5 |
 
-Within a tier the order is `list_rank` — the seeded draw order — and
-nothing else. The sheet's `capture_order` column is exactly this.
+Within a tier the five brands are interleaved by `brand_rank` — the seeded
+draw order inside each brand — so a visit cut short at any point has
+covered the brands about equally. (`list_rank` is brand-blocked and would
+have put all of ColourPop first.) The sheet's `capture_order` column is
+exactly this.
 
 In the shop:
 

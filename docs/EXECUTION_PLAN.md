@@ -580,9 +580,10 @@ Done when all four hold:
   capture was fixed before any pack is read — tier by the prestige
   comparator's measured disclosure in the same category
   (`_category_breakdown.json`: ≥5 → tier 1, 118 products; 1–4 → tier 2,
-  127; 0 → tier 3, 5), `list_rank` within tier. Category-level and
-  product-blind, so it cannot select on quantity. A proposal the owner
-  can overrule before the first trip.
+  127; 0 → tier 3, 5), brands interleaved by `brand_rank` within tier so
+  a cut-short visit stays brand-balanced (`list_rank` is brand-blocked).
+  Category-level and product-blind, so it cannot select on quantity. A
+  proposal the owner can overrule before the first trip.
 - 2026-08-27 · 1.1-B4: the storefront catalogue has no barcode field but a
   variant `sku` for 250 of 250 registered products; the pack's printed
   item number is captured as a second identity key for 1.1-B5 beside the
