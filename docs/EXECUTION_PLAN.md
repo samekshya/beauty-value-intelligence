@@ -18,7 +18,7 @@ Path A rejected: 356 of 380 rows were two brands.
 [x] Download OBF exports
 [x] SerpApi decision
 [x] Gate 1.0 — branch choice (B+C)
-[ ] 1.1-B2  OCR go/no-go — after the measured hit rate lands
+[x] 1.1-B2  OCR go/no-go — after the measured hit rate lands
 [ ] 1.1-B4  Shelf capture (ONLY if OCR fails) — 2 afternoons
 [ ] 1.2-H   50-product manual audit (§34) — 2-3 hours, do not delegate
 [ ] 3-H     Dupe benchmark labelling — 30-50 anchors, judged by you
@@ -156,16 +156,22 @@ hint only.
             (ocr/, _ocr_probe_summary.json, _ocr_probe_analysis.json,
             _ocr_probe_visual_audit.csv).
 
-- [ ] ⛔ **HUMAN — OCR go/no-go.** ~40%+ hit rate makes OCR the primary
+- [x] 2026-08-27 ⛔ **HUMAN — OCR go/no-go.** ~40%+ hit rate makes OCR the primary
       route and shop visits unnecessary. Below that, decide whether to
       proceed manually.
+      - [x] 2026-08-27 Owner's decision: not viable — 8 of 30, ceiling 11 of
+            30, 19 misses with no size in any image. Going manual. The 8
+            verified OCR values are candidates to confirm against
+            packaging, never data.
 
-- [ ] **1.1-B3 CONDITIONAL (OCR viable): OCR pipeline.** Extract at
+- [x] 2026-08-27 **1.1-B3 CONDITIONAL (OCR viable): OCR pipeline.** Extract at
       scale. Every extraction stores the source image URL and the
       cropped region. Confidence score per extraction. Low-confidence
       goes to human review, never auto-accepted.
       Done when: extraction complete for the pre-registered list, with
       per-item provenance and confidence.
+      - [x] 2026-08-27 Condition not met: OCR judged not viable at the
+            go/no-go. Not built.
 
 - [ ] ⛔ **HUMAN — CONDITIONAL (OCR fails): shelf capture.** Photograph
       packaging + barcode for the pre-registered list. Kathmandu.
