@@ -15,7 +15,8 @@ for what is read off the packaging. Re-running reproduces the file byte for
 byte.
 
 Pre-filled columns (identity, never quantity):
-  capture_order       1..250 - priority_tier, then list_rank
+  capture_order       1..250 - priority_tier, then brand_rank with brands
+                      interleaved, then brand name
   priority_tier       1, 2 or 3, from the prestige comparator's measured
                       disclosure in the same category (see PRIORITY RULE)
   list_rank, brand, product_id, handle, title, product_type, category_guess,
@@ -44,9 +45,11 @@ every other non-drugstore brand, structured-slot rule):
   tier 1  comparator with quantity >= 5 products
   tier 2  comparator with quantity 1-4 products
   tier 3  comparator with quantity 0
-Within a tier the order is list_rank - the seeded draw order - and nothing
-else. In the shop: work down the sheet in capture_order, capture every
-product the shop stocks, skip nothing that is stocked.
+Within a tier, brands are interleaved by brand_rank (the seeded draw order
+within each brand), so a visit cut short at any point has covered the five
+brands about equally; list_rank is brand-blocked and would not. In the
+shop: work down the sheet in capture_order, capture every product the shop
+stocks, skip nothing that is stocked.
 """
 
 from __future__ import annotations
@@ -72,7 +75,7 @@ TIER_1_MIN = 5
 MAX_SKUS_SHOWN = 6
 
 PREFILLED = [
-    "capture_order", "priority_tier", "list_rank", "brand", "product_id", "handle",
+    "capture_order", "priority_tier", "list_rank", "brand_rank", "brand", "product_id", "handle",
     "title", "product_type", "category_guess", "unit_basis", "storefront_url",
     "storefront_sku", "ocr_candidate", "ocr_candidate_rule", "photo_stem",
 ]
@@ -191,6 +194,7 @@ def main() -> None:
         row.update({
             "priority_tier": tiers[cat],
             "list_rank": int(p["list_rank"]),
+            "brand_rank": int(p["brand_rank"]),
             "brand": p["brand"],
             "product_id": p["product_id"],
             "handle": p["handle"],
@@ -206,7 +210,7 @@ def main() -> None:
         })
         rows.append(row)
 
-    rows.sort(key=lambda r: (r["priority_tier"], r["list_rank"]))
+    rows.sort(key=lambda r: (r["priority_tier"], r["brand_rank"], r["brand"]))
     for i, r in enumerate(rows, 1):
         r["capture_order"] = i
 
@@ -240,7 +244,8 @@ def main() -> None:
             "tier_1": f">= {TIER_1_MIN}",
             "tier_2": "1-4",
             "tier_3": "0",
-            "within_tier": "list_rank (seeded draw order)",
+            "within_tier": "brand_rank (seeded draw order within each brand), brands interleaved, "
+                           "then brand name - so a truncated visit covers the five brands about equally",
         },
         "comparator_by_category": dict(sorted(comparator.items())),
         "by_tier": count("priority_tier"),

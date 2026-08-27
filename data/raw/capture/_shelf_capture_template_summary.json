@@ -6,7 +6,7 @@
     "tier_1": ">= 5",
     "tier_2": "1-4",
     "tier_3": "0",
-    "within_tier": "list_rank (seeded draw order)"
+    "within_tier": "brand_rank (seeded draw order within each brand), brands interleaved, then brand name - so a truncated visit covers the five brands about equally"
   },
   "comparator_by_category": {
     "bronzer": {
@@ -131,11 +131,11 @@
   },
   "by_tier_brand": {
     "tier_1": {
+      "Wet n Wild": 25,
       "ColourPop": 32,
-      "Essence": 20,
       "Milani": 22,
-      "Physicians Formula": 19,
-      "Wet n Wild": 25
+      "Essence": 20,
+      "Physicians Formula": 19
     },
     "tier_2": {
       "ColourPop": 16,
@@ -146,8 +146,8 @@
     },
     "tier_3": {
       "ColourPop": 2,
-      "Essence": 2,
-      "Milani": 1
+      "Milani": 1,
+      "Essence": 2
     }
   },
   "by_tier_category": {
