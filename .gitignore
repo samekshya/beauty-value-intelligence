@@ -25,4 +25,3 @@ data/raw/capture/images/
 # Stage 1.1 shelf capture: photographs are bulky and personal-device originals; a
 # sha256 manifest of every file is committed at 1.1-B7 so the archive is verifiable
 data/raw/capture/photos/
-cldlkcmsdkm
